@@ -1,11 +1,12 @@
-# Staerken und Schwaechen von Marcel Herhold #	
+# Staerken und Schwaechen von Marcel Herhold #
+
 **_Staerken_** 
-*gute Javakenntnisse
-*gut organisiert
+* gute Javakenntnisse
+* gut organisiert
 
 **_Schwaechen _**
-*wenig Kenntnis ueber Serveraufbau/verwaltung
-*keine Kenntis ueber Webapplikationen 
+* wenig Kenntnis ueber Serveraufbau/verwaltung
+* keine Kenntis ueber Webapplikationen 
 
 ---
 
