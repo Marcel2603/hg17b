@@ -33,3 +33,16 @@
 **_Schwaechen_**
 * kaum Kenntnisse über Webapplikationen, Datenbanken, etc.
 * generell enger Zeitplan
+
+
+---
+
+# Staerken und Schwaechen von Roland Mueller
+
+**_Staerken_**
+* gute Javakenntnisse
+* kann mich an (schwierigen) Aufgaben festbeissen bis  sie geschaft sind 
+
+**_Schwaechen_**
+* Lese und Rechtschreibschwaeche 
+* schlecht in Kommunikation
