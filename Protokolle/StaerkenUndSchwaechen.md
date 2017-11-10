@@ -21,3 +21,15 @@
 * schlechtes Zeitmanagement
 
 ---
+
+# Staerken und Schwaechen von Christopher Pfeiffer #
+
+**_Staerken_**
+* verantwortungsbewusst und zuverlässig
+* Erfahrung in Projekt- und Teamarbeit
+* gute Javakenntnisse
+* schnell lernfähig
+
+**_Schwaechen_**
+* kaum Kenntnisse über Webapplikationen, Datenbanken, etc.
+* generell enger Zeitplan
