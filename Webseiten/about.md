@@ -1,10 +1,10 @@
----
+﻿---
 layout: page
 title: Das Projekt
 permalink: /about/
 ---
 
-**_Betreuer_**: Prof. Hans-Gert Gräbe **_Tutor_**: Robert Schädlich
+**_Betreuer :_** Prof. Hans-Gert Gräbe **_Tutor :_** Robert Schädlich
 
 
 **_Thema_**
