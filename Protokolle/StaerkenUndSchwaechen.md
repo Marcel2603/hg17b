@@ -4,7 +4,7 @@
 * gute Javakenntnisse
 * gut organisiert
 
-**_Schwaechen _**
+**_Schwaechen_**
 * wenig Kenntnis ueber Serveraufbau/verwaltung
 * keine Kenntis ueber Webapplikationen 
 
@@ -13,7 +13,7 @@
 # Staerken und Schwaechen von Marcus Rudolph #
 
 **_Staerken_**
-* zuverl‰ssig und stressresistent
+* zuverl√§ssig und stressresistent
 * umfassende Javakenntnisse
 
 **_Schwaechen_**
@@ -25,13 +25,13 @@
 # Staerken und Schwaechen von Christopher Pfeiffer #
 
 **_Staerken_**
-* verantwortungsbewusst und zuverl‰ssig
+* verantwortungsbewusst und zuverl√§ssig
 * Erfahrung in Projekt- und Teamarbeit
 * gute Javakenntnisse
-* schnell lernf‰hig
+* schnell lernf√§hig
 
 **_Schwaechen_**
-* kaum Kenntnisse ¸ber Webapplikationen, Datenbanken, etc.
+* kaum Kenntnisse √ºber Webapplikationen, Datenbanken, etc.
 * generell enger Zeitplan
 
 
@@ -46,3 +46,17 @@
 **_Schwaechen_**
 * Lese und Rechtschreibschwaeche 
 * schlecht in Kommunikation
+
+---
+# Staerken und Schwaechen von Nikolai Kortenbruck
+**_Staerken_**
+* Grundkenntnisse in: Java, PHP, HTML, CSS , SQL, VBA (Entwicklung MS Access)
+* Kann mich selbstst√§ndig in neue Themengebiete einarbeiten
+* Zuverl√§ssig
+
+**_Schwaechen_**
+* Sich selbst einsch√§tzen
+* Design
+* Teamarbeit (kaum Erfahrung)
+* Modellierung (nie gemacht abgesehen von dem bisschen OOP-Praktikum, sonst eher ein einfach drauf los Programieren)
+* Kein Laptop
