@@ -1,0 +1,56 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{a4wide,german,url}
+\usepackage[utf8]{inputenc}
+\parindent0pt
+\parskip3pt
+
+\title{Thema „Android App für Weiterbildungsmanagement“\\ Detaillierter
+  Themenaufriss }
+\author{Hans-Gert Gräbe}
+\date{Version vom 12.11.2017}
+
+\begin{document}
+\maketitle
+
+Das Grundszenario geht von einer Integrationsplattform aus, über die
+verschiedene Anbieter Veranstaltungen verwalten. Die Integrationsplattform
+greift dabei auf verschiedene andere Plattformen (im Weiteren:
+Primärplattformen) zu, welche die Informationen über Veranstaltungen und
+Veranstalter verwalten und die relevanten Informationen im RDF-Format als
+Webservice zur Verfügung stellen.
+
+Auf eine davon unabhängige Weise soll eine Menge potenzieller Teilnehmer
+erfasst werden. Die Veranstalter sollen in der Lage sein, während der
+Veranstaltung zu registrieren, wer von den potenziellen Teilnehmern anwesend
+ist.
+
+Diese Informationen sollen angemessen öffentlich ausgewertet werden (welche
+Veranstaltungen, wie viele Teilnehmer pro Veranstaltung, Highscore-Listen der
+Teilnehmer nach verschiedenen Veranstaltungstypen usw.), wobei
+datenschutzrechtliche Aspekte einen hohen Stellenwert haben.
+
+Als besonderes Problem für die Modellierung ist zu berücksichtigen, dass die
+verschiedenen Primärplattformen verschiedene Modelle für Events, Veranstalter,
+Orte, Akteure usw. verwenden und auch die Datenqualität zu wünschen übrig
+lässt.
+
+Referenzmodell für die Datenmodellierung ist das Leipzig Data Event Modell, das
+im Zuge der Arbeiten ggf. auf abgestimmte Weise modifiziert werden kann.
+
+Da das Android-SDK eine Java-Plattform ist, soll auch das Backend in Java
+entwickelt werden. Für die Anbindung der Datenschicht soll dazu das Apache Jena
+Framework verwendet werden. Ggf. ist ein RDF Store und SPARQL Endpunkt unter
+Verwendung einschlägiger Apache-Technologien aufzusetzen.
+
+Die Integrationsinfrastruktur der Primärplattformen befindet sich aktuell im
+Aufbau.  Einbezogen sind derzeit
+\begin{itemize}
+\item die Leipzig Data Event Plattform\\
+  \url{http://leipzig-data.de/ontology/events/}, 
+\item die Plattform „Leipziger Ecken“\\
+  \url{http://pcai042.informatik.uni-leipzig.de/~graebe/le-rdf/}
+\item und die Plattform „Nachhaltiges Leipzig“\\
+  \url{http://pcai042.informatik.uni-leipzig.de/~graebe/nl-rdf/}.
+\end{itemize}
+
+\end{document}
