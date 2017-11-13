@@ -60,3 +60,17 @@
 * Teamarbeit (kaum Erfahrung)
 * Modellierung (nie gemacht abgesehen von dem bisschen OOP-Praktikum, sonst eher ein einfach drauf los Programieren)
 * Kein Laptop
+
+---
+
+# Staerken und Schwaechen von Julian Dietz #
+
+**_Staerken_**
+* Gute Javakenntnisse
+* Geduldig und hartnäckig beim lösen von Problemen
+* Arbeite gut unter Zeitruck
+
+**_Schwaechen_**
+* Keine praktische Erfahrung mit Datenbanken
+* Keine Kenntnisse über Webapplikationen
+* Kommunikation / Teamarbeit
