@@ -37,3 +37,5 @@ der Teilnehmer über mobile App, Anzeige von Angeboten, Rankinglisten
 Teilnehmer, Rankinglisten Schulen u.ä.) zu entwerfen und prototypisch zu
 implementieren. Die App soll als Android App auf der Basis des Android SDK
 entwickelt werden.
+
+wertyui
