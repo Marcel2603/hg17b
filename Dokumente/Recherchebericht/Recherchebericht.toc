@@ -1,0 +1,15 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Begriffe}{2}
+\contentsline {paragraph}{\nonumberline Android}{2}
+\contentsline {paragraph}{\nonumberline API}{2}
+\contentsline {paragraph}{\nonumberline SPARQL}{2}
+\contentsline {paragraph}{\nonumberline RDF}{2}
+\contentsline {paragraph}{\nonumberline QR Code}{2}
+\contentsline {paragraph}{\nonumberline Datenbanksystem}{2}
+\contentsline {paragraph}{\nonumberline Auszeichnungssprache}{2}
+\contentsline {paragraph}{\nonumberline XML}{3}
+\contentsline {paragraph}{\nonumberline Markdown}{3}
+\contentsline {paragraph}{\nonumberline Web Feed}{3}
+\contentsline {paragraph}{\nonumberline RSS Feed}{3}
+\contentsline {paragraph}{\nonumberline Java}{4}
+\contentsline {paragraph}{\nonumberline Framework}{4}

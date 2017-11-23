@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{scrpage2}
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\today \\
+%author
+}  
+\ohead{hg17b}
+\cfoot{\pagemark}
+
+\begin{document}
+\titlehead{hg17b}
+\subject{\vspace{-2cm}Protokoll}
+\title{\vspace{-0.5em}}%Anlass des Protokolls
+\subtitle{hg17b}%Untertitel/ Thema
+\author{\vspace{-0.5em}}%autor
+\date{\vspace{-0.5em}\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Begriffe}
+\paragraph{Android}
+Android ist sowohl ein Betriebsystem als auch eine Software-Plattform für verschiedene mobile Geräte. Andriod wird als freie Software entwickelt (d.h. Quelloffen). Die Basis dafür ist der Linux-Kernel.
+
+%https://de.wikipedia.org/wiki/Android_(Betriebssystem) 22.11
+
+
+\paragraph{API}
+
+Api steht für Application-Programming-Interface , im deutschen wird es Umgangssprachlich meist als Programmierschnittstelle bezeichnet. Dies wird im Web meist zum Austausch und der Weiterverarbeitung von Daten und Inhalten zwischen verschiedenen Webseiten , Programmen und Content-Anbietern. APIS dienen also in der Informatik der vereinheitlichen und strukturierten Datenübergabe zwischen Programmen und Programmteilen.
+
+
+%https://www.gruenderszene.de/lexikon/begriffe/application-programming-interface-api 22.11
+
+%http://www.omkt.de/api/ 22.11
+
+
+\paragraph{SPARQL}
+
+SPARQL ist eine graphenbasierte Abfragesprache für RDF Der Name ist ein rekursives Akronym für SPARQL Protocol And RDF Query Language. Die RDF Date Access Working Group (DAWG) des WWW Consortium(W3C) . Seit dem 21.3.2013 ist die W3C Recommendation für SPARKQL 1.1 veröffentlicht worden.
+
+%https://de.wikipedia.org/wiki/SPARQL 22.11
+
+
+\paragraph{RDF}
+
+RDF steht für Resource Description Framework. Es wurde anfang von der W3C als Standard zur Beschreibung von Metadaten Konzipiert. Mittlerweile gilt RDF als ein grundlegender Baustein des Semantischen Webs. RDF ähnelt den klassischen Methoden zur Modellierung von Konzepten wie UML-Klassendiagramme und ER-Modell.
+
+%https://de.wikipedia.org/wiki/Resource_Description_Framework  22.11
+
+
+\paragraph{QR Code}
+
+QR Code steht für Quick Response Code und ist ein 2D-Code der von Handys, Smartphones und Tablets eingescannt und ausgelesen werden kann. In diesen Codes können Webadressen, Telefonnummern , SMS und freier Text untergebracht werden. Sie verbinden damit virtuelen und physische Welt und spielen im Marketing und Publikationswesen eine Rolle
+
+%http://wirtschaftslexikon.gabler.de/Definition/qr-code.html 22.11
+
+\paragraph{Datenbanksystem} 
+% ( https://de.wikipedia.org/wiki/Datenbank )
+Ein Datenbanksystem besteht aus Datenbank, dem Datenbestand (den tatsächlichen Daten, die auf einem Speichermedium abgelegt sind), und dem Datenbankmanagementsystem (DBMS), dass den Zugriff auf die Daten ermöglicht. Direkter Zugriff auf die Daten erfolgt dabei nur zu administrativen Zwecken, andere Interaktionen mit den Daten erfolgen ausschließlich über das DBMS.\\
+Eine Datenbank ist ein System zur effizienten, widerspruchsfreien und dauerhaften elektronischen Speicherung von Daten. Die Datenbank stellt eine Datenbanksprache als Schnittstelle zur Verfügung. Über sie lassen sich Daten abfragen und manipulieren.\\
+Das Datenbankmodell legt die Grundlage für die Beziehungen und Strukturierung der Daten fest. Neben der gebräuchlichsten relationalen Datenbank, in der Daten in Tabellen gespeichert vorliegen und Beziehungen zu anderen Daten über Tabelleneinträge bestimmt werden, gibt es auch andere Datenbankmodelle, wie das Objektorientierte, bei dem Objekte Eigenschaften von anderen Objekten erben, oder das hierarchische, in denen Objekte in einer Eltern-Kind-Beziehung zueinander stehen.\\
+Das Datenbankmanagementsystem legt das Datenbankmodell fest. Es definiert die Logik mit der Daten abgefragt und gespeichert werden und interagiert mit der Datenbank über die Datenbanksprache.
+
+\paragraph{Auszeichnungssprache}
+% ( https://de.wikipedia.org/wiki/Auszeichnungssprache#Vereinfachte_Auszeichnungssprachen )
+Eine Auszeichnungssprache ist eine maschinenlesbare Sprache für Gleidrung und Formatierung von Texten, wie beispielsweise HTML. Sie beschreibt Eigenschaften und Darstellungsformen ihres Inhaltes (in der Regel mit Tags).
+
+\paragraph{XML}
+% ( https://de.wikipedia.org/wiki/Extensible_Markup_Language https://en.wikipedia.org/wiki/XML )
+Die Erweiterbare Auszeichnungssprache (Extensible Markup Language) XML ist eine Auszeichnungssprache zur Darstellung hierarchisch strukturierter Daten in Textform, die sowohl von Mensch als auch Maschine verstanden werden. Es eignet sich damit für den plattform- und implementationsunabhängigen Austausch von Daten zwischen unterschiedlichen Computersystemen.\\
+Die Zeichen die ein XML Dokument enthält werden zwischen Textauszeichnung (Markup) und Inhalt unterschieden. Texauszeichnungen beginnen mit dem Zeichen < und Enden mit dem Zeichen >. Alle Zeichen, die nicht zwischen diesen stehen sind Inhalt.\\
+Mit Hilfe dieser Unterscheidung sind Tag definiert, Konstrukte, die mit einem < beginnen und mit einem > enden. Man unterscheidet zwischen 3 unterschiedlichen Tags:
+\begin{itemize}
+\item Start Tag der Form <Tag1>
+\item End Tags der Form </Tag1>
+\item Leerer Tag, der Anfangs- und End-Tag zugleich ist und keinen Inhalt enthält, der Form 	<Tag1 />
+\end{itemize}
+
+Die wichtigste Struktureinheit eines XML Dokumentes ist das Element. Sie sind Träger der Informationen eines XML Dokumentes und können als Inhalt Text wie auch weitere Elemente haben. Alle Elemente mit Inhalt besitzen einen Anfangs- und End-Tag. Beispiel:\\
+<Element1> Inhalt</Element1>\\
+Einem Element können auch Attribute zugeordnet werden. Dies geschieht im Start Tag. Ein Attribut besteht aus einem Namen und einem Wert. Name und Wert werden im Start Tag definiert/zugeordnet, beispielsweise wird dem Element „Element1“ das Attribut „Anzahl“ mit dem Wert „3“ wie folgt zugeordnet:\\
+<Element1 Anzahl=“3“> Inhalt</Element1>\\
+XML Dokumenten kann eine Document Type Description (DTD) zugeordnet werden, die bestimmt welche Elemente ein XML Dokument enthalten darf. In Dokumenten ohne DTD kann der Name von Elementen frei gewählt werden. Liegt eine DTD zugrunde, so definiert sie welche Elemente ein XML Dokument besitzt. Beispielsweise ist XHTML eine solche DTD, die Elemente wie <html>, <head>, <body> aber auch Überschriften wie <h1> oder Pragraphen <p> als erlaubte Elemente des Dokumentes zu Grunde legt.
+
+\paragraph{Markdown}
+% ( https://de.wikipedia.org/wiki/Markdown )
+Markdown ist eine vereinfachte Auszeichnungssprache, die mittels Konvertierungssoftware in XHTML umgewandelt werden kann. Im Gegensatz zu Tags in XHTML verwendet Markdown meist Satzzeichen für die Auszeichnung von Text, beispielsweise das Doppelkreuz für die Auszeichnung einer Überschrift.
+
+\paragraph{Web Feed}
+% ( https://de.wikipedia.org/wiki/Web-Feed )
+Ist eine Technik zur Veröffentlichung von Änderungen auf Websites, bei der die Initiative zum Nachrichtenempfang vom Empfänger der Nachricht ausgeht.
+
+\paragraph{RSS Feed}
+% ( https://de.wikipedia.org/wiki/RSS_(Web-Feed) )
+Ein RSS Feed ist ein Web Feed der Adressaten mit Daten im RSS Format zuführt, kurzen Informationsblöcken die meist aus Schlagzeile, Textanriss und Link zur Originalseite bestehen. RSS steht (aktuell) für Really Simple Syndication. Ein Abonnent muss dafür einen RSS-Channel abonnieren, eine spezielle Service Website, der RSS Client such in regelmäßigen Abständen nach Aktualisierungen. Informationsblöcke werden im XML Format übermittelt, das den Inhalt strukturiert übermittelt aber keine Informationen über Layout zur Verfügung stellt.
+
+\paragraph{Java}
+% ( https://de.wikipedia.org/wiki/Java_(Programmiersprache) )
+Java ist eine objektorientierte Programmiersprache. Zum Ausführen von Java Quellcode wird eine Laufzeitumgebung (JRE – Java Runtime Environment) benötigt, die Bytecode in einer virtuellen Maschine ausführt. Der Code wird also nicht direkt auf der dem System zugrunde liegenden Maschine ausgeführt, sondern in einer virtuellen. Dies hat den Zweck, dass Java Quellcode Plattformunabhängig ist. Sie ist unabhängig von der Architektur des ausführenden Rechners, solange dort eine JRE läuft.
+
+\paragraph{Framework}
+Ein Framework ist ein Programmiergerüst, dass wiederverwendbare, gemeinsame Strukturen für die Entwicklung von Applikationen zur Verfügung stellt. Dies kann Support-Programme, Compiler, Code Bibliotheken, Werkzeugsätze und Schnittstellen (API) beinhalten. Es dient dazu, dass häufig verwendete Funktionen bereits enthalten sind und nicht immer neu programmiert werden müssen.
+
+ 
+
+\end{document}
