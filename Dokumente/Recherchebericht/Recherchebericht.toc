@@ -13,3 +13,13 @@
 \contentsline {paragraph}{\nonumberline RSS Feed}{3}
 \contentsline {paragraph}{\nonumberline Java}{4}
 \contentsline {paragraph}{\nonumberline Framework}{4}
+\contentsline {section}{\numberline {2}Konzepte}{4}
+\contentsline {paragraph}{\nonumberline Semantic Web}{4}
+\contentsline {paragraph}{\nonumberline Continuous Integration (CI)}{5}
+\contentsline {paragraph}{\nonumberline Android SDK / Android Studio}{5}
+\contentsline {section}{\numberline {3}Aspekte}{5}
+\contentsline {paragraph}{\nonumberline Django}{5}
+\contentsline {paragraph}{\nonumberline Gitlab}{5}
+\contentsline {paragraph}{\nonumberline Jekyll}{6}
+\contentsline {paragraph}{\nonumberline Ruby}{6}
+\contentsline {paragraph}{\nonumberline Scrum}{6}

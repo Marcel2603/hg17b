@@ -109,6 +109,45 @@ Java ist eine objektorientierte Programmiersprache. Zum Ausführen von Java Quel
 \paragraph{Framework}
 Ein Framework ist ein Programmiergerüst, dass wiederverwendbare, gemeinsame Strukturen für die Entwicklung von Applikationen zur Verfügung stellt. Dies kann Support-Programme, Compiler, Code Bibliotheken, Werkzeugsätze und Schnittstellen (API) beinhalten. Es dient dazu, dass häufig verwendete Funktionen bereits enthalten sind und nicht immer neu programmiert werden müssen.
 
+\section{Konzepte}
+\paragraph{Semantic Web}
+Die Bezeichnung Semantic Web wurde für das Web 3.0 kreiert. Beim semantischen Web handelt es sich um eine Web-Technologie bei dem die Suchmaschinen Informationen zueinander in Beziehung setzen, sie eigenständig auswerten und aus ihnen eine Bedeutung entnehmen können. Durch diesen Ansatz können Menschen und Computer wesentlich besser miteinander kooperieren und es können intelligentere Webservices kreiert werden. In einem solchen Web werden die Informationen in Beziehungen zueinander gestellt und verwaltet.
+Während Menschen Informationen aus dem gegebenen Kontext schließen können und derartige Verknüpfungen unbewusst aufbauen, muss Maschinen dieser Kontext erst beigebracht werden; hierzu werden die Inhalte mit weiterführenden Informationen verknüpft. Semantic Web beschreibt dazu konzeptionell einen „Giant Global Graph“. Dabei werden sämtliche Dinge von Interesse identifiziert und mit einer eindeutigen Adresse versehen als Knoten angelegt, die wiederum durch Kanten (ebenfalls jeweils eindeutig benannt) miteinander verbunden sind. Zur Realisierung des Semantic Webs dienen Standards zur Veröffentlichung und Nutzung maschinenlesbarer Daten, u.a. sind dies:
+\begin{itemize}
+\item URIs in der doppelten Rolle zur Identifizierung von Entitäten und zum Verweisen auf weitergehende Daten dazu\\
+\item RIF für die Darstellung von Regeln\\ 
+\item RDF als gemeinsames Datenmodell zur Repräsentation von Aussagen\\
+\item SPARQL als Anfragesprache und -protokoll\\ 
+\item eine Reihe von verschiedenen Syntaxen um RDF-Graphen auszutauschen:
+	\begin{itemize}
+	\item RDF/XML, eine XML-Syntax. Lange Zeit die einzige standardisierte Syntax
+	\item Turtle, eine Syntax die dem Tripelmodell näherkommt
+	\item RDFa, um RDF in XML-Dokumenten, insbesondere XHTML, einzubetten …
+	\end{itemize}
+\\ 
+\end{itemize}
+%http://www.itwissen.info/Semantisches-Web-semantic-web.html 22.11.2017
+%https://de.wikipedia.org/wiki/Semantic_Web 22.11.2017
+
+\paragraph{Continuous Integration (CI)}
+Kontinuierliche Integration (auch fortlaufende oder permanente Integration; englisch continuous integration) beschreibt den Prozess des fortlaufenden Zusammenfügens von Komponenten zu einer Anwendung. Das Ziel der kontinuierlichen Integration ist die Steigerung der Softwarequalität. Üblicherweise wird dafür nicht nur das Gesamtsystem neu gebaut, sondern es werden auch automatisierte Tests durchgeführt. Der gesamte Vorgang wird automatisch ausgelöst durch Einchecken in die Versionsverwaltung. Vorteile sind hierbei:
+\begin{itemize}
+\item Integrations-Probleme werden laufend entdeckt und behoben (gefixt) – nicht erst kurz vor einem Meilenstein\\
+\item Frühe Warnungen bei nicht zusammenpassenden Bestandteilen, und sofortige Unit Tests entdecken Fehler zeitnah\\ 
+\item Ständige Verfügbarkeit eines lauffähigen Standes für Demo-, Test- oder Vertriebszwecke\\
+\item des Weiteren steht mit GitLab CI ein freier, in Ruby geschriebener Server für fortlaufende Integration zum Einsatz mit GitLab zu Verfügung.\\ 
+\end{itemize}
+Vergleiche hierzu außerdem Punkt 4.2 „Continuous Integration“ aus der Handreichung zum Softwaretechnik-Praktikum 2017/18.
+%https://de.wikipedia.org/wiki/Kontinuierliche_Integration 22.11.2017
+
+\paragraph{Android SDK / Android Studio}
+Das Android Software Development Kit (kurz Android SDK) ist eine Entwicklungsumgebung und Sammlung von Tools für die Softwareentwicklung für das Android-Betriebssystem. In erster Linie wendet sich das SDK an Entwickler für die Erstellung von Android-Apps, allerdings hält es auch für einen Nutzer von Android nützliche Tools vor, wie bspw. Tools zum Flashen eines Recovery oder das Ansehen des Systemlogs.
+Das Android SDK ist für Windows, Linux und Mac OS verfügbar und benötigt für viele der Hauptfunktionen ein JDK(Java SE Development Kit). Mittlerweile wurde das Android SDK in das neue Entwickler-Tool "Android Studio" integriert.  
+%https://www.droidwiki.org/wiki/Android_SDK 22.11.2017
+Android Studio ist eine freie Integrierte Entwicklungsumgebung (IDE) von Google und offizielle Entwicklungsumgebung für Android, der Quelltext von Android Studio ist frei verfügbar. 
+Das Android Studio bündelt alle benötigten Funktionen für die Entwicklung und das Debugging von Apps. Außerdem enthält es unter anderem auch einen Layout-Editor, in dem Benutzeroberflächen  erstellt und für unterschiedliche Auflösungen getestet werden können. Es ist außerdem möglich, Google-Dienste wie Google Cloud Messaging innerhalb der IDE zu konfigurieren und direkt auf die App anzuwenden.   
+%https://de.wikipedia.org/wiki/Android_Studio 22.11.2017
+
 \section{Aspekte}
 \paragraph{Django}
 % ( https://de.wikipedia.org/wiki/Django_(Framework) )
@@ -132,5 +171,7 @@ Scrum ist eine agile Methode, die allerdings das Management fokussiert und nicht
 Initialphase: Genereller Überblick über das Zielsystem\\
 Sprint-Zyklen: Entwicklung der einzelnen Inkremente des Systems\\
 Projekt-Abschluss: Benötigte Dokumentation und Erfahrungsberichte\\ 
- 
+
+
+
 \end{document}
