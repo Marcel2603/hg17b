@@ -1,25 +1,29 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Begriffe}{2}
-\contentsline {paragraph}{\nonumberline Android}{2}
-\contentsline {paragraph}{\nonumberline API}{2}
-\contentsline {paragraph}{\nonumberline SPARQL}{2}
-\contentsline {paragraph}{\nonumberline RDF}{2}
-\contentsline {paragraph}{\nonumberline QR Code}{2}
-\contentsline {paragraph}{\nonumberline Datenbanksystem}{2}
-\contentsline {paragraph}{\nonumberline Auszeichnungssprache}{2}
-\contentsline {paragraph}{\nonumberline XML}{3}
-\contentsline {paragraph}{\nonumberline Markdown}{3}
-\contentsline {paragraph}{\nonumberline Web Feed}{3}
-\contentsline {paragraph}{\nonumberline RSS Feed}{3}
-\contentsline {paragraph}{\nonumberline Java}{4}
-\contentsline {paragraph}{\nonumberline Framework}{4}
+\contentsline {subsection}{\numberline {1.1}Android~\cite {android}}{2}
+\contentsline {subsection}{\numberline {1.2}API~\cite {api}\cite {api2}}{2}
+\contentsline {subsection}{\numberline {1.3}SPARQL~\cite {sparql}}{2}
+\contentsline {subsection}{\numberline {1.4}RDF~\cite {rdf}}{2}
+\contentsline {subsection}{\numberline {1.5}QR Code~\cite {qr}}{2}
+\contentsline {subsection}{\numberline {1.6}Datenbanksystem~\cite {dbs}}{2}
+\contentsline {subsection}{\numberline {1.7}Auszeichnungssprache~\cite {auszeichnungssprache}}{3}
+\contentsline {subsection}{\numberline {1.8}XML~\cite {xml}\cite {xml2}}{3}
+\contentsline {subsection}{\numberline {1.9}Markdown~\cite {markdown}}{3}
+\contentsline {subsection}{\numberline {1.10}Web Feed~\cite {webfeed}}{4}
+\contentsline {subsection}{\numberline {1.11}RSS Feed~\cite {rss}}{4}
+\contentsline {subsection}{\numberline {1.12}Java~\cite {java}}{4}
+\contentsline {subsection}{\numberline {1.13}Framework}{4}
 \contentsline {section}{\numberline {2}Konzepte}{4}
-\contentsline {paragraph}{\nonumberline Semantic Web}{4}
-\contentsline {paragraph}{\nonumberline Continuous Integration (CI)}{5}
-\contentsline {paragraph}{\nonumberline Android SDK / Android Studio}{5}
-\contentsline {section}{\numberline {3}Aspekte}{5}
-\contentsline {paragraph}{\nonumberline Django}{5}
-\contentsline {paragraph}{\nonumberline Gitlab}{5}
-\contentsline {paragraph}{\nonumberline Jekyll}{6}
-\contentsline {paragraph}{\nonumberline Ruby}{6}
-\contentsline {paragraph}{\nonumberline Scrum}{6}
+\contentsline {subsection}{\numberline {2.1}Semantic Web~\cite {semanticweb}\cite {semanticweb2}}{4}
+\contentsline {subsection}{\numberline {2.2}Continuous Integration (CI)~\cite {ci}}{5}
+\contentsline {subsection}{\numberline {2.3}Android SDK / Android Studio~\cite {androidsdk}\cite {androidstudio}}{5}
+\contentsline {subsection}{\numberline {2.4}Apache Jena Framework~\cite {apachejena}}{6}
+\contentsline {subsection}{\numberline {2.5}Virtuoso Universal Server bzw OpenLink Virtuoso~\cite {virtuoso}}{6}
+\contentsline {subsection}{\numberline {2.6}Leipzig Data Events~\cite {leipzigdata}}{6}
+\contentsline {subsection}{\numberline {2.7}Trierer Zukunfts-Diplom~\cite {zukunftsdiplom}}{7}
+\contentsline {section}{\numberline {3}Aspekte}{7}
+\contentsline {subsection}{\numberline {3.1}Django~\cite {django}}{7}
+\contentsline {subsection}{\numberline {3.2}Gitlab~\cite {gitlab}}{7}
+\contentsline {subsection}{\numberline {3.3}Jekyll~\cite {jekyll}}{7}
+\contentsline {subsection}{\numberline {3.4}Ruby~\cite {ruby}}{7}
+\contentsline {subsection}{\numberline {3.5}Scrum~\cite {scrum}}{8}
