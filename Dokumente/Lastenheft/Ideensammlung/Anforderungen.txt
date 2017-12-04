@@ -1,5 +1,31 @@
 Funktional
+	
+	Anmeldefunktion (beim erstmaligen Start der App sofort gefordert ansonsten über Menü abmelden)
+	QR-Code als standartseite
+	
+	Menu
+		Startseite (QR-Code)
+		Veranstaltungstermine
+		Bestenliste (nach Anzahl besuchter Veranstaltungen, nur mit Nickname)
+			weitere Bestenliste (zum Beispiel sortiert, oder beste Veranstaltung)
+		Einstellungen
+	
+	Einstellungen
+		Accountdaten ändern
 
-
+	Accountdaten
+		Nickname
+		Passwort
+		Name
+		Schule
+		id (nur für datenbank)
+		
+	-------------------------------------
+	
+	für Veranstalter:
+		Startseite: Scanner
+		statt Bestenliste Anzahl der Teilnehmer an eigenen Veranstaltungen
 
 nicht Funktional
+	
+	intiutive, einfach zu bedienende Oberfläche (für Kinder geeignet)

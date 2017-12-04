@@ -1,9 +1,21 @@
 Abnahmekriterien (Muss-Ziele)
 
-
+	
 
 
 
 
 
 Kannziele
+
+
+
+
+
+
+
+
+
+Vorprojekt vorschläge:
+	
+	App mit frontend noch ohne Funktion
