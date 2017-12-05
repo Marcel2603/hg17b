@@ -1,7 +1,7 @@
-Funktional
+﻿Funktional
 	
 	Anmeldefunktion (beim erstmaligen Start der App sofort gefordert ansonsten über Menü abmelden)
-	QR-Code als standartseite
+	QR-Code, Barcode, usw als standartseite
 	
 	Menu
 		Startseite (QR-Code)
