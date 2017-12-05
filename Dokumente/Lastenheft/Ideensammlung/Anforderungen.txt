@@ -1,25 +1,26 @@
 Funktional
 	
 	Anmeldefunktion (beim erstmaligen Start der App sofort gefordert ansonsten über Menü abmelden)
-	QR-Code als standartseite
+		QR-Code Scannen oder id eingeben
+	altermative Anmeldng als Veranstalter -- bekommen login daten
 	
-	Menu
-		Startseite (QR-Code)
+	app kann anzeigen
+		persönl. stats (Punkte, besuchte Veranstaltungen)
+		QR-Code
 		Veranstaltungstermine
-		Bestenliste (nach Anzahl besuchter Veranstaltungen, nur mit Nickname)
-			weitere Bestenliste (zum Beispiel sortiert, oder beste Veranstaltung)
-		Einstellungen
+		Bestenliste 
+			für Teilnehmer  (nach Anzahl besuchter Veranstaltungen, nur mit Nickname; mögl. Filter: insg., Schule    (Top 10))
+			(für Veranstaltungen)
+	man kann sich Abmelden
 	
-	Einstellungen
-		Accountdaten ändern
-
-	Accountdaten
-		Nickname
-		Passwort
-		Name
-		Schule
-		id (nur für datenbank)
-		
+	für Veranstalter: (mehrfachanmeldung möglich)
+		kann eigene Veranstaltung zum Scannen auswählen	
+		Anzeige aller Veranstalten
+		Anzahl über eigenen Veranstltungen
+	
+	
+	es muss am Ende eine Auswertung der Daten geben (Liste der bestandenen, bester nach Schule,...)
+	
 	-------------------------------------
 	
 	für Veranstalter:
@@ -29,3 +30,8 @@ Funktional
 nicht Funktional
 	
 	intiutive, einfach zu bedienende Oberfläche (für Kinder geeignet)
+	
+	verschlüsselte Datenübertragung?
+
+	
+		

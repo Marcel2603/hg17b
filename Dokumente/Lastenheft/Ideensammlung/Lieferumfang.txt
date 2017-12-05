@@ -19,10 +19,15 @@ Abnahmekriterien (Muss-Ziele)
 
 Kannziele
 	Website oder CMS Plugin mit High Score usw für iOS/Windows Phone( :P ) Nutzer
-
-
+	Punkte nur für Bestimmten Zeitraum
+	alternative Startseite der App
+	personalisierbarkeit der App
+	Historie zu welchen Veranstaltungen man war
+	Teilnemher kann interesse an Veransteltung bekunden
+	Bestenliste für Veranstalter
+	Filter für Bestenliste für Schüler
+	Schüler kann Veranstaltung bewerten
 
 
 Vorprojekt vorschläge:
-	QR Code Scanner der QR Code einer Schüler ID zuordnet
-	App mit frontend noch ohne Funktion
+	Veranstalter Seite der App - Möglichkeit QR-Code zu Scannen
