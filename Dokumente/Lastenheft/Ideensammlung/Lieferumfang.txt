@@ -1,21 +1,28 @@
 Abnahmekriterien (Muss-Ziele)
-
+	Anbindung an die bestehenden Primärplatformen (Information Retrieval)
+	Nutzerbereich für Schüler:
+		Passwortgeschützt?
+		mit Highscore Listen, Event Listen etc.
+		Möglichkeit für Schüler sich an Events (unverbindlich) anzumelden/vorzumerken. (Für Menge potenzieller Teilnehmer)
+	Nutzerbereich für Veranstalter:
+		Möglichkeit Veranstaltungen hinzuzufügen/zu ändern für Veranstalter?
+		QR Code Scanner für  Registrierung Teilnehmer	
+		Accountvergabe über Veranstalter Emails? (Wie wird umgesetzt, dass nur der für Veranstaltung Verantwortliche Daten ändert)
+		Ausführliche Statistik der eigenen Veranstaltungen
+	Nutzerbereich für Schulen? (Oder sollen Schüler selbst in der Lage sein Account zu erstellen? Sinnvoll? Soll auch für Schüler ohne Android Device möglich sein):
+		Möglichkeit Schüler hinzuzufügen
+		Möglichkeit QR Code und Ausweis zu erstellen.
+	
 	
 
 
 
-
-
 Kannziele
-
-
-
-
-
+	Website oder CMS Plugin mit High Score usw für iOS/Windows Phone( :P ) Nutzer
 
 
 
 
 Vorprojekt vorschläge:
-	
+	QR Code Scanner der QR Code einer Schüler ID zuordnet
 	App mit frontend noch ohne Funktion
