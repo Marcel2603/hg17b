@@ -1,6 +1,7 @@
-Funktional
+﻿Funktional
 	
 	Anmeldefunktion (beim erstmaligen Start der App sofort gefordert ansonsten über Menü abmelden)
+
 		QR-Code Scannen oder id eingeben
 	altermative Anmeldng als Veranstalter -- bekommen login daten
 	
