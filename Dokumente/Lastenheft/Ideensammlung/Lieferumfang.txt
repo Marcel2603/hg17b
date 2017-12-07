@@ -30,4 +30,5 @@ Kannziele
 
 
 Vorprojekt vorschläge:
-	Veranstalter Seite der App - Möglichkeit QR-Code zu Scannen
+	Benutzer Seite der App mit Testdatenbank
+	id scannen lassen
