@@ -2,12 +2,12 @@
 	
 	Anmeldefunktion (beim erstmaligen Start der App sofort gefordert ansonsten über Menü abmelden)
 
-		QR-Code Scannen oder id eingeben
+		id scannen oder eingeben //fehler wenn id nicht vorhanden
 	altermative Anmeldng als Veranstalter -- bekommen login daten
 	
 	app kann anzeigen
 		persönl. stats (Punkte, besuchte Veranstaltungen)
-		QR-Code
+		Zahlenkode wird angezeigt
 		Veranstaltungstermine
 		Bestenliste 
 			für Teilnehmer  (nach Anzahl besuchter Veranstaltungen, nur mit Nickname; mögl. Filter: insg., Schule    (Top 10))
@@ -16,6 +16,7 @@
 	
 	für Veranstalter: (mehrfachanmeldung möglich)
 		kann eigene Veranstaltung zum Scannen auswählen	
+		scannt dann Zahlencode
 		Anzeige aller Veranstalten
 		Anzahl über eigenen Veranstltungen
 	
@@ -32,7 +33,6 @@ nicht Funktional
 	
 	intiutive, einfach zu bedienende Oberfläche (für Kinder geeignet)
 	
-	verschlüsselte Datenübertragung?
+	verschlüsselte Datenübertragung
 
-	
 		
