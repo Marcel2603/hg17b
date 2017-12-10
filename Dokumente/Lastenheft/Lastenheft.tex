@@ -10,7 +10,7 @@
 \pagestyle{scrheadings}
 \clearscrheadfoot
 \ihead{\today \\
-M. Herhold, C. Pfeiffer, N. Korenbruck, J. Dietz, R. Mueller, M. Rudolph
+M. Herhold, C. Pfeiffer, N. Kortenbruck, J. Dietz, R. Mueller, M. Rudolph
 }  
 \ohead{hg17b}
 \cfoot{\pagemark}
@@ -121,7 +121,17 @@ Alternativ kann die ID manuell eingegeben werden.
 \end{itemize}
 
 \section{Nichtfunktionale Anforderungen}
-
+\subsection{Muss-Ziele}
+\subsubsection{Nutzung}
+\begin{itemize}
+\item[NF1] Die Oberfläche und Bedienung der App sollte einfach und intuitiv sein, damit auch nicht Technik affine Veranstalter sowie Schüler sie bedienen können.
+\item[NF2] Der ID-Scanner soll zuverlässig und schnell arbeiten, so dass es Sinn macht, die ID nicht per Hand einzugeben.
+\end{itemize}
+\subsubsection{Datenübertragung}
+\begin{itemize}
+\item[DF1] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
+\item[DF2] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstalltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
+\end{itemize}
 \section{Qualitätsmatrix nach ISO 25010}
 \begin{tabular}{|l|l|}
 \hline  Kriterien & Bedeutung \\
