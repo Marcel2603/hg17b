@@ -50,15 +50,14 @@ M. Herhold, C. Pfeiffer, N. Kortenbruck, J. Dietz, R. Mueller, M. Rudolph
 \newpage
 
 \section{Ausgangssitution}
-Innerhalb des nächsten Jahres sollen Schüler/innen von Leipziger Schulen  für Zukunftthemen im außerunterrictlichen Bereich sensibilisiert werden, 
-Vorbild ist dabei das Trierer Zukunftsdiplom. Dabei sollen interressierte Schüler einen Zukunftpass erhalten und auf diesen befindet sich eine ID zur Identifizierung. 
-\newline
-Diese Ausweise können vom Veranstallter über eine mobile App gescannt werden und daher erfasst werden welcher Schüler an wievielen Veranstalltungen Teilgenommen hat. 
-Schüler über einer gewissen Mindestanzahl von Veranstalltungen bekommen am Ende eine Auszeichnung. Im Moment existiert keine digitale Strucktur um dies zu Realisieren. 
-Eine solche soll nun Rund um nachhaltiges-leipzig.de (welches Veranstallter und Events erfasst) erstellt werden.
+Innerhalb des nächsten Jahres sollen Schüler/innen von Leipziger Schulen  für Zukunftsthemen im außerunterrichtlichen Bereich sensibilisiert werden. Vorbild ist dabei das Trierer Zukunftsdiplom. Dabei sollen interessierte Schüler/innen einen Zukunftspass erhalten und auf diesem befindet sich eine ID zur Identifizierung. \newline %Letzter Satz komisch formuliert_Christopher
+Diese Ausweise können vom Veranstalter über eine mobile App gescannt werden und damit kann erfasst werden welcher Schüler an wie vielen Veranstaltungen teilgenommen hat. %Das sollen sie können und können sie noch nicht, oder?_Christopher
+Schüler über einer gewissen Mindestanzahl von Veranstaltungen bekommen am Ende eine Auszeichnung. Im Moment existiert keine digitale Struktur um dies zu Realisieren. 
+Eine solche soll nun Rund um nachhaltiges-leipzig.de (welches Veranstalter und Events erfasst) erstellt werden.
 \section{Zielsetzung und Produkteinsatz}
-Im Rahmen des Projektes soll eine App entwickelt werden über der sich die Schüler durch eingabe oder scannen ihrer Ids anschaun können an wievielen Events sie teilgenommen haben und wenn möglich auch eine Liste von weiteren Events haben.\newline
-Gleichzeitig soll es eine Möglichkeit für Veranstallter geben sich bei dieser App anzumelden um somit Teilnehmer ihrer Events zu erfassen damit im System eingetragen werden kann das die Person da war zu dem Event. Desweitern soll die dazu nötige Infrastrucktur entworfen und prototypisch implementiert werden. Die App soll  als Android App auf Basis dees Android SDKs entwicklt werden.
+Im Rahmen des Projektes soll eine App entwickelt werden über der sich die Schüler durch Eingabe oder Scannen ihrer IDs anschauen können an wie vielen Events sie teilgenommen haben und wenn möglich auch eine Liste von weiteren Events haben.\newline %"wenn möglich" finde ich hier unpassend, da das eines der Muss-Ziele ist_Christopher
+Gleichzeitig soll es eine Möglichkeit für Veranstalter geben sich bei dieser App anzumelden um somit Teilnehmer ihrer Events zu erfassen damit im System eingetragen werden kann das die Person da war zu dem Event.%Hier finde ich die Formulierung auch etwas missverständlich_Christopher 
+Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch implementiert werden. Die App soll als Android App auf Basis des Android SDKs entwickelt werden.
 \section{Funktionale Anforderungen}
 
 \subsection{Muss-Ziele}
@@ -130,7 +129,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \subsubsection{Datenübertragung}
 \begin{itemize}
 \item[DF1] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
-\item[DF2] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstalltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
+\item[DF2] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
 \end{itemize}
 \section{Qualitätsmatrix nach ISO 25010}
 \begin{tabular}{|l|l|}
@@ -151,7 +150,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \section{Vorprojekt}
 Als Vorprojekt soll eine Vorab Version der App konstruiert werden, die bereits einige der Muss-Ziele umgesetzt hat und zeigt dass diese funktionieren. \newline
 Als Erstes soll die Benutzeroberfläche bis dato größtenteils fertig sein und zeigen wie das Team die App designen möchte. \newline
-Des Weiteren soll die „Schüler-Seite“ mit Ihren wichtigsten Funktionen entwickelt wurden sein. Die App soll eine ID einscannen können (alternativ muss diese eingetippt werden) und anschließend feststellen ob diese bereits in der Datenbank vorhanden ist oder nicht. Falls die ID unbekannt ist, so soll ein neuer Eintrag angelegt werden. Andernfalls sollen der ID die jeweiligen Werte(z.B. Highscore) zugeordnet werden können. Dazu wird eine Test-Datenbank entworfen welche einige manuell erstellte Datensätze enthält. Diese sollen testweise angezeigt werden wenn die entsprechende ID erkannt wurde(bzw. hinterlegt ist). Und man sollte neben dem Punktestand  auch seinen Platz in einer Rangliste sehen können, verglichen mit anderen IDs. \newline
+Des Weiteren soll die „Schüler-Seite“ mit Ihren wichtigsten Funktionen entwickelt wurden sein. Die App soll eine ID einscannen können (alternativ muss diese eingetippt werden) und anschließend feststellen ob diese bereits in der Datenbank vorhanden ist oder nicht. Falls die ID unbekannt ist, so soll ein neuer Eintrag angelegt werden. Andernfalls sollen der ID die jeweiligen Werte(z.B. Highscore) zugeordnet werden können. Dazu wird eine Test-Datenbank entworfen welche einige manuell erstellte Datensätze enthält. Diese sollen testweise angezeigt werden, wenn die entsprechende ID erkannt wurde(bzw. hinterlegt ist). Und man sollte neben dem Punktestand  auch seinen Platz in einer Rangliste sehen können, verglichen mit anderen IDs. \newline
 Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht weiter eingegangen werden. 
 
 
