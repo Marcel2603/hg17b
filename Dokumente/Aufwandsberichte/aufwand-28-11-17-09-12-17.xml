@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Analyse von="2017-11-28" bis="2017-12-11" gruppe="hg17b" createdBy="MH" createdAt="2017-12-09"> 
   <done who="CP,NK,MR,JD,RM,MH" A="3" S="3" Zeit="3.2">Besprechungen</done>
-  <done who="CP" A=" " S=" " Zeit="1.5">Funktionale Anforderungen</done>
+  <done who="CP" A="3" S="2" Zeit="1.5">Funktionale Anforderungen</done>
   <done who="MH" A="2" S="3" Zeit="1">Qualitaetsmatrix</done>
   <done who="RM" A="2" S="4" Zeit="1">Ausgangsitutation, Zielsetzung und Projekteinsatz</done>
   <done who="MR" A="2" S="3" Zeit="1.5"> Vorprojekt </done>
   <done who="NK" A="2" S="3" Zeit="1">Nichtfunktionale Anforderungen</done>
+  <done who="JD" A="3" S="3" Zeit="1">Lieferumfang</done>
 </Analyse>
