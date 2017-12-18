@@ -1,0 +1,187 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{scrpage2}
+
+%\usepackage{cite}
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\today \\
+M. Herhold, C. Pfeiffer, N. Kortenbruck, J. Dietz, R. Mueller, M. Rudolph
+}  
+\ohead{hg17b}
+\cfoot{\pagemark}
+
+%now following: lots of stuff for sorted lists from https://tex.stackexchange.com/questions/121489/alphabetically-display-the-items-in-itemize
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[2][\relax]{%
+  \DTLnewrow{list}% Create a new entry
+  \ifx#1\relax
+    \DTLnewdbentry{list}{sortlabel}{#2}% Add entry sortlabel (no optional argument)
+  \else
+    \DTLnewdbentry{list}{sortlabel}{#1}% Add entry sortlabel (optional argument)
+  \fi%
+  \DTLnewdbentry{list}{description}{#2}% Add entry description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{sortlabel}{list}% Sort list
+  \begin{description}%Im orginal Code itemize, aber sieht scheiße aus
+  
+%Das \l=sortlabel in der nächsten und das [\l] in der Übernächsten wurden von Christopher Pfeiffer hinzugefügt damit die labels angezeigt werden.
+    \DTLforeach*{list}{\theDesc=description, \l=sortlabel}{%
+      \item[\l] \theDesc}% Print each item
+  \end{description}%
+}
+
+
+\begin{document}
+\subject{\vspace{-2cm}}
+\title{\vspace{-0.5em}Lastenheft}
+\subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
+\author{M. Herhold, C. Pfeiffer, N. Kortenbruck, J. Dietz, R. Mueller, M. Rudolph\vspace{-0.5em}}%autor
+\date{\vspace{-0.5em}\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Ausgangssitution}
+Innerhalb des nächsten Jahres sollen Schüler/innen von Leipziger Schulen  für Zukunftsthemen im außerunterrichtlichen Bereich sensibilisiert werden. Vorbild ist dabei das Trierer Zukunftsdiplom. Dabei sollen interessierte Schüler/innen einen Zukunftspass erhalten der eine ID zur eindeutigen Identifizierung beinhaltet. Die Zuordnung zum Namen ist nur der jeweiligen Schule bekannt. Schüler die an einer gewissen Mindestanzahl an Veranstaltungen teilgenommen haben, sollen am Ende eine Auszeichnung bekommen. \\
+Bisher gibt es bereits Ferienpässe, jedoch existiert im Moment noch keine digitale Struktur um eine die schnelle Erfassung der Teilnehmer einer Veranstaltung zu Realisieren. 
+Eine solche soll nun Rund um nachhaltiges-leipzig.de (welches Veranstalter und Events erfasst) erstellt werden.
+\section{Zielsetzung und Produkteinsatz}
+
+Im Rahmen des Projektes soll eine App entwickelt werden über der sich die Schüler durch Eingabe oder Scannen ihrer IDs anschauen können an wie vielen Events sie teilgenommen haben sowie eine Liste von weiteren Events haben.\\
+Gleichzeitig soll es eine Möglichkeit für Veranstalter geben sich bei dieser App anzumelden um somit Teilnehmer ihrer Events zu erfassen, damit im System eingetragen werden kann das die Person zu diesem Event anwesend war. Dazu sollen die IDs auf den Ausweise der Schüler vom Veranstalter über die App gescannt werden könne.\\ 
+Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch implementiert werden. Die App soll als Android App auf Basis des Android SDKs entwickelt werden.
+
+\section{Funktionale Anforderungen}
+
+\subsection{Muss-Ziele}
+\subsubsection*{Startbildschirm und Anmeldefunktion}
+\begin{itemize}
+%AF steht für Anmeldefunktion
+\item[AF01] Der Benutzer wird beim erstmaligem Start der App oder wenn keine gespeicherten Anmeldedaten vorliegen aufgefordert sich zu identifizieren.\par
+Schüler geben dazu lediglich ihre ID ein oder Scannen diese. Ist die eingegebene ID im System nicht vorhanden, wird zur erneuten Eingabe aufgefordert.\par
+Für Veranstalter gibt es eine Schaltfläche, durch  welche die App in den Veranstaltermodus wechselt. Hier muss sich der Veranstalter mit E-Mail und Passwort anmelden.
+\item[AF11] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
+\item[AF21]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.
+\end{itemize}
+\subsubsection*{Allgemeine Anzeigefunktionen der App}
+\begin{itemize}
+%GF=Generelle Funktionen
+\item[GF01] Die App kann bietet dem Nutzer die Möglichkeit, sich die Termine der nächsten Veranstaltungen anzeigen zu lassen. 
+\end{itemize}
+\subsubsection*{Funktionen für angemeldete Schüler}
+\begin{itemize}
+%SF steht für Schülerfunktion
+\item[SF01] Ein angemeldeter Schüler kann seine persönliche Statistik (Anzahl besuchter Veranstaltungen) einsehen.
+\item[SF11] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
+Dabei soll diese Anzeige bei einer Veranstaltung anstatt des physischen Passes eingescannt werden können.
+\item[SF21] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
+\end{itemize}
+\subsubsection*{Funktionen für Veranstalter}
+\begin{itemize}
+%VF=Veranstalterfunktionen
+\item[VF01] Dem angemeldeten Veranstalter werden die eigenen Veranstaltungen angezeigt. Von diesen kann er eine Auswählen um den Scanvorgang zu starten.
+\item[VF11] Der Scanvorgang bietet die Möglichkeit die ID von Teilnehmern bei einer Veranstaltung zu scannen. Die Anwesenheit der Teilnehmer für diese Veranstaltung wird dann automatisch in die Datenbank aufgenommen.\par 
+Alternativ kann die ID manuell eingegeben werden.
+\item[VF21] Dem angemeldetem Veranstalter werden bei seinen eigenen Veranstaltungen, die Anzahl der in der Datenbank gespeicherten Teilnehmer angezeigt.
+\item[VF31] Der angemeldete Veranstalter hat die Möglichkeit sein Passwort zu ändern.
+\end{itemize}
+
+\subsection{Kann-Ziele}
+\subsubsection*{Generelle Funktionen}
+\begin{itemize}
+\item[GF11] Die App kann personalisiert werden. (Z.B. Hintergrundfarbe) 
+\end{itemize}
+\subsubsection*{Erweiterte Funktionen der Punktevergabe}
+\begin{itemize}
+\item[EF11] Für eine Veranstaltung soll es auch einen Punktwert geben.
+\item[EF21] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
+\item[EF31] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
+\item[EF41] Die Punkte werden nach Ablauf eines Aktionszeitraumes für das Zertifikat zurückgesetzt.
+\end{itemize}
+\subsubsection*{Funktionen für angemeldete Schüler}
+\begin{itemize}
+\item[SF11] Der angemeldete Schüler hat die Möglichkeit sich bereits im voraus unverbindlich für eine Veranstaltung anzumelden.
+\item[SF21] Der angemeldete Schüler kann sich eine Historie der von ihm besuchten Veranstaltungen anzeigen lassen.
+\item[SF31] Der angemeldete Schüler kann die Bestenliste nach verschiedenen Kriterien (z.B. Schule, Art der Veranstaltung) filtern.\footnote{Diese Erweiterung setzt voraus, dass genügt Daten, nach denen gefiltert werden kann, vorhanden sind.}
+\item[SF41] Der angemeldete Schüler kann Veranstaltungen an denen er teilgenommen hat Bewerten.
+\end{itemize}
+\subsubsection*{Funktionen für Veranstalter}
+\begin{itemize}
+\item[VF11] Dem angemeldetem Veranstalter werden bei eigenen zukünftigen Veranstaltungen die Anzahl der Schüler, welche sich über die App im Voraus angemeldet haben, angezeigt.
+\item[VF21] Der angemeldete Veranstalter kann sich eine Bestenliste seiner eigenen Veranstaltungen nach Anzahl der Teilnehmer oder Bewertung anzeigen lassen.
+\end{itemize}
+
+\section{Nichtfunktionale Anforderungen}
+\subsection{Muss-Ziele}
+\subsubsection*{Nutzung}
+\begin{itemize}
+\item[NF1] Die Oberfläche und Bedienung der App sollte einfach und intuitiv sein, damit auch nicht Technik affine Veranstalter sowie Schüler sie bedienen können.
+\item[NF11] Der ID-Scanner soll zuverlässig und schnell arbeiten, so dass es Sinn macht, die ID nicht per Hand einzugeben.
+\item[NF21] Ein Benutzer kann sich auf mehreren Geräten gleichzeitig anmelden.
+\end{itemize}
+\subsubsection*{Datenübertragung}
+\begin{itemize}
+\item[DF1] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
+\item[DF11] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
+\end{itemize}
+\section{Qualitätsmatrix nach ISO 25010}
+\begin{tabular}{|l|l|}
+\hline  Kriterien & Bedeutung \\
+\hline Funktionale Software & hoch\\
+\hline Effiziente Performance & niedrig\\
+\hline Höchste Sicherheit & mittel\\
+\hline Hohe Kompatibilität & niedrig\\
+\hline Verlässliche Software & mittel\\
+\hline Perfekte Nutzbarkeit & hoch\\
+\hline Einfache Wartung & niedrig\\
+\hline Leichte Portierbarkeit & niedrig\\
+\hline
+\end{tabular}
+
+\section{Lieferumfang und Abnahmekriterien}
+\subsection{Lieferumfang}
+\paragraph{Front-End} Wir liefern eine Andriod-App, welche gleichermaßen von Schülern und Veranstaltern genutzt werden kann.
+\paragraph{Back-End} Wir erstellen eine Datenbank im RDF-Format zum Speichern der Teilnehmer in Form von anonymen IDs, deren besuchte Veranstaltungen und eventuell ihrer Punktestände, auf die die App zugreifen kann. Für die Anbindung soll die das Apache Jena Framework verwendet werden. Zunächst wird diese Datenbank auf dem Praktikumsserver implementiert. Später soll jedoch die möglichkeit bestehen die Datenbank auf einen anderen Server zu verschieben.
+\paragraph{Dokumentation} Das Projekt wird dokumentiert, sowohl um den Endutzern die Bedienung zu erleichtern, als auch um die Weiterentwicklung durch andere Entwickler zu vereinfachen.
+Die Dokumentation soll in Form von Kommentaren im Quellcode bzw. Javadoc sowie als PDF-Dateien erzeugt werden.
+\subsection{Abnahmekriterien}
+\paragraph{Front-End} Die Andriod-App muss auf jedem aktuellen Android Gerät installiert werden können und stabil laufen. Alle oben genannten Muss-Ziele sind zu erfüllen.
+\paragraph{Back-End} Die Datenbank muss in der Lage sein, Daten sowohl über die App zu beziehen, als auch mit den Informationen der bereits bestehenden Primärplattformen zu arbeiten. 
+\paragraph{Dokumentation} Die Dokumentation beinhaltet:
+\begin{itemize}
+\item Darstellung und Bedienung der Features aus Sicht des Endnutzers
+\item Aspekte der Installation und Konfiguration für Systemadministratoren
+\item Darstellung von Informationen und Komponenten der Software für Entwickler mit verschiedenen Detaillierungsstufen
+\item Anforderungen und Entscheidungen während der Entwicklung für nachhaltige Kommunikation über den Kontext der Entwicklung
+\end{itemize}
+\section{Vorprojekt}
+Als Vorprojekt soll eine Vorab Version der App konstruiert werden, die bereits einige der Muss-Ziele umgesetzt hat und zeigt dass diese funktionieren. \\
+Als Erstes soll die Benutzeroberfläche bis dato größtenteils fertig sein und zeigen wie das Team die App designen möchte. \\
+Des Weiteren soll die „Schüler-Seite“ mit Ihren wichtigsten Funktionen entwickelt worden sein. Die App soll eine ID einscannen können (alternativ muss diese eingetippt werden) und anschließend feststellen ob diese bereits in der Datenbank vorhanden ist. Falls die ID unbekannt ist, so soll ein Fehler angezeigt werden. Andernfalls sollen der ID die jeweiligen Werte(z.B. Highscore) zugeordnet werden können. Dazu wird eine Test-Datenbank entworfen welche einige manuell erstellte Datensätze enthält. Diese sollen testweise angezeigt werden, wenn die entsprechende ID erkannt wurde(bzw. hinterlegt ist). Und man sollte neben dem Punktestand  auch seinen Platz in einer Rangliste sehen können, verglichen mit anderen IDs. \newline
+Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht weiter eingegangen werden. 
+
+
+\section{Glossar}
+\begin{sortedlist}
+%Liste wird autoatisch alphabetisch nach dem Inhalt von [] sortiert.
+\sortitem[ID]{(Identifikationsnummer) Im Zusammenhang dieses Projektes ist die Identifikationsnummer auf den Pässen der Schüler gemeint.}
+\sortitem[Android SDK] {Das Android Software Development Kit ist eine Entwicklungsumgebung und Sammlung von Tools für die Softwareentwicklung für das Android-Betriebssystem.}
+\sortitem[Datenbank] {Eine Datenbank ist ein System zur effizienten, widerspruchsfreien und dauerhaften elektronischen Speicherung von Daten.}
+\sortitem[Apache Jena Framework] {Apache Jena ist ein kostenfreies Open-Source-Framework für Java zum erstellen von Semantic Web Applikationen. Der Nutzer kann dabei über eine Programmier-schnittstelle auf Resource-Description-Framework-Graphen (RDF-Graphen) zugreifen, zum Speichern und Laden von Daten. Die Modelle können Daten aus verschiedenen Quellen beziehen wie zum Beispiel aus Dateien, Datenbänken, URLs oder einer Kombination der genannten.}
+\sortitem[RDF] {RDF steht für Resource Description Framework. Es wurde von der W3C als Standard zur Beschreibung von Metadaten konzipiert. Es gilt als ein grundlegender Baustein des Semantischen Webs. RDF ähnelt den klassischen Methoden zur Modellierung von Konzepten wie UML-Klassendiagramme und ER-Modell.}
+\sortitem[Frontend] {Frontend beschreibt das auf dem Endgerät des Nutzers laufende Programm.}
+\sortitem[Backend] {Backende beschreibt das auf dem Server laufende Programm.}
+\sortitem[Trierer Zukunftsdiplom] {Ziel des Diploms ist die Sensibilisierung von Kindern im Alter von 6 bis 12 Jahren für Nachhaltigkeit. Von Mai bis September werden verschiedene, von unterschiedlichsten Anbietern ausgerichtete, Aktivitäten angeboten. Jedes Kind, das wenigstens 6 Veranstaltungen besucht kann im November sein Zukunfts-Diplom entgegennehmen.}
+\sortitem[Semantic Web] {Beim semantischen Web handelt es sich um eine Web-Technologie bei dem die Suchmaschinen Informationen zueinander in Beziehung setzen, sie eigenständig auswerten und aus ihnen eine Bedeutung entnehmen können.}
+\end{sortedlist}
+
+\end{document}
