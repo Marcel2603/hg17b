@@ -66,72 +66,72 @@ Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch impl
 \subsubsection*{Startbildschirm und Anmeldefunktion}
 \begin{itemize}
 %AF steht für Anmeldefunktion
-\item[AF01] Der Benutzer wird beim erstmaligem Start der App oder wenn keine gespeicherten Anmeldedaten vorliegen aufgefordert sich zu identifizieren.\par
+\item[AF00] Der Benutzer wird beim erstmaligem Start der App oder wenn keine gespeicherten Anmeldedaten vorliegen aufgefordert sich zu identifizieren.\par
 Schüler geben dazu lediglich ihre ID ein oder Scannen diese. Ist die eingegebene ID im System nicht vorhanden, wird zur erneuten Eingabe aufgefordert.\par
 Für Veranstalter gibt es eine Schaltfläche, durch  welche die App in den Veranstaltermodus wechselt. Hier muss sich der Veranstalter mit E-Mail und Passwort anmelden.
-\item[AF11] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
-\item[AF21]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.
+\item[AF10] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
+\item[AF20]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.
 \end{itemize}
 \subsubsection*{Allgemeine Anzeigefunktionen der App}
 \begin{itemize}
 %GF=Generelle Funktionen
-\item[GF01] Die App kann bietet dem Nutzer die Möglichkeit, sich die Termine der nächsten Veranstaltungen anzeigen zu lassen. 
+\item[GF00] Die App kann bietet dem Nutzer die Möglichkeit, sich die Termine der nächsten Veranstaltungen anzeigen zu lassen. 
 \end{itemize}
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
 %SF steht für Schülerfunktion
-\item[SF01] Ein angemeldeter Schüler kann seine persönliche Statistik (Anzahl besuchter Veranstaltungen) einsehen.
-\item[SF11] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
+\item[SF00] Ein angemeldeter Schüler kann seine persönliche Statistik (Anzahl besuchter Veranstaltungen) einsehen.
+\item[SF10] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
 Dabei soll diese Anzeige bei einer Veranstaltung anstatt des physischen Passes eingescannt werden können.
-\item[SF21] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
+\item[SF20] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
 \end{itemize}
 \subsubsection*{Funktionen für Veranstalter}
 \begin{itemize}
 %VF=Veranstalterfunktionen
-\item[VF01] Dem angemeldeten Veranstalter werden die eigenen Veranstaltungen angezeigt. Von diesen kann er eine Auswählen um den Scanvorgang zu starten.
-\item[VF11] Der Scanvorgang bietet die Möglichkeit die ID von Teilnehmern bei einer Veranstaltung zu scannen. Die Anwesenheit der Teilnehmer für diese Veranstaltung wird dann automatisch in die Datenbank aufgenommen.\par 
+\item[VF00] Dem angemeldeten Veranstalter werden die eigenen Veranstaltungen angezeigt. Von diesen kann er eine Auswählen um den Scanvorgang zu starten.
+\item[VF10] Der Scanvorgang bietet die Möglichkeit die ID von Teilnehmern bei einer Veranstaltung zu scannen. Die Anwesenheit der Teilnehmer für diese Veranstaltung wird dann automatisch in die Datenbank aufgenommen.\par 
 Alternativ kann die ID manuell eingegeben werden.
-\item[VF21] Dem angemeldetem Veranstalter werden bei seinen eigenen Veranstaltungen, die Anzahl der in der Datenbank gespeicherten Teilnehmer angezeigt.
-\item[VF31] Der angemeldete Veranstalter hat die Möglichkeit sein Passwort zu ändern.
+\item[VF20] Dem angemeldetem Veranstalter werden bei seinen eigenen Veranstaltungen, die Anzahl der in der Datenbank gespeicherten Teilnehmer angezeigt.
+\item[VF30] Der angemeldete Veranstalter hat die Möglichkeit sein Passwort zu ändern.
 \end{itemize}
 
 \subsection{Kann-Ziele}
 \subsubsection*{Generelle Funktionen}
 \begin{itemize}
-\item[GF11] Die App kann personalisiert werden. (Z.B. Hintergrundfarbe) 
+\item[GF10] Die App kann personalisiert werden. (Z.B. Hintergrundfarbe) 
 \end{itemize}
 \subsubsection*{Erweiterte Funktionen der Punktevergabe}
 \begin{itemize}
-\item[EF11] Für eine Veranstaltung soll es auch einen Punktwert geben.
-\item[EF21] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
-\item[EF31] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
-\item[EF41] Die Punkte werden nach Ablauf eines Aktionszeitraumes für das Zertifikat zurückgesetzt.
+\item[EF00] Für eine Veranstaltung soll es auch einen Punktwert geben.
+\item[EF10] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
+\item[EF20] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
+\item[EF30] Die Punkte werden nach Ablauf eines Aktionszeitraumes für das Zertifikat zurückgesetzt.
 \end{itemize}
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
-\item[SF11] Der angemeldete Schüler hat die Möglichkeit sich bereits im voraus unverbindlich für eine Veranstaltung anzumelden.
-\item[SF21] Der angemeldete Schüler kann sich eine Historie der von ihm besuchten Veranstaltungen anzeigen lassen.
-\item[SF31] Der angemeldete Schüler kann die Bestenliste nach verschiedenen Kriterien (z.B. Schule, Art der Veranstaltung) filtern.\footnote{Diese Erweiterung setzt voraus, dass genügt Daten, nach denen gefiltert werden kann, vorhanden sind.}
-\item[SF41] Der angemeldete Schüler kann Veranstaltungen an denen er teilgenommen hat Bewerten.
+\item[SF30] Der angemeldete Schüler hat die Möglichkeit sich bereits im voraus unverbindlich für eine Veranstaltung anzumelden.
+\item[SF40] Der angemeldete Schüler kann sich eine Historie der von ihm besuchten Veranstaltungen anzeigen lassen.
+\item[SF50] Der angemeldete Schüler kann die Bestenliste nach verschiedenen Kriterien (z.B. Schule, Art der Veranstaltung) filtern.\footnote{Diese Erweiterung setzt voraus, dass genügt Daten, nach denen gefiltert werden kann, vorhanden sind.}
+\item[SF60] Der angemeldete Schüler kann Veranstaltungen an denen er teilgenommen hat Bewerten.
 \end{itemize}
 \subsubsection*{Funktionen für Veranstalter}
 \begin{itemize}
-\item[VF11] Dem angemeldetem Veranstalter werden bei eigenen zukünftigen Veranstaltungen die Anzahl der Schüler, welche sich über die App im Voraus angemeldet haben, angezeigt.
-\item[VF21] Der angemeldete Veranstalter kann sich eine Bestenliste seiner eigenen Veranstaltungen nach Anzahl der Teilnehmer oder Bewertung anzeigen lassen.
+\item[VF40] Dem angemeldetem Veranstalter werden bei eigenen zukünftigen Veranstaltungen die Anzahl der Schüler, welche sich über die App im Voraus angemeldet haben, angezeigt.
+\item[VF50] Der angemeldete Veranstalter kann sich eine Bestenliste seiner eigenen Veranstaltungen nach Anzahl der Teilnehmer oder Bewertung anzeigen lassen.
 \end{itemize}
 
 \section{Nichtfunktionale Anforderungen}
 \subsection{Muss-Ziele}
 \subsubsection*{Nutzung}
 \begin{itemize}
-\item[NF1] Die Oberfläche und Bedienung der App sollte einfach und intuitiv sein, damit auch nicht Technik affine Veranstalter sowie Schüler sie bedienen können.
-\item[NF11] Der ID-Scanner soll zuverlässig und schnell arbeiten, so dass es Sinn macht, die ID nicht per Hand einzugeben.
-\item[NF21] Ein Benutzer kann sich auf mehreren Geräten gleichzeitig anmelden.
+\item[NF00] Die Oberfläche und Bedienung der App sollte einfach und intuitiv sein, damit auch nicht Technik affine Veranstalter sowie Schüler sie bedienen können.
+\item[NF10] Der ID-Scanner soll zuverlässig und schnell arbeiten, so dass es Sinn macht, die ID nicht per Hand einzugeben.
+\item[NF20] Ein Benutzer kann sich auf mehreren Geräten gleichzeitig anmelden.
 \end{itemize}
 \subsubsection*{Datenübertragung}
 \begin{itemize}
-\item[DF1] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
-\item[DF11] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
+\item[DF00] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
+\item[DF10] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
 \end{itemize}
 \section{Qualitätsmatrix nach ISO 25010}
 \begin{tabular}{|l|l|}
