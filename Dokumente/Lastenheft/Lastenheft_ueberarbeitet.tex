@@ -68,9 +68,14 @@ Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch impl
 %AF steht für Anmeldefunktion
 \item[AF010] Der Benutzer wird beim erstmaligem Start der App oder wenn keine gespeicherten Anmeldedaten vorliegen aufgefordert sich zu identifizieren.\par
 Schüler geben dazu lediglich ihre ID ein oder Scannen diese. Ist die eingegebene ID im System nicht vorhanden, wird zur erneuten Eingabe aufgefordert.\par
-Für Veranstalter gibt es eine Schaltfläche, durch  welche die App in den Veranstaltermodus wechselt. Hier muss sich der Veranstalter mit E-Mail und Passwort anmelden.
-\item[AF020] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
-\item[AF030]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.
+Für Veranstalter gibt es eine Schaltfläche, durch  welche die App in den Veranstaltermodus wechselt.
+\item[AF020] Ein Veranstalter muss zum Anmelden seine E-Mail-Adresse eingeben, diese wird an den Server übertragen, welcher bestätigen muss, dass die Adresse zu einem Veranstalter gehört. Der Server verfügt dazu über eine Liste von E-Mail-Adressen die zu Veranstaltern gehören.\par
+Ist die eingegebene E-Mail-Adresse in dieser Liste enthalten, erzeugt die App lokal ein Schlüsselpaar aus private und public key und sendet den public key an den Server. Der Server sendet an die E-Mail-Adresse automatisch eine E-Mail die einen Bestätigungslink enthält. Der Veranstalter muss diesen aufrufen. Dadurch wird der public key freigegeben, so dass sich die App des Veranstalters mit diesem authentifizieren kann.\par 
+Zu einem Veranstalten können mehrere Schlüssel (pro Gerät einer) gehören.
+\item[AF030] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
+\item[AF040]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.\par 
+Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gelöscht, sondern zusammen mit der E-Mail-Adresse gespeichert, so dass beim erneuten anmelden nur diese Adresse erneut angegeben werden muss.
+\item[AF050] Für Veranstalter gibt es die Möglichkeit das für die Anmeldung verwendete Schlüsselpaar zu löschen. Dabei wird der Veranstalter abgemeldet.
 \end{itemize}
 \subsubsection*{Allgemeine Anzeigefunktionen der App}
 \begin{itemize}
@@ -130,7 +135,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \end{itemize}
 \subsubsection*{Datenübertragung}
 \begin{itemize}
-\item[DF010] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein.
+\item[DF010] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein. Die App kennt dabei bereits den public key des Servers. Für die Erstellung des Schlüsselpaares der App siehe AF020.
 \item[DF020] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
 \end{itemize}
 \section{Qualitätsmatrix nach ISO 25010}
@@ -182,6 +187,9 @@ Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht wei
 \sortitem[Backend] {Backende beschreibt das auf dem Server laufende Programm.}
 \sortitem[Trierer Zukunftsdiplom] {Ziel des Diploms ist die Sensibilisierung von Kindern im Alter von 6 bis 12 Jahren für Nachhaltigkeit. Von Mai bis September werden verschiedene, von unterschiedlichsten Anbietern ausgerichtete, Aktivitäten angeboten. Jedes Kind, das wenigstens 6 Veranstaltungen besucht kann im November sein Zukunfts-Diplom entgegennehmen.}
 \sortitem[Semantic Web] {Beim semantischen Web handelt es sich um eine Web-Technologie bei dem die Suchmaschinen Informationen zueinander in Beziehung setzen, sie eigenständig auswerten und aus ihnen eine Bedeutung entnehmen können.}
+\sortitem[private key]{Privater Schlüssel -- Teil eines Schlüsselpaares das nur dem Besitzer bekannt ist und mit dem durch den dazugehörigen public key verschlüsselte Daten entschlüsselt werden können.}
+\sortitem[public key] {Öffentlicher Schlüssel -- Teil eines Schlüsselpaares mit dem Nachrichten an den Besitzer dieses Schlüssels verschlüsselt werden können.}
+\sortitem[Bestätigungslink] {Personalisierte Webadresse bei deren Aufruf dem Server bestimmte Daten übersendet werden. Er wird oft zur Authentifizierung verwendet, indem er in E-Mails verschickt wird von denen man ausgeht, dass sie nur die betreffende Person lesen kann.}
 \end{sortedlist}
 
 \end{document}
