@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{scrpage2}
+
+\usepackage{cite}
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\today \\
+Christopher Pfeiffer
+}  
+\ohead{hg17b}
+\cfoot{\pagemark}
+
+\renewcommand*{\thesection}{\arabic{section}.}
+
+\begin{document}
+\subject{\vspace{-2cm}}
+\title{\vspace{-0.5em}Releaseplan}
+\subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
+\author{Christopher Pfeiffer\vspace{-0.5em}}%autor
+\date{\vspace{-0.5em}\today}
+\maketitle
+
+%\tableofcontents
+%\newpage
+\section{Release (Vorprojekt)}
+\paragraph{Termin:} 29.01.2018
+\subsection*{Beschreibung der umgesetzten Funktionalität}
+Die App soll Testdaten von Schülern vom Server abfragen und anzeigen können. Dazu soll der Server inklusive RDF-Store aufgesetzt sein und die Oberfläche für die Schülerseite der App fertig sein. Außerdem muss die App mit dem Server kommunizieren können. Die Eingabe der Schüler-ID soll erst einmal über ein normales Eingabefeld geschehen.
+\paragraph{Dazugehöriges Arbeitspaket aus Projektplan:}
+
+\section{Release}%2
+\paragraph{Termin:} 16.02.2018
+\subsection*{Beschreibung der umgesetzten Funktionalität}
+Die Veranstalterseite der App soll (noch ohne sichere Anmeldefunktion) fertiggestellt sein und Informationen für einen Veranstalter anzeigen können. Dazu soll der Zugriff auf die Veranstaltungsdatenbank integriert werden.\\
+Als zusätzliches Kann-Ziel sollen Einstellungen zur Personalisierung der App hinzugefügt werden.
+\paragraph{Dazugehöriges Arbeitspaket aus Projektplan:}
+ 
+\section{Release}%3
+\paragraph{Termin:} 12.03.2018
+\subsection*{Beschreibung der umgesetzten Funktionalität}
+Anmeldefunktionen für die Veranstalter sollen hinzugefügt werden. Dies beinhaltet die automatische Erstellung von Schlüsselpaaren durch die App, sowie die Möglichkeit zur Verifizierung mittels Bestätigungs-E-Mail. Dazu muss der Server zusätzlich E-Mails versenden können.
+\paragraph{Dazugehöriges Arbeitspaket aus Projektplan:}
+
+\section{Release}%4
+\paragraph{Termin:} 26.03.2018
+\subsection*{Beschreibung der umgesetzten Funktionalität}
+Der Scanner zum scannen von IDs soll eingefügt werden. Außerdem soll die App als Gesamtheit auf Stabilität und Erfüllung der notwendigen Funktionen getestet werden.\\
+Als zusätzliches Kann-Ziel sollen sich Schüler im Voraus für Veranstaltungen anmelden können und dies den Veranstaltern angezeigt werden.
+\paragraph{Dazugehöriges Arbeitspaket aus Projektplan:} 
+
+\section{Release}%5
+\paragraph{Termin:} 05.04.2018
+\subsection*{Beschreibung der umgesetzten Funktionalität}
+Die Dokumentation der App soll finalisiert werden und die im Bereich des 4. Releases gefundenen Fehler sollen behoben werden. Die App soll bereit für den realen Einsatz sein.
+\paragraph{Dazugehöriges Arbeitspaket aus Projektplan:} 
+
+\end{document}
