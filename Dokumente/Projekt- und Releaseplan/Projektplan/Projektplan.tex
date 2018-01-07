@@ -10,70 +10,63 @@
 \pagestyle{scrheadings}
 \clearscrheadfoot
 \ihead{\today \\
-Marcel Herhold, Roland Mueller
+Marcel Herhold, Roland Mueller, Christopher Pfeiffer
 }  
 \ohead{hg17b}
 \cfoot{\pagemark}
 
-\renewcommand*{\thesection}{\arabic{section}.}
+\renewcommand*{\thesubsection}{\arabic{subsection}. Arbeitspaket:}
 
 \begin{document}
 \subject{\vspace{-2cm}}
 \title{\vspace{-0.5em}Projektplan}
 \subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
-\author{Marcel Herhold, Roland Mueller\vspace{-0.5em}}%autor
+\author{Marcel Herhold, Roland Mueller, Christopher Pfeiffer\vspace{-0.5em}}%autor
 \date{\vspace{-0.5em}\today}
 \maketitle
 
 %\tableofcontents
 %\newpage
-\section{Arbeitspaket 1}
-\subsection*{Benutzeroberfläche Schüler (10\%)}
+\section{Einleitung}
+Die Entwicklung der Anwendung kann grob in die zwei Bereiche Frontend (umfasst die App mit allen ihren Funktionalitäten) und Backend (umfasst die nötige Serverinfrastruktur und die Kommunikation zwischen App und Server) gegliedert werden. Die Arbeitspakete in die sich die Entwicklung dieser beiden Bereiche untergliedert sind im folgenden aufgelistet und beschrieben. Arbeitspakete mit einem * gehören dabei rein zu Kann-Zielen.
+\section{Frontend}
+\subsection{Benutzeroberfläche Schüler (12\%)}
 
-Die Schülerseite der App soll nach dem einscannen oder eintippen einer ID anzeigen an welchen Events der Schüler teilgenommen hat , an wie viele er insgesamt Teilgenommen hat, seinen Rang in der Bestenliste sowie die Top 10 der Rangliste. Die Schüler sollen auch sehen können an welchen Events sie bereit Teilgenommen haben. Als kann Ziele soll zusätzlich die Möglichkeit bestehen sind für Events vorab anzumelden sowie eine Bewertungsfunktion für besuchte Events.
+Die Schülerseite der App soll nach dem eingeben einer ID anzeigen an wie vielen Events der Schüler teilgenommen und wie viele Punkte er erreicht hat, seinen Rang und die Top 10 der Rangliste, sowie eine Liste der zukünftigen Veranstaltungen.\\
+Als Kann-Ziel soll die App personalisiert werden können.
 
-\section{Arbeitspaket 2}
-\subsection*{Benutzeroberfläche Veranstalter  (10\%)}
+\subsection{Benutzeroberfläche Veranstalter  (12\%)}
 
-Die Veranstalterseite soll über eine Anmeldung mittels SSH-Key geschehen , darin soll es ein Menü geben welches dem Veranstalter eine Liste seiner eigenen Events gibt sowie die Möglichkeit des Veranstalters eingescannte IDs diesen Events zuzuordnen um anzuzeigen wer daran teilgenommen hat. Die Veranstalter sollen außerdem sehen können wie viele Schüler an ihren Events teilgenommen haben.  Als evtl Zusatzleistungen soll der Veranstalter sehen können wie viele Schüler sich für ihre kommenden Event angemeldet haben und außerdem die Bewertung ihrer Events durch die Schüler.
+In die Veranstalterseite der App soll man sich mittels E-Mail-Adresse anmelden können. Darin soll dem Veranstalter eine Liste seiner eigenen Events angezeigt werden sowie die Möglichkeit bestehen IDs für diesen Events einzugeben. Die Veranstalter sollen außerdem sehen können wie viele Schüler an ihren Events teilgenommen haben.
 
-\section{Arbeitspaket 3}
-\subsection*{Server (20\%)}
+\subsection{Coderscanner (11\%)}
 
-In diesem Arbeitspaket soll alles grundlegende des Servers eingerichtet werden um in einem späteren Arbeitspaket dann den RDF-Store sowie den E-mail Service für die Bestätigungsmails. Dazu muss der Server eingerichtet werden und die Schnittstellen für die Kommunikation mit der App vorbereitet werden.
+Mit dem Codescanner soll es dem Veranstaltern möglich sein schnell und bequem alle zu ihren Veranstaltungen kommenden Schüler/innen im System einzutragen (die ID von ihnen zu scannen). Außerdem sollen ihn die Schüler zum Anmelden nutzen können, indem sie ihre ID nicht eintippen müssen, sondern scannen können.
 
-\section{Arbeitspaket 4}
-\subsection*{RDF-Store (10\%)}
+\subsection{Bewertung von Veranstaltungen (10\%)*}
+Die Schüler sollen Veranstaltungen an denen sie teilgenommen haben, bewerten können. Die Veranstalten können diese Bewertung einsehen und sich eine nach Bewertung sortierte Bestenliste ihrer Veranstaltungen anzeigen lassen können.
 
-Der RDF-Store der in diesem Arbeitspaket entsteht soll die Daten der Schüler speichern dazu gehören die IDs der Schüler , an welchen Events sie Teilgenommen haben , aus welchem Jahr sie sind , ihre bisherigen Punkte und somit auch ihren Platz in der Bestenliste und evtl auch an welchen Events sie noch Teilnehmen wollen. Außerdem soll hier auch alle Events und ihre Veranstalter gespeichert werden um schnell darauf zugreifen zu können sowie um die Punkte die diese Veranstaltungen wert sind hinterlegt zu haben.
+\subsection{Voranmeldung zu Veranstaltungen (5\%)*}
+Die Schüler sollen über die App die Möglichkeit haben im Voraus ihr Interesse für eine Veranstaltung zu bekunden bzw. sich anzumelden. Den Veranstaltern wird die Anzahl der Schüler die sich angemeldet haben, bei ihren eigenen Veranstaltungen angezeigt, so dass sie sich auf die entsprechende Anzahl an Schülern vorbereiten können.
 
-\section{Arbeitspaket 5}
-\subsection*{Kommunikation mit dem Server (30\%)}
+\subsection{Anmeldung 20\%)}
 
-Im fünften Arbeitspaket soll die Schnittstelle zwischen dem Server und der App hergestellt werden. Der Server muss hierbei zwischen einer Anfrage der Schülerseite und der Veranstalterseite unterscheiden können um die richtigen Daten herauszugeben bzw zu verändern. Damit die App gegen Downtimes des Servers geschützt ist sollen hier auch bei der App Daten zwischengespeichert werden die dann wenn der Server wieder funktioniert an diesen gesendet werden können.
-
-\section{Arbeitspaket 6}
-\subsection*{Coderscanner (5\%)}
-
-Im Arbeitspaket 6 soll der Codescanner realisiert werden. Mit diesem soll es dem Veranstaltern möglich sein schnell und bequem alle zu ihren Veranstaltungen kommenden Schüler/innen im System einzutragen (die ID von ihnen zu scannen).
-
-\section{Arbeitspaket 7}
-\subsection*{Anmeldung (45\%)}
-
+Für die Schüler besteht die Anmeldung in der App lediglich in der Eingabe ihrer ID.\par
+Ein Veranstalter soll zur Anmeldung seine E-Mail-Adresse eingeben können und zur Verifikation einen Bestätigungslink per E-Mail bekommen. Die Kommunikation der App mit dem Server soll für Veranstalter verschlüsselt erfolgen. Dazu kann die App einen ssh-Key generieren und den public key an den Server schicken.
   
-  
-\section{Arbeitspaket 8}
-\subsection*{Schlüsselgeneration (5\%)}
 
- Im achten Arbeitspaket soll die App einen ssh-Key erzeugen können und den public key an den Server schicken.
-  
-\section{Arbeistpaket 9}
-\subsection*{Speicherung der Schlüssel des Veranstalters (5\%)} 
+\section{Backend}
+\setcounter{subsection}{6}
+\subsection{Erreichbarkeit des Servers (15\%)}
 
+Der Server soll aufgesetzt werden und mittels http-Aufrufen erreichbar sein. Die App kann von ihm Daten, wie die Punktzahl eines Schülers oder die Veranstaltungen eines Veranstalters, die in ihr angezeigt werden sollen abrufen. Die Daten werden auf der App für den Fall, dass der Server einmal nicht erreichbar ist, lokal gespeichert.
 
+\subsection{RDF-Store (10\%)}
+Der Server soll einen lokalen RDF Triple Store besitzen, welcher die Daten der zu den IDs der Schüler ihre bisherige Punktzahl und an welchen Events sie teilgenommen haben speichert. 
+Außerdem soll er auch zugriff auf alle Events (Name, Datum, Punktzahl,...) und ihre Veranstalter haben.
 
-\section{Arbeistpaket 10}
-\subsection*{E-Mail-Service für Bestätigungsmails (10\%)}
+\subsection{E-Mail-Service für Bestätigungsmails und Schlüsselverwaltung (20\%)}
+Der Server muss zu jedem Veranstalter eine Liste an pubic keys speichern und verwalten. Zur Verifikation bei der Anmeldung soll an die Veranstalter eine E-Mail mit Bestätigungslink gesendet werden. Dazu soll auf dem Server ein Mailservice eingerichtet werden. Der Server soll selbstständig Bestätigungslinks generieren und versenden können.
 
       
 
