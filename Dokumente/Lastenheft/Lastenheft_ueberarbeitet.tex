@@ -51,14 +51,14 @@ M. Herhold, C. Pfeiffer, N. Kortenbruck, J. Dietz, R. Mueller, M. Rudolph
 \newpage
 
 \section{Ausgangssituation}
-Innerhalb des nächsten Jahres sollen Schüler/innen von Leipziger Schulen  für Zukunftsthemen im außerunterrichtlichen Bereich sensibilisiert werden. Vorbild ist dabei das Trierer Zukunftsdiplom. Dabei sollen interessierte Schüler/innen einen Zukunftspass erhalten der eine ID zur eindeutigen Identifizierung beinhaltet. Die Zuordnung zum Namen ist nur der jeweiligen Schule bekannt. Schüler die an einer gewissen Mindestanzahl an Veranstaltungen teilgenommen haben, sollen am Ende eine Auszeichnung bekommen. \\
-Bisher gibt es bereits Ferienpässe, jedoch existiert im Moment noch keine digitale Struktur um eine die schnelle Erfassung der Teilnehmer einer Veranstaltung zu Realisieren. 
-Eine solche soll nun Rund um nachhaltiges-leipzig.de (welches Veranstalter und Events erfasst) erstellt werden.
+Innerhalb des nächsten Jahres sollen Schüler/innen von Leipziger Schulen  für Zukunftsthemen im außerunterrichtlichen Bereich sensibilisiert werden. Vorbild ist dabei das Trierer Zukunftsdiplom. Dabei sollen interessierte Schüler/innen einen Zukunftspass erhalten, der eine ID zur eindeutigen Identifizierung beinhaltet. Die Zuordnung zum Namen ist nur der jeweiligen Schule bekannt. Schüler die an einer gewissen Mindestanzahl an Veranstaltungen teilgenommen haben, sollen am Ende eine Auszeichnung bekommen. \\
+Bisher gibt es bereits Ferienpässe, jedoch existiert im Moment noch keine digitale Struktur um eine schnelle Erfassung der Teilnehmer/innen einer Veranstaltung zu Realisieren. 
+Eine solche soll nun rund um nachhaltiges-leipzig.de (welches Veranstalter und Events erfasst) erstellt werden.
 \section{Zielsetzung und Produkteinsatz}
 
-Im Rahmen des Projektes soll eine App entwickelt werden über der sich die Schüler durch Eingabe oder Scannen ihrer IDs anschauen können an wie vielen Events sie teilgenommen haben sowie eine Liste von weiteren Events haben.\\
-Gleichzeitig soll es eine Möglichkeit für Veranstalter geben sich bei dieser App anzumelden um somit Teilnehmer ihrer Events zu erfassen, damit im System eingetragen werden kann das die Person zu diesem Event anwesend war. Dazu sollen die IDs auf den Ausweise der Schüler vom Veranstalter über die App gescannt werden könne.\\ 
-Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch implementiert werden. Die App soll als Android App auf Basis des Android SDKs entwickelt werden.
+Im Rahmen des Projektes soll eine App entwickelt werden, über die sich die Schüler, durch Eingabe oder Scannen ihrer IDs, anschauen können an wie vielen Events sie teilgenommen haben. Außerdem soll eine Liste von weiteren Events einsehbar sein.\\
+Gleichzeitig soll es eine Möglichkeit für Veranstalter geben sich bei dieser App anzumelden um somit Teilnehmer ihrer Events zu erfassen, damit im System eingetragen werden kann, dass die Person zu diesem Event anwesend war. Dazu sollen die IDs auf den Ausweisen der Schüler vom Veranstalter über die App gescannt werden können.\\ 
+Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch implementiert werden. Die App soll als Android App, auf Basis des Android SDKs entwickelt, werden.
 
 \section{Funktionale Anforderungen}
 
@@ -69,9 +69,9 @@ Des Weiteren soll die dazu nötige Infrastruktur entworfen und prototypisch impl
 \item[AF010] Der Benutzer wird beim erstmaligem Start der App oder wenn keine gespeicherten Anmeldedaten vorliegen aufgefordert sich zu identifizieren.\par
 Schüler geben dazu lediglich ihre ID ein oder Scannen diese. Ist die eingegebene ID im System nicht vorhanden, wird zur erneuten Eingabe aufgefordert.\par
 Für Veranstalter gibt es eine Schaltfläche, durch  welche die App in den Veranstaltermodus wechselt.
-\item[AF020] Ein Veranstalter muss zum Anmelden seine E-Mail-Adresse eingeben, diese wird an den Server übertragen, welcher bestätigen muss, dass die Adresse zu einem Veranstalter gehört. Der Server verfügt dazu über eine Liste von E-Mail-Adressen die zu Veranstaltern gehören.\par
-Ist die eingegebene E-Mail-Adresse in dieser Liste enthalten, erzeugt die App lokal ein Schlüsselpaar aus private und public key und sendet den public key an den Server. Der Server sendet an die E-Mail-Adresse automatisch eine E-Mail die einen Bestätigungslink enthält. Der Veranstalter muss diesen aufrufen. Dadurch wird der public key freigegeben, so dass sich die App des Veranstalters mit diesem authentifizieren kann.\par 
-Zu einem Veranstalten können mehrere Schlüssel (pro Gerät einer) gehören.
+\item[AF020] Ein Veranstalter muss zum Anmelden seine E-Mail-Adresse eingeben. Diese wird an den Server übertragen, welcher bestätigen muss, dass die Adresse zu einem Veranstalter gehört. Der Server verfügt dazu über eine Liste von E-Mail-Adressen, die zu Veranstaltern gehören.\par
+Ist die eingegebene E-Mail-Adresse in dieser Liste enthalten, erzeugt die App lokal ein Schlüsselpaar aus private und public key und sendet den public key an den Server. Der Server sendet an die E-Mail-Adresse automatisch eine E-Mail, die einen Bestätigungslink enthält. Der Veranstalter muss diesen aufrufen. Dadurch wird der public key freigegeben, so dass sich die App des Veranstalters mit diesem authentifizieren kann.\par 
+Zu einem Veranstalter können mehrere Schlüssel (pro Gerät einer) gehören.
 \item[AF030] Die Anmeldedaten werden gespeichert. Die App nutzt beim nächsten Neustart die gespeicherten Anmeldedaten.
 \item[AF040]Ist der Benutzer angemeldet, hat er über das Menü die Funktion sich abzumelden. Dadurch werden die gespeicherten Anmeldedaten zurückgesetzt und der zur Anmeldung auffordernde Startbildschirm wird angezeigt. So kann die App von mehreren Benutzern auf dem selben Gerät verwendet werden.\par 
 Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gelöscht, sondern zusammen mit der E-Mail-Adresse gespeichert, so dass beim erneuten anmelden nur diese Adresse erneut angegeben werden muss.
@@ -87,7 +87,7 @@ Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gel�
 %SF steht für Schülerfunktion
 \item[SF010] Ein angemeldeter Schüler kann seine persönliche Statistik (Anzahl besuchter Veranstaltungen) einsehen.
 \item[SF020] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
-Dabei soll diese Anzeige bei einer Veranstaltung anstatt des physischen Passes eingescannt werden können.
+Dabei soll diese Anzeige bei einer Veranstaltung, anstatt des physischen Passes, eingescannt werden können.
 \item[SF030] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
 \end{itemize}
 \subsubsection*{Funktionen für Veranstalter}
@@ -154,7 +154,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \section{Lieferumfang und Abnahmekriterien}
 \subsection{Lieferumfang}
 \paragraph{Front-End} Wir liefern eine Android-App, welche gleichermaßen von Schülern und Veranstaltern genutzt werden kann.
-\paragraph{Back-End} Wir erstellen eine Datenbank im RDF-Format zum Speichern der Teilnehmer in Form von anonymen IDs, deren besuchte Veranstaltungen und eventuell ihrer Punktestände, auf die die App zugreifen kann. Für die Anbindung wird auf dem Server TDB und Fuseki aus dem Apache Jena Framework verwendet. TDB dient dabei als (lokaler) Triple Store, der mittels Fuseki über HTTP als eingebetteter SPARQL Endpunkt erreichbar ist. Zunächst wird diese Datenbank auf dem Praktikumsserver implementiert. Später soll jedoch die Möglichkeit bestehen, die Datenbank auf einen anderen Server zu verschieben.
+\paragraph{Back-End} Wir erstellen eine Datenbank im RDF-Format zum Speichern der Teilnehmer in Form von anonymen IDs, deren besuchten Veranstaltungen und eventuell ihrer Punktestände, auf die die App zugreifen kann. Für die Anbindung wird auf dem Server TDB und Fuseki aus dem Apache Jena Framework verwendet. TDB dient als (lokaler) Triple Store, der mittels Fuseki über HTTP als eingebetteter SPARQL Endpunkt erreichbar ist. Zunächst wird diese Datenbank auf dem Praktikumsserver implementiert. Später soll jedoch die Möglichkeit bestehen, die Datenbank auf einen anderen Server zu verschieben.
 \paragraph{Dokumentation} Das Projekt wird dokumentiert, sowohl um den Endnutzern die Bedienung zu erleichtern, als auch um die Weiterentwicklung durch andere Entwickler zu vereinfachen.
 Die Dokumentation soll in Form von Kommentaren im Quellcode bzw. Javadoc sowie als PDF-Dateien erzeugt werden.
 \subsection{Abnahmekriterien}
