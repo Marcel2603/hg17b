@@ -81,6 +81,9 @@ Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gel�
 \begin{itemize}
 %GF=Generelle Funktionen
 \item[GF010] Die App kann bietet dem Nutzer die Möglichkeit, sich die Termine der nächsten Veranstaltungen anzeigen zu lassen. 
+\item[GF020] Es werden Kampagnen-Tags genutzt um das jeweilige Jahr zu bestimmen. D.h. der Zeitraum in dem Schüler Veranstaltungen besuchen und Punkte sammeln können, um ein Diplom zu bekommen, wird begrenzt und mit einem Tag versehen. Sodass nach Ablauf der Kampagne erhobene Daten zurückgesetzt oder ausgelagert werden können.
+\item[GF030] Die Server der Anwendung werden eine geplante Downtime besitzen, in der die Server offline gehen um bestimmte Wartungsarbeiten o.ä. durchzuführen. 
+\item[GF040] Des Weiteren hat die App einen Offline Modus. Hier können entweder die zuletzt gültigen Daten eingesehen werden (von den Schülern), oder auch ID's eingescannt werden vom Veranstalter. Diese Daten werden zunächst lokal gespeichert und aktualisiert sobald eine Verbindung zu den Servern hergestellt wurde.
 \end{itemize}
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
@@ -89,6 +92,7 @@ Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gel�
 \item[SF020] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
 Dabei soll diese Anzeige bei einer Veranstaltung, anstatt des physischen Passes, eingescannt werden können.
 \item[SF030] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
+\item[SF040] Ein Schüler erhält pro besuchte Veranstaltung einen Punkt (nach scannen seiner ID). Diese werden fortlaufend aufsummiert und bilden seinen Highscore.
 \end{itemize}
 \subsubsection*{Funktionen für Veranstalter}
 \begin{itemize}
@@ -110,6 +114,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \item[EF120] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
 \item[EF130] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
 \item[EF140] Die Punkte werden nach Ablauf eines Aktionszeitraumes für das Zertifikat zurückgesetzt.
+\item[EF150] Die Punkte die ein Schüler für eine besuchte Veranstaltung erhält werden nach (Zeit-)Aufwand gewichtet.
 \end{itemize}
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
@@ -166,11 +171,12 @@ Alternativ kann die ID manuell eingegeben werden.
 \item Darstellung von Informationen und Komponenten der Software für Entwickler mit verschiedenen Detaillierungsgraden
 \item Anforderungen und Entscheidungen während der Entwicklung für nachhaltige Kommunikation über den Kontext der Entwicklung
 \end{itemize}
+
 \section{Vorprojekt}
 Als Vorprojekt soll eine Vorab Version der App konstruiert werden, die bereits einige der Muss-Ziele umgesetzt hat und zeigt dass diese funktionieren. \\
 Als Erstes soll die Benutzeroberfläche bis dato größtenteils fertig sein und zeigen wie das Team die App designen möchte. \\
-Des Weiteren soll die „Schüler-Seite“ mit Ihren wichtigsten Funktionen entwickelt worden sein. Die App soll eine ID einscannen können (alternativ muss diese eingetippt werden) und anschließend feststellen ob diese bereits in der Datenbank vorhanden ist. Falls die ID unbekannt ist, so soll ein Fehler angezeigt werden. Andernfalls sollen der ID die jeweiligen Werte(z.B. Highscore) zugeordnet werden können. Dazu wird eine Test-Datenbank entworfen welche einige manuell erstellte Datensätze enthält. Diese sollen testweise angezeigt werden, wenn die entsprechende ID erkannt wurde(bzw. hinterlegt ist). Und man sollte neben dem Punktestand  auch seinen Platz in einer Rangliste sehen können, verglichen mit anderen IDs. \newline
-Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht weiter eingegangen werden. 
+Des Weiteren soll die „Schüler-Seite“ mit Ihren wichtigsten Funktionen entwickelt worden sein. Die App soll eine ID erkennen können (diese muss eingetippt werden) und anschließend feststellen ob diese bereits in der Datenbank vorhanden ist[AF010]. Falls die ID unbekannt ist, so soll ein Fehler angezeigt werden. Andernfalls sollen der ID die jeweiligen Werte(z.B. Highscore) zugeordnet und angezeigt werden können[SF010/SF020]. Dazu wird eine Test-Datenbank entworfen welche einige manuell erstellte Datensätze enthält. Diese sollen testweise angezeigt werden, wenn die entsprechende ID erkannt wurde(bzw. hinterlegt ist). Und man sollte neben dem Punktestand  auch seinen Platz in einer Rangliste sehen können, verglichen mit anderen IDs [SF030]. \newline
+Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht weiter eingegangen werden.  
 
 
 \section{Glossar}
