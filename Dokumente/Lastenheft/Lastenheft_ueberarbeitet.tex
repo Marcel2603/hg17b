@@ -155,8 +155,7 @@ Alternativ kann die ID manuell eingegeben werden.
 \subsection{Lieferumfang}
 \paragraph{Front-End} Wir liefern eine Android-App, welche gleichermaßen von Schülern und Veranstaltern genutzt werden kann.
 \paragraph{Back-End} Wir erstellen eine Datenbank im RDF-Format zum Speichern der Teilnehmer in Form von anonymen IDs, deren besuchten Veranstaltungen und eventuell ihrer Punktestände, auf die die App zugreifen kann. Für die Anbindung wird auf dem Server TDB und Fuseki aus dem Apache Jena Framework verwendet. TDB dient als (lokaler) Triple Store, der mittels Fuseki über HTTP als eingebetteter SPARQL Endpunkt erreichbar ist. Zunächst wird diese Datenbank auf dem Praktikumsserver implementiert. Später soll jedoch die Möglichkeit bestehen, die Datenbank auf einen anderen Server zu verschieben.
-\paragraph{Dokumentation} Das Projekt wird dokumentiert, sowohl um den Endnutzern die Bedienung zu erleichtern, als auch um die Weiterentwicklung durch andere Entwickler zu vereinfachen.
-Die Dokumentation soll in Form von Kommentaren im Quellcode bzw. Javadoc sowie als PDF-Dateien erzeugt werden.
+\paragraph{Dokumentation} Für Schüler und Veranstalter soll es eine Webseite geben auf der die Bedienung der App erklärt wird. Für den Plattformbetreiben soll es neben der Entwurfsdokumentation eine PDF-Datei, die die Handhabung der Datenbank erläutert, geben. Des weiteren soll der Quellcode für die Weiterentwicklung durch andere Entwickler kommentiert und zusammen mit einer Javadoc vorliegen.
 \subsection{Abnahmekriterien}
 \paragraph{Front-End} Die Android-App muss auf jedem aktuellen Android Gerät installiert werden können und stabil laufen. Alle oben genannten Muss-Ziele sind zu erfüllen.
 \paragraph{Back-End} Die Datenbank muss in der Lage sein, Daten sowohl über die App zu beziehen, als auch mit den Informationen der bereits bestehenden Primärplattformen zu arbeiten. 
