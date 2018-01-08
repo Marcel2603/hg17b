@@ -30,12 +30,12 @@ Marcel Herhold, Roland Mueller, Christopher Pfeiffer
 \section{Einleitung}
 Die Entwicklung der Anwendung kann grob in die zwei Bereiche Frontend (umfasst die App mit allen ihren Funktionalitäten) und Backend (umfasst die nötige Serverinfrastruktur und die Kommunikation zwischen App und Server) gegliedert werden. Die Arbeitspakete in die sich die Entwicklung dieser beiden Bereiche untergliedert sind im folgenden aufgelistet und beschrieben. Arbeitspakete mit einem * gehören dabei rein zu Kann-Zielen.
 \section{Frontend}
-\subsection{Benutzeroberfläche Schüler (12\%)}
+\subsection{Benutzeroberfläche Schüler (10\%)}
 
 Die Schülerseite der App soll nach dem eingeben einer ID anzeigen an wie vielen Events der Schüler teilgenommen und wie viele Punkte er erreicht hat, seinen Rang und die Top 10 der Rangliste, sowie eine Liste der zukünftigen Veranstaltungen.\\
 Als Kann-Ziel soll die App personalisiert werden können.
 
-\subsection{Benutzeroberfläche Veranstalter  (12\%)}
+\subsection{Benutzeroberfläche Veranstalter  (10\%)}
 
 In die Veranstalterseite der App soll man sich mittels E-Mail-Adresse anmelden können. Darin soll dem Veranstalter eine Liste seiner eigenen Events angezeigt werden sowie die Möglichkeit bestehen IDs für diesen Events einzugeben. Die Veranstalter sollen außerdem sehen können wie viele Schüler an ihren Events teilgenommen haben.
 
@@ -49,7 +49,7 @@ Die Schüler sollen Veranstaltungen an denen sie teilgenommen haben, bewerten k�
 \subsection{Voranmeldung zu Veranstaltungen (5\%)*}
 Die Schüler sollen über die App die Möglichkeit haben im Voraus ihr Interesse für eine Veranstaltung zu bekunden bzw. sich anzumelden. Den Veranstaltern wird die Anzahl der Schüler die sich angemeldet haben, bei ihren eigenen Veranstaltungen angezeigt, so dass sie sich auf die entsprechende Anzahl an Schülern vorbereiten können.
 
-\subsection{Anmeldung 20\%)}
+\subsection{Anmeldung (20\%)}
 
 Für die Schüler besteht die Anmeldung in der App lediglich in der Eingabe ihrer ID.\par
 Ein Veranstalter soll zur Anmeldung seine E-Mail-Adresse eingeben können und zur Verifikation einen Bestätigungslink per E-Mail bekommen. Die Kommunikation der App mit dem Server soll für Veranstalter verschlüsselt erfolgen. Dazu kann die App einen ssh-Key generieren und den public key an den Server schicken.
@@ -65,7 +65,7 @@ Der Server soll aufgesetzt werden und mittels http-Aufrufen erreichbar sein. Die
 Der Server soll einen lokalen RDF Triple Store besitzen, welcher die Daten der zu den IDs der Schüler ihre bisherige Punktzahl und an welchen Events sie teilgenommen haben speichert. 
 Außerdem soll er auch zugriff auf alle Events (Name, Datum, Punktzahl,...) und ihre Veranstalter haben.
 
-\subsection{E-Mail-Service für Bestätigungsmails und Schlüsselverwaltung (20\%)}
+\subsection{E-Mail-Service für Bestätigungsmails und Schlüsselverwaltung (24\%)}
 Der Server muss zu jedem Veranstalter eine Liste an pubic keys speichern und verwalten. Zur Verifikation bei der Anmeldung soll an die Veranstalter eine E-Mail mit Bestätigungslink gesendet werden. Dazu soll auf dem Server ein Mailservice eingerichtet werden. Der Server soll selbstständig Bestätigungslinks generieren und versenden können.
 
       
