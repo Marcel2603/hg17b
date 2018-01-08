@@ -77,22 +77,25 @@ Zu einem Veranstalter können mehrere Schlüssel (pro Gerät einer) gehören.
 Die bei der Anmeldung eines Veranstalters erzeugten Schlüssel werden nicht gelöscht, sondern zusammen mit der E-Mail-Adresse gespeichert, so dass beim erneuten anmelden nur diese Adresse erneut angegeben werden muss.
 \item[AF050] Für Veranstalter gibt es die Möglichkeit das für die Anmeldung verwendete Schlüsselpaar zu löschen. Dabei wird der Veranstalter abgemeldet.
 \end{itemize}
-\subsubsection*{Allgemeine Anzeigefunktionen der App}
+\subsubsection*{Generelle Funktionen der App}
 \begin{itemize}
 %GF=Generelle Funktionen
 \item[GF010] Die App kann bietet dem Nutzer die Möglichkeit, sich die Termine der nächsten Veranstaltungen anzeigen zu lassen. 
-\item[GF020] Es werden Kampagnen-Tags genutzt um das jeweilige Jahr zu bestimmen. D.h. der Zeitraum in dem Schüler Veranstaltungen besuchen und Punkte sammeln können, um ein Diplom zu bekommen, wird begrenzt und mit einem Tag versehen. Sodass nach Ablauf der Kampagne erhobene Daten zurückgesetzt oder ausgelagert werden können.
-\item[GF030] Die Server der Anwendung werden eine geplante Downtime besitzen, in der die Server offline gehen um bestimmte Wartungsarbeiten o.ä. durchzuführen. 
-\item[GF040] Des Weiteren hat die App einen Offline Modus. Hier können entweder die zuletzt gültigen Daten eingesehen werden (von den Schülern), oder auch ID's eingescannt werden vom Veranstalter. Diese Daten werden zunächst lokal gespeichert und aktualisiert sobald eine Verbindung zu den Servern hergestellt wurde.
+\item[GF020] Für den Fall einer Downtime des Servers, besitzt die App einen Offline Modus. Hier können entweder die zuletzt gültigen Daten eingesehen werden (von den Schülern), oder auch ID's eingescannt werden vom Veranstalter. Diese Daten werden zunächst lokal gespeichert und aktualisiert sobald eine Verbindung zu den Servern hergestellt wurde.
+\end{itemize}
+\subsubsection*{Punktevergabe}
+\begin{itemize}
+\item[PF010] Für eine Veranstaltung soll es auch einen Punktwert geben. Standardmäßig soll dieser ein Punkt pro Veranstaltung betragen.
+\item[PF020] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
+\item[PF030] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
 \end{itemize}
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
 %SF steht für Schülerfunktion
 \item[SF010] Ein angemeldeter Schüler kann seine persönliche Statistik (Anzahl besuchter Veranstaltungen) einsehen.
-\item[SF020] Ein angemeldeter Schüler wird die eigene ID angezeigt. \par 
+\item[SF020] Einem angemeldeten Schüler wird die eigene ID angezeigt. \par 
 Dabei soll diese Anzeige bei einer Veranstaltung, anstatt des physischen Passes, eingescannt werden können.
-\item[SF030] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung (nach Anzahl besuchter Veranstaltungen), ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt.
-\item[SF040] Ein Schüler erhält pro besuchte Veranstaltung einen Punkt (nach scannen seiner ID). Diese werden fortlaufend aufsummiert und bilden seinen Highscore.
+\item[SF030] Ein angemeldeter Schüler kann eine Bestenliste, welche die Platzierung, ID und die Anzahl besuchter Veranstaltungen der besten 10 und des Schülers selbst anzeigt, einsehen.
 \end{itemize}
 \subsubsection*{Funktionen für Veranstalter}
 \begin{itemize}
@@ -104,18 +107,16 @@ Alternativ kann die ID manuell eingegeben werden.
 \end{itemize}
 
 \subsection{Kann-Ziele}
+\subsection*{Anmeldefunktionen}
+\begin{itemize}
+\item[AF110] Um eine Belastung durch unautorisierte Anmeldeversuche zu verhindern, soll die App erkennen, wenn in ihr gleiche E-Mail-Adresse mehrmals bei der Anmeldung als Veranstalter eingegeben wird und anstatt einen neuen Schlüssel zu erstellen, darauf hinweisen, dass bereits ein Bestätigungslink versendet wurde, solange dieser noch gültig ist.
+\item[AF120] Die Bestätigungslinks sind nur 24h gültig.
+\end{itemize}
 \subsubsection*{Generelle Funktionen}
 \begin{itemize}
 \item[GF110] Die App kann personalisiert werden. (Z.B. Hintergrundfarbe) 
 \end{itemize}
-\subsubsection*{Erweiterte Funktionen der Punktevergabe}
-\begin{itemize}
-\item[EF110] Für eine Veranstaltung soll es auch einen Punktwert geben.
-\item[EF120] Die erreichten Punkte werden bei der persönlichen Statistik und in der Bestenliste zusätzlich angezeigt.
-\item[EF130] Die Bestenliste für Schüler wird nach erreichten Punkten sortiert.
-\item[EF140] Die Punkte werden nach Ablauf eines Aktionszeitraumes für das Zertifikat zurückgesetzt.
-\item[EF150] Die Punkte die ein Schüler für eine besuchte Veranstaltung erhält werden nach (Zeit-)Aufwand gewichtet.
-\end{itemize}
+
 \subsubsection*{Funktionen für angemeldete Schüler}
 \begin{itemize}
 \item[SF110] Der angemeldete Schüler hat die Möglichkeit sich bereits im voraus unverbindlich für eine Veranstaltung anzumelden.
@@ -137,10 +138,11 @@ Alternativ kann die ID manuell eingegeben werden.
 \item[NF020] Der ID-Scanner soll zuverlässig und schnell arbeiten, so dass es Sinn macht, die ID nicht per Hand einzugeben.
 \item[NF030] Ein Benutzer kann sich auf mehreren Geräten gleichzeitig anmelden.
 \end{itemize}
-\subsubsection*{Datenübertragung}
+\subsubsection*{Datenübertragung und Speicherung}
 \begin{itemize}
 \item[DF010] Die Datenübertragung der Veranstalter Daten soll verschlüsselt sein. Die App kennt dabei bereits den public key des Servers. Für die Erstellung des Schlüsselpaares der App siehe AF020.
 \item[DF020] Es soll sichergestellt werden, dass gescannte Schüler auch bei nicht bestehender Internetverbindung als an der Veranstaltung teilgenommen eingetragen werden. In diesem Fall soll die Teilnehmerliste temporär lokal gespeichert werden und bei bestehender Internetverbindung übertragen werden.
+\item[DF030] Es werden Kampagnen-Tags genutzt um das jeweilige Jahr zu bestimmen. D.h. der Zeitraum in dem Schüler Veranstaltungen besuchen und Punkte sammeln können, um ein Diplom zu bekommen, wird begrenzt und mit einem Tag versehen. Sodass nach Ablauf der Kampagne erhobene Daten zurückgesetzt oder ausgelagert werden können.
 \end{itemize}
 \section{Qualitätsmatrix nach ISO 25010}
 \begin{tabular}{|l|l|}
@@ -193,7 +195,7 @@ Auf den „Veranstalter-Teil“ der App soll im Rahmen des Vorprojekts nicht wei
 \sortitem[private key]{Privater Schlüssel -- Teil eines Schlüsselpaares das nur dem Besitzer bekannt ist und mit dem durch den dazugehörigen public key verschlüsselte Daten entschlüsselt werden können.}
 \sortitem[public key] {Öffentlicher Schlüssel -- Teil eines Schlüsselpaares mit dem Nachrichten an den Besitzer dieses Schlüssels verschlüsselt werden können.}
 \sortitem[Schüler] {Der Schüler nimmt am Ferienpass teil. Er soll die App leicht bedienen können.}
-\sortitem[Veranstalter] {Der Veranstalter organisiert Freizeitaktivitäten für die Schüler. Er soll mit der App den Code des Schülers einscannen und seine Veranstaltungen registrieren können.}
+\sortitem[Veranstalter] {Der Veranstalter organisiert Freizeitaktivitäten für die Schüler. Er soll mit der App den Code des Schülers einscannen.}
 \end{sortedlist}
 
 \end{document}
