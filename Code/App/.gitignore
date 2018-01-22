@@ -1,0 +1,35 @@
+#compiled stuff
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+
+bin/
+gen/
+build/
+
+#gradle files
+.gradle/
+
+#local configs
+/local.properties
+
+
+#Adroid Studio
+*.iml
+.idea
+#/.idea/workspace.xml
+#/.idea/libraries
+.navigation
+/captures
+output.json
+
+
+.externalNativeBuild
+
+#OS-specific files
+.DS_Store
+Thumbs.db
