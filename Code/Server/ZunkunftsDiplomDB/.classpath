@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0.zip"/>
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/collection-0.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/commons-cli-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/commons-codec-1.11.jar"/>
