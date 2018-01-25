@@ -19,7 +19,8 @@ import android.widget.Toast;
 public class LogOut extends Fragment {
 
     private static final String TAG = "LogOut";
-    private Button btnLogOut;
+    public static Button btnLogOut;
+    public static boolean isclicked = false;
 
     public LogOut() {
         // Required empty public constructor
@@ -37,14 +38,20 @@ public class LogOut extends Fragment {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isclicked = true;
+                System.out.println(isclicked);
                 Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
+
+
                 Intent intent = new Intent(getActivity(), StartActivity.class);
+
                 startActivity(intent);
+
             }
         });
-
         return view;
     }
+
 
 
 }

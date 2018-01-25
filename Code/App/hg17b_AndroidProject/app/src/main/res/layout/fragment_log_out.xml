@@ -31,6 +31,7 @@
             android:background="@color/colorPrimaryDark"
             android:gravity="center_vertical|center"
             android:text="@string/btn_log_out"
+            android:onClick="onClick"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
