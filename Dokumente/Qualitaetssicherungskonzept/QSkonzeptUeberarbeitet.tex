@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{scrpage2}
+\usepackage{listings}
+ \usepackage{color}
+ \definecolor{middlegray}{rgb}{0.5,0.5,0.5}
+ \definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+ \definecolor{orange}{rgb}{0.8,0.3,0.3}
+ \definecolor{yac}{rgb}{0.6,0.6,0.1}
+
+%\usepackage{cite}
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\today \\
+Julian Dietz
+}  
+\ohead{hg17b}
+\cfoot{\pagemark}
+
+
+
+\begin{document}
+\lstset{language=Java,
+ basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{red},
+   stringstyle=\color{green}\ttfamily,
+   commentstyle=\color{middlegray}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   showstringspaces=false,
+   flexiblecolumns=false,
+   tabsize=2,
+   numbers=left,
+   numberstyle=\tiny,
+   numberblanklines=true,
+   stepnumber=1,
+   numbersep=10pt,
+   xleftmargin=15pt
+}
+\subject{\vspace{-2cm}}
+\title{\vspace{-0.5em}Qualitätssicherungskonzept}
+\subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
+\author{Julian Dietz\vspace{-0.5em}}%autor
+\date{\vspace{-0.5em}\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Dokumentationskonzept}
+Eine gute Dokumentation des Projektes hilft nicht nur unserer Gruppe beim verwirklichen des Projektes, sondern auch eventuellen zukünftigen Programmierern, die unsere App weiterentwickeln wollen. Die ausführliche Dokumentation erleichtert uns die Zusammenarbeit, da wir uns besser in den Quellcode der anderen einarbeiten können. \newline
+Im allgemeinen ist in unserer Gruppe jeder Programmierer für die Dokumentation seines Quellcodes selbst verantwortlich. Sämtliche Dokumentation und Namensvergabe im Quellcode erfolgt auf Englisch.
+
+\subsection{Coding Standard}
+Die Nutzung eines Coding Standards verbessert die Lesbarkeit und führt zu schnellerem Verständnis des Quellcodes. Wir nutzen die Java Code Conventions\footnote{http://www.oracle.com/technetwork/java/codeconventions-150003.pdf}, da wir hauptsächlich mit Java programmieren. Auch hier ist jeder Programmierer selbst in der Verantwortung sich an den Standard zu halten.
+
+\subsection{Interne Dokumentation}
+Kommentare im Quellcode sollen genutzt werden um eine Übersicht über den Code zu geben und zusätzliche Informationen zu liefern, welche nicht direkt aus dem Quellcode ersichtlich sind. Die Informationen müssen relevant sein um das Programm zu lesen und zu verstehen. Desweiteren soll doppelte Information vermieden werden, d.h. selbstbeschreibende Funktionen müssen nicht kommentiert werden.
+
+\subsection{Quelltextnahe strukturierte Dokumentation}
+Wir nutzen das Javadoc Tool um die quelltextnahe Dokumentation als HTML Dokument zur Verfügung zu stellen. Deswegen versehen wir unsere Klassen und Methoden mit Kommentaren der Form ``/** Kommentar */''.
+
+\section{Testkonzept}
+Um am Ende ein gutes Produkt abzuliefern, müssen wir unser Programm ausgiebig auf Fehler überprüfen. Deshalb testen wir sowohl die Klassen und Methoden als einzelnes, als auch das Zusammenspiel der Komponenten. 
+\subsection{Komponententests}
+Um Fehler so früh wie möglich zu erkennen werden Komponententests durchgeführt. Dabei wird überprüft ob Methoden und Klassen korrekt funktionieren. Das heißt zum einen das diese sowohl das gewünschte Ergebnis liefern, als auch das vermeiden von Fehlern bei allen möglichen Eingaben.\newline
+Für unsere Komponententests verwenden wir das Framework JUnit, welches speziell zum testen von Java Komponenten entwickelt wurde. Jeder Programmierer testet seine Komponenten selbst. \newline
+Um eine Klasse beziehungsweise ihre Methoden zu testen, wird eine Testklasse erstellt. Diese benennen wir nach der getesteten Klasse + ``Test''  (z.B. ``MyClassTest''). In einer Testklasse nutzen wir Testmethoden welche mit JUnit-Annotationen gekennzeichnet sind. Diese Methoden benötigen das Sichtbarkeitsattribut ``public'' und den Return-Typ ``void'', und sollten nach dem benannt werden, was sie testen. Bei einem Test werden die Rückgabewerte der Methoden mit erwarteten, vom Tester definierten Werten verglichen. JUnit prüft, ob der Test gelingt oder scheitert. Wenn der Test Misslingt ist die Ursache entweder ein Fehler (Error) oder ein Falsches Ergebnis (Failure).\newline\newline
+Zur Veranschaulichung ein Beispiel, in welchem eine Klasse ``MyClass'' mit der Methode ``multiply(int, int)'' getestet wird.
+
+\begin{lstlisting}
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class MyClassTest {
+
+    @Test
+    public void multiplicationOfZeroIntegersShouldReturnZero() {
+        MyClass tester = new MyClass(); // MyClass is tested
+
+        // assert statements
+        assertEquals(0, tester.multiply(10, 0), "10 x 0 must be 0");
+        assertEquals(0, tester.multiply(0, 10), "0 x 10 must be 0");
+        assertEquals(0, tester.multiply(0, 0), "0 x 0 must be 0");
+    }
+}
+ \end{lstlisting}
+\subsection{Integrationstests}
+Die Integrationstests dienen dazu die korrekte Zusammenarbeit voneinander abhängiger Komponenten zu testen. Erfolgreich getestete Komponenten werden hier zusammengebracht. Im Schwerpunkt der Integrationstests stehen die Schnittstellen der einzelnen Komponenten. Um den Testaufwand nicht unnötig steigen zu lassen, betrachten wir Subsysteme mit bestandenen Integrationstests wieder als einzelne Komponenten und verknüpfen diese mit anderen abhängigen Komponenten mit erneuten Integrationstests bis das gesamte Programm verknüpft ist.
+\subsection{Systemtests}
+Im Systemtest wird die Software auf einer Umgebung geprüft die der endgültigen Anwendung möglichst nahe kommt. In diesem Schritt werden die im Lastenheft gestellten funktionalen und nichtfunktionalen Anforderungen an das Produkt geprüft. Die hier genutzen Testdaten sollen den tatsächlichen Daten des Projektes möglichst nahe sein.
+\subsection{Abnahmetest}
+Im letzten Test wird Das Produkt dem Auftraggeber vorgeführt und mit dessen Vorstellungen abgeglichen. Ist der Kunde zufrieden wird das Produkt übergeben und das Projekt ist abgeschlossen.
+\section{Organisationskonzept}
+\subsection{Gruppentreffen}
+Das Team trifft sich jeden Donnerstag 9:00 Uhr. Bei diesen Treffen können sich die Teammitglieder über den aktuellen Stand des Projektes austauschen, die nächste Abgabe planen und entsprechende Aufgaben verteilen, sowie offene Fragen mit den anderen Gruppenmitgliedern oder gegebenenfalls dem Auftraggeber oder Betreuer zu klären. Diese Treffen werden für nicht anwesende Gruppenmitglieder protokolliert.\newline 
+Zusätzliche Treffen finden nach Absprache meist Montags 11:00 Uhr am Tag einer Abgabe statt.
+\subsection{Kommunikation}
+Um kleinere Fragen an das gesamte Team oder an einzelne Mitglieder stellen zu können nutzen wir zur zusätzlichen Kommunikation Slack. Fragen spezifisch zu bestimmten Issues werden im GitLab bei dem entsprechenden Issue als Kommentar vermerkt.
+\end{document}
