@@ -1,0 +1,14 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Dokumentationskonzept und Coding Standards}{2}
+\contentsline {subsection}{\numberline {1.1}Interne Dokumentation}{2}
+\contentsline {subsection}{\numberline {1.2}Quelltextnahe strukturierte Dokumentation}{2}
+\contentsline {subsection}{\numberline {1.3}Coding Standard}{2}
+\contentsline {section}{\numberline {2}Testkonzept}{2}
+\contentsline {subsection}{\numberline {2.1}Komponententests}{3}
+\contentsline {subsection}{\numberline {2.2}Integrationstests}{3}
+\contentsline {subsection}{\numberline {2.3}Systemtests}{3}
+\contentsline {subsection}{\numberline {2.4}Abnahmetest}{4}
+\contentsline {section}{\numberline {3}Organisationskonzept}{4}
+\contentsline {subsection}{\numberline {3.1}Gruppentreffen}{4}
+\contentsline {subsection}{\numberline {3.2}Kommunikation}{4}
+\contentsline {subsection}{\numberline {3.3}Ordnerstruktur des git reposetory}{4}
