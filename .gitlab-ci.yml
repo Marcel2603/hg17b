@@ -28,3 +28,4 @@ release-job:
 CodeStyle:
   script:
     - ./gradlew checkStylecheck
+  allow_failure: true
