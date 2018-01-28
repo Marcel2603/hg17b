@@ -70,7 +70,7 @@ Die wichtigsten Teile des Standards werden, sobald geänderter Code commit wird,
 
 
 \section{Testkonzept}
-Um am Ende ein gutes Produkt abzuliefern, müssen wir unser Programm ausgiebig auf Fehler überprüfen. Deshalb testen wir sowohl die Klassen und Methoden als einzelnes, als auch das Zusammenspiel der Komponenten. 
+Um am Ende ein gutes Produkt abzuliefern, müssen wir unser Programm ausgiebig auf Fehler überprüfen. Deshalb testen wir sowohl die Klassen und Methoden als einzelnes, als auch das Zusammenspiel der Komponenten. Bevor ein Programmierer den Quellcode verändert führt er alle bestehenden Tests durch, um sicherzustellen das der Code den man verändert noch keine Fehler enthält. Bevor Änderungen committet werden, prüft der Programmierer, ob alle bisherigen und eventuelle neue Tests erfolgreich ausfielen. Somit ist garantiert, dass die Änderungen keine bereits bestehenden Funktionalitäten beeinträchtigen.
 \subsection{Komponententests}
 Um Fehler so früh wie möglich zu erkennen werden Komponententests durchgeführt. Dabei wird überprüft ob Methoden und Klassen korrekt funktionieren. Das heißt zum einen das diese sowohl das gewünschte Ergebnis liefern, als auch das vermeiden von Fehlern bei allen möglichen Eingaben.\newline
 Für unsere Komponententests verwenden wir das Framework JUnit, welches speziell zum testen von Java Komponenten entwickelt wurde. Jeder Programmierer testet seine Komponenten selbst. \newline
@@ -121,4 +121,6 @@ Das Repo beinhaltet des Weiteren folgende Ordner:
 \end{itemize}
 \item \emph{reports} beinhaltet Reports über Codestyle-Verstöße und UnitTests.
 \end{itemize}
+\subsection{Qualitätssicherungsbeauftragter}
+Der Qualitätssicherungsbeauftragte überprüft regelmäßig, ob die in diesem Dokument aufgezählten Konzepte zur Qualitätssicherung unseres Projektes von allen Teammitgliedern berücksichtigt wurden. Bei einem Verstoß wird der verantwortliche Programmierer auf seinen Fehler hingewiesen.
 \end{document}
