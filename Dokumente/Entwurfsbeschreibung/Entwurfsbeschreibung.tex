@@ -54,9 +54,11 @@ Julian Dietz, Marcel Herhold, Nikolai Kortenbruck
 \newpage
 
 \section{Allgemeines}
-
+Wir entwickeln eine Android-App für Schüler und Veranstalter von Weiterbildungsevents. Schüler bekommen eine Übersicht über ihre bereits besuchten Veranstaltungen und haben die Möglichkeit, kommende Veranstaltungen zu finden und sich unverbindlich anzumelden. Veranstalter können in der App die tatsächlich anwesenden Schüler, mithilfe einer dem Schüler zugeteilten ID, erfassen. 
 \section{Produktübersicht}
-
+Unser Produkt besteht aus einem Frontend und einem Backend. \newline
+Das Frontend ist die Android App. Beim Start der App wird unterschieden ob der Nutzer ein Schüler oder ein Veranstalter ist. Schüler geben dabei ihre ID ein und erhalten Einblick in ihre Eventdaten, zukünftige Events sowie ihren Platz in der Bestenliste. Veranstalter können sich nach einem Klick auf die untere Schaltfläche au­to­ri­sie­ren und anschließend die Teilnehmer einer Veranstaltung erfassen. Das Frontend wurde mithilfe von Android Studio entwickelt.\newline
+Unser Backend besteht aus einem Server mit RDF-Triplestore in welchem die Eventdaten und die Daten der Schüler gespeichert werden. Der Server nutzt hierfür das Apache-Jena Framework.
 \section{Grundsätzliche Struktur- und Entwurfsprinzipien}
 
 \section{Struktur- und Entwurfsprinzipien einzelner Pakete}
