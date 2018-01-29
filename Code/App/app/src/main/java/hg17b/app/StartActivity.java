@@ -1,10 +1,10 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,16 +17,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-
+/**
+ * This is the Main Activity, and handles the Student part of the App.
+ * The class StartActivity starts the Application and sets up the Layout.
+ * In this class the connection to the server is established and
+ * the menu is created. The ID is received from the User and checked
+ * by the Server, afterwards data is received from there.
+ */
 public class StartActivity extends AppCompatActivity {
 
     public EditText etID;
@@ -37,29 +34,38 @@ public class StartActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     Button logOut;
-    TestClient client;
+    Client client;
     public static boolean isinDB;
     public static boolean isclicked;
     public static int points;
     public static int kontrolle;
 
-
+    /**
+     * The onCreate method is called when the Application gets started.
+     * Here we initialize the Layout, start the Client and connect them with the Server.
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
-            logOut = (Button) findViewById(R.id.btnLogOut);
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.start_activity);
+
+            kontrolle = 0;
             isinDB = false;
+
+            logOut = (Button) findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
-            kontrolle = 0;
-            client = new TestClient("pcai042.informatik.uni-leipzig.de", 1831);
+            client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
             client.execute();
-
-
-
     }
 
-        @Override
+    /**
+     * This method enabled a menu, and that the menu items are clickable
+     * @param item
+     * @return
+     */
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(toggle.onOptionsItemSelected(item)){
             return true;
@@ -67,22 +73,30 @@ public class StartActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //übergang zum nächsten Menü + senden der Daten an den Server
+    /**
+     * Method is called when the Button is clicked.
+     * It sends the entered ID to the Server, and receives an answer.
+     * If the ID isn't in the Database we send an message to the User,
+     * otherwise the App receives the associated data and loads the Mainpage
+     * where the User can interact.
+     * @param v - a View
+     */
     public void buttonOnClick(View v) {
+
         isinDB = false;
         isclicked = true;
-
         kontrolle = 0;
-        //Überprüfen ob Eingabe im Format passt
+
+        //Check if input fits into the TextField
        data = etID.getText().toString();
        if(data.length()>2){
            Toast.makeText(this,
-                   "Deine Eingabe war zu lang\n Maximal 6 Stellen erlaubt", Toast.LENGTH_LONG).show();
+                   "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt", Toast.LENGTH_LONG).show();
        }else{
 
            while(!isinDB && kontrolle == 0){
-               //Schleife
-               System.out.println("JFIFJIAFJWAJIF" + kontrolle);
+               //loop for testing
+               System.out.println("xxx " + kontrolle);
            }
            if(isinDB) {
                 setContentView(R.layout.main_activity);
@@ -91,58 +105,34 @@ public class StartActivity extends AppCompatActivity {
                 Toast.makeText(this,
                         "Deine ID ist nicht in der Datenbank", Toast.LENGTH_LONG).show();
                 kontrolle = 0;
-
             }
        }
-
-
-
-
-            /*
-            if (etID.getText().toString().isEmpty()) {
-                data = "000001";
-            } else {
-                data = etID.getText().toString();
-                System.out.println("data");
-            }
-            tvInfo.setTextSize(18);
-            tvInfo.setText(data + " war deine letzte Eingabe,\ndiese ID ist zu lang...");
-
-            if (Integer.parseInt(data) > 999999) {
-                Toast.makeText(this,
-                        "Deine Eingabe war zu lang\n Maximal 6 Stellen erlaubt", Toast.LENGTH_LONG).show();
-            }
-        }
-
-        if(Integer.parseInt(data) <= 999999){
-            setContentView(R.layout.main_activity);
-            initNavigationMenu();
-        }*/
-
-    }
-
-    //Funktion für den Toast zur Veranstalterseite
-    public void txtOnClick(View v){
-        Toast.makeText(this, "Seite nicht verfügbar", Toast.LENGTH_SHORT).show();
-    }
-
-    //sendet ID an Server zur überprüfung
-
-    public static void setText(int s){
-        points = s;
-    }
-
-    //empfängt Daten vom Server/DB
-    public void getData(){
 
     }
 
     /**
-     *Funktion zum erstellen des Menüs(als DrawerLayout)
-     *und zum navigieren im Menü(weiterleitung auf die einzelnen Fragmente...)
+     * Shows message if TextView tvOrganizer is clicked
+     * @param v - a View
+     */
+    public void txtOnClick(View v){
+        Toast.makeText(this, "Seite nicht verfügbar", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Sends ID to the Server
+     * @param s
+     */
+    public static void setText(int s){
+        points = s;
+    }
+
+    /**
+     * This method sets up the menu (as a DrawerLayout)
+     * and enabled the navigation within the menu, handing off to the individual fragments.
      */
     public void initNavigationMenu(){
 
+        //setting up the menu bar
         drawerLayout = findViewById(R.id.drawerLayout);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
 
@@ -151,7 +141,7 @@ public class StartActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Weiterleitung wird hier geregelt...
+        //Forwarding is regulated here...
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.menuContainer, new Main());
         fragmentTransaction.commit();
@@ -216,7 +206,6 @@ public class StartActivity extends AppCompatActivity {
         });
 
     }
-
     public void onClick(View view){
         LogOut.isclicked = true;
     }

@@ -1,5 +1,7 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
-
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -22,11 +23,22 @@ public class LogOut extends Fragment {
     public static Button btnLogOut;
     public static boolean isclicked = false;
 
+    /**
+     * public constructor from this class
+     */
     public LogOut() {
         // Required empty public constructor
     }
 
-
+    /**
+     * onCreateView creates and displays the Layout.
+     * If the Button is clicked the App will go to the log in page,
+     * and starts the StartActivity again. ID is reset then.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return View that is displayed
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,16 +54,10 @@ public class LogOut extends Fragment {
                 System.out.println(isclicked);
                 Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
 
-
                 Intent intent = new Intent(getActivity(), StartActivity.class);
-
                 startActivity(intent);
-
             }
         });
         return view;
     }
-
-
-
 }
