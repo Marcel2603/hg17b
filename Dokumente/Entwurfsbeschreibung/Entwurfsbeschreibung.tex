@@ -1,3 +1,5 @@
+
+
 \documentclass[11pt,a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,6 +23,29 @@ Julian Dietz, Marcel Herhold, Nikolai Kortenbruck
 }  
 \ohead{hg17b}
 \cfoot{\pagemark}
+
+%now following: lots of stuff for sorted lists from https://tex.stackexchange.com/questions/121489/alphabetically-display-the-items-in-itemize
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[2][\relax]{%
+  \DTLnewrow{list}% Create a new entry
+  \ifx#1\relax
+    \DTLnewdbentry{list}{sortlabel}{#2}% Add entry sortlabel (no optional argument)
+  \else
+    \DTLnewdbentry{list}{sortlabel}{#1}% Add entry sortlabel (optional argument)
+  \fi%
+  \DTLnewdbentry{list}{description}{#2}% Add entry description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{sortlabel}{list}% Sort list
+  \begin{description}%Im orginal Code itemize, aber sieht scheiße aus
+  
+%Das \l=sortlabel in der nächsten und das [\l] in der Übernächsten wurden von Christopher Pfeiffer hinzugefügt damit die labels angezeigt werden.
+    \DTLforeach*{list}{\theDesc=description, \l=sortlabel}{%
+      \item[\l] \theDesc}% Print each item
+  \end{description}%
+}
 
 
 
