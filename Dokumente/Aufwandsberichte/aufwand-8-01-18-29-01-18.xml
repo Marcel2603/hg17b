@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Analyse von="2018-1-08" bis="2018-01-29" gruppe="hg17b" createdBy="MH" createdAt="2018-01-29"> 
+  <done who="CP,NK,MR,JD,RM,MH" A="4" S="4" Zeit="10">Besprechungen</done>
+  <done who="CP,JD" A="3" S="3" Zeit="4">Qualikonzept</done>
+  <done who="CP" A="5" S="4" Zeit="14">Gradle und Ci</done>
+  <done who="MR" A="4" S="4" Zeit="16">AppOberflaeche</done>
+  <done who="NK" A="5" S="4" Zeit="14">Datenbank aufsetzen</done>
+  <done who="MH" A="4" S="3" Zeit="6">Server aufsetzen</done>
+  <done who="NK,MR,MH" A="5" S="5" Zeit="9">Kommunikation zw Server,DB und App</done>
+  <done who="NK,JD,MH" A="3" S="3" Zeit="2">Entwurfsbeschreibung</done>
+</Analyse>
