@@ -1,81 +1,94 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 import db.PupilDB;
 /**
- * Erzeugt Server und initialisiert die DB.
+ * Create DB and start the server.
  * @author marcel
  *
  */
 public class Server {
-
-/**
- * ArrayList mit allen verbunden Clients.
- * getSocket hinzufügen.
- */
-	private static ArrayList<Socket> socket = new ArrayList<Socket>();
-
-	private PupilDB db1;
-
-/**
- * .
-*/
-	private ServerSocket server;
-
-/**
- * Port über welcher der Server laufen soll.
- */
-	static final int PORT = 1831;
-
-
-	public Server(int Port) {
-		try {
-			this.server = new ServerSocket(Port);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		this.db1 = new PupilDB();
-	}
-
-	/**
-	 * Startet den Server.
-	 * @param args
-	 *            nicht weiter zubeachten
-	 */
-  public static void main(String[] args) {
-		Server serv = new Server(PORT);
-		serv.start();
-	}
-
-	/**
-	 * .
-	 */
-  private void start() {
-    ExecutorService executor = Executors.newFixedThreadPool(100);
-	try {
-			System.out.println("Server wurde gestartet");
-			Thread t = new Thread(new Commands(server));
-			System.out.println(db1.getScore(2));
-		    t.start();
-			while (true) {
-				Socket client = server.accept();
-				socket.add(client);
-				executor.execute(new Handler(client,db1));
-			}
-
-		} catch (IOException e) {
-		}
-	}
-  
-  public static ArrayList<Socket> getSocket(){
-	  return socket;
-  }
-  
-  public static void deleteSocket(Socket client) {
-	  socket.remove(client);
-  }
-
+    /**
+     * Port for the server.
+     */
+    static final int PORT = 1831;
+    /**
+     * Max number of connected clients at the same time.
+     */
+    static final int THREADNUMBER = 100;
+    /**
+     * ArrayList with all connected clients.
+     */
+    private static ArrayList<Socket> socket = new ArrayList<Socket>();
+    /**
+     * Datenbank for the pupil.
+     */
+    private PupilDB db1;
+    /**
+     * Socket for the server.
+     */
+    private ServerSocket server;
+    /**
+     * Konstruktor to create Server and DB.
+     * @param port Port for the server.
+     */
+    public Server(final int port) {
+        try {
+            this.server = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.db1 = new PupilDB();
+        System.out.println("Server is online (Port: " + port + ").");
+    }
+    /**
+     * Main-Methode.
+     * Start the server.
+     * @param args Not necessary.
+     */
+    public static void main(final String[] args) {
+        Server serv = new Server(PORT);
+        serv.start();
+    }
+    /**
+     * manage the server.
+     */
+    private void start() {
+        ExecutorService executor = Executors.newFixedThreadPool(THREADNUMBER);
+        try {
+//            starts the commands for the server.
+            Thread t = new Thread(new Commands(server));
+            t.start();
+            while (true) {
+                Socket client = server.accept();
+                socket.add(client);
+                System.out.println("Client : " + client.getInetAddress()
+                + client.getPort() + "hat sich verbunden.");
+                executor.execute(new Handler(client, db1));
+            }
+        } catch (SocketException e) {
+            } catch (IOException e) {
+            e.printStackTrace();
+            }
+    }
+    /**
+     * Returns the ArrayList with all clients.
+     * @return Liste of all connected clients.
+     */
+    public static ArrayList<Socket> getSocket() {
+        ArrayList<Socket> list = socket;
+        return list;
+    }
+    /**
+     * Delete client out of the array.
+     * @param client Clientsocket.
+     */
+    public static void deleteSocket(final Socket client) {
+        socket.remove(client);
+    }
 }
