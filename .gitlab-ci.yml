@@ -1,7 +1,9 @@
 image: node:6
+image: openjdk:8-jdk
 
 before_script:
   - ping -c 1 aksw.org
+  - chmod +x ./gradlew
 
 build_the_project:
   script:
@@ -22,3 +24,8 @@ release-job:
     - docu.pdf
   only:
     - tags
+
+CodeStyle:
+  script:
+    - ./gradlew checkStylecheck
+  allow_failure: true

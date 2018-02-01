@@ -1,0 +1,108 @@
+
+
+\documentclass[11pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{scrpage2}
+\usepackage{listings}
+\usepackage{graphicx}
+ \usepackage{color}
+ \definecolor{middlegray}{rgb}{0.5,0.5,0.5}
+ \definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+ \definecolor{orange}{rgb}{0.8,0.3,0.3}
+ \definecolor{yac}{rgb}{0.6,0.6,0.1}
+
+%\usepackage{cite}
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\today \\
+Julian Dietz, Marcel Herhold, Nikolai Kortenbruck
+}  
+\ohead{hg17b}
+\cfoot{\pagemark}
+
+%now following: lots of stuff for sorted lists from https://tex.stackexchange.com/questions/121489/alphabetically-display-the-items-in-itemize
+\usepackage{datatool}% http://ctan.org/pkg/datatool
+\newcommand{\sortitem}[2][\relax]{%
+  \DTLnewrow{list}% Create a new entry
+  \ifx#1\relax
+    \DTLnewdbentry{list}{sortlabel}{#2}% Add entry sortlabel (no optional argument)
+  \else
+    \DTLnewdbentry{list}{sortlabel}{#1}% Add entry sortlabel (optional argument)
+  \fi%
+  \DTLnewdbentry{list}{description}{#2}% Add entry description
+}
+\newenvironment{sortedlist}{%
+  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}% Create new/discard old list
+}{%
+  \DTLsort{sortlabel}{list}% Sort list
+  \begin{description}%Im orginal Code itemize, aber sieht scheiße aus
+  
+%Das \l=sortlabel in der nächsten und das [\l] in der Übernächsten wurden von Christopher Pfeiffer hinzugefügt damit die labels angezeigt werden.
+    \DTLforeach*{list}{\theDesc=description, \l=sortlabel}{%
+      \item[\l] \theDesc}% Print each item
+  \end{description}%
+}
+
+
+
+\begin{document}
+\lstset{language=Java,
+ basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{red},
+   stringstyle=\color{green}\ttfamily,
+   commentstyle=\color{middlegray}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   showstringspaces=false,
+   flexiblecolumns=false,
+   tabsize=2,
+   numbers=left,
+   numberstyle=\tiny,
+   numberblanklines=true,
+   stepnumber=1,
+   numbersep=10pt,
+   xleftmargin=15pt
+}
+\subject{\vspace{-2cm}}
+\title{\vspace{-0.5em}Entwurfsbeschreibung}
+\subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
+\author{Julian Dietz, Marcel Herhold, Nikolai Kortenbruck\vspace{-0.5em}}%autor
+\date{\vspace{-0.5em}\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Allgemeines}
+Wir entwickeln eine Android-App für Schüler und Veranstalter von Weiterbildungsevents. Schüler bekommen eine Übersicht über ihre bereits besuchten Veranstaltungen und haben die Möglichkeit, kommende Veranstaltungen zu finden und sich unverbindlich anzumelden. Veranstalter können in der App die tatsächlich anwesenden Schüler, mithilfe einer dem Schüler zugeteilten ID, erfassen. 
+\section{Produktübersicht}
+Unser Produkt besteht aus einem Frontend und einem Backend. \newline
+Das Frontend ist die Android App. Beim Start der App wird unterschieden ob der Nutzer ein Schüler oder ein Veranstalter ist. Schüler geben dabei ihre ID ein und erhalten Einblick in ihre Eventdaten, zukünftige Events sowie ihren Platz in der Bestenliste. Veranstalter können sich nach einem Klick auf die untere Schaltfläche au­to­ri­sie­ren und anschließend die Teilnehmer einer Veranstaltung erfassen. Das Frontend wurde mithilfe von Android Studio entwickelt.\newline
+Unser Backend besteht aus einem Server mit RDF-Triplestore in welchem die Eventdaten und die Daten der Schüler gespeichert werden. Der Server nutzt hierfür das Apache-Jena Framework.
+\section{Grundsätzliche Struktur- und Entwurfsprinzipien}
+Die Daten der Schüler (IDs, Score, Rang) liegen zentral auf einem Server. Die Kommunikation zwischen mobiler Android App und Server laufen über eine auf dem Server liegende Java Applikation. Diese stellt einen Server Socket zur Verfügung über den ein Client Socket der App mit dem Server kommuniziert.
+\section{Struktur- und Entwurfsprinzipien einzelner Pakete}
+\subsection{Server}
+Die (Schüler-) Daten auf dem Server liegen im SPARQL-Format als Triples in einem Graphen vor und werden von der PupilDB Java-Klasse aus abgerufen und manupuliert. Diese definiert die dafür benötigten SPARQL- Query und Update Statements. Die Server Klasse der auf dem Server laufenden Java Applikation handelt den Verbindungsaufbau und die Abfragen/Antworten vom/an den Client.
+\subsection{Applikation}
+Die Kommunikation mit dem Server wird in der Client Klasse der App gehandelt. In der StartActivity Klasse wird das Start Verhalten und der Login der Nutzer definiert. Die Klassen Logout, NextEvents, Ranking und Settings (zu finden in app/src/main/java/hg17b) sind jeweils für die Methoden der in der App vorhandenen Seiten Logout, Nächste Events, Ranking und Einstellungen zuständig. Die Layouts der Seiten werden in den dementsprechenden fragment xml Dateien definiert (zu finden in app/src/main/res/layout). Das Layout des Hauptmenüs hingegen wird in der navigation\_menu unter \verb /App/app/src/main/res/menu definiert.
+\newpage
+\section{Datenmodell}
+\fbox{ \includegraphics[width=1.1\textwidth]{Datenmodell}}
+\section{Glossar}
+\begin{sortedlist}
+%Liste wird autoatisch alphabetisch nach dem Inhalt von [] sortiert.
+\sortitem[ID]{(Identifikationsnummer) Im Zusammenhang dieses Projektes ist die Identifikationsnummer auf den Pässen der Schüler gemeint.}
+\sortitem[RDF] {RDF steht für Resource Description Framework. Es wurde von der W3C als Standard zur Beschreibung von Metadaten konzipiert. Es gilt als ein grundlegender Baustein des Semantischen Webs. RDF ähnelt den klassischen Methoden zur Modellierung von Konzepten wie UML-Klassendiagramme und ER-Modell.}
+\sortitem[Frontend] {Frontend beschreibt das auf dem Endgerät des Nutzers laufende Programm.}
+\sortitem[Backend] {Backende beschreibt das auf dem Server laufende Programm, ein SPARQL Endpunkt (Apache Jena), sowie Java und Java Applikationen zum bearbeiten diverser Anfragen.}
+\sortitem[Schüler] {Der Schüler nimmt am Ferienpass teil. Er soll die App leicht bedienen können.}
+\sortitem[Veranstalter] {Der Veranstalter organisiert Freizeitaktivitäten für die Schüler. Er soll mit der App den Code des Schülers einscannen.}
+\end{sortedlist}
+\end{document}

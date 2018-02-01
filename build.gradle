@@ -1,0 +1,81 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+}
+
+//Checkstyle for Server
+task checkstyleServer (type: Checkstyle) {
+    ignoreFailures = true
+    showViolations = false
+    source 'Code/Server/src/'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        xml.destination "/reports/checkstyleServer.xml"
+		html.destination "/reports/checkstyleServer.html"
+    }
+    classpath = files()
+    configFile = file("./checkstyle.xml")
+}
+
+//Checkstyle for App
+task checkstyleApp (type: Checkstyle) {
+    ignoreFailures = true
+    showViolations = false
+    source 'Code/App/app/src/main'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        xml.destination "/reports/checkstyleApp.xml"
+		html.destination "/reports/checkstyleApp.html"
+    }
+    classpath = files()
+    configFile = file("./checkstyle.xml")
+}
+
+tasks.withType(Checkstyle).each { checkstyleTask ->
+    checkstyleTask.doLast {
+        reports.all { report ->
+            def outputFile = report.destination
+            if (outputFile.exists() && outputFile.text.contains("<error ")) {
+				println("There were checkstyle warnings! For more info check $outputFile")
+				def reportfile = new File('./reports/result.txt')
+				reportfile.write '1'
+            }
+        }
+    }
+}
+
+//used for CI
+task checkStylecheck{
+	doLast{
+		def reportFile = file('./reports/result.txt')
+		if (reportFile.exists() && reportFile.text.contains("1")) {
+			throw new GradleException("There were checkstyle warnings!")
+		}
+	}
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['Code/Server/src/']
+        }
+    }
+	test{
+		java{
+			srcDirs=['Code/Server/test']
+		}
+	}
+}
