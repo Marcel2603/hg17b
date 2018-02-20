@@ -1,0 +1,6 @@
+1.	Allgemeiner Überblick über Entwurf   R
+2.	Betrachtung der einzelnen Bestandteile  J   
+3.	Aktueller Umsetzungsstand  -- mit Demonstration    
+4.	Ausblick auf die nächsten Schritte  C
+
+odp
