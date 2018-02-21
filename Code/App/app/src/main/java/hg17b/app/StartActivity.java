@@ -57,7 +57,12 @@ public class StartActivity extends AppCompatActivity {
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
             client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
-            client.execute();
+            client.execute();/*
+            if(!client.isConnected()){
+                tvInfo.setText("Der Server ist nicht erreichbar! App wird beendet!");
+                System.exit(0);
+            }*/
+
     }
 
     /**
