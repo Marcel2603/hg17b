@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Hauptseite"
+        android:icon="@mipmap/ic_home_black_24dp"
+        android:title="Hauptseite" />
+
+    <item android:id="@+id/Kommende_Veranstaltungen"
+        android:icon="@mipmap/ic_event_note_black_24dp"
+        android:title="@string/incoming" />
+
+    <item
+        android:id="@+id/Historie"
+        android:icon="@mipmap/ic_update_black_24dp"
+        android:title="@string/historie" />
+
+    <item
+        android:id="@+id/Einstellungen"
+        android:icon="@mipmap/ic_settings_black_24dp"
+        android:title="@string/settings" />
+
+    <item
+        android:id="@+id/Log_Out"
+        android:icon="@mipmap/ic_exit_to_app_black_24dp"
+        android:title="@string/btn_log_out" />
+
+</menu>

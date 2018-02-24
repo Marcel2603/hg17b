@@ -22,7 +22,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private String ip;
     private int port;
     private Socket socket = null;
-    private boolean ServerStatus;
 
     /**
      * public constructor from Client
@@ -32,7 +31,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
     public Client(String ip, int port) {
         this.ip = ip;
         this.port= port;
-        this.ServerStatus = true;
     }
 
     /**
@@ -100,19 +98,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
             }
 
             } catch (UnknownHostException e1) {
-            // TextView erstellen
-            /* ServerStatus = false;
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
+            e1.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }return null;
-    }
-    public boolean isConnected(){
-        return this.ServerStatus;
     }
 }
 

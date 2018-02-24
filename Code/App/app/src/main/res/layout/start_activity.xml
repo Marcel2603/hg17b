@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity"
     android:layout_width="match_parent"
@@ -16,6 +16,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="@string/tvMessage"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -50,19 +51,18 @@
         android:id="@+id/tvInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="visible" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvOrganizer"
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"

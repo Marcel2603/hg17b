@@ -5,6 +5,10 @@
     <string name="tvMessage">Herzlich Willkommen!\n\nDu bist auf der Startseite.
         Als Schüler kannst dich hier mit der Nummern deines Ferienpasses anmelden.\n</string>
     <string name="tvOrganizer">Ich bin Veranstalter!</string>
+    <string name="orgMessage">Herzlich Willkommen!\n\nHier kannst du dich
+        als Veranstalter anmelden und deine kommenden, sowie vergangenen Veranstaltungen
+        einsehen. Außerdem kannst du die Nummern der Schüler einscannen.\n</string>
+
 
     <string name="holder">Main Menu</string>
     <string name="open">Open</string>
@@ -26,6 +30,9 @@
     </string>
     <string name="empty_historie">
         Du hast noch keine Veranstaltungen besucht.
+    </string>
+    <string name="empty_historie_org">
+        Du hast noch keine vergangenen Veranstaltungen...
     </string>
     <string name="log_out">
         Willst du dich wirklich abmelden? Dann klicke auf den Button...

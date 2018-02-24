@@ -2,13 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hg17b.app.Main"
-    android:id="@+id/fragment_main">
+    tools:context="hg17b.app.OrganizerLastEvents">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryLight">
+
 
         <TextView
             android:id="@+id/tvID"
@@ -17,19 +18,9 @@
             android:layout_margin="15dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="Willkommen"
             android:textColor="#000000"
             android:textSize="28sp" />
-
-        <TextView
-            android:id="@+id/tvPoints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvEvents"
@@ -38,11 +29,9 @@
             android:layout_margin="15dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/events"
+            android:text="@string/empty_historie_org"
             android:textColor="#000000"
             android:textSize="20sp" />
-
-
     </LinearLayout>
 
 </FrameLayout>

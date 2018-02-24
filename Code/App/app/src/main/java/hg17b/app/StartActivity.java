@@ -3,6 +3,7 @@
  */
 package hg17b.app;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -57,12 +58,7 @@ public class StartActivity extends AppCompatActivity {
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
             client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
-            client.execute();/*
-            if(!client.isConnected()){
-                tvInfo.setText("Der Server ist nicht erreichbar! App wird beendet!");
-                System.exit(0);
-            }*/
-
+            client.execute();
     }
 
     /**
@@ -116,11 +112,14 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows message if TextView tvOrganizer is clicked
-     * @param v - a View
+     * Shows message if TextView tvOrganizer is clicked,
+     * and starts the OrganizerLogIn Page
+     * @param v
      */
     public void txtOnClick(View v){
-        Toast.makeText(this, "Seite nicht verfügbar", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Veranstalter Seite", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
+            startActivity(intent);
     }
 
     /**
@@ -211,6 +210,7 @@ public class StartActivity extends AppCompatActivity {
         });
 
     }
+
     public void onClick(View view){
         LogOut.isclicked = true;
     }

@@ -63,7 +63,7 @@ public class Ranking extends Fragment {
         text10 = view.findViewById(R.id.textView19);
         text10.setText(score.get(10));
         text11 = view.findViewById(R.id.textView20);
-        text11.setText("Du bist Platz: " +rang);
+        text11.setText("Du bist aktuell auf Platz: " + rang);
 
         return view;
     }
