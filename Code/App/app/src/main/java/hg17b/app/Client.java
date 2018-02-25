@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -22,6 +23,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private String ip;
     private int port;
     private Socket socket = null;
+    private boolean noServer = false;
 
     /**
      * public constructor from Client
@@ -82,12 +84,16 @@ public class Client extends AsyncTask<Void, Void, Void>{
                     } else {
                         StartActivity.isinDB = false;
                         StartActivity.kontrolle = 1;
+                        writer.write("disconnect" + "\n");
+                        writer.flush();
+                        writer.close();
+                        socket.close();
 
                     }
                     StartActivity.isclicked = false;
                 }
 
-                if (LogOut.isclicked && schleife) {
+                if (LogOut.isclicked) {
                     schleife = false;
                     writer.write("disconnect" + "\n");
                     writer.flush();
@@ -97,11 +103,19 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 }
             }
 
-            } catch (UnknownHostException e1) {
-            e1.printStackTrace();
+            } catch (ConnectException e) {
+                setServerStatus(true);
+                e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }return null;
+    }
+    public void setServerStatus(boolean status){
+        noServer = status;
+    }
+
+    public boolean getServerStatus(){
+        return noServer;
     }
 }
 

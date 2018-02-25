@@ -94,20 +94,24 @@ public class StartActivity extends AppCompatActivity {
        if(data.length()>2){
            Toast.makeText(this,
                    "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt", Toast.LENGTH_LONG).show();
-       }else{
-
-           while(!isinDB && kontrolle == 0){
+       }else {
+           while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
                //loop for testing
-               System.out.println("xxx " + kontrolle);
            }
-           if(isinDB) {
-                setContentView(R.layout.main_activity);
-                initNavigationMenu();
-            }else{
-                Toast.makeText(this,
-                        "Deine ID ist nicht in der Datenbank", Toast.LENGTH_LONG).show();
-                kontrolle = 0;
-            }
+           if (client.getServerStatus()) {
+               Toast.makeText(this,
+                       "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+               client.setServerStatus(false);
+           } else {
+               if (isinDB) {
+                   setContentView(R.layout.main_activity);
+                   initNavigationMenu();
+               } else {
+                   Toast.makeText(this,
+                           "Deine ID ist nicht in der Datenbank", Toast.LENGTH_LONG).show();
+                   kontrolle = 0;
+               }
+           }
        }
 
     }
