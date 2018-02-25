@@ -50,26 +50,31 @@
     <TextView
         android:id="@+id/tvInfo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="74dp"
         android:layout_marginBottom="100dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:gravity="center_vertical|center_horizontal"
+        android:onClick="space"
         android:textSize="16sp"
         android:textStyle="bold" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/tvOrganizer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:clickable="true"
         android:elevation="0dp"
         android:gravity="bottom|center_horizontal"
-        android:onClick="txtOnClick"
+        android:onClick="organizer"
         android:text="@string/tvOrganizer"
         android:textColor="#000000"
         android:textSize="18sp"

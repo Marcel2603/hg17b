@@ -121,10 +121,14 @@ public class StartActivity extends AppCompatActivity {
      * and starts the OrganizerLogIn Page
      * @param v
      */
-    public void txtOnClick(View v){
+    public void organizer(View v){
         //Toast.makeText(this, "Veranstalter Seite", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
-            startActivity(intent);
+         startActivity(intent);
+    }
+
+    public void space(View v){
+
     }
 
     /**
