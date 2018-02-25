@@ -1,0 +1,23 @@
+Main
+
+Die Klasse Main bestimmt das Design unserer Hauptseite. Das ist die Seite welche ein Schüler nach dem Einloggen als erstes sieht. Oben wird die eigene ID angezeigt, in der Mitte erfährt der Schüler wie viele Punkte er hat und unten werden bevorstehende Veranstaltungen angezeigt, für welche der Schüler sich angemeldet hat
+--------
+Nextevents
+
+Die Klasse NextEvents soll die bevorstehenden Veranstaltungen anzeigen. Zum jetzigen Zeitpunkt besitzt die Klasse keinerlei Funktionalität. Diese folgt im zweiten Release mit der Einbundung der Veranstaltungsdatenbak.
+--------
+Lastevents
+
+Die Klasse LastEvents soll die vom eingeloggten Schüler besuchten Veranstaltungen anzeigen. Auch hier besitzt die Klasse noch keine Funktionalität, da die Veranstaltungsdatenbank noch nicht integriert ist.
+--------
+Ranking
+
+Die Klasse zeigt die Topliste, also die höchsten Punktzahlen in absteigender Reihenfolge, geliefert aus der Klasse PupilDB. Unter der Rangliste wird die Platzierung des angemeldeten Schülers gezeigt.
+--------
+Settings
+
+In dieser Klasse sollen dem Schüler Einstellungsmöglichkeiten zur Individualisierung der App geboten werden. Zurzeit ist die implementierung dieser Funktionen ein Kann-Ziel vom 2. Release.
+--------
+LogOut
+
+Die Klasse LogOut dient zum trennen der Serververbindung, klickt man auf den Button abmelden, so wird der Hintegrundthread geschlossen und man landet auf der StartActivity Seite um sich erneut anzumelden.
