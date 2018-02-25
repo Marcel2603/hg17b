@@ -57,8 +57,7 @@ public class StartActivity extends AppCompatActivity {
             logOut = (Button) findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
-            client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
-            client.execute();
+
     }
 
     /**
@@ -87,6 +86,8 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
+        client.execute();
 
         //Check if input fits into the TextField
        data = etID.getText().toString();
