@@ -1,4 +1,4 @@
-package de.zukunftsdiplom.server;
+package com.zukunftsdiplom.server;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
