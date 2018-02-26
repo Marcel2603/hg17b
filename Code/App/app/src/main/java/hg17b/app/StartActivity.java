@@ -95,6 +95,10 @@ public class StartActivity extends AppCompatActivity {
            Toast.makeText(this,
                    "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt", Toast.LENGTH_LONG).show();
        }else {
+           if (data.length()<1 || data.equals(null)) {
+               Toast.makeText(this,
+                       "Deine Eingabe war zu kurz\n", Toast.LENGTH_LONG).show();
+           }
            while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
                //loop for testing
            }

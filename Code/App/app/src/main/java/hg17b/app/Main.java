@@ -45,7 +45,7 @@ public class Main extends Fragment {
         tvEvents = view.findViewById(R.id.tvEvents);
 
         tvID.setText("Deine ID lautet: \n\n" + StartActivity.data + "\n");
-        tvPoints.setText("Deien punkte: \n\n" + StartActivity.points + "\n");
+        tvPoints.setText("Deine punkte: \n\n" + StartActivity.points + "\n");
 
         return view;
     }
