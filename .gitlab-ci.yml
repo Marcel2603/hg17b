@@ -6,9 +6,6 @@ before_script:
   - ping -c 1 aksw.org
   - chmod +x ./gradlew
 
-stages:
-  - styletests
-  - unittests
 
 #build_the_project:
 #  script:
@@ -31,12 +28,10 @@ stages:
 #    - tags
 
 CodeStyle:
-  stage: styletests
   script:
     - ./gradlew checkStylecheck
   allow_failure: true
 
 ServerTest:
-  stage: unittests
   script:
     - ./gradlew checkServerTests
