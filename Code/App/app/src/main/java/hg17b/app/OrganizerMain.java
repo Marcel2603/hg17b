@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * this class is the main page for the organizer.
  */
 public class OrganizerMain extends Fragment {
 
