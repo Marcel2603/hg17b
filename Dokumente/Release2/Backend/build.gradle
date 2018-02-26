@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+	compile group: 'org.apache.jena', name: 'apache-jena-libs', version: '3.5.0'
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+    }
+	test{
+		java{
+			srcDirs=['test/']
+		}	
+	}
+}
