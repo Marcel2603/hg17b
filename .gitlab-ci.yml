@@ -1,16 +1,24 @@
 image: node:6
 image: openjdk:8-jdk
 
+
 before_script:
   - ping -c 1 aksw.org
   - chmod +x ./gradlew
 
+stages:
+  - basics
+  - styletests
+  - unittests
+
 build_the_project:
+  stage: basics
   script:
     - sh program.sh
     - test -f result.md
 
 release-job:
+  stage: basics
   before_script:
     - npm install -g markdown-pdf
   script:
@@ -26,6 +34,12 @@ release-job:
     - tags
 
 CodeStyle:
+  stage: styletests
   script:
     - ./gradlew checkStylecheck
   allow_failure: true
+
+ServerTest:
+  stage: unittests
+  script:
+    - ./gradlew checkServerTests

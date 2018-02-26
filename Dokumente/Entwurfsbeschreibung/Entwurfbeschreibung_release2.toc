@@ -1,0 +1,25 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Allgemeines}{2}
+\contentsline {section}{\numberline {2}Produkt\IeC {\"u}bersicht}{2}
+\contentsline {section}{\numberline {3}Grunds\IeC {\"a}tzliche Struktur- und Entwurfsprinzipien}{2}
+\contentsline {section}{\numberline {4}Struktur- und Entwurfsprinzipien einzelner Pakete}{2}
+\contentsline {subsection}{\numberline {4.1}Server}{2}
+\contentsline {subsubsection}{\numberline {4.1.1}Server(Klasse)}{2}
+\contentsline {subsubsection}{\numberline {4.1.2}Commands}{2}
+\contentsline {subsubsection}{\numberline {4.1.3}Handler}{3}
+\contentsline {subsubsection}{\numberline {4.1.4}PupilDB}{3}
+\contentsline {subsection}{\numberline {4.2}Applikation}{3}
+\contentsline {subsubsection}{\numberline {4.2.1}Client}{3}
+\contentsline {subsubsection}{\numberline {4.2.2}StartActivity}{3}
+\contentsline {subsubsection}{\numberline {4.2.3}Main}{3}
+\contentsline {subsubsection}{\numberline {4.2.4}Nextevents}{3}
+\contentsline {subsubsection}{\numberline {4.2.5}Lastevents}{3}
+\contentsline {subsubsection}{\numberline {4.2.6}Ranking}{4}
+\contentsline {subsubsection}{\numberline {4.2.7}Setting}{4}
+\contentsline {subsubsection}{\numberline {4.2.8}Logout}{4}
+\contentsline {subsubsection}{\numberline {4.2.9}OrganizerLogin}{4}
+\contentsline {subsubsection}{\numberline {4.2.10}OrganizerMain}{4}
+\contentsline {subsubsection}{\numberline {4.2.11}OrganizerNextevents}{4}
+\contentsline {subsubsection}{\numberline {4.2.12}OrganizerLastevents}{4}
+\contentsline {section}{\numberline {5}Datenmodell}{5}
+\contentsline {section}{\numberline {6}Glossar}{6}

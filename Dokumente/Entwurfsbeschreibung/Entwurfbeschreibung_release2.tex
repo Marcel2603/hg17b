@@ -70,7 +70,7 @@ Julian Dietz, Marcel Herhold, Nikolai Kortenbruck
    xleftmargin=15pt
 }
 \subject{\vspace{-2cm}}
-\title{\vspace{-0.5em}Entwurfsbeschreibung_release2}
+\title{\vspace{-0.5em}Entwurfsbeschreibung\_release2}
 \subtitle{\vspace{1ex}hg17b - Android App für Weiterbildungsmanagement}
 \author{Julian Dietz, Marcel Herhold, Nikolai Kortenbruck\vspace{-0.5em}}%autor
 \date{\vspace{-0.5em}\today}
@@ -102,7 +102,7 @@ Handler ist die Klasse welche sich um die Kommunikation zwischen Client, Server 
 \subsubsection{PupilDB}
 Die Klasse PupilDB stellt die Datenbank des Projekts und liefert Methoden zum manipulieren der Schüler sowie zum lesen der Schüler- und Veranstaltungsdaten. Die Schülerdaten werden dabei als  Triple Graphen gespeichert. Die Methoden nutzen SPARQL-Querys und Update Statements. 
 \subsection{Applikation}
-Die Kommunikation mit dem Server wird in der Client Klasse der App gehandelt. In der StartActivity Klasse wird das Start Verhalten und der Login der Nutzer definiert. Die Klassen Logout, NextEvents, Ranking und Settings (zu finden in app/src/main/java/hg17b) sind jeweils für die Methoden der in der App vorhandenen Seiten Logout, Nächste Events, Ranking und Einstellungen zuständig. Die Layouts der Seiten werden in den dementsprechenden fragment xml Dateien definiert (zu finden in app/src/main/res/layout). Das Layout des Hauptmenüs hingegen wird in der navigation_\textbackslash menu unter /\textbackslash verb /App/app/src/main/res/menu definiert. Hier noch eine Auflistung der Klassen der App
+Die Kommunikation mit dem Server wird in der Client Klasse der App gehandelt. In der StartActivity Klasse wird das Start Verhalten und der Login der Nutzer definiert. Die Klassen Logout, NextEvents, Ranking und Settings (zu finden in app/src/main/java/hg17b) sind jeweils für die Methoden der in der App vorhandenen Seiten Logout, Nächste Events, Ranking und Einstellungen zuständig. Die Layouts der Seiten werden in den dementsprechenden fragment xml Dateien definiert (zu finden in app/src/main/res/layout). Das Layout des Hauptmenüs hingegen wird in der navigation\_\textbackslash menu unter /\textbackslash verb /App/app/src/main/res/menu definiert. Hier noch eine Auflistung der Klassen der App
 \subsubsection{Client}
 Die Klasse Client erstellt einen Hintergrundthread welcher sich mit dem Server verbindet. Sie sendet und empfängt Daten von der Datenbank des Servers
 \subsubsection{StartActivity}

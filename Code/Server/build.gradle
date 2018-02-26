@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+	compile group: 'org.apache.jena', name: 'apache-jena-libs', version: '3.5.0'
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+    }
+	test{
+		java{
+			srcDirs=['test/']
+		}	
+	}
+}
+
+test{
+	reports.html.destination = file("../../reports/Server_unitTests/")
+	reports.junitXml.destination = file("../../reports/Server_unitTests/xml")
+}
