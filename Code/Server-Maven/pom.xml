@@ -2,18 +2,29 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.zukunftsdiplom</groupId>
-  <artifactId>db</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>de.zukunftsdiplom.server</groupId>
+  <artifactId>datenbank</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>db</name>
+  <name>datenbank</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -22,16 +33,10 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>org.apache.jena</groupId>
-    	<artifactId>apache-jena-libs</artifactId>
-    	<type>pom</type>
-    	<version>3.6.0</version>
-  	</dependency>
-  	<dependency>
-    <groupId>org.apache.jena</groupId>
-    <artifactId>jena-core</artifactId>
-    <version>3.6.0</version>
-</dependency>
-
+      <groupId>org.apache.jena</groupId>
+      <artifactId>apache-jena-libs</artifactId>
+      <type>pom</type>
+      <version>3.5.0</version>
+    </dependency>
   </dependencies>
 </project>
