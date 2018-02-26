@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 /**
- *
+ * this class creates the login page for organizers and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
 
