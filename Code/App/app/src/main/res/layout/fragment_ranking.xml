@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="100dp"
                 android:text="TextView" />
         </TableRow>
 
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="100dp"
                 android:text="TextView" />
         </TableRow>
 
