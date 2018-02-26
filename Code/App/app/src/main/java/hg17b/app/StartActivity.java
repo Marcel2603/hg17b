@@ -86,16 +86,17 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("pcai042.informatik.uni-leipzig.de", 1831);
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
         client.execute();
 
         //Check if input fits into the TextField
+
        data = etID.getText().toString();
        if(data.length()>2){
            Toast.makeText(this,
                    "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt", Toast.LENGTH_LONG).show();
        }else {
-           if (data.length()<1 || data.equals(null)) {
+           if (data.length()<1 || data == null) {
                Toast.makeText(this,
                        "Deine Eingabe war zu kurz\n", Toast.LENGTH_LONG).show();
            }

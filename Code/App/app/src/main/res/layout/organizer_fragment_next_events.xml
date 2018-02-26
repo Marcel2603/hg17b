@@ -1,37 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="hg17b.app.OrganizerNextEvents">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
-        android:background="@color/colorPrimaryLight">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
 
 
         <TextView
-            android:id="@+id/tvID"
+            android:id="@+id/textView33"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="28sp"
-            android:text="Willkommen..."/>
+            android:textSize="100dp"
+            android:layout_height="194dp"
+            android:text="TextView" />
 
         <TextView
-            android:id="@+id/tvEvents"
+            android:id="@+id/textView34"
+            android:textSize="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView36"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/events"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+            android:text="TextView" />
     </LinearLayout>
-
-</FrameLayout>
+</ScrollView>

@@ -42,28 +42,6 @@
         android:hint="z.B.  email@example.com"
         android:inputType="textEmailAddress" />
 
-    <TextView
-        android:id="@+id/textViewPW"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Gib hier dein Passwort ein: " />
-
-    <EditText
-        android:id="@+id/editTextPW"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="achte auf Groß- und Kleinschreibung"
-        android:inputType="textPassword" />
-
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="match_parent"

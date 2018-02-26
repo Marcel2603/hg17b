@@ -9,17 +9,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * this class creates the login page for organizers and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
-
+    Client client;
+    public static int schleife = 1;
+    public static String nutzer;
+    public static boolean isinDB;
 
     private DrawerLayout drawerLayout2;
     private ActionBarDrawerToggle toggle;
     FragmentTransaction fragmentTransaction2;
     NavigationView navigationView2;
+    EditText email;
 
 
     /**
@@ -36,9 +43,32 @@ public class OrganizerLogIn extends AppCompatActivity {
     public void buttonOnClick2(View v){
 
         //check if EMail & Password are correct
+        email = findViewById(R.id.editTextEMail);
+        nutzer = email.getText().toString();
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+        client.execute();
 
-        setContentView(R.layout.organizer_main_activity);
-        initNavigationMenu2();
+        if(client.getServerStatus()){
+            Toast.makeText(this,
+                    "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+            client.setServerStatus(false);
+        }
+        while(schleife == 1) {
+             
+        }
+
+
+            if (isinDB) {
+                setContentView(R.layout.organizer_main_activity);
+                initNavigationMenu2();
+            } else {
+                Toast.makeText(this,
+                        "Email nicht in DB.", Toast.LENGTH_LONG).show();
+                client.setServerStatus(false);
+            }
+
+
+
     }
 
 
