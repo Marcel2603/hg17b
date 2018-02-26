@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class shows upcoming events for an organizer that is logged in.
  */
 public class OrganizerNextEvents extends Fragment {
 
