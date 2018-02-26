@@ -4,11 +4,11 @@ Die Klasse Main bestimmt das Design unserer Hauptseite. Das ist die Seite welche
 --------
 Nextevents
 
-Die Klasse NextEvents soll die bevorstehenden Veranstaltungen anzeigen. Zum jetzigen Zeitpunkt besitzt die Klasse keinerlei Funktionalität. Diese folgt im zweiten Release mit der Einbundung der Veranstaltungsdatenbak.
+Die Klasse NextEvents zeigt die bevorstehenden Veranstaltungen an. Dazu nutzt sie die Eventdatenbank, welche seit dem 2. Release integriert ist.
 --------
 Lastevents
 
-Die Klasse LastEvents soll die vom eingeloggten Schüler besuchten Veranstaltungen anzeigen. Auch hier besitzt die Klasse noch keine Funktionalität, da die Veranstaltungsdatenbank noch nicht integriert ist.
+Die Klasse LastEvents zeigt die vom eingeloggten Schüler besuchten Veranstaltungen an. Auch diese Klasse nutzt dazu die Eventdatenbank.
 --------
 Ranking
 
@@ -21,3 +21,20 @@ In dieser Klasse sollen dem Schüler Einstellungsmöglichkeiten zur Individualisie
 LogOut
 
 Die Klasse LogOut dient zum trennen der Serververbindung, klickt man auf den Button abmelden, so wird der Hintegrundthread geschlossen und man landet auf der StartActivity Seite um sich erneut anzumelden.
+--------
+OrganizerLastEvents
+
+In dieser Klasse kann ein angemeldeter Veranstalter Informationen zu seinen vergangenen Veranstaltungen einsehen. 
+--------
+OrganizerLogin
+
+
+Mit dieser Klasse können sich Veranstalter anmelden. dazu benötigen sie eine verifizierte E-Mail Adresse. Mit klick auf bestätigen wird das Menü für Veranstalter initialisiert.
+---------
+OrganizerMain
+
+Die Klasse OrganizerMain bestimmt das Layout der Hauptseite für Veranstalter. Nach dem einloggen ist dies die erste Seite die ein Veranstalter sieht. Außerdem werden bevorstehende Veranstaltungen angezeigt.
+---------
+OrganizerNextEvents
+
+Hier werdem dem eingeloggten Veranstalter kommende Events angezeigt. 
