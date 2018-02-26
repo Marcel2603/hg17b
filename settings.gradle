@@ -1,1 +1,3 @@
 include ':Code:Server'
+include ':Code:App'
+include ':Code:App:app'
