@@ -1,13 +1,8 @@
-apply plugin: 'java'
 apply plugin: 'checkstyle'
 
 repositories {
     mavenCentral()
 	jcenter()
-}
-dependencies {
-    testCompile 'junit:junit:4.12'
-    compile 'junit:junit:4.12'
 }
 
 //Checkstyle for Server
@@ -67,15 +62,13 @@ task checkStylecheck{
 	}
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['Code/Server/src/']
-        }
-    }
-	test{
-		java{
-			srcDirs=['Code/Server/test']
+task checkServerTests{
+	doLast{
+		FileTree tree = fileTree(dir: './reports/Server_unitTests/xml')
+		tree.each{File file -> 
+			if (file.text.contains("<failure")) {
+				throw new GradleException("There were failure in JUnit-Tests on the Server!")
+			}
 		}
 	}
 }

@@ -15,7 +15,7 @@ build/
 .gradle/
 
 #local configs
-/local.properties
+local.properties
 
 
 #Adroid Studio

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- *
+ * this class creates the login page for organizers and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
     Client client;

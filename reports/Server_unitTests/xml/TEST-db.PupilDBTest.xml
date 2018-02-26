@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="db.PupilDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-02-26T10:45:23" hostname="ChrisPs-Surface" time="3.153">
+  <properties/>
+  <testcase name="testToplist" classname="db.PupilDBTest" time="2.769"/>
+  <testcase name="testaddPupilgetScore" classname="db.PupilDBTest" time="0.384"/>
+  <system-out><![CDATA[2 2147483647 >= 520
+3 520 >= 123
+4 123 >= 111
+5 111 >= 99
+6 99 >= 77
+7 77 >= 29
+8 29 >= 20
+9 20 >= 14
+10 14 >= 13
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>

@@ -1,31 +1,42 @@
 image: node:6
 image: openjdk:8-jdk
 
+
 before_script:
   - ping -c 1 aksw.org
   - chmod +x ./gradlew
 
-build_the_project:
-  script:
-    - sh program.sh
-    - test -f result.md
+stages:
+  - styletests
+  - unittests
 
-release-job:
-  before_script:
-    - npm install -g markdown-pdf
-  script:
-    - sh program.sh
-    - markdown-pdf result.md
-    - markdown-pdf Webseiten/docu.md
-    - mv Webseiten/docu.pdf docu.pdf
-  artifacts:
-    paths:
-    - result.pdf
-    - docu.pdf
-  only:
-    - tags
+#build_the_project:
+#  script:
+#    - sh program.sh
+#    - test -f result.md
+
+#release-job:
+#  before_script:
+#    - npm install -g markdown-pdf
+#  script:
+#    - sh program.sh
+#    - markdown-pdf result.md
+#    - markdown-pdf Webseiten/docu.md
+#    - mv Webseiten/docu.pdf docu.pdf
+#  artifacts:
+#    paths:
+#    - result.pdf
+#    - docu.pdf
+#  only:
+#    - tags
 
 CodeStyle:
+  stage: styletests
   script:
     - ./gradlew checkStylecheck
   allow_failure: true
+
+ServerTest:
+  stage: unittests
+  script:
+    - ./gradlew checkServerTests

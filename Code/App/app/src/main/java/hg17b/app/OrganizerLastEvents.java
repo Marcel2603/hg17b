@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * this class lists the last events of an organizer
  */
 public class OrganizerLastEvents extends Fragment {
 
