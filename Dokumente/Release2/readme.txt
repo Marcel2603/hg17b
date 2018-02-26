@@ -1,0 +1,1 @@
+Auf Grund zeitmangel, haben wir uns entschieden einige Funktion auf das nächste Release zuverschieben. Wir bitten dies zu entschuldigen.
