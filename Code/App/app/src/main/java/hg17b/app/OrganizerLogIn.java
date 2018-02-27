@@ -1,3 +1,6 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 import android.support.annotation.NonNull;
@@ -14,9 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * this class creates the login page for organizers and initialises the organizer main menu
+ * this class creates the login page for organizers
+ * and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
+
     Client client;
     public static int schleife = 1;
     public static String nutzer;
@@ -30,7 +35,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
 
     /**
-     *
+     * Standard onCreate Method, loads the LogIn Layout
      * @param savedInstanceState
      */
     @Override
@@ -40,9 +45,13 @@ public class OrganizerLogIn extends AppCompatActivity {
         setContentView(R.layout.organizer_log_in);
     }
 
+    /**
+     * Checks if E-Mail is in the Database,
+     * an later if the password is correct
+     * @param v
+     */
     public void buttonOnClick2(View v){
 
-        //check if EMail & Password are correct
         email = findViewById(R.id.editTextEMail);
         nutzer = email.getText().toString();
         client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
@@ -50,31 +59,25 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         if(client.getServerStatus()){
             Toast.makeText(this,
-                    "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+             "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
             client.setServerStatus(false);
         }
         while(schleife == 1) {
-             
+             //um auf Antwort des Servers zu warten?
         }
-
-
-            if (isinDB) {
-                setContentView(R.layout.organizer_main_activity);
-                initNavigationMenu2();
-            } else {
-                Toast.makeText(this,
-                        "Email nicht in DB.", Toast.LENGTH_LONG).show();
-                client.setServerStatus(false);
-            }
-
-
-
+        if (isinDB) {
+            setContentView(R.layout.organizer_main_activity);
+            initNavigationMenu2();
+        } else {
+            Toast.makeText(this,"Email nicht in DB.", Toast.LENGTH_LONG).show();
+            client.setServerStatus(false);
+        }
     }
 
 
 
     /**
-     * This method enabled a menu, and that the menu items are clickable
+     * This method enables a menu, and that the menu items are clickable
      * @param item
      * @return
      */
@@ -101,7 +104,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Forwarding is regulated here...
+        //forwarding is regulated here...
         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction2.add(R.id.menuContainer2, new OrganizerMain());
         fragmentTransaction2.commit();
@@ -139,7 +142,6 @@ public class OrganizerLogIn extends AppCompatActivity {
 
                     case R.id.Einstellungen:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                        // hier evtl. neues Fragment für Veranstalter Einstellungen
                         fragmentTransaction2.replace(R.id.menuContainer2, new Settings());
                         fragmentTransaction2.commit();
                         getSupportActionBar().setTitle("Einstellungen");
@@ -154,7 +156,6 @@ public class OrganizerLogIn extends AppCompatActivity {
                         drawerLayout2.closeDrawers();
                         break;
                 }
-
                 return true;
             }
         });

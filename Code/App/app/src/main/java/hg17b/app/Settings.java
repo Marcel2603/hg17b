@@ -3,18 +3,21 @@
  */
 package hg17b.app;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.Toast;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} subclass,
+ * to make some Settings and change user preferences
  */
 public class Settings extends Fragment {
+
+    Button btnColorGreen, btnColorRed, btnColorBlue, btnTextSize, btnOther;
 
     /**
      * public constructor from this class
@@ -34,7 +37,71 @@ public class Settings extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        btnColorGreen = view.findViewById(R.id.buttonColorGreen);
+        btnColorRed = view.findViewById(R.id.buttonColorRed);
+        btnColorBlue = view.findViewById(R.id.buttonColorBlue);
+        btnTextSize = view.findViewById(R.id.buttonTextSize);
+        btnOther = view.findViewById(R.id.buttonOther);
+
+        changeColor();
+        changeTextSize();
+        otherChange();
+
+        return view;
     }
 
+    /**
+     * method that changes the color
+     */
+    private void changeColor(){
+        btnColorGreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ändern der Farbe
+                Toast.makeText(getActivity(), "Grün", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnColorRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ändern der Farbe
+                Toast.makeText(getActivity(), "Rot", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnColorBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ändern der Farbe
+                Toast.makeText(getActivity(), "Blau", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
+     * method that changes the text sizes
+     */
+    public void changeTextSize(){
+        btnTextSize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /**
+     * placeholder method for other changes
+     */
+    public void otherChange(){
+        btnOther.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

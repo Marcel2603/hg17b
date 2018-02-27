@@ -38,6 +38,18 @@ public class Client extends AsyncTask<Void, Void, Void>{
         this.entscheidung = entscheidung;
     }
 
+
+    //Standard Getter
+    public String getIp(){
+        return this.ip;
+    }
+    public int getPort(){
+        return this.port;
+    }
+    public int getEntscheidung(){
+        return this.entscheidung;
+    }
+
     /**
      * This method creats an background thread, that connects with the Server.
      * Here, we send and receive Data from the Database behind the Server.
@@ -112,6 +124,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                     }
                 }
             }
+            //Veranstalter
             if (entscheidung == 2){
                 writer.write("veranstalter" + "\n");
                 writer.flush();
@@ -171,21 +184,30 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 System.out.println("Test");
             }
 
-
-
-            } catch (ConnectException e) {
+        } catch (ConnectException e) {
                 setServerStatus(true);
                 e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }return null;
     }
+
+    /**
+     *
+     * @param status
+     */
     public void setServerStatus(boolean status){
         noServer = status;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getServerStatus(){
         return noServer;
     }
+
+
 }
 

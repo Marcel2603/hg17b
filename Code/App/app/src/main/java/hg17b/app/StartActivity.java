@@ -38,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
     Client client;
     public static boolean isinDB;
     public static boolean isclicked;
-    public static int points;
+    private static int points;
     public static int kontrolle;
 
     /**
@@ -58,6 +58,14 @@ public class StartActivity extends AppCompatActivity {
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
 
+    }
+
+    //static points getter & setter
+    public static void setText(int s){
+        points = s;
+    }
+    public int getPoints(){
+        return this.points;
     }
 
     /**
@@ -122,26 +130,13 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows message if TextView tvOrganizer is clicked,
-     * and starts the OrganizerLogIn Page
+     * starts the OrganizerLogIn Page
      * @param v
      */
     public void organizer(View v){
-        //Toast.makeText(this, "Veranstalter Seite", Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
-         startActivity(intent);
-    }
-
-    public void space(View v){
-
-    }
-
-    /**
-     * Sends ID to the Server
-     * @param s
-     */
-    public static void setText(int s){
-        points = s;
+        startActivity(intent);
     }
 
     /**
@@ -225,7 +220,7 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view){
+    public void onClick(){
         LogOut.isclicked = true;
     }
 }

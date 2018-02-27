@@ -1,3 +1,6 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 import android.os.Bundle;
@@ -6,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 /**
  * this class is the main page for the organizer.
  */
 public class OrganizerMain extends Fragment {
+
     public static boolean veranstalter;
+
     /**
      * public constructor from this class
      */
@@ -20,7 +24,8 @@ public class OrganizerMain extends Fragment {
     }
 
     /**
-     * onCreateView creates and display the Layout.
+     * onCreateView creates and display the Layout,
+     * later the Events could be loaded here...
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,15 +33,7 @@ public class OrganizerMain extends Fragment {
         // Inflate the layout for this fragment
         veranstalter = true;
 
-
-
-
-
-
-
-
         View view = inflater.inflate(R.layout.organizer_fragment_main, container, false);
-
 
         return view;
     }

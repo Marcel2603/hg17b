@@ -15,7 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} subclass,
+ * that handles the Log Out and disconnection from the Server
  */
 public class LogOut extends Fragment {
 
@@ -45,19 +46,30 @@ public class LogOut extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_log_out, container, false);
-        btnLogOut = view.findViewById(R.id.btnLogOut);
 
+        btnLogOut = view.findViewById(R.id.btnLogOut);
+        onClickLogOut();
+
+        return view;
+    }
+
+    /**
+     * This method gets active when the Button is hit.
+     * It enables the Disconnection in 'Client' and loads
+     * the StartActivity (with the Log In screen)
+     */
+    private void onClickLogOut(){
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isclicked = true;
-                System.out.println(isclicked);
+                // System.out.println(isclicked);
+
                 Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), StartActivity.class);
                 startActivity(intent);
             }
         });
-        return view;
     }
 }

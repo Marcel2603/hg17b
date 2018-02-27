@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} subclass,
+ * that lists the last Events a Pupil has visited
  */
 public class LastEvents extends Fragment {
 

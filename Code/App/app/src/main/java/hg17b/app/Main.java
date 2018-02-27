@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class Main extends Fragment {
 
     public TextView tvID, tvPoints, tvEvents;
-
+    StartActivity s = new StartActivity();
     /**
      * public constructor from this class
      */
@@ -45,7 +45,7 @@ public class Main extends Fragment {
         tvEvents = view.findViewById(R.id.tvEvents);
 
         tvID.setText("Deine ID lautet: \n\n" + StartActivity.data + "\n");
-        tvPoints.setText("Deine punkte: \n\n" + StartActivity.points + "\n");
+        tvPoints.setText("Deine punkte: \n\n" + s.getPoints() + "\n");
 
         return view;
     }
