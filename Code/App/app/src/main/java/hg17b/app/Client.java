@@ -12,7 +12,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 /**
  * The class Client handles the connection to the Server,

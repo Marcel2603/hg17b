@@ -1,7 +1,45 @@
+#for tex
 *~
 *.log
 *.aux
 
+#for Webseiten
+*_site
+*.sass-cache
+*.jekyll-metadata
 
 #gradle files
-.gradle/
+*.gradle/
+*local.properties
+*.iws
+*/workspace.xml
+*/tasks.xml
+
+#builds
+*/build/
+
+#Android stuff
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+
+Code/App/bin/
+Code/App/gen/
+
+*.iml
+#.idea
+*/.idea/libraries
+*.navigation
+*/captures
+*output.json
+
+
+*.externalNativeBuild
+
+#OS-specific files
+*.DS_Store
+*Thumbs.db
