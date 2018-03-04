@@ -18,11 +18,11 @@ public class Mail {
     /**
      * Gmail-Nutzername.
      */
-    private String username = "hg17b.zukunftsdiplom";
+    private String username; //= "hg17b.zukunftsdiplom";
     /**
      * Gmail-Pw.
      */
-    private String password = "F3u\"9Snl";
+    private String password; //= "F3u\"9Snl";
     /**
      * Betreffzeile.
      */
