@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="6.19">
-<file name="D:\Uni\git\hg17b\Code\Server\src\Commands.java">
-<error line="78" severity="error" message="Zeile länger als 80 Zeichen" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Commands.java">
 </file>
-<file name="D:\Uni\git\hg17b\Code\Server\src\Handler.java">
-<error line="45" severity="error" message="Zeile länger als 80 Zeichen" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Handler.java">
 </file>
-<file name="D:\Uni\git\hg17b\Code\Server\src\Server.java">
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Mail.java">
 </file>
-<file name="D:\Uni\git\hg17b\Code\Server\src\db\Main.java">
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Server.java">
+</file>
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\db\Main.java">
 <error line="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="7" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
-<file name="D:\Uni\git\hg17b\Code\Server\src\db\PupilDB.java">
+<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\db\PupilDB.java">
 <error line="15" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.query.ResultSetFormatter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 </file>
 </checkstyle>
