@@ -16,6 +16,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+	
+	testOptions {
+		reportDir "../../../reportsApp_unitTests"
+		resultsDir "../../../reports/App_unitTests/test-results"
+   }
+	
+	lintOptions {
+		abortOnError false
+	}
+	
+	
+
 }
 
 dependencies {

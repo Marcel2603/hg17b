@@ -1,0 +1,189 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+MERGED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\31dc862a81a72ef63c60823ca49360de\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+	package
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:3:5-24
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:5-6:38
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:5-6:38
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:5-6:38
+MERGED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\31dc862a81a72ef63c60823ca49360de\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\31dc862a81a72ef63c60823ca49360de\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:5-6:38
+INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:5-6:38
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:23:9-59
+	android:maxSdkVersion
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:6:9-35
+	android:targetSdkVersion
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:5:9-38
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:4:15-41
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:9:22-76
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:10:22-76
+application
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:12:5-27:19
+MERGED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\31dc862a81a72ef63c60823ca49360de\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\31dc862a81a72ef63c60823ca49360de\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:24:5-28:19
+	android:supportsRtl
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:17:9-35
+	android:label
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:15:9-41
+	android:roundIcon
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:16:9-54
+	android:icon
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:13:9-35
+	android:theme
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:18:9-40
+activity#hg17b.app.StartActivity
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:19:9-25:20
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:19:19-48
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:23:27-74
+activity#hg17b.app.OrganizerLogIn
+ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:26:9-61
+	android:name
+		ADDED from C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\AndroidManifest.xml:26:19-49
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\6926eae91045066c728d3f98d72a8572\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\d5cdfd26b60a8e327100877b3c575127\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\fdd45761982527e5ea9c5dbf98852e08\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\5c2694b2b9d870ca776dcdc7f7b184e1\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\915f80a78a9a9fb16880d7a916c4d7ac\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\8bff2c8f476f550d8542f3b8a240521d\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\f21760b5454146a929af00f47a8ce072\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\86e89a0431ac698bbe54d61771c25c74\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\a5650d01d6ea3d7696b0ebe33ca5fa44\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\96efed4cb3fe2fb33d39764dc563d1a4\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\c463cea74f0c2cfd0d0af028e6d32285\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.1.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\03ae4657ee7a6699c962b91955c9f252\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\MrCHR\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\efcdfeb67e66023529fdf3b25645b682\AndroidManifest.xml:26:13-58
