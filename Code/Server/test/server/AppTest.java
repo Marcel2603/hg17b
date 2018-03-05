@@ -1,4 +1,4 @@
-package com.zukunftsdiplom.server;
+package db;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
