@@ -35,5 +35,6 @@
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/slf4j-log4j12-1.7.25.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Korti/Downloads/apache-jena-3.6.0(1)/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcel/Desktop/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
