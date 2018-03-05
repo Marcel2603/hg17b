@@ -17,6 +17,7 @@
 
 #builds
 */build/
+build/
 
 #Android stuff
 *.apk
