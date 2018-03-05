@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.zukunftsdiplom.server.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-03-04T19:22:07" hostname="ChrisPs-Surface" time="0.002">
-  <properties/>
-  <testcase name="testApp" classname="com.zukunftsdiplom.server.AppTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
