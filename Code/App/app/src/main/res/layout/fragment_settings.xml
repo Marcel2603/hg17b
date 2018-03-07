@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Farbe ändern:"
@@ -18,40 +19,44 @@
         android:textSize="24dp"/>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
-        android:id="@+id/buttonColorGreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Grün"
-        android:textColor="#FFFFFF"
-        android:background="@color/colorPrimaryDark"/>
-    <Button
-        android:id="@+id/buttonColorRed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Rot"
-        android:textColor="#FFFFFF"
-        android:background="@color/colorPrimaryDark"/>
-    <Button
-        android:id="@+id/buttonColorBlue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:text="Blau"
-        android:textColor="#FFFFFF"
-        android:background="@color/colorPrimaryDark"/>
+            android:id="@+id/buttonColorGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Grün"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/buttonColorRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Rot"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/buttonColorBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Blau"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <Button

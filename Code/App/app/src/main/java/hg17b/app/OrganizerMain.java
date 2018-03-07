@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * this class is the main page for the organizer.
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 public class OrganizerMain extends Fragment {
 
     public static boolean veranstalter;
+    public TextView tvEvents;
 
     /**
      * public constructor from this class
@@ -34,6 +36,9 @@ public class OrganizerMain extends Fragment {
         veranstalter = true;
 
         View view = inflater.inflate(R.layout.organizer_fragment_main, container, false);
+        tvEvents = view.findViewById(R.id.tvEvents);
+
+        //tvEvents.setText("nächstes Event");
 
         return view;
     }
