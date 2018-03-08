@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.HashMap;
 import db.PupilDB;
-import org.json.*;
+
 /**
  * Handle the communication between Server, Client and DB.
  * @author marcel
@@ -24,13 +24,19 @@ public class Handler implements Runnable {
      */
     private PupilDB db1;
     /**
+     * Mail-Konto.
+     */
+    private Mail mail;
+    /**
      * Konstruktor to create the Thread.
      * @param socket Clientsocket.
      * @param pupilDB DB with pupildata.
+     * @param mail Email-Konot des Servers.
      */
-    public Handler(final Socket socket, final PupilDB pupilDB) {
+    public Handler(final Socket socket, final PupilDB pupilDB, final Mail mail) {
         this.client = socket;
         this.db1 = pupilDB;
+        this.mail = mail;
     }
     /**
      * Manage and run the Client.
@@ -101,6 +107,7 @@ public class Handler implements Runnable {
                        email = recieve;
                        System.out.println("Email");
                        if (db1.isOrganizer(recieve)) {
+                           mail.senden("marcelemail2603@gmail.com");
                            writer.write("true\n");
                            writer.flush();
                            System.out.println(recieve + "true");
