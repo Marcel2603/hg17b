@@ -75,7 +75,8 @@ public class Commands implements Runnable {
         System.out.print("Verbundene Clients:" + "\n" + "\n");
         if (Server.getSocket().size() != 0) {
             for (int i = 0; i < Server.getSocket().size(); i++) {
-                System.out.println("Addresse: " + Server.getSocket().get(i).getInetAddress()
+                System.out.println("Addresse: "
+                        + Server.getSocket().get(i).getInetAddress()
                         + " Port: " + Server.getSocket().get(i).getPort());
                 }
             } else {

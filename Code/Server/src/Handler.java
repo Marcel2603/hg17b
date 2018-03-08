@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.HashMap;
 import db.PupilDB;
-
+import org.json.*;
 /**
  * Handle the communication between Server, Client and DB.
  * @author marcel
@@ -42,30 +42,42 @@ public class Handler implements Runnable {
             PrintWriter writer = new PrintWriter(out);
 //            Kommunikation von Client zum Server
             InputStream in = client.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(in));
             String recieve = "";
             HashMap<Integer, Integer> ranking;
             int id = 0;
             recieve  = reader.readLine();
+            //case für schueler und veranstalter
+            int pers = 0;
+            if (recieve.equals("schueler")) {
+                pers = 1;
+            }
+            if (recieve.equals("veranstalter")) {
+                pers = 2;
+            }
 //            Solange der Client nicht offline ist.
+
             while (!recieve.equals("disconnect")) {
-                if (recieve.equals("Ueberpruefe ID")) {
-//                    getID
-                    recieve = reader.readLine();
-                    id = Integer.parseInt(recieve);
-                    boolean inID = db1.isID(id);
-                    if (inID) {
-                        writer.write("true\n");
-                        writer.flush();
-                    } else {
-                        writer.write("false" + "\n");
-                        writer.flush();
+                //Schueler-Verbindung
+                if (pers == 1) {
+                    if (recieve.equals("Ueberpruefe ID")) {
+//                       getID
+                        recieve = reader.readLine();
+                        id = Integer.parseInt(recieve);
+                        boolean inID = db1.isID(id);
+                        if (inID) {
+                            writer.write("true\n");
+                            writer.flush();
+                        } else {
+                                 writer.write("false" + "\n");
+                                 writer.flush();
+                        }
                     }
-                }
                     if (recieve.equals("Punkte")) {
-                        Integer points = db1.getScore(id);
-                        writer.write(points.toString() + "\n");
-                        writer.flush();
+                            Integer points = db1.getScore(id);
+                            writer.write(points.toString() + "\n");
+                            writer.flush();
                     }
                     if (recieve.equals("Rangliste")) {
                         ranking = db1.getToplist();
@@ -77,8 +89,37 @@ public class Handler implements Runnable {
                         writer.flush();
                     }
                     recieve = reader.readLine();
+                }
+                //Veranstalter
+                if (pers == 2) {
+                    String email = "";
+                    recieve = reader.readLine();
+                    if (recieve.equals("Ueberpruefe Email")) {
+//                      getEmail
+                        System.out.println("Befehl");
+                       recieve = reader.readLine();
+                       email = recieve;
+                       System.out.println("Email");
+                       if (db1.isOrganizer(recieve)) {
+                           writer.write("true\n");
+                           writer.flush();
+                           System.out.println(recieve + "true");
+                       } else {
+                                writer.write("false" + "\n");
+                                writer.flush();
+                                System.out.println(recieve + "false");
+                       }
+                }
+                  if (recieve.equals("GetAnzahl")) {
+                      int anzahl = db1.getEventsOrganizer(email, true).size();
+                      writer.write(anzahl + "\n");
+                      writer.flush();
+                  }
+          }
             }
-            System.out.println("Client: " + client.getPort() + "ist offline.");
+            System.out.println("Client: "
+                    + client.getInetAddress() + ":"
+                    + client.getPort() + " ist offline.");
             Server.deleteSocket(client);
             writer.close();
             reader.close();

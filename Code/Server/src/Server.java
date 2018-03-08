@@ -5,8 +5,11 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.time.*;
+
 
 import db.PupilDB;
+import org.json.*;
 /**
  * Create DB and start the server.
  * @author marcel
@@ -52,8 +55,10 @@ public class Server {
      * @param args Not necessary.
      */
     public static void main(final String[] args) {
-        Server serv = new Server(PORT);
-        serv.start();
+       /* Server serv = new Server(PORT);
+        serv.start();*/
+        Mail mail = new Mail("hg17b.zukunftsdiplom", "F3u\"9Snl");
+        mail.senden("herhold.marcel@gmail.com");
     }
     /**
      * manage the server.
@@ -68,7 +73,7 @@ public class Server {
                 Socket client = server.accept();
                 socket.add(client);
                 System.out.println("Client : " + client.getInetAddress()
-                + client.getPort() + "hat sich verbunden.");
+                + ":" + client.getPort() + " hat sich verbunden.");
                 executor.execute(new Handler(client, db1));
             }
         } catch (SocketException e) {
