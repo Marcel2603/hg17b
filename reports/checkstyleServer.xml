@@ -3,16 +3,20 @@
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Commands.java">
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Handler.java">
+<error line="36" column="75" severity="error" message="&apos;mail&apos; verbirgt ein Feld." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Mail.java">
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Server.java">
-</file>
-<file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\db\Main.java">
-<error line="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="7" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="8" severity="error" message="Die Form &apos;.*&apos; für import-Anweisungen sollte vermieden werden - java.time.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="12" severity="error" message="Die Form &apos;.*&apos; für import-Anweisungen sollte vermieden werden - org.json.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\db\PupilDB.java">
-<error line="15" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.query.ResultSetFormatter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="9" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.graph.Graph." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="10" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.graph.Triple." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="17" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.query.ResultSetFormatter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="19" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.rdf.model.Model." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="21" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.riot.RDFDataMgr." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="23" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.tdb.TDBFactory." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 </file>
 </checkstyle>

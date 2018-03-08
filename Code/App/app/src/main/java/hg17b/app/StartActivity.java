@@ -130,6 +130,18 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
+     * disables the Back-Button to avoid disconnection
+     */
+    @Override
+    public void onBackPressed() {
+        /**if (!shouldAllowBack()) {
+            doSomething();
+        } else {
+            super.onBackPressed();
+        }*/
+    }
+
+    /**
      * starts the OrganizerLogIn Page
      * @param v
      */

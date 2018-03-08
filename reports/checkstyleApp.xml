@@ -100,17 +100,19 @@
 <error line="65" column="14" severity="error" message="Nach &apos;while&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="65" column="30" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
 <error line="72" column="33" severity="error" message="Nach &apos;,&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="79" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
-<error line="86" column="11" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="86" column="47" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="96" column="38" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="116" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="117" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="77" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="90" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="97" column="11" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="97" column="47" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="107" column="38" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="127" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="128" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\java\hg17b\app\OrganizerMain.java">
 <error line="4" column="9" severity="error" message="&apos;hg17b.app&apos; entspricht nicht dem Muster &apos;^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
-<error line="17" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
-<error line="19" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="18" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="19" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="21" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\java\hg17b\app\OrganizerNextEvents.java">
 <error line="4" column="9" severity="error" message="&apos;hg17b.app&apos; entspricht nicht dem Muster &apos;^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
@@ -179,13 +181,14 @@
 <error line="107" column="30" severity="error" message="Nach &apos;&lt;&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="111" column="75" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
 <error line="132" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
-<error line="136" column="32" severity="error" message="Erwartete Tag @param für &apos;v&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="136" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="146" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="166" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="167" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="223" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="223" column="26" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="144" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="148" column="32" severity="error" message="Erwartete Tag @param für &apos;v&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="148" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="158" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="178" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="179" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="235" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="235" column="26" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\java\hg17b\app\dummy\DummyContent.java">
 <error line="1" column="9" severity="error" message="&apos;hg17b.app.dummy&apos; entspricht nicht dem Muster &apos;^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>

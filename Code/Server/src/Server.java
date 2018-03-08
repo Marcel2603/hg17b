@@ -5,8 +5,11 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.time.*;
+
 
 import db.PupilDB;
+import org.json.*;
 /**
  * Create DB and start the server.
  * @author marcel
@@ -34,6 +37,10 @@ public class Server {
      */
     private ServerSocket server;
     /**
+     * Mail-Konto des Servers.
+     */
+    private Mail mail;
+    /**
      * Konstruktor to create Server and DB.
      * @param port Port for the server.
      */
@@ -44,6 +51,7 @@ public class Server {
             e.printStackTrace();
         }
         this.db1 = new PupilDB();
+        mail = new Mail("hg17b.zukunftsdiplom", "F3u\"9Snl");
         System.out.println("Server is online (Port: " + port + ").");
     }
     /**
@@ -68,8 +76,8 @@ public class Server {
                 Socket client = server.accept();
                 socket.add(client);
                 System.out.println("Client : " + client.getInetAddress()
-                + client.getPort() + "hat sich verbunden.");
-                executor.execute(new Handler(client, db1));
+                + ":" + client.getPort() + " hat sich verbunden.");
+                executor.execute(new Handler(client, db1, mail));
             }
         } catch (SocketException e) {
             } catch (IOException e) {

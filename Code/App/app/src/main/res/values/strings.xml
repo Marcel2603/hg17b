@@ -26,10 +26,10 @@
         Du hast aktuell 0 Punkte gesammelt. Dir fehlen noch 0 Punkte für dein Diplom...\n
     </string>
     <string name="events">
-        Du hast keine bevorstehenden Veranstaltungen.
+        Du hast keine bevorstehenden Veranstaltungen.\n
     </string>
     <string name="empty_historie">
-        Du hast noch keine Veranstaltungen besucht.
+        Du hast noch keine Veranstaltungen besucht.\n
     </string>
     <string name="empty_historie_org">
         Du hast noch keine vergangenen Veranstaltungen...
