@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 /**
  * A simple {@link Fragment} subclass,
  * that handles the Log Out and disconnection from the Server
@@ -64,6 +66,11 @@ public class LogOut extends Fragment {
             public void onClick(View v) {
                 isclicked = true;
                 // System.out.println(isclicked);
+
+                //Delete file with ID and delete OrganizerID (important for the case, that an organizer was logged in)
+                File f = new File(getContext().getCacheDir(),"logindata.tmp");
+                f.delete();
+                OrganizerLogIn.nutzer = null;
 
                 Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
 
