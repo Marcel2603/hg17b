@@ -73,7 +73,7 @@ task checkServerTests{
 	}
 }
 
-task checkServerTests{
+task checkAppTests{
 	doLast{
 		FileTree tree = fileTree(dir: './reports/App_unitTests/test-results/')
 		tree.each{File file -> 
