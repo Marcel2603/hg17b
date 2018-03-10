@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Das Team
-permalink: /Team/
+permalink: Team/
 ---
 
-# Marcel Herold
+# Marcel Herhold
 
 **_Position:_** Projektleiter
 
@@ -30,13 +30,9 @@ permalink: /Team/
 
 # Julian Dietz
 
+**_Position:_** Qualitätssicherungsbeauftragter
+
 **_gitlab:_** jd17ryna
-
-<br>
-
-# Julia Klum
-
-**_gitlab:_** psy11fgf
 
 <br>
 
