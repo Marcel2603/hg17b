@@ -9,7 +9,7 @@ import java.time.*;
 
 
 import db.PupilDB;
-import org.json.*;
+
 /**
  * Create DB and start the server.
  * @author marcel
