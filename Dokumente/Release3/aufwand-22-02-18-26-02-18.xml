@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Analyse von="2018-02-26" bis="2018-03-12" gruppe="hg17b" createdBy="MH" createdAt="2018-03-12"> 
+  <done who="CP,NK,MR,JD,RM,MH" A="3" S="3" Zeit="5">Besprechungen</done>
+  <done who="MH" A="3" S="2" Zeit="1">Email-Service aufgesetzt</done>
+  <done who="MR,MH,JD" A="4" S="3" Zeit="3">Events in App integriert</done>
+  <done who="JD" A="3" S="3" Zeit="2">Dokumente fuer Release angepasst</done>
+  <done who="CP" A="2" S="2" Zeit="2">Gradle, Git angepasst</done>
+  <done who="CP" A="3" S="3" Zeit="1.5">ID-Speicherung in App</done>
+  <done who="RM" A="4" S="4" Zeit="2.4">SSH-Client</done>
+  <done who="NK" A="0" S="0" Zeit="0">SSH-Server und Datenbank</done>
+</Analyse>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+                  android:layout_marginTop="10dp" android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/tv10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/events"
+            android:textSize="24dp"/>
+
+        <Button
+            android:id="@+id/buttonZurück"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="vorherige Events laden"/>
+        <Button
+            android:id="@+id/buttonWeiter"
+            android:layout_width="match_parent"	android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content" android:text="nächste Events laden"/>
+
+    </LinearLayout>
+</ScrollView>
