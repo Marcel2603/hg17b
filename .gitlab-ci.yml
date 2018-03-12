@@ -61,3 +61,7 @@ CodeStyle:
 ServerTest:
   script:
     - ./gradlew checkServerTests
+    
+AppTest:
+  script:
+    - ./gradlew checkAppTests

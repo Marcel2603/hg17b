@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -16,6 +18,9 @@ import android.view.ViewGroup;
  * that lists the last Events a Pupil has visited
  */
 public class LastEvents extends Fragment {
+
+    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
+    Button btnBack, btnNext;
 
     /**
      * public constructor from this class
@@ -35,7 +40,23 @@ public class LastEvents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_last_events, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_last_events, container, false);
+        btnBack = view.findViewById(R.id.buttonZurück);
+        btnNext = view.findViewById(R.id.buttonWeiter);
+
+        tv1 = view.findViewById(R.id.tv1);
+        tv2 = view.findViewById(R.id.tv2);
+        tv3 = view.findViewById(R.id.tv3);
+        tv4 = view.findViewById(R.id.tv4);
+        tv5 = view.findViewById(R.id.tv5);
+        tv6 = view.findViewById(R.id.tv6);
+        tv7 = view.findViewById(R.id.tv7);
+        tv8 = view.findViewById(R.id.tv8);
+        tv9 = view.findViewById(R.id.tv9);
+        tv10 = view.findViewById(R.id.tv10);
+
+        return view;
     }
 
 }

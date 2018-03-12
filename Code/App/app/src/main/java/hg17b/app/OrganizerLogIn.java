@@ -3,18 +3,25 @@
  */
 package hg17b.app;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * this class creates the login page for organizers
@@ -42,7 +49,14 @@ public class OrganizerLogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.organizer_log_in);
+
+        if(nutzer != null) {
+            setContentView(R.layout.organizer_main_activity);
+            initNavigationMenu2();
+        }else{
+            setContentView(R.layout.organizer_log_in);
+        }
+
     }
 
     /**
@@ -66,6 +80,26 @@ public class OrganizerLogIn extends AppCompatActivity {
              //um auf Antwort des Servers zu warten?
         }
         if (isinDB) {
+
+            /*Create File to safe ID*/
+            BufferedWriter bw = null;
+            try {
+                File f = new File(getCacheDir(),"logindata.tmp");
+                bw = new BufferedWriter(new FileWriter(f));
+                bw.write("v"+nutzer);
+                bw.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                if(bw != null) {
+                    try {
+                        bw.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
             setContentView(R.layout.organizer_main_activity);
             initNavigationMenu2();
         } else {

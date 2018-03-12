@@ -18,6 +18,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 /**
  * This is the Main Activity, and handles the Student part of the App.
  * The class StartActivity starts the Application and sets up the Layout.
@@ -48,7 +60,37 @@ public class StartActivity extends AppCompatActivity {
      */
     protected void onCreate(Bundle savedInstanceState) {
 
-            super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
+
+        BufferedReader br = null;
+
+
+        File f = new File(getCacheDir(),"logindata.tmp");
+        if(f.exists()){
+            try {
+                br = new BufferedReader(new FileReader(f));
+                String ID = br.readLine();
+                if (ID.startsWith("v")) {//if Veranstalter
+                    OrganizerLogIn.nutzer = ID.substring(1);
+                    Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
+                    startActivity(intent);
+                } else {//If it is a student's ID
+                    data = ID;
+                    setContentView(R.layout.main_activity);
+                    initNavigationMenu();
+                }
+            }catch(IOException ioEx){
+                ioEx.printStackTrace();
+            }finally {
+                if(br != null){
+                    try {
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }else{
             setContentView(R.layout.start_activity);
 
             kontrolle = 0;
@@ -57,7 +99,7 @@ public class StartActivity extends AppCompatActivity {
             logOut = (Button) findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
-
+        }
     }
 
     //static points getter & setter
@@ -117,6 +159,27 @@ public class StartActivity extends AppCompatActivity {
                client.setServerStatus(false);
            } else {
                if (isinDB) {
+
+                   /*Create File to safe ID*/
+                   System.out.println("hallo");
+                   BufferedWriter bw = null;
+                   try {
+                       File f = new File(getCacheDir(),"logindata.tmp");
+                       bw = new BufferedWriter(new FileWriter(f));
+                       bw.write(data);
+                       bw.flush();
+                       System.out.println(f.getPath());
+                   } catch (IOException e) {
+                       e.printStackTrace();
+                   }finally {
+                       if (bw != null){
+                           try {
+                               bw.close();
+                           } catch (IOException e) {
+                               e.printStackTrace();
+                           }
+                       }
+                   }
                    setContentView(R.layout.main_activity);
                    initNavigationMenu();
                } else {
