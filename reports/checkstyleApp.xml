@@ -188,48 +188,52 @@
 <error line="69" column="23" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="72" column="24" severity="error" message="&apos;ID&apos; entspricht nicht dem Muster &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
 <error line="73" column="42" severity="error" message="Nach &apos;{&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="77" column="25" severity="error" message="Nach &apos;{&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="82" column="14" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="82" column="14" severity="error" message="Vor &apos;catch&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="82" column="19" severity="error" message="Nach &apos;catch&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="82" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="84" column="14" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="84" column="14" severity="error" message="Vor &apos;finally&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="85" column="19" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="85" column="31" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="93" column="10" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="93" column="10" severity="error" message="Vor &apos;else&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="93" column="14" severity="error" message="Nach &apos;else&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="93" column="14" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="106" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="106" column="38" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="109" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="109" column="27" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="113" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
-<error line="120" column="11" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="120" column="47" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="145" column="10" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="145" column="24" severity="error" message="Vor &apos;&gt;&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="145" column="25" severity="error" message="Nach &apos;&gt;&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="145" column="27" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="148" column="9" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="148" column="9" severity="error" message="Vor &apos;else&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="149" column="29" severity="error" message="Vor &apos;&lt;&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="149" column="30" severity="error" message="Nach &apos;&lt;&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="153" column="75" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="167" column="56" severity="error" message="Nach &apos;,&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="174" column="21" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="174" column="21" severity="error" message="Vor &apos;finally&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="175" column="39" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="195" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
-<error line="207" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
-<error line="211" column="32" severity="error" message="Erwartete Tag @param für &apos;v&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="211" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="221" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="241" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="242" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="298" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="298" column="26" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="78" column="23" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="78" column="49" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="86" column="25" severity="error" message="Nach &apos;{&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="87" column="30" severity="error" message="Vor &apos;=&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="87" column="31" severity="error" message="Nach &apos;=&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="99" column="14" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="99" column="14" severity="error" message="Vor &apos;catch&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="99" column="19" severity="error" message="Nach &apos;catch&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="99" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="101" column="14" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="101" column="14" severity="error" message="Vor &apos;finally&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="102" column="19" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="102" column="31" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="110" column="10" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="110" column="10" severity="error" message="Vor &apos;else&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="110" column="14" severity="error" message="Nach &apos;else&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="110" column="14" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="123" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="123" column="38" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="126" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="126" column="27" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="130" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="137" column="11" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="137" column="47" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="162" column="10" severity="error" message="Nach &apos;if&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="162" column="24" severity="error" message="Vor &apos;&gt;&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="162" column="25" severity="error" message="Nach &apos;&gt;&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="162" column="27" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="165" column="9" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="165" column="9" severity="error" message="Vor &apos;else&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="166" column="29" severity="error" message="Vor &apos;&lt;&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="166" column="30" severity="error" message="Nach &apos;&lt;&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="170" column="75" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
+<error line="184" column="56" severity="error" message="Nach &apos;,&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="191" column="21" severity="error" message="Nach &apos;}&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="191" column="21" severity="error" message="Vor &apos;finally&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="192" column="39" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="212" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="224" severity="error" message="Der erste Satz sollte mit einem Punkt abschließen." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="228" column="32" severity="error" message="Erwartete Tag @param für &apos;v&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="228" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="238" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="258" severity="error" message="switch ohne &quot;default&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="259" column="17" severity="error" message="&apos;{&apos; in Spalten 17 sollte in der vorhergehenden Zeile stehen." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="315" column="5" severity="error" message="Javadoc-Kommentar fehlt." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="315" column="26" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\App\app\src\main\java\hg17b\app\dummy\DummyContent.java">
 <error line="1" column="9" severity="error" message="&apos;hg17b.app.dummy&apos; entspricht nicht dem Muster &apos;^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>

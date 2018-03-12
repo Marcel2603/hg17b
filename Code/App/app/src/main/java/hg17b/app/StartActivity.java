@@ -72,10 +72,27 @@ public class StartActivity extends AppCompatActivity {
                 String ID = br.readLine();
                 if (ID.startsWith("v")) {//if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+                    client.execute();
+
+                    if(client.getServerStatus()){
+                        Toast.makeText(this,
+                                "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+                        client.setServerStatus(false);
+                    }
+
                     Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
                     startActivity(intent);
                 } else {//If it is a student's ID
+                    isclicked=true;
                     data = ID;
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+                    client.execute();
+                    if (client.getServerStatus()) {
+                        Toast.makeText(this,
+                                "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+                        client.setServerStatus(false);
+                    }
                     setContentView(R.layout.main_activity);
                     initNavigationMenu();
                 }
