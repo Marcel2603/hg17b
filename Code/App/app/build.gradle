@@ -17,10 +17,10 @@ android {
         }
     }
 	
-	testOptions {
+	/*testOptions {
 		reportDir "../../../reports/App_unitTests"
 		resultsDir "../../../reports/App_unitTests/test-results"
-   }
+   }*/
 	
 	lintOptions {
 		abortOnError false

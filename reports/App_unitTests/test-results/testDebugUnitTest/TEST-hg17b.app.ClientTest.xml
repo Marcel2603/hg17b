@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hg17b.app.ClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-03-12T16:05:40" hostname="ChrisPs-Surface" time="0.007">
+  <properties/>
+  <testcase name="doInBackground" classname="hg17b.app.ClientTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
