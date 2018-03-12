@@ -3,6 +3,9 @@
  */
 package hg17b.app;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
