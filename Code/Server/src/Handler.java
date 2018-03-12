@@ -6,7 +6,9 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.HashMap;
+
 import db.PupilDB;
 
 /**
@@ -58,21 +60,24 @@ public class Handler implements Runnable {
             int pers = 0;
             if (recieve.equals("schueler")) {
                 pers = 1;
+                System.out.println("schueler nekomen");
             }
             if (recieve.equals("veranstalter")) {
                 pers = 2;
             }
 //            Solange der Client nicht offline ist.
-
+            String email = "";
             while (!recieve.equals("disconnect")) {
                 //Schueler-Verbindung
                 if (pers == 1) {
                     if (recieve.equals("Ueberpruefe ID")) {
 //                       getID
+                        System.out.println("ID");
                         recieve = reader.readLine();
                         id = Integer.parseInt(recieve);
                         boolean inID = db1.isID(id);
                         if (inID) {
+                            System.out.println(true);
                             writer.write("true\n");
                             writer.flush();
                         } else {
@@ -94,15 +99,41 @@ public class Handler implements Runnable {
                         writer.write(db1.getRank(id) + "\n");
                         writer.flush();
                     }
+                    if (recieve.equals("Eventpast")) {
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(true);
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            System.out.println(list.get(i).get("label"));
+                            writer.write(list.get(i).get("label") + "\n");
+                            writer.flush();
+                        }
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
+                        System.out.println("ENDE");
+                    }
+                    if (recieve.equals("Event")) {
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(false);
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            System.out.println(list.get(i).get("label"));
+                            writer.write(list.get(i).get("label") + "\n");
+                            writer.flush();
+                        }
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
+                        System.out.println("ENDE");
+                    }
+                    System.out.println(recieve);
                     recieve = reader.readLine();
                 }
                 //Veranstalter
                 if (pers == 2) {
-                    String email = "";
                     recieve = reader.readLine();
                     if (recieve.equals("Ueberpruefe Email")) {
 //                      getEmail
-                        System.out.println("Befehl");
+
                        recieve = reader.readLine();
                        email = recieve;
                        System.out.println("Email");
@@ -116,12 +147,34 @@ public class Handler implements Runnable {
                                 writer.flush();
                                 System.out.println(recieve + "false");
                        }
-                }
-                  if (recieve.equals("GetAnzahl")) {
-                      int anzahl = db1.getEventsOrganizer(email, true).size();
-                      writer.write(anzahl + "\n");
-                      writer.flush();
-                  }
+                    }
+                    if (recieve.equals("Eventpast")) {
+                        System.out.println("LAST EVENT ____________________________________________");
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsOrganizer(email, true);
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            System.out.println(list.get(i).get("label"));
+                            writer.write(list.get(i).get("label") + "\n");
+                            writer.flush();
+                        }
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
+                        System.out.println(list.size());
+                    }
+                    if (recieve.equals("Event")) {
+                        System.out.println("NEXT EVENT ____________________________________________");
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsOrganizer(email, false);
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            System.out.println(list.get(i).get("label"));
+                            writer.write(list.get(i).get("label") + "\n");
+                            writer.flush();
+                        }
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
+                    }
           }
             }
             System.out.println("Client: "
