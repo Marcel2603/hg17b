@@ -9,7 +9,6 @@
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\Server.java">
 <error line="8" severity="error" message="Die Form &apos;.*&apos; für import-Anweisungen sollte vermieden werden - java.time.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
-<error line="12" severity="error" message="Die Form &apos;.*&apos; für import-Anweisungen sollte vermieden werden - org.json.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\db\PupilDB.java">
 <error line="9" column="8" severity="error" message="Nicht benutztes import - org.apache.jena.graph.Graph." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>

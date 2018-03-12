@@ -12,6 +12,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * The class Client handles the connection to the Server,
@@ -98,7 +99,28 @@ public class Client extends AsyncTask<Void, Void, Void>{
                                 System.out.println(Ranking.score.get(i));
                             }
                             Ranking.rang = reader.readLine();
-                            System.out.println("Get rang");
+
+
+
+
+                            writer.write("Event\n");
+                            writer.flush();
+                            String temp = "";
+                            while(!temp.equals("ENDE")){
+                                temp = reader.readLine();
+                                if(!temp.equals("ENDE")) {
+                                    NextEvents.list.add(temp);
+                                }
+                            }
+                            writer.write("Eventpast\n");
+                            writer.flush();
+                            temp = "";
+                            while(!temp.equals("ENDE")){
+                                temp = reader.readLine();
+                                if(!temp.equals("ENDE")) {
+                                    LastEvents.list.add(temp);
+                                }
+                            }
 
 
                         } else {
@@ -143,8 +165,27 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         String vonServer = reader.readLine();
                         System.out.println(vonServer);
                         if (vonServer.equals("true")) {
+                            writer.write("Event\n");
+                            writer.flush();
+                            String temp = "";
+                            while(!temp.equals("ENDE")){
+                                temp = reader.readLine();
+                                if(!temp.equals("ENDE")) {
+                                    OrganizerNextEvents.list.add(temp);
+                                }
+                            }
+                            writer.write("Eventpast\n");
+                            writer.flush();
+                            temp = "";
+                            while(!temp.equals("ENDE")){
+                                temp = reader.readLine();
+                                if(!temp.equals("ENDE")) {
+                                    OrganizerLastEvents.list.add(temp);
+                                }
+                            }
                             OrganizerLogIn.isinDB = true;
                             OrganizerLogIn.schleife = 0;
+
                             t = 1;
 
                         }else{
