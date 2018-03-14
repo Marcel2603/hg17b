@@ -61,7 +61,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        KeyHandler key = new KeyHandler(getFilesDir());
         BufferedReader br = null;
 
 
