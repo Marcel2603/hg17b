@@ -138,7 +138,15 @@ public class Handler implements Runnable {
                        email = recieve;
                        System.out.println("Email");
                        if (db1.isOrganizer(recieve)) {
+                           //HAS KEY
+                           //ELSE
                            mail.senden("marcelemail2603@gmail.com");
+                           
+                           
+                           
+                           
+                           
+                           
                            writer.write("true\n");
                            writer.flush();
                            System.out.println(recieve + "true");
@@ -155,7 +163,7 @@ public class Handler implements Runnable {
                         for (int i = 0;
                                 i < list.size(); i++) {
                             System.out.println(list.get(i).get("label"));
-                            writer.write(list.get(i).get("label") + "\n");
+                            writer.write(list.get(i).get("start") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");

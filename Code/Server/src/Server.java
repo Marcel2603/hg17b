@@ -2,10 +2,13 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.time.*;
 
 
 import db.PupilDB;
@@ -71,10 +74,14 @@ public class Server {
 //            starts the commands for the server.
             Thread t = new Thread(new Commands(server));
             t.start();
+            Calendar cal = Calendar.getInstance();
+            Date time = cal.getTime();
+            DateFormat formatter = new SimpleDateFormat();
             while (true) {
                 Socket client = server.accept();
                 socket.add(client);
-                System.out.println("Client : " + client.getInetAddress()
+                System.out.println(formatter.format(time)
+                        + ": Client : " + client.getInetAddress()
                 + ":" + client.getPort() + " hat sich verbunden.");
                 executor.execute(new Handler(client, db1, mail));
             }

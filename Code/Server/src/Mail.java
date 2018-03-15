@@ -26,14 +26,14 @@ public class Mail {
     /**
      * Betreffzeile.
      */
-    private String betreff = "Bestätigungsmail für das Zukunftsdiplom";
+    private String betreff = "Bestaetigungsmail fuer das Zukunftsdiplom";
     /**
      * Nachricht der Email.
      */
     private String nachricht = "Guten Tag, \n"
-            + "Bitte klicken sie zur bestätigung auf den Link: "
+            + "Bitte klicken sie zur bestaetigung auf den Link: "
             + "pcai042.informatik.uni-leipzig.de/~hg17b/ \n \n"
-            + "Mit freundlichen Grüßen \n"
+            + "Mit freundlichen Gruessen \n"
             + "hg17b";
     /**
      * Konstruktor zur Initialisierung des Email-Kontos.

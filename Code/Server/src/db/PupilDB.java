@@ -377,7 +377,8 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "prefix foaf: <http://xmlns.com/foaf/0.1/> "
-                        + "SELECT ?email WHERE {?email foaf:mbox \"" + email + "\"}";
+                        + "SELECT ?email WHERE {?email foaf:mbox \""
+                        + email + "\"}";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
