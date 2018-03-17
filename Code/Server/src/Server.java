@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -7,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -72,6 +75,37 @@ public class Server {
         ExecutorService executor = Executors.newFixedThreadPool(THREADNUMBER);
         try {
 //            starts the commands for the server.
+            /*
+             * Fuer Testzwecke
+             
+            FileWriter f = new FileWriter("D:/uni/git/db.txt");
+            BufferedWriter fr = new BufferedWriter(f);
+            ArrayList<HashMap<String, String>> ar = db1.getEventsStudents(true);
+            for (int i = 0; i < ar.size(); i++) {
+                System.out.println(ar.get(i).get("label"));
+                fr.write(ar.get(i).get("label"));
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+                fr.write(ar.get(i).get("address"));
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+                fr.write(ar.get(i).get("url"));
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+                fr.write(ar.get(i).get("description"));
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+                fr.write(ar.get(i).get("start"));
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+               // fr.write(ar.get(i).get("end"));
+//                fr.write(System.getProperty("line.separator"));
+//                fr.flush();
+                fr.write("_____");
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+            }
+            */
             Thread t = new Thread(new Commands(server));
             t.start();
             Calendar cal = Calendar.getInstance();
