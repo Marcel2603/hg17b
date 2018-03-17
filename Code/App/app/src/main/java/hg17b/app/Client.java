@@ -4,6 +4,12 @@
 package hg17b.app;
 
 import android.os.AsyncTask;
+import android.os.Build;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -115,10 +121,20 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             writer.write("Eventpast\n");
                             writer.flush();
                             temp = "";
+                            JSONObject obj;
+                            JSONArray ar = new JSONArray();
                             while(!temp.equals("ENDE")){
                                 temp = reader.readLine();
                                 if(!temp.equals("ENDE")) {
-                                    LastEvents.list.add(temp);
+                                   // LastEvents.list.add(temp);
+                                    obj = new JSONObject(temp);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                        ar = isDouble(ar, obj);
+                                    }else {
+                                        ar.put(obj);
+                                    }
+                                }else {
+                                    LastEvents.list = ar;
                                 }
                             }
 
@@ -229,7 +245,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
-        }return null;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -248,6 +267,30 @@ public class Client extends AsyncTask<Void, Void, Void>{
         return noServer;
     }
 
+    private JSONArray isDouble(JSONArray ar, JSONObject obj) throws JSONException {
+        boolean stop = true;
+        for(int i = 0; i < ar.length() && stop; i++) {
+            JSONObject temp = ar.getJSONObject(i);
+            if (temp.getString("label").equals(obj.getString("label"))){
+                if (temp.getString("address").equals(obj.getString("address"))){
+                    if (temp.getString("description").equals(obj.getString("description"))){
+                        String time = temp.getString("start");
+                        time += " || " + obj.getString("start");
+                        temp.put("start", time);
+
+                            ar.remove(i);
+
+                        ar.put(temp);
+                        stop = false;
+                    }
+                }
+            }
+        }
+        if(stop || ar.length() == 0) {
+            ar.put(obj);
+        }
+        return ar;
+    }
 
 }
 

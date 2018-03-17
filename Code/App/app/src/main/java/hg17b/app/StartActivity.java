@@ -86,7 +86,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+                    client = new Client("localhost", 1831, 1);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,

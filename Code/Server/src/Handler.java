@@ -9,6 +9,10 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import db.PupilDB;
 
 /**
@@ -99,7 +103,7 @@ public class Handler implements Runnable {
                         writer.write(db1.getRank(id) + "\n");
                         writer.flush();
                     }
-                    if (recieve.equals("Eventpast")) {
+                    /*if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(true);
                         for (int i = 0;
@@ -111,6 +115,23 @@ public class Handler implements Runnable {
                         writer.write("ENDE" + "\n");
                         writer.flush();
                         System.out.println("ENDE");
+                    }*/
+                    if (recieve.equals("Eventpast")) {
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(true);
+                        JSONObject obj;
+                        for (int i = 0; i < list.size(); i++) {
+                            obj = new JSONObject();
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
+                            writer.flush();
+                        }
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
                     }
                     if (recieve.equals("Event")) {
                         ArrayList<HashMap<String, String>> list
@@ -198,6 +219,9 @@ public class Handler implements Runnable {
             e.printStackTrace();
         } catch (NullPointerException e) {
             Server.deleteSocket(client);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-    }
+        }
 }
