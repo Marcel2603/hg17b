@@ -86,7 +86,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("localhost", 1831, 1);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -153,7 +153,8 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+        client = new Client(//"pcai042.informatik.uni-leipzig.de",
+               "localhost",  1831, 1);
         client.execute();
 
         //Check if input fits into the TextField

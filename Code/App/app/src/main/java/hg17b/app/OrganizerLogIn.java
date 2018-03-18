@@ -36,6 +36,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
     private DrawerLayout drawerLayout2;
     private ActionBarDrawerToggle toggle;
+
     FragmentTransaction fragmentTransaction2;
     NavigationView navigationView2;
     EditText email;
@@ -81,7 +82,7 @@ public class OrganizerLogIn extends AppCompatActivity {
         }
         if (isinDB) {
 
-            /*Create File to safe ID*/
+            //*Create File to safe ID*//*
             BufferedWriter bw = null;
             try {
                 File f = new File(getCacheDir(),"logindata.tmp");
@@ -102,7 +103,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
             setContentView(R.layout.organizer_main_activity);
             initNavigationMenu2();
-        } else {
+      } else {
             Toast.makeText(this,"Email nicht in DB.", Toast.LENGTH_LONG).show();
             client.setServerStatus(false);
         }
@@ -193,6 +194,13 @@ public class OrganizerLogIn extends AppCompatActivity {
                         drawerLayout2.closeDrawers();
                         break;
 
+                    case R.id.Scanner:
+                        Intent intent = new Intent(OrganizerLogIn.this,OcrCaptureActivity.class);
+                        startActivity(intent);
+                        getSupportActionBar().setTitle("Scanner");
+                        drawerLayout2.closeDrawers();
+                        break;
+
                     case R.id.Log_Out:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction2.replace(R.id.menuContainer2, new LogOut());
@@ -200,6 +208,7 @@ public class OrganizerLogIn extends AppCompatActivity {
                         getSupportActionBar().setTitle("Abmelden");
                         drawerLayout2.closeDrawers();
                         break;
+
                 }
                 return true;
             }
