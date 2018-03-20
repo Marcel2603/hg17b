@@ -153,8 +153,8 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client(//"pcai042.informatik.uni-leipzig.de",
-               "localhost",  1831, 1);
+        client = new Client("pcai042.informatik.uni-leipzig.de",
+               1831, 1);
         client.execute();
 
         //Check if input fits into the TextField
@@ -168,7 +168,7 @@ public class StartActivity extends AppCompatActivity {
                Toast.makeText(this,
                        "Deine Eingabe war zu kurz\n", Toast.LENGTH_LONG).show();
            }
-           while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
+          while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
                //loop for testing
            }
            if (client.getServerStatus()) {

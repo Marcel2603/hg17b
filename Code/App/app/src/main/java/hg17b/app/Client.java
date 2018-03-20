@@ -155,6 +155,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         schleife = false;
                         writer.write("disconnect" + "\n");
                         writer.flush();
+
+                        System.out.println("DISCONNECT");
                         writer.close();
                         socket.close();
                         LogOut.isclicked = false;
@@ -184,18 +186,18 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             writer.write("Event\n");
                             writer.flush();
                             String temp = "";
-                            while(!temp.equals("ENDE")){
+                            while (!temp.equals("ENDE")) {
                                 temp = reader.readLine();
-                                if(!temp.equals("ENDE")) {
+                                if (!temp.equals("ENDE")) {
                                     OrganizerNextEvents.list.add(temp);
                                 }
                             }
                             writer.write("Eventpast\n");
                             writer.flush();
                             temp = "";
-                            while(!temp.equals("ENDE")){
+                            while (!temp.equals("ENDE")) {
                                 temp = reader.readLine();
-                                if(!temp.equals("ENDE")) {
+                                if (!temp.equals("ENDE")) {
                                     OrganizerLastEvents.list.add(temp);
                                 }
                             }
@@ -204,7 +206,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
                             t = 1;
 
-                        }else{
+                        } else {
                             OrganizerLogIn.isinDB = false;
                             OrganizerLogIn.schleife = 0;
                             writer.write("disconnect" + "\n");
@@ -218,7 +220,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         System.out.println("b");
 
                     }
-                    System.out.println("a");
                     if (OrganizerMain.veranstalter){
                         writer.write("GetAnzahl");
                         writer.flush();
@@ -231,7 +232,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         schleife1 = false;
                         writer.write("disconnect" + "\n");
                         writer.flush();
-                        System.out.println("Test");
+                        System.out.println("DISCOOONECTED");
                         writer.close();
                         socket.close();
                         LogOut.isclicked = false;
