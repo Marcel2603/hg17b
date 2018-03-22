@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class LastEvents extends Fragment {
 
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
-    Button btnBack, btnNext;
+    Button btnBack, btnNext, refreshbutton;
     public static JSONArray list = new JSONArray();
     private int Zaehler = 0;
 
@@ -52,6 +52,7 @@ public class LastEvents extends Fragment {
         View view = inflater.inflate(R.layout.fragment_last_events, container, false);
         btnBack = view.findViewById(R.id.buttonZurück);
         btnNext = view.findViewById(R.id.buttonWeiter);
+        refreshbutton = view.findViewById(R.id.refreshbutton);
 
         tv1 = view.findViewById(R.id.tv1);
         tv2 = view.findViewById(R.id.tv2);
@@ -67,6 +68,7 @@ public class LastEvents extends Fragment {
 
         Back();
         Next();
+        refresh();
         return view;
     }
     public void setList(){
@@ -198,4 +200,15 @@ public class LastEvents extends Fragment {
         });
     }
 
+    /**
+     * Creates a listener for the refresh-button, which
+     */
+    public void refresh(){
+        refreshbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("refreshing");
+                //do something with client
+            }
+        });
+    }
 }

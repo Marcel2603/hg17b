@@ -5,12 +5,16 @@ package hg17b.app;
 
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,6 +23,7 @@ import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The class Client handles the connection to the Server,
@@ -32,6 +37,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private boolean noServer = false;
     private int entscheidung = 0;
     public int anzahl;
+    /**The Writer that writes to the Server*/
+    private PrintWriter writer;
+    /**The Reader that reads what the Server sent*/
+    private BufferedReader reader;
 
     /**
      * public constructor from Client
@@ -68,9 +77,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
             socket = new Socket(ip,port);
             System.out.println("Client online");
             OutputStream out = socket.getOutputStream();
-            PrintWriter writer = new PrintWriter(out);
+            writer = new PrintWriter(out);
             InputStream in = socket.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            reader = new BufferedReader(new InputStreamReader(in));
             //schueler
             if(entscheidung == 1) {
                 writer.write("schueler" + "\n");
@@ -106,38 +115,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             }
                             Ranking.rang = reader.readLine();
 
-
-
-
-                            writer.write("Event\n");
-                            writer.flush();
-                            String temp = "";
-                            while(!temp.equals("ENDE")){
-                                temp = reader.readLine();
-                                if(!temp.equals("ENDE")) {
-                                    NextEvents.list.add(temp);
-                                }
-                            }
-                            writer.write("Eventpast\n");
-                            writer.flush();
-                            temp = "";
-                            JSONObject obj;
-                            JSONArray ar = new JSONArray();
-                            while(!temp.equals("ENDE")){
-                                temp = reader.readLine();
-                                if(!temp.equals("ENDE")) {
-                                   // LastEvents.list.add(temp);
-                                    obj = new JSONObject(temp);
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                        ar = isDouble(ar, obj);
-                                    }else {
-                                        ar.put(obj);
-                                    }
-                                }else {
-                                    LastEvents.list = ar;
-                                }
-                            }
-
+                            //now receive the Events
+                            receiveEvents();
 
                         } else {
                             StartActivity.isinDB = false;
@@ -250,6 +229,69 @@ public class Client extends AsyncTask<Void, Void, Void>{
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    private void receiveEvents() throws IOException, JSONException{
+        writer.write("Event\n");
+        writer.flush();
+        String temp = "";
+        while(!temp.equals("ENDE")){
+            temp = reader.readLine();
+            if(!temp.equals("ENDE")) {
+                NextEvents.list.add(temp);
+            }
+        }
+        //Now we can use the same Method for studends and organizers
+        OrganizerNextEvents.list=NextEvents.list;
+        //Finally safe it to a file
+        safeFile("Events.tmp",NextEvents.list);
+
+        writer.write("Eventpast\n");
+        writer.flush();
+        temp = "";
+        JSONObject obj;
+        JSONArray ar = new JSONArray();
+        while(!temp.equals("ENDE")){
+            temp = reader.readLine();
+            if(!temp.equals("ENDE")) {
+                // LastEvents.list.add(temp);
+                obj = new JSONObject(temp);
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    ar = isDouble(ar, obj);
+                }else {
+                    ar.put(obj);
+                }
+            }else {
+                LastEvents.list = ar;
+            }
+        }
+        //Now me can use the same Method for studends and organizers
+
+    }
+
+    /**
+     * Prints an Array into a file, where each line equals an item in the Array
+     * @param filename Name the File should have
+     * @param ar The array with the data to be written
+     */
+    private void safeFile(String filename, List ar){
+        PrintWriter pw = null;
+        try {
+            File f = new File(getCacheDir(),filename);
+            pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
+            for (int i=0;i<ar.size();i++){
+                pw.println(ar.get(i).toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (pw != null){
+                pw.close();
+            }
+        }
     }
 
     /**

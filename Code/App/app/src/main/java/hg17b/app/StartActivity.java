@@ -47,7 +47,7 @@ public class StartActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     Button logOut;
-    Client client;
+    public Client client;
     public static boolean isinDB;
     public static boolean isclicked;
     private static int points;
@@ -179,14 +179,12 @@ public class StartActivity extends AppCompatActivity {
                if (isinDB) {
 
                    /*Create File to safe ID*/
-                   System.out.println("hallo");
                    BufferedWriter bw = null;
                    try {
                        File f = new File(getCacheDir(),"logindata.tmp");
                        bw = new BufferedWriter(new FileWriter(f));
                        bw.write(data);
                        bw.flush();
-                       System.out.println(f.getPath());
                    } catch (IOException e) {
                        e.printStackTrace();
                    }finally {

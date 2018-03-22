@@ -10,12 +10,19 @@
                   android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
                   android:layout_marginTop="10dp" android:orientation="vertical">
 
+        <Button
+            android:id="@+id/refreshbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aktualisieren" />
+
         <TextView
             android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/empty_historie"
-            android:textSize="24dp"/>
+            android:textSize="24dp" />
+
         <TextView
             android:id="@+id/tv2"
             android:layout_width="match_parent"
@@ -80,4 +87,5 @@
             android:layout_height="wrap_content" android:text="nächste Events laden"/>
 
     </LinearLayout>
+
 </ScrollView>
