@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -196,6 +197,16 @@ public class LastEvents extends Fragment {
                 }
             }
         });
+    }
+    public int getZaehler(){
+        return Zaehler;
+    }
+    public JSONObject getObject(int index){
+        try {
+            return list.getJSONObject(index);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }
