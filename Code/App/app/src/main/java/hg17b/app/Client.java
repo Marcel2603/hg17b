@@ -11,6 +11,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,7 +21,15 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
+
+import javax.net.SocketFactory;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 /**
  * The class Client handles the connection to the Server,
@@ -29,16 +40,18 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private String ip;
     private int port;
     private Socket socket = null;
+    private SSLSocket sslSocket=null;
     private boolean noServer = false;
     private int entscheidung = 0;
     public int anzahl;
-
+    KeyHandler kh;
     /**
      * public constructor from Client
      * @param ip - the ip address we want to reach
      * @param port - the port to connect with the Server
      */
-    public Client(String ip, int port, int entscheidung) {
+    public Client(String ip, int port, int entscheidung, KeyHandler kh) {
+        this.kh=kh;
         this.ip = ip;
         this.port= port;
         this.entscheidung = entscheidung;
@@ -87,7 +100,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         writer.write(StartActivity.data + "\n");
                         writer.flush();
                         String vonServer = reader.readLine();
+
                         if (vonServer.equals("true")) {
+
                             writer.write("Punkte" + "\n");
                             writer.flush();
 
@@ -179,10 +194,56 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         System.out.println("Befehl");
                         writer.write(email + "\n");
                         writer.flush();
-                        System.out.println(email);
+
                         String vonServer = reader.readLine();
-                        System.out.println(vonServer);
+
                         if (vonServer.equals("true")) {
+
+                            vonServer = reader.readLine();
+                            System.out.println(vonServer);
+                            System.out.println("vonServer");
+                            if(vonServer.equals("keyExists")){
+                                System.out.println("key EXISTS!!!");
+                                sslConnect();
+                            } else if(vonServer.equals("noKeyExists")){
+                                KeyStore ks=null;
+
+                                try {
+                                    if(!kh.isAlias(email)){
+                                        kh.addKey(email);
+                                    }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                ks = kh.getPublicStore(email);
+                                OutputStream outServer = socket.getOutputStream();
+                                try {
+                                    File f = new File(kh.getDir(), "temp");
+                                    FileOutputStream temp = new FileOutputStream(f);
+                                    ks.store(temp, "password".toCharArray());
+                                    temp.close();
+                                    long length = f.length();
+                                    byte[] bytes = new byte[8192];
+                                    InputStream inKey = new FileInputStream(f);
+                                    int count;
+                                    while ((count = inKey.read(bytes)) > 0) {
+                                        outServer.write(bytes, 0, count);
+                                    }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+
+
+
+
+
+
                             writer.write("Event\n");
                             writer.flush();
                             String temp = "";
@@ -291,6 +352,37 @@ public class Client extends AsyncTask<Void, Void, Void>{
             ar.put(obj);
         }
         return ar;
+    }
+
+    private void sslConnect(){
+        try {
+
+            String trustdir = kh.getDir() + "/keyStore";
+            System.setProperty("javax.net.ssl.keyStore", trustdir);
+            System.setProperty("javax.net.ssl.keyStorePassword", "password");
+            System.out.println(System.getProperty("javax.net.ssl.keyStore"));
+            System.out.println(System.getProperty("javax.net.ssl.keyStorePassword"));
+            System.out.println(ip + " " + port);
+            SocketFactory sf = SSLSocketFactory.getDefault();
+            SSLSocket socket = (SSLSocket) sf.createSocket(ip, port+1);
+
+            System.out.println("SSL-Client online");
+            OutputStream out = sslSocket.getOutputStream();
+            System.out.println("SSL-Client online");
+            PrintWriter writer = new PrintWriter(out);
+            System.out.println("SSL-Client online");
+            InputStream in = socket.getInputStream();
+            System.out.println("SSL-Client online");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            writer.write("Hallo ICH BIN EIN SSL CLIENT.\n");
+            writer.flush();
+            System.out.println("SSL-Client online");
+            System.out.println(reader.readLine());
+            System.out.println(System.getProperty("javax.net.ssl.keyStore"));
+            System.out.println(System.getProperty("javax.net.ssl.keyStorePassword"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

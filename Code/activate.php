@@ -1,0 +1,20 @@
+<?php
+	/*
+	Diese Datei ruft die keyAdder.jar auf um neue keys in den Keystore zu uebertragen.
+	Der übergebene Parameter id entspricht dabei dem Alias des Keys, key ist die vom
+	Server erzeugte zufaellige Ziffernfolge, die beim uebertragen des keys an den Server
+	vom Server erstellt wird und als Email verschickt wird.
+	
+	*/
+
+
+
+	//Hier den Pfad zur Java Executable eintragen:
+	$javaPath="/usr/java/jdk1.8.0_112/bin/java"; 
+	
+	//Hier den Pfad zum KeyAdder.jar eintragen:
+	$keyAdderPath="/home/hg17b/Server/KeyAdder.jar"; 
+	$output = shell_exec( $javaPath . ' -jar '. $keyAdderPath . ' ' . $_GET['id'] . ' ' . $_GET['key']);
+	echo $output;
+
+?>

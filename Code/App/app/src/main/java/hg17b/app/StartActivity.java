@@ -52,7 +52,7 @@ public class StartActivity extends AppCompatActivity {
     public static boolean isclicked;
     private static int points;
     public static int kontrolle;
-
+    KeyHandler ks;
     /**
      * The onCreate method is called when the Application gets started.
      * Here we initialize the Layout, start the Client and connect them with the Server.
@@ -61,7 +61,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        KeyHandler key = new KeyHandler(getFilesDir());
+        ks = new KeyHandler(getFilesDir());
         BufferedReader br = null;
 
 
@@ -72,7 +72,7 @@ public class StartActivity extends AppCompatActivity {
                 String ID = br.readLine();
                 if (ID.startsWith("v")) {//if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+                    client = new Client("192.168.2.195", 1831, 2, ks);
                     client.execute();
 
                     if(client.getServerStatus()){
@@ -86,7 +86,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+                    client = new Client("192.168.2.195", 1831, 1, ks);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -153,8 +153,8 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("pcai042.informatik.uni-leipzig.de",
-               1831, 1);
+        client = new Client("192.168.2.195",
+               1831, 1, ks);
         client.execute();
 
         //Check if input fits into the TextField
