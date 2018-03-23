@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 
@@ -23,7 +25,7 @@ public class OrganizerNextEvents extends Fragment {
 
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
     Button btnBack, btnNext;
-    public static ArrayList<String> list = new ArrayList<String>();
+    public static JSONArray list = new JSONArray();
     private int Zaehler = 0;
 
     public OrganizerNextEvents() {

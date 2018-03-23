@@ -127,10 +127,20 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             writer.write("Event\n");
                             writer.flush();
                             String temp = "";
+                            JSONObject obj;
+                            JSONArray ar = new JSONArray();
                             while(!temp.equals("ENDE")){
                                 temp = reader.readLine();
                                 if(!temp.equals("ENDE")) {
-                                    NextEvents.list.add(temp);
+                                    // LastEvents.list.add(temp);
+                                    obj = new JSONObject(temp);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                        ar = isDouble(ar, obj);
+                                    }else {
+                                        ar.put(obj);
+                                    }
+                                }else {
+                                    NextEvents.list = ar;
                                 }
                             }
                             writer.write("Eventpast\n");
@@ -247,19 +257,39 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             writer.write("Event\n");
                             writer.flush();
                             String temp = "";
-                            while (!temp.equals("ENDE")) {
+                            JSONObject obj;
+                            JSONArray ar = new JSONArray();
+                            while(!temp.equals("ENDE")){
                                 temp = reader.readLine();
-                                if (!temp.equals("ENDE")) {
-                                    OrganizerNextEvents.list.add(temp);
+                                if(!temp.equals("ENDE")) {
+                                    // LastEvents.list.add(temp);
+                                    obj = new JSONObject(temp);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                        ar = isDouble(ar, obj);
+                                    }else {
+                                        ar.put(obj);
+                                    }
+                                }else {
+                                    OrganizerNextEvents.list = ar;
                                 }
                             }
                             writer.write("Eventpast\n");
                             writer.flush();
                             temp = "";
-                            while (!temp.equals("ENDE")) {
+                            JSONObject obj;
+                            JSONArray ar = new JSONArray();
+                            while(!temp.equals("ENDE")){
                                 temp = reader.readLine();
-                                if (!temp.equals("ENDE")) {
-                                    OrganizerLastEvents.list.add(temp);
+                                if(!temp.equals("ENDE")) {
+                                    // LastEvents.list.add(temp);
+                                    obj = new JSONObject(temp);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                        ar = isDouble(ar, obj);
+                                    }else {
+                                        ar.put(obj);
+                                    }
+                                }else {
+                                    OrganizerLastEvents.list = ar;
                                 }
                             }
                             OrganizerLogIn.isinDB = true;

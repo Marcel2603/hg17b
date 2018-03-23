@@ -142,9 +142,15 @@ public class Handler implements Runnable {
                     if (recieve.equals("Event")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(false);
-                        for (int i = 0;
-                                i < list.size(); i++) {
-                            writer.write(list.get(i).get("label") + "\n");
+                        JSONObject obj;
+                        for (int i = 0; i < list.size(); i++) {
+                            obj = new JSONObject();
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
@@ -199,7 +205,7 @@ public class Handler implements Runnable {
                     }
                     if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
-                        = db1.getEventsStudents(true);
+                        = db1.getEventsOrganizer(email, true);
                         JSONObject obj;
                         for (int i = 0; i < list.size(); i++) {
                             obj = new JSONObject();
@@ -217,9 +223,15 @@ public class Handler implements Runnable {
                     if (recieve.equals("Event")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, false);
-                        for (int i = 0;
-                                i < list.size(); i++) {
-                            writer.write(list.get(i).get("label") + "\n");
+                        JSONObject obj;
+                        for (int i = 0; i < list.size(); i++) {
+                            obj = new JSONObject();
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
