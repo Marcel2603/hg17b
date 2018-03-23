@@ -163,7 +163,7 @@ public class Server {
      * Holt alle naechsten Events aus der DB.
      * @throws JSONException wenn datenbank fehlerhaft.
      */
-    private static void setNextEvents() throws JSONException{
+    private void setNextEvents() throws JSONException{
         ArrayList<HashMap<String, String>> list
         = db1.getEventsStudents(false);
         JSONObject obj;
@@ -182,7 +182,7 @@ public class Server {
      * Holt alle vergangenen Events aus der DB.
      * @throws JSONException wenn datenbank fehlerhaft.
      */
-    private static void setLastEvents() throws JSONException{
+    private void setLastEvents() throws JSONException{
         ArrayList<HashMap<String, String>> list
         = db1.getEventsStudents(true);
         JSONObject obj;

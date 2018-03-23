@@ -9,6 +9,8 @@ dependencies {
     compile 'junit:junit:4.12'
 	compile group: 'org.apache.jena', name: 'apache-jena-libs', version: '3.5.0'
 	compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+	compile 'org.json:json:20171018'
+	compile 'org.bouncycastle:bcprov-jdk16:1.45'
 }
 
 
