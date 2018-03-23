@@ -47,6 +47,16 @@ public class Mail {
         this.nachricht = message;
     }
     /**
+     * Konstruktor zur Initialisierung des Email-Kontos ohne Nachricht.
+     * @param string Nutzername
+     * @param string2 Passwort
+     */
+    public Mail(final String string, final String string2) {
+        this.username = string;
+        this.password = string2;
+        // TODO Auto-generated constructor stub
+    }
+    /**
      * Sendet eine Bestaetigungsemail an den Empfaenger.
      * @param empfaenger Email des Veranstalters.
      */

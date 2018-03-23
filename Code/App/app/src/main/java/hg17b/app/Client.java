@@ -357,30 +357,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
     /**
      * Prints an Array into a file, where each line equals an item in the Array.
-     * This Method is explicitly for the case we use a List.
-     * @param filename Name the File should have
-     * @param ar The array with the data to be written
-     */
-    private void safeFile(String filename, List ar){
-        PrintWriter pw = null;
-        try {
-            File f = new File(context.getCacheDir(),filename);
-            pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
-            for (int i=0;i<ar.size();i++){
-                pw.println(ar.get(i).toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if (pw != null){
-                pw.close();
-            }
-        }
-    }
-
-    /**
-     * Prints an Array into a file, where each line equals an item in the Array.
-     * This Method is explicitly for the case we use a JSONArray
      * @param filename Name the File should have
      * @param ar The array with the data to be written
      */

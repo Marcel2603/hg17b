@@ -12,7 +12,7 @@
 *.gradle/
 *local.properties
 *.iws
-*workspace.xml
+workspace.xml
 */tasks.xml
 
 #builds

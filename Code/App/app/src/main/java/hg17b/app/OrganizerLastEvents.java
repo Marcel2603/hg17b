@@ -13,14 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONArray;
-
 import java.io.IOException;
+
 import java.util.ArrayList;
 
-
 /**
- * this class lists the last events of an organizer
+ * A simple {@link Fragment} subclass,
+ * that lists the next Events a Pupil can visit
  */
 public class OrganizerLastEvents extends Fragment {
 
@@ -31,6 +32,9 @@ public class OrganizerLastEvents extends Fragment {
     public static JSONArray list = new JSONArray();
     private int Zaehler = 0;
 
+    /**
+     * public constructor from this class
+     */
     public OrganizerLastEvents() {
         // Required empty public constructor
     }
@@ -46,8 +50,7 @@ public class OrganizerLastEvents extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_last_events, container, false);
+        View view = inflater.inflate(R.layout.fragment_next_events, container, false);
         btnBack = view.findViewById(R.id.buttonZurück);
         btnNext = view.findViewById(R.id.buttonWeiter);
         refreshbutton = view.findViewById(R.id.refreshbutton);
@@ -200,7 +203,14 @@ public class OrganizerLastEvents extends Fragment {
     public int getZaehler(){
         return Zaehler;
     }
-
+    public  JSONObject getObject(int index){
+        try {
+            return list.getJSONObject(index);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     /**
      * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
      */

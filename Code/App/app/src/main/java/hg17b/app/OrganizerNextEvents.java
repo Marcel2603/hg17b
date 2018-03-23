@@ -12,11 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
-
-import java.io.IOException;
-import java.util.ArrayList;
+import org.json.JSONArray;
 
 
 /**
@@ -26,7 +23,7 @@ public class OrganizerNextEvents extends Fragment {
 
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
     Button btnBack, btnNext, refreshbutton;
-    public static ArrayList<String> list = new ArrayList<String>();
+    public static JSONArray list = new JSONArray();
     private int Zaehler = 0;
 
     public OrganizerNextEvents() {
@@ -61,7 +58,7 @@ public class OrganizerNextEvents extends Fragment {
         return view;
     }
     public void setList(){
-        if(list.size() == 0){
+        if(list.length() == 0){
             tv1.setText(" ");
             tv2.setText(" ");
             tv3.setText(" ");
@@ -72,16 +69,21 @@ public class OrganizerNextEvents extends Fragment {
             tv9.setText(" ");
             tv10.setText(" ");
         }else {
-            tv1.setText(list.get(0));
-            tv2.setText(list.get(1));
-            tv3.setText(list.get(2));
-            tv4.setText(list.get(3));
-            tv5.setText(list.get(4));
-            tv6.setText(list.get(5));
-            tv7.setText(list.get(6));
-            tv8.setText(list.get(7));
-            tv9.setText(list.get(8));
-            tv10.setText(list.get(9));
+            try {
+                tv1.setText(list.getJSONObject(0).getString("label"));
+
+                tv2.setText(list.getJSONObject(1).getString("label"));
+                tv3.setText(list.getJSONObject(2).getString("label"));
+                tv4.setText(list.getJSONObject(3).getString("label"));
+                tv5.setText(list.getJSONObject(4).getString("label"));
+                tv6.setText(list.getJSONObject(5).getString("label"));
+                tv7.setText(list.getJSONObject(6).getString("label"));
+                tv8.setText(list.getJSONObject(7).getString("label"));
+                tv9.setText(list.getJSONObject(8).getString("label"));
+                tv10.setText(list.getJSONObject(9).getString("label"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
     public void Back() {
@@ -93,16 +95,21 @@ public class OrganizerNextEvents extends Fragment {
                             "Du bist auf der ersten Seite!", Toast.LENGTH_LONG).show();
                 }else {
                     Zaehler -= 10;
-                    tv1.setText(list.get(Zaehler));
-                    tv2.setText(list.get(Zaehler+1));
-                    tv3.setText(list.get(Zaehler+2));
-                    tv4.setText(list.get(Zaehler+3));
-                    tv5.setText(list.get(Zaehler+4));
-                    tv6.setText(list.get(Zaehler+5));
-                    tv7.setText(list.get(Zaehler+6));
-                    tv8.setText(list.get(Zaehler+7));
-                    tv9.setText(list.get(Zaehler+8));
-                    tv10.setText(list.get(Zaehler+9));
+                    try {
+                        tv1.setText(list.getJSONObject(Zaehler).getString("label"));
+
+                        tv2.setText(list.getJSONObject(Zaehler+1).getString("label"));
+                        tv3.setText(list.getJSONObject(Zaehler+2).getString("label"));
+                        tv4.setText(list.getJSONObject(Zaehler+3).getString("label"));
+                        tv5.setText(list.getJSONObject(Zaehler+4).getString("label"));
+                        tv6.setText(list.getJSONObject(Zaehler+5).getString("label"));
+                        tv7.setText(list.getJSONObject(Zaehler+6).getString("label"));
+                        tv8.setText(list.getJSONObject(Zaehler+7).getString("label"));
+                        tv9.setText(list.getJSONObject(Zaehler+8).getString("label"));
+                        tv10.setText(list.getJSONObject(Zaehler+9).getString("label"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -111,62 +118,68 @@ public class OrganizerNextEvents extends Fragment {
     public void Next() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (list.size() < 10) {
+                if (list.length() < 10) {
                     Toast.makeText(getActivity(),
                             "Du bist auf der einzigsten Seite!", Toast.LENGTH_LONG).show();
                 } else {
-                    Zaehler += 10;
-                    if (Zaehler < list.size()) {
-                        tv1.setText(list.get(Zaehler));
-                    } else {
-                        Zaehler -= 10;
-                        Toast.makeText(getActivity(),
-                                "Du bist auf der letzten Seite!", Toast.LENGTH_LONG).show();
-                    }
-                    if (Zaehler + 1 < list.size()) {
-                        tv2.setText((list.get(Zaehler + 1)));
-                    } else {
-                        tv2.setText(" ");
-                    }
-                    if (Zaehler + 2 < list.size()) {
-                        tv3.setText((list.get(Zaehler + 2)));
-                    } else {
-                        tv3.setText(" ");
-                    }
-                    if (Zaehler + 3 < list.size()) {
-                        tv4.setText((list.get(Zaehler + 3)));
-                    } else {
-                        tv4.setText(" ");
-                    }
-                    if (Zaehler + 4 < list.size()) {
-                        tv5.setText((list.get(Zaehler + 4)));
-                    } else {
-                        tv5.setText(" ");
-                    }
-                    if (Zaehler + 5 < list.size()) {
-                        tv6.setText((list.get(Zaehler + 5)));
-                    } else {
-                        tv6.setText(" ");
-                    }
-                    if (Zaehler + 6 < list.size()) {
-                        tv7.setText((list.get(Zaehler + 6)));
-                    } else {
-                        tv7.setText(" ");
-                    }
-                    if (Zaehler + 7 < list.size()) {
-                        tv8.setText((list.get(Zaehler + 7)));
-                    } else {
-                        tv8.setText(" ");
-                    }
-                    if (Zaehler + 8 < list.size()) {
-                        tv9.setText((list.get(Zaehler + 8)));
-                    } else {
-                        tv9.setText(" ");
-                    }
-                    if (Zaehler + 9 < list.size()) {
-                        tv10.setText((list.get(Zaehler + 9)));
-                    } else {
-                        tv10.setText(" ");
+                    try {
+                        Zaehler += 10;
+                        if (Zaehler < list.length()) {
+
+                            tv1.setText(list.getJSONObject(Zaehler).getString("label"));
+
+                        } else {
+                            Zaehler -= 10;
+                            Toast.makeText(getActivity(),
+                                    "Du bist auf der letzten Seite!", Toast.LENGTH_LONG).show();
+                        }
+                        if (Zaehler + 1 < list.length()) {
+                            tv2.setText((list.getJSONObject(Zaehler + 1).getString("label")));
+                        } else {
+                            tv2.setText(" ");
+                        }
+                        if (Zaehler + 2 < list.length()) {
+                            tv3.setText((list.getJSONObject(Zaehler + 2).getString("label")));
+                        } else {
+                            tv3.setText(" ");
+                        }
+                        if (Zaehler + 3 < list.length()) {
+                            tv4.setText((list.getJSONObject(Zaehler + 3).getString("label")));
+                        } else {
+                            tv4.setText(" ");
+                        }
+                        if (Zaehler + 4 < list.length()) {
+                            tv5.setText((list.getJSONObject(Zaehler + 4).getString("label")));
+                        } else {
+                            tv5.setText(" ");
+                        }
+                        if (Zaehler + 5 < list.length()) {
+                            tv6.setText((list.getJSONObject(Zaehler + 5).getString("label")));
+                        } else {
+                            tv6.setText(" ");
+                        }
+                        if (Zaehler + 6 < list.length()) {
+                            tv7.setText((list.getJSONObject(Zaehler + 6).getString("label")));
+                        } else {
+                            tv7.setText(" ");
+                        }
+                        if (Zaehler + 7 < list.length()) {
+                            tv8.setText((list.getJSONObject(Zaehler + 7).getString("label")));
+                        } else {
+                            tv8.setText(" ");
+                        }
+                        if (Zaehler + 8 < list.length()) {
+                            tv9.setText((list.getJSONObject(Zaehler + 8).getString("label")));
+                        } else {
+                            tv9.setText(" ");
+                        }
+                        if (Zaehler + 9 < list.length()) {
+                            tv10.setText((list.getJSONObject(Zaehler + 9).getString("label")));
+                        } else {
+                            tv10.setText(" ");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
