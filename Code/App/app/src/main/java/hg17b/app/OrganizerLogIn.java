@@ -28,7 +28,7 @@ import java.io.IOException;
  * and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
-
+    KeyHandler ks;
     Client client;
     public static int schleife = 1;
     public static String nutzer;
@@ -50,7 +50,7 @@ public class OrganizerLogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        ks = new KeyHandler(getFilesDir());
         if(nutzer != null) {
             setContentView(R.layout.organizer_main_activity);
             initNavigationMenu2();
@@ -69,7 +69,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         email = findViewById(R.id.editTextEMail);
         nutzer = email.getText().toString();
-        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2, ks,this);
         client.execute();
 
         if(client.getServerStatus()){

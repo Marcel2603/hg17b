@@ -46,7 +46,7 @@ public class KeyHandler {
         //context = context.getApplicationContext();
         Security.addProvider(new BouncyCastleProvider());
         try {
-            ks = KeyStore.getInstance(KeyStore.getDefaultType());
+            ks = KeyStore.getInstance("BKS");
         } catch (KeyStoreException e1) {
             e1.printStackTrace();
         }
@@ -153,6 +153,25 @@ public class KeyHandler {
             e.printStackTrace();
         }
         return false;
+    }
+    public KeyStore getPublicStore(String email){
+        KeyStore ps=null;
+        try {
+           ps = KeyStore.getInstance(KeyStore.getDefaultType());
+           ps.load(null, PASSWORD);
+           ps.setCertificateEntry(email, ks.getCertificate(email));
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        return ps;
+    }
+    public String getDir(){
+        System.out.println(f.getParent());
+        return f.getParent();
+    }
+    public File getFile(){
+        return f;
+
     }
 
 

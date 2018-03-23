@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -199,15 +201,27 @@ public class LastEvents extends Fragment {
             }
         });
     }
+    public int getZaehler(){
+        return Zaehler;
+    }
+    public JSONObject getObject(int index){
+        try {
+            return list.getJSONObject(index);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     /**
-     * Creates a listener for the refresh-button, which
+     * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
      */
     public void refresh(){
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("refreshing");
-                //do something with client
+            System.out.println("refreshing");
+            StartActivity.client.refreshEvents=true;
+
             }
         });
     }

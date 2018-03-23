@@ -39,6 +39,7 @@ import java.nio.file.Path;
  */
 public class StartActivity extends AppCompatActivity {
 
+
     public EditText etID;
     TextView tvInfo;
     public static String data;
@@ -47,12 +48,12 @@ public class StartActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     Button logOut;
-    public Client client;
+    public static Client client;
     public static boolean isinDB;
     public static boolean isclicked;
     private static int points;
     public static int kontrolle;
-
+    KeyHandler ks;
     /**
      * The onCreate method is called when the Application gets started.
      * Here we initialize the Layout, start the Client and connect them with the Server.
@@ -61,7 +62,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        KeyHandler key = new KeyHandler(getFilesDir());
+        ks = new KeyHandler(getFilesDir());
         BufferedReader br = null;
 
 
@@ -72,7 +73,7 @@ public class StartActivity extends AppCompatActivity {
                 String ID = br.readLine();
                 if (ID.startsWith("v")) {//if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2,ks,this);
                     client.execute();
 
                     if(client.getServerStatus()){
@@ -86,7 +87,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -154,7 +155,7 @@ public class StartActivity extends AppCompatActivity {
         isclicked = true;
         kontrolle = 0;
         client = new Client("pcai042.informatik.uni-leipzig.de",
-               1831, 1);
+               1831, 1, ks, this);
         client.execute();
 
         //Check if input fits into the TextField

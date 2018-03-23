@@ -67,6 +67,8 @@ public class Server {
      * @param args Not necessary.
      */
    public static void main(final String[] args) {
+        System.setProperty("javax.net.ssl.keyStore", "trustStore");
+        System.setProperty("javax.net.ssl.keyStorePassword", "password");
         Server serv = new Server(PORT);
         serv.start();
     }

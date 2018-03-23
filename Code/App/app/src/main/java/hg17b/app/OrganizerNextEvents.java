@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 public class OrganizerNextEvents extends Fragment {
 
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
-    Button btnBack, btnNext;
+    Button btnBack, btnNext, refreshbutton;
     public static ArrayList<String> list = new ArrayList<String>();
     private int Zaehler = 0;
 
@@ -38,6 +41,7 @@ public class OrganizerNextEvents extends Fragment {
         View view = inflater.inflate(R.layout.organizer_fragment_next_events, container, false);
         btnBack = view.findViewById(R.id.buttonZurück);
         btnNext = view.findViewById(R.id.buttonWeiter);
+        refreshbutton = view.findViewById(R.id.refreshbutton);
 
         tv1 = view.findViewById(R.id.tv1);
         tv2 = view.findViewById(R.id.tv2);
@@ -53,6 +57,7 @@ public class OrganizerNextEvents extends Fragment {
 
         Back();
         Next();
+        refresh();
         return view;
     }
     public void setList(){
@@ -168,5 +173,14 @@ public class OrganizerNextEvents extends Fragment {
         });
     }
 
-
+    /**
+     * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
+     */
+    public void refresh(){
+        refreshbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                StartActivity.client.refreshEvents=true;
+            }
+        });
+    }
 }

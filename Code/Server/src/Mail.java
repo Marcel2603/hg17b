@@ -39,10 +39,12 @@ public class Mail {
      * Konstruktor zur Initialisierung des Email-Kontos.
      * @param user Nutzername
      * @param pw Passwort
+     * @param message Nachricht der Email
      */
-    public Mail(final String user, final String pw) {
+    public Mail(final String user, final String pw, final String message) {
         this.username = user;
         this.password = pw;
+        this.nachricht = message;
     }
     /**
      * Sendet eine Bestaetigungsemail an den Empfaenger.

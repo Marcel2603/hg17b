@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Create the Commands.
@@ -28,7 +29,8 @@ public class Commands implements Runnable {
      */
     @Override
     public void run() {
-        Console c = System.console();
+        //Console c = System.console();
+        Scanner c = new Scanner(System.in);
         String msg = "";
         ArrayList<String> befehle = new ArrayList<String>();
         befehle.add("help");
@@ -36,7 +38,7 @@ public class Commands implements Runnable {
         befehle.add("stop");
         boolean schleife = true;
         while (schleife) {
-            msg = c.readLine();
+            msg = c.nextLine();
 //            gibt Liste mit allen Befehlen aus
             if (msg.toLowerCase().equals("help")) {
                 commands();

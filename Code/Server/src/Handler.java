@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,6 +10,10 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.net.ssl.SSLServerSocket;
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +27,8 @@ import db.PupilDB;
  *
  */
 public class Handler implements Runnable {
+    
+    static final int SSLPORT = 1832;
     /**
      * Socket for the Client.
      */
@@ -33,6 +41,7 @@ public class Handler implements Runnable {
      * Mail-Konto.
      */
     private Mail mail;
+    private SSLServerSocket sslServerSocket;
     /**
      * Konstruktor to create the Thread.
      * @param socket Clientsocket.
@@ -150,12 +159,39 @@ public class Handler implements Runnable {
 //                      getEmail
                        recieve = reader.readLine();
                        email = recieve;
-                       if (db1.isOrganizer(recieve)) {
+                       if (true) { //db1.isOrganizer(receive) sollte da rein
+                           KeyHandler ks = new KeyHandler();
                            //HAS KEY
                            //ELSE
-                           mail.senden("marcelemail2603@gmail.com");
+                           //mail.senden("marcelemail2603@gmail.com");
                            writer.write("true\n");
                            writer.flush();
+                           System.out.println("isEmail");
+                           if (ks.isAlias(recieve)) {
+                               System.out.println("isAlias");
+                               writer.write("keyExists\n");
+                               writer.flush();
+                               sslConnect();
+                           } else{
+                               System.out.println("noAlias");
+                               writer.write("noKeyExists\n");
+                               writer.flush();
+                               String random = "random";
+                               try {
+                                   out = new FileOutputStream(random);
+                               } catch (FileNotFoundException ex) {
+                                   System.out.println("File not found. ");
+                               }
+
+                               byte[] bytes = new byte[8192];
+
+                               int count;
+                               while ((count = in.read(bytes)) > 0) {
+                                   out.write(bytes, 0, count);
+                               }
+                           }
+
+
                        } else {
                                 writer.write("false" + "\n");
                                 writer.flush();
@@ -163,10 +199,16 @@ public class Handler implements Runnable {
                     }
                     if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
-                        = db1.getEventsOrganizer(email, true);
-                        for (int i = 0;
-                                i < list.size(); i++) {
-                            writer.write(list.get(i).get("start") + "\n");
+                        = db1.getEventsStudents(true);
+                        JSONObject obj;
+                        for (int i = 0; i < list.size(); i++) {
+                            obj = new JSONObject();
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
@@ -198,9 +240,44 @@ public class Handler implements Runnable {
             e.printStackTrace();
         } catch (NullPointerException e) {
             Server.deleteSocket(client);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+    
+    
+    private void sslConnect(){
+
+        try {
+            SSLServerSocket serverSocket = (SSLServerSocket) SSLServerSocketFactory
+                    .getDefault().createServerSocket(SSLPORT);
+            SSLSocket socket = (SSLSocket) serverSocket.accept();
+            System.out.println("SSLClient connected.");
+            OutputStream out = client.getOutputStream();
+            PrintWriter writer = new PrintWriter(out);
+            InputStream in = client.getInputStream();
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(in));
+            serverSocket.accept();
+            System.out.println(reader.readLine());
+            writer.write("HALLOSSSLSOCKETICHBINEINSERVER\n");
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
