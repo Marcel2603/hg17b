@@ -144,8 +144,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
                             //get the Events
                             if (refreshEvents){
-                                System.out.printf("Now refresh Events\n");
-                                readEvents(entscheidung);
+                                receiveEvents(entscheidung);
                                 refreshEvents=false;
                             }
 
@@ -236,7 +235,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
                             //get the Events
                             if (refreshEvents){
-                                readEvents(entscheidung);
+                                receiveEvents(entscheidung);
                                 refreshEvents=false;
                             }
 
