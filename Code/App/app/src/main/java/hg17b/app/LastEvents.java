@@ -4,6 +4,7 @@
 package hg17b.app;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -224,5 +225,13 @@ public class LastEvents extends Fragment {
 
             }
         });
+    }
+
+    /**
+     * Übergang zu den Details...
+     */
+    public void isClicked(){
+        Intent intent = new Intent(getActivity(), EventDetails.class);
+        startActivity(intent);
     }
 }
