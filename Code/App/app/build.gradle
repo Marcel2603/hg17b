@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "hg17b.app"
         minSdkVersion 14
@@ -17,17 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-	
-	/*testOptions {
+
+    /*testOptions {
 		reportDir "../../../reports/App_unitTests"
 		resultsDir "../../../reports/App_unitTests/test-results"
    }*/
-	
-	lintOptions {
-		abortOnError false
-	}
-	
-	
+
+    lintOptions {
+        abortOnError false
+    }
+
 
 }
 

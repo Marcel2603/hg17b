@@ -255,8 +255,6 @@ public class Handler implements Runnable {
             e.printStackTrace();
         }
     }
-    
-    
     private void sslConnect(){
 
         try {

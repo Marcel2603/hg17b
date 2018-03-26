@@ -31,7 +31,7 @@ public class LastEvents extends Fragment {
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
     Button btnBack, btnNext, refreshbutton;
     public static JSONArray list = new JSONArray();
-    private int Zaehler = 0;
+    private static int Zaehler = 0;
 
     /**
      * public constructor from this class
@@ -202,7 +202,7 @@ public class LastEvents extends Fragment {
             }
         });
     }
-    public int getZaehler(){
+    public static int getZaehler(){
         return Zaehler;
     }
     public JSONObject getObject(int index){
@@ -227,11 +227,5 @@ public class LastEvents extends Fragment {
         });
     }
 
-    /**
-     * Übergang zu den Details...
-     */
-    public void isClicked(){
-        Intent intent = new Intent(getActivity(), EventDetails.class);
-        startActivity(intent);
-    }
+
 }

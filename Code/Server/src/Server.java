@@ -52,11 +52,11 @@ public class Server {
     /**
      * JSONArray mit allen nächsten Events.
      */
-    private static JSONArray NextEvents;
+    private static JSONArray NextEvents = new JSONArray();
     /**
      * JSONArray mit allen vergangenen Events.
      */
-    private static JSONArray LastEvents;
+    private static JSONArray LastEvents = new JSONArray();
     /**
      * Konstruktor to create Server and DB.
      * @param port Port for the server.
@@ -194,7 +194,12 @@ public class Server {
             obj.put("url", list.get(i).get("url"));
             obj.put("description", list.get(i).get("description"));
             obj.put("start", list.get(i).get("start"));
-            LastEvents = sort(LastEvents, obj);
+            if (LastEvents.length() == 0) {
+                LastEvents.put(obj);
+            }else {
+                LastEvents = sort(LastEvents, obj);
+            }
+            
         }
     }
     /**
