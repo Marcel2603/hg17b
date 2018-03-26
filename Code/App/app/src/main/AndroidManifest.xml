@@ -50,8 +50,7 @@
         </activity>
         <activity
             android:name=".EventDetails"
-            android:label="@string/title_activity_event_details"
-            android:theme="@style/AppTheme.NoActionBar"
+
 			android:screenOrientation="portrait">
         </activity>
     </application>

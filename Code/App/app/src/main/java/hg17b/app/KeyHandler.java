@@ -163,7 +163,7 @@ public class KeyHandler {
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-        return ps;
+        return ks;
     }
     public String getDir(){
         System.out.println(f.getParent());
@@ -172,6 +172,9 @@ public class KeyHandler {
     public File getFile(){
         return f;
 
+    }
+    public KeyStore getKeyStore(){
+        return ks;
     }
 
 
