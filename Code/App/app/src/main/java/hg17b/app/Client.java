@@ -62,8 +62,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private int entscheidung = 0;
     public int anzahl;
     private Context context;
-    /** Variable for if Events should be refreshed.*/
-    public boolean refreshEvents = true;
+    /** Variable for if Events should be refreshed (1) or loaded (2).*/
+    public byte refreshEvents = 2;
 
     /**The Writer that writes to the Server*/
     private PrintWriter writer;
@@ -151,10 +151,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             Ranking.rang = reader.readLine();
 
                             //get the Events
-                            if (refreshEvents){
-                                System.out.printf("Now refresh Events\n");
+                            if (refreshEvents==1){
+                                receiveEvents(entscheidung);
+                                refreshEvents=0;
+                            }else if(refreshEvents == 2){
                                 readEvents(entscheidung);
-                                refreshEvents=false;
                             }
 
                         } else {
@@ -243,9 +244,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             }
 
                             //get the Events
-                            if (refreshEvents){
+                            if (refreshEvents==1){
+                                receiveEvents(entscheidung);
+                                refreshEvents=0;
+                            }else if(refreshEvents == 2){
                                 readEvents(entscheidung);
-                                refreshEvents=false;
                             }
 
                             OrganizerLogIn.isinDB = true;
@@ -367,14 +370,15 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * Prints an Array into a file, where each line equals an item in the Array.
      * @param filename Name the File should have
      * @param ar The array with the data to be written
+     * @throws JSONException we read from a JSON-Array
      */
-    private void safeFile(String filename, JSONArray ar){
+    private void safeFile(String filename, JSONArray ar) throws JSONException{
         PrintWriter pw = null;
         try {
             File f = new File(context.getCacheDir(),filename);
             pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
             for (int i=0;i<ar.length();i++){
-                pw.println(ar.opt(i).toString());
+                pw.println(ar.get(i).toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -415,20 +419,21 @@ public class Client extends AsyncTask<Void, Void, Void>{
         BufferedReader br2 =null;
         /*If one of the files with stored events doesn't exists, receive from Server*/
         if (!f1.exists() || !f2.exists()){
+            System.out.println("non existant");
             receiveEvents(desicion);
         }else{//else read the files and don't bother the Server with it
             try {
                 br1 = new BufferedReader(new FileReader(f1));
                 String tmp = br1.readLine();
                 while (tmp!=null){
-                    list1.put(tmp);
+                    list1.put(new JSONObject(tmp));
                     tmp=br1.readLine();
                 }
 
                 br2 = new BufferedReader(new FileReader(f2));
                 tmp = br2.readLine();
                 while (tmp!=null){
-                    list2.put(tmp);
+                    list2.put(new JSONObject(tmp));
                     tmp=br2.readLine();
                 }
 
