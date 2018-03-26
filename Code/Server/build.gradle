@@ -1,4 +1,7 @@
-apply plugin: 'java'
+plugins {
+  id 'com.github.johnrengelman.shadow' version '2.0.3'
+  id 'java'
+}
 
 repositories {
     mavenCentral()
@@ -12,6 +15,7 @@ dependencies {
 	compile group: 'javax.mail', name: 'mail', version: '1.4.1'
 	compile 'org.json:json:20171018'
 	compile 'org.bouncycastle:bcprov-jdk16:1.45'
+	compile "org.slf4j:slf4j-simple:1.7.9"
 }
 
 
