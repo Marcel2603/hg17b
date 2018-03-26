@@ -23,7 +23,7 @@ public class KeyHandler {
        char[] password;
        Security.addProvider(new BouncyCastleProvider());
        try {
-           ks = KeyStore.getInstance("jks");
+           ks = KeyStore.getInstance("bks");
        } catch (KeyStoreException e1) {
            e1.printStackTrace();
        }
@@ -51,7 +51,7 @@ public class KeyHandler {
    
    public boolean isAlias(String email){
        try {
-
+           System.out.println(email);
            System.out.println(ks.getCertificateAlias(ks.getCertificate(email)));
         if(email.toLowerCase().equals(ks.getCertificateAlias(ks.getCertificate(email)))){
                return true;

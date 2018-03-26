@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.net.ssl.SSLServerSocket;
@@ -123,32 +124,34 @@ public class Handler implements Runnable {
                         System.out.println("ENDE");
                     }*/
                     if (recieve.equals("Eventpast")) {
-                        JSONArray ar = Server.getLastEvent();
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(true);
+                        
+                        
+                        
                         JSONObject obj;
-                        for (int i = 0; i < ar.length(); i++) {
+                        for (int i = 0; i < list.size(); i++) {
                             obj = new JSONObject();
-                            obj.put("label", ar.getJSONObject(i).get("label"));
-                            obj.put("address", ar.getJSONObject(i).get("address"));
-                            obj.put("url", ar.getJSONObject(i).get("url"));
-                            obj.put("description", ar.getJSONObject(i).get("description"));
-                            obj.put("start", ar.getJSONObject(i).get("start"));
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
                             writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
+                        
+                        
+                        
                         writer.write("ENDE" + "\n");
                         writer.flush();
                     }
                     if (recieve.equals("Event")) {
-                        JSONArray ar = Server.getNextEvent();
-                        JSONObject obj;
-                        for (int i = 0; i < ar.length(); i++) {
-                            obj = new JSONObject();
-                            obj.put("label", ar.getJSONObject(i).get("label"));
-                            obj.put("address", ar.getJSONObject(i).get("address"));
-                            obj.put("url", ar.getJSONObject(i).get("url"));
-                            obj.put("description", ar.getJSONObject(i).get("description"));
-                            obj.put("start", ar.getJSONObject(i).get("start"));
-                            writer.write(obj.toString() + "\n");
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(false);
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            writer.write(list.get(i).get("label") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
@@ -159,6 +162,7 @@ public class Handler implements Runnable {
                 //Veranstalter
                 if (pers == 2) {
                     recieve = reader.readLine();
+                    System.out.println("Blah");
                     if (recieve.equals("Ueberpruefe Email")) {
 //                      getEmail
                        recieve = reader.readLine();
@@ -171,6 +175,7 @@ public class Handler implements Runnable {
                            writer.write("true\n");
                            writer.flush();
                            System.out.println("isEmail");
+                           System.out.println(recieve);
                            if (ks.isAlias(recieve)) {
                                System.out.println("isAlias");
                                writer.write("keyExists\n");
@@ -204,15 +209,9 @@ public class Handler implements Runnable {
                     if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, true);
-                        JSONObject obj;
-                        for (int i = 0; i < list.size(); i++) {
-                            obj = new JSONObject();
-                            obj.put("label", list.get(i).get("label"));
-                            obj.put("address", list.get(i).get("address"));
-                            obj.put("url", list.get(i).get("url"));
-                            obj.put("description", list.get(i).get("description"));
-                            obj.put("start", list.get(i).get("start"));
-                            writer.write(obj.toString() + "\n");
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            writer.write(list.get(i).get("start") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
@@ -221,15 +220,9 @@ public class Handler implements Runnable {
                     if (recieve.equals("Event")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, false);
-                        JSONObject obj;
-                        for (int i = 0; i < list.size(); i++) {
-                            obj = new JSONObject();
-                            obj.put("label", list.get(i).get("label"));
-                            obj.put("address", list.get(i).get("address"));
-                            obj.put("url", list.get(i).get("url"));
-                            obj.put("description", list.get(i).get("description"));
-                            obj.put("start", list.get(i).get("start"));
-                            writer.write(obj.toString() + "\n");
+                        for (int i = 0;
+                                i < list.size(); i++) {
+                            writer.write(list.get(i).get("label") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
@@ -263,16 +256,23 @@ public class Handler implements Runnable {
             SSLServerSocket serverSocket = (SSLServerSocket) SSLServerSocketFactory
                     .getDefault().createServerSocket(SSLPORT);
             SSLSocket socket = (SSLSocket) serverSocket.accept();
-            System.out.println("SSLClient connected.");
-            OutputStream out = client.getOutputStream();
+            System.out.println("SSLClient connected.1");
+            OutputStream out = socket.getOutputStream();
+            InputStream in = socket.getInputStream();
+            System.out.println("SSLClient connected.2");
             PrintWriter writer = new PrintWriter(out);
-            InputStream in = client.getInputStream();
+            System.out.println("SSLClient connected.3");
+            
+            System.out.println("SSLClient connected.4");
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(in));
-            serverSocket.accept();
+            System.out.println(Arrays.toString(socket.getEnabledCipherSuites()));
+            System.out.println("SSLClient connected.5");
             System.out.println(reader.readLine());
+            System.out.println("SSLClient connected.6");
             writer.write("HALLOSSSLSOCKETICHBINEINSERVER\n");
             writer.flush();
+            System.out.println("SSLClient connected.7");
         } catch (IOException e) {
             e.printStackTrace();
         }
