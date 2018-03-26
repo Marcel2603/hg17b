@@ -25,6 +25,7 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+<<<<<<< HEAD
   <component name="masterDetails">
     <states>
       <state key="ScopeChooserConfigurable.UI">
@@ -40,4 +41,6 @@
       </state>
     </states>
   </component>
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
 </project>

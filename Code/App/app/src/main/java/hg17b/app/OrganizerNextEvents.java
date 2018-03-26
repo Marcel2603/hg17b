@@ -193,7 +193,7 @@ public class OrganizerNextEvents extends Fragment {
     public void refresh(){
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                StartActivity.client.refreshEvents=true;
+                StartActivity.client.refreshEvents=1;
             }
         });
     }

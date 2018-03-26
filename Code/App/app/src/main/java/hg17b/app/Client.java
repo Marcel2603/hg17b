@@ -27,16 +27,24 @@ import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.nio.Buffer;
+import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.net.SocketFactory;
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManagerFactory;
 
 import static java.security.AccessController.getContext;
 
@@ -54,8 +62,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private int entscheidung = 0;
     public int anzahl;
     private Context context;
-    /** Variable for if Events should be refreshed.*/
-    public boolean refreshEvents = true;
+    /** Variable for if Events should be refreshed (1) or loaded (2).*/
+    public byte refreshEvents = 2;
 
     /**The Writer that writes to the Server*/
     private PrintWriter writer;
@@ -143,10 +151,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             Ranking.rang = reader.readLine();
 
                             //get the Events
-                            if (refreshEvents){
-                                System.out.printf("Now refresh Events\n");
+                            if (refreshEvents==1){
+                                receiveEvents(entscheidung);
+                                refreshEvents=0;
+                            }else if(refreshEvents == 2){
                                 readEvents(entscheidung);
-                                refreshEvents=false;
                             }
 
                         } else {
@@ -235,9 +244,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             }
 
                             //get the Events
-                            if (refreshEvents){
+                            if (refreshEvents==1){
+                                receiveEvents(entscheidung);
+                                refreshEvents=0;
+                            }else if(refreshEvents == 2){
                                 readEvents(entscheidung);
-                                refreshEvents=false;
                             }
 
                             OrganizerLogIn.isinDB = true;
@@ -355,14 +366,15 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * Prints an Array into a file, where each line equals an item in the Array.
      * @param filename Name the File should have
      * @param ar The array with the data to be written
+     * @throws JSONException we read from a JSON-Array
      */
-    private void safeFile(String filename, JSONArray ar){
+    private void safeFile(String filename, JSONArray ar) throws JSONException{
         PrintWriter pw = null;
         try {
             File f = new File(context.getCacheDir(),filename);
             pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
             for (int i=0;i<ar.length();i++){
-                pw.println(ar.opt(i).toString());
+                pw.println(ar.get(i).toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -403,13 +415,17 @@ public class Client extends AsyncTask<Void, Void, Void>{
         BufferedReader br2 =null;
         /*If one of the files with stored events doesn't exists, receive from Server*/
         if (!f1.exists() || !f2.exists()){
+            System.out.println("non existant");
             receiveEvents(desicion);
         }else{//else read the files and don't bother the Server with it
             try {
                 br1 = new BufferedReader(new FileReader(f1));
                 String tmp = br1.readLine();
                 while (tmp!=null){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
                     list1.put(new JSONObject(tmp));
                     tmp=br1.readLine();
                 }
@@ -492,15 +508,66 @@ public class Client extends AsyncTask<Void, Void, Void>{
             System.out.println(System.getProperty("javax.net.ssl.keyStore"));
             System.out.println(System.getProperty("javax.net.ssl.keyStorePassword"));
             System.out.println(ip + " " + port);
-            SocketFactory sf = SSLSocketFactory.getDefault();
-            SSLSocket socket = (SSLSocket) sf.createSocket(ip, port+1);
 
+
+
+            KeyManagerFactory kmfactory=null;
+            try {
+                kmfactory = KeyManagerFactory.getInstance(
+                        KeyManagerFactory.getDefaultAlgorithm());
+                kmfactory.init(kh.getKeyStore(), "password".toCharArray());
+            } catch (KeyStoreException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (UnrecoverableKeyException e) {
+                e.printStackTrace();
+            }
+            KeyManager[] keymanagers =  kmfactory.getKeyManagers();
+
+            TrustManagerFactory tmf= null;
+            try {
+                tmf = TrustManagerFactory
+                        .getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                tmf.init(kh.getKeyStore());
+            } catch (KeyStoreException e) {
+                e.printStackTrace();
+            }
+
+            SSLContext sslContext= null;
+            try {
+                sslContext = SSLContext.getInstance("TLS");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                sslContext.init(keymanagers, tmf.getTrustManagers(), new SecureRandom());
+            } catch (KeyManagementException e) {
+                e.printStackTrace();
+            }
+
+            SSLSocketFactory sf=sslContext.getSocketFactory();
+
+
+
+            SSLSocket sslSocket = (SSLSocket) sf.createSocket(ip, 1832);
+            sslSocket.setSoTimeout(600);
             System.out.println("SSL-Client online");
-            OutputStream out = sslSocket.getOutputStream();
+            OutputStream out=null;
+            System.out.println(Arrays.toString(sslSocket.getEnabledCipherSuites()));
+            out = sslSocket.getOutputStream();
             System.out.println("SSL-Client online");
+            System.out.println("SSL-Client online11");
             PrintWriter writer = new PrintWriter(out);
+            System.out.println("SSL-Client online22");
             System.out.println("SSL-Client online");
-            InputStream in = socket.getInputStream();
+            InputStream in = sslSocket.getInputStream();
             System.out.println("SSL-Client online");
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             writer.write("Hallo ICH BIN EIN SSL CLIENT.\n");

@@ -36,7 +36,7 @@ Code/App/gen/
 *.navigation
 */captures
 *output.json
-*/workspace.xml
+*workspace.xml
 
 
 *.externalNativeBuild

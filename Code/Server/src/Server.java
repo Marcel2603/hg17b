@@ -10,11 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.TimeZone;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -50,6 +48,7 @@ public class Server {
      */
     private Mail mail;
     /**
+<<<<<<< HEAD
      * JSONArray mit allen nächsten Events.
      */
     private static JSONArray NextEvents = new JSONArray();
@@ -58,6 +57,8 @@ public class Server {
      */
     private static JSONArray LastEvents = new JSONArray();
     /**
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
      * Konstruktor to create Server and DB.
      * @param port Port for the server.
      */
@@ -70,12 +71,6 @@ public class Server {
         this.db1 = new PupilDB();
         mail = new Mail("hg17b.zukunftsdiplom", "F3u\"9Snl");
         System.out.println("Server is online (Port: " + port + ").");
-        try {
-            setLastEvents();
-            setNextEvents();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
     /**
      * Main-Methode.
@@ -95,9 +90,33 @@ public class Server {
         ExecutorService executor = Executors.newFixedThreadPool(THREADNUMBER);
         try {
 //            starts the commands for the server.
+            /*
+            try {
+             // Fuer Testzwecke
+             //label, address, url, description, start , end
+            FileWriter f = new FileWriter("D:/uni/git/db.txt");
+            BufferedWriter fr = new BufferedWriter(f);
+            JSONObject obj = new JSONObject();
+            ArrayList<HashMap<String, String>> ar = db1.getEventsStudents(true);
+            for (int i = 0; i < ar.size(); i++) {
+                System.out.println(ar.get(i).get("label"));
+                obj.put("label", ar.get(i).get("label"));
+                obj.put("address", ar.get(i).get("address"));
+                obj.put("url", ar.get(i).get("url"));
+                obj.put("description", ar.get(i).get("description"));
+                obj.put("start", ar.get(i).get("start"));
+               // obj.put("end", ar.get(i).get("end"));
+                fr.write(obj.toString());
+                fr.flush();
+                fr.write(System.getProperty("line.separator"));
+                fr.flush();
+            }
+            }catch (JSONException e ) {
+                e.printStackTrace();
+            }*/
             Thread t = new Thread(new Commands(server));
             t.start();
-            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("MEZ"));
+            Calendar cal = Calendar.getInstance();
             Date time = cal.getTime();
             DateFormat formatter = new SimpleDateFormat();
             while (true) {
@@ -114,37 +133,6 @@ public class Server {
             }
     }
     /**
-     * Sortiert das JSONArray.
-     * @param ar Array mit Eventdaten
-     * @param obj Event
-     * @return sortiertes Eventarray
-     * @throws JSONException wenn datenbank fehlerhaft.
-     */
-    private static JSONArray sort(JSONArray ar, JSONObject obj) throws JSONException {
-        boolean stop = true;
-        for (int i = 0; i < ar.length() && stop; i++) {
-            JSONObject temp = ar.getJSONObject(i);
-            if (temp.getString("label").equals(obj.getString("label"))) {
-                if (temp.getString("address").equals(obj.getString("address"))) {
-                    if (temp.getString("description").equals(obj.getString("description"))) {
-                        String time = temp.getString("start");
-                        time += " || " + obj.getString("start");
-                        temp.put("start", time);
-
-                            ar.remove(i);
-
-                        ar.put(temp);
-                        stop = false;
-                    }
-                }
-            }
-        }
-        if (stop || ar.length() == 0) {
-            ar.put(obj);
-        }
-        return ar;
-    }
-    /**
      * Returns the ArrayList with all clients.
      * @return Liste of all connected clients.
      */
@@ -159,6 +147,7 @@ public class Server {
     public static void deleteSocket(final Socket client) {
         socket.remove(client);
     }
+<<<<<<< HEAD
     /**
      * Holt alle naechsten Events aus der DB.
      * @throws JSONException wenn datenbank fehlerhaft.
@@ -216,4 +205,6 @@ public class Server {
     public static JSONArray getNextEvent() {
         return NextEvents;
     }
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
 }

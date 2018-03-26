@@ -78,7 +78,7 @@ task checkAppTests{
 		FileTree tree = fileTree(dir: './reports/App_unitTests/test-results/')
 		tree.each{File file -> 
 			if (file.text.contains("<failure")) {
-				throw new GradleException("There were failure in JUnit-Tests on the Server!")
+				throw new GradleException("There were failure in JUnit-Tests on the App!")
 			}
 		}
 	}
