@@ -3,7 +3,6 @@
           package="hg17b.app">
 
     <uses-sdk
-        android:maxSdkVersion="25"
         android:minSdkVersion="14"
         android:targetSdkVersion="21"/>
 
@@ -48,11 +47,15 @@
             android:name=".OcrCaptureActivity"
             android:label="Read Text">
         </activity>
+<<<<<<< HEAD
+
+=======
         <activity
             android:name=".EventDetails"
 
 			android:screenOrientation="portrait">
         </activity>
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
     </application>
 
 </manifest>

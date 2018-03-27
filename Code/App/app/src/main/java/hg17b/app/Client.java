@@ -324,11 +324,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             if(!temp.equals("ENDE")) {
                 // LastEvents.list.add(temp);
                 obj = new JSONObject(temp);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    ar = isDouble(ar, obj);
-                }else {
-                    ar.put(obj);
-                }
+                ar.put(obj);
             }else {
                 if(decision==1){
                     NextEvents.list = ar;
@@ -428,6 +424,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 br1 = new BufferedReader(new FileReader(f1));
                 String tmp = br1.readLine();
                 while (tmp!=null){
+<<<<<<< HEAD
+
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
                     list1.put(new JSONObject(tmp));
                     tmp=br1.readLine();
                 }

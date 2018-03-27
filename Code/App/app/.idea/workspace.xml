@@ -54,13 +54,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="OrganizerNextEvents.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrganizerNextEvents.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/OrganizerNextEvents.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1161">
-              <caret line="197" column="5" lean-forward="false" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+              <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3089#4467#0" expanded="true" />
+                <element signature="e#4466#4467#0" expanded="true" />
+                <element signature="e#4537#7774#0" expanded="true" />
+                <element signature="e#7773#7774#0" expanded="true" />
+                <element signature="e#7964#8112#0" expanded="true" />
+                <element signature="e#8111#8112#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +75,8 @@
       <file leaf-file-name="NextEvents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/NextEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1854">
-              <caret line="217" column="48" lean-forward="false" selection-start-line="217" selection-start-column="48" selection-end-line="217" selection-end-column="48" />
+            <state relative-caret-position="2151">
+              <caret line="218" column="48" lean-forward="false" selection-start-line="218" selection-start-column="48" selection-end-line="218" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,9 +87,11 @@
       <file leaf-file-name="LastEvents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/LastEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="803">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <marker date="1522057238417" expanded="true" signature="8654:8662" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,17 +99,19 @@
       <file leaf-file-name="OrganizerLastEvents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/OrganizerLastEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
-              <caret line="219" column="52" lean-forward="false" selection-start-line="219" selection-start-column="52" selection-end-line="219" selection-end-column="52" />
-              <folding />
+            <state relative-caret-position="1821">
+              <caret line="220" column="52" lean-forward="false" selection-start-line="220" selection-start-column="52" selection-end-line="220" selection-end-column="52" />
+              <folding>
+                <marker date="1522057238358" expanded="true" signature="8978:8986" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1483">
+            <state relative-caret-position="-1087">
               <caret line="364" column="54" lean-forward="false" selection-start-line="364" selection-start-column="54" selection-end-line="364" selection-end-column="54" />
               <folding />
             </state>
@@ -2010,7 +2020,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057044720" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057333610" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2058,7 +2068,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057044726" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057333611" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2220,7 +2230,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057044733" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1522057333615" />
       </method>
     </configuration>
     <list size="1">
@@ -2259,8 +2269,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2762" height="1770" extended-state="7" />
-    <editor active="true" />
+    <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -2271,7 +2280,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32937294" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937294" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2309,6 +2318,12 @@
           <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3089#4467#0" expanded="true" />
+            <element signature="e#4466#4467#0" expanded="true" />
+            <element signature="e#4537#7774#0" expanded="true" />
+            <element signature="e#7773#7774#0" expanded="true" />
+            <element signature="e#7964#8112#0" expanded="true" />
+            <element signature="e#8111#8112#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2345,6 +2360,12 @@
           <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3089#4467#0" expanded="true" />
+            <element signature="e#4466#4467#0" expanded="true" />
+            <element signature="e#4537#7774#0" expanded="true" />
+            <element signature="e#7773#7774#0" expanded="true" />
+            <element signature="e#7964#8112#0" expanded="true" />
+            <element signature="e#8111#8112#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2421,47 +2442,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/OrganizerNextEvents.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/NextEvents.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1161">
-          <caret line="197" column="5" lean-forward="false" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+        <state relative-caret-position="2151">
+          <caret line="218" column="48" lean-forward="false" selection-start-line="218" selection-start-column="48" selection-end-line="218" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/LastEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <marker date="1522057238417" expanded="true" signature="8654:8662" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/OrganizerLastEvents.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="219" column="52" lean-forward="false" selection-start-line="219" selection-start-column="52" selection-end-line="219" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/LastEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/NextEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1854">
-          <caret line="217" column="48" lean-forward="false" selection-start-line="217" selection-start-column="48" selection-end-line="217" selection-end-column="48" />
+        <state relative-caret-position="1821">
+          <caret line="220" column="52" lean-forward="false" selection-start-line="220" selection-start-column="52" selection-end-line="220" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1522057238358" expanded="true" signature="8978:8986" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1483">
+        <state relative-caret-position="-1087">
           <caret line="364" column="54" lean-forward="false" selection-start-line="364" selection-start-column="54" selection-end-line="364" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hg17b/app/OrganizerNextEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3089#4467#0" expanded="true" />
+            <element signature="e#4466#4467#0" expanded="true" />
+            <element signature="e#4537#7774#0" expanded="true" />
+            <element signature="e#7773#7774#0" expanded="true" />
+            <element signature="e#7964#8112#0" expanded="true" />
+            <element signature="e#8111#8112#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -48,6 +48,17 @@ public class Server {
      */
     private Mail mail;
     /**
+<<<<<<< HEAD
+     * JSONArray mit allen nächsten Events.
+     */
+    private static JSONArray NextEvents = new JSONArray();
+    /**
+     * JSONArray mit allen vergangenen Events.
+     */
+    private static JSONArray LastEvents = new JSONArray();
+    /**
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
      * Konstruktor to create Server and DB.
      * @param port Port for the server.
      */
@@ -136,4 +147,64 @@ public class Server {
     public static void deleteSocket(final Socket client) {
         socket.remove(client);
     }
+<<<<<<< HEAD
+    /**
+     * Holt alle naechsten Events aus der DB.
+     * @throws JSONException wenn datenbank fehlerhaft.
+     */
+    private void setNextEvents() throws JSONException{
+        ArrayList<HashMap<String, String>> list
+        = db1.getEventsStudents(false);
+        JSONObject obj;
+        NextEvents = new JSONArray();
+        for (int i = 0; i < list.size(); i++) {
+            obj = new JSONObject();
+            obj.put("label", list.get(i).get("label"));
+            obj.put("address", list.get(i).get("address"));
+            obj.put("url", list.get(i).get("url"));
+            obj.put("description", list.get(i).get("description"));
+            obj.put("start", list.get(i).get("start"));
+            NextEvents = sort(NextEvents, obj);
+        }
+    }
+    /**
+     * Holt alle vergangenen Events aus der DB.
+     * @throws JSONException wenn datenbank fehlerhaft.
+     */
+    private void setLastEvents() throws JSONException{
+        ArrayList<HashMap<String, String>> list
+        = db1.getEventsStudents(true);
+        JSONObject obj;
+        NextEvents = new JSONArray();
+        for (int i = 0; i < list.size(); i++) {
+            obj = new JSONObject();
+            obj.put("label", list.get(i).get("label"));
+            obj.put("address", list.get(i).get("address"));
+            obj.put("url", list.get(i).get("url"));
+            obj.put("description", list.get(i).get("description"));
+            obj.put("start", list.get(i).get("start"));
+            if (LastEvents.length() == 0) {
+                LastEvents.put(obj);
+            }else {
+                LastEvents = sort(LastEvents, obj);
+            }
+            
+        }
+    }
+    /**
+     * Gibt die LastEvnets zurueck.
+     * @return LastEvents
+     */
+    public static JSONArray getLastEvent() {
+        return LastEvents;
+    }
+    /**
+     * Gibt die NextEvents zurueck.
+     * @return NextEvents
+     */
+    public static JSONArray getNextEvent() {
+        return NextEvents;
+    }
+=======
+>>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
 }

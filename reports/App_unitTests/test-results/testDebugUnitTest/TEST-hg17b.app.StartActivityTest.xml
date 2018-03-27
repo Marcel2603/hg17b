@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hg17b.app.StartActivityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-03-26T09:39:17" hostname="ChrisPs-Surface" time="0.008">
+<testsuite name="hg17b.app.StartActivityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-03-26T10:32:48" hostname="ChrisPs-Surface" time="0.008">
   <properties/>
-  <testcase name="onClick" classname="hg17b.app.StartActivityTest" time="0.007"/>
+  <testcase name="onClick" classname="hg17b.app.StartActivityTest" time="0.006"/>
   <testcase name="onCreate" classname="hg17b.app.StartActivityTest" time="0.0"/>
   <testcase name="setText" classname="hg17b.app.StartActivityTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

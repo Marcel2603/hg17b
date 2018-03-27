@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hg17b.app.ClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-03-26T09:39:13" hostname="ChrisPs-Surface" time="3.06">
+<testsuite name="hg17b.app.ClientTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-03-26T10:32:47" hostname="ChrisPs-Surface" time="0.876">
   <properties/>
-  <testcase name="doInBackground" classname="hg17b.app.ClientTest" time="3.06"/>
+  <testcase name="doInBackground" classname="hg17b.app.ClientTest" time="0.876"/>
   <system-out><![CDATA[Keystore nicht gefunden, Datei wird erstellt.
 ]]></system-out>
   <system-err><![CDATA[java.io.FileNotFoundException: \KeyStore (Zugriff verweigert)

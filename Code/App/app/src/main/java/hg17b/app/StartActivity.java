@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -233,6 +235,26 @@ public class StartActivity extends AppCompatActivity {
 
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
         startActivity(intent);
+    }
+    public void Lastevents (View v){
+           /* Intent intent = new Intent(getActivity(), EventDetails.class);
+            startActivity(intent);*/
+        try {
+            switch (v.getId()) {
+                case R.id.tv1:
+                    EventFragment event = new EventFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.last,event);
+                    fragmentTransaction.commit();
+                    EventDetails.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("Start"));
+                    break;
+                case R.id.tv2:
+                    //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
+                    break;
+            }
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
+
     }
 
     /**
