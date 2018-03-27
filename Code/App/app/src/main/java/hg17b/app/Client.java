@@ -424,10 +424,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 br1 = new BufferedReader(new FileReader(f1));
                 String tmp = br1.readLine();
                 while (tmp!=null){
-<<<<<<< HEAD
-
-=======
->>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
                     list1.put(new JSONObject(tmp));
                     tmp=br1.readLine();
                 }
