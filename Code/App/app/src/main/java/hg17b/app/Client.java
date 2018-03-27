@@ -32,6 +32,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.UnrecoverableEntryException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
@@ -196,6 +197,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         writer.write("Ueberpruefe Email" + "\n");
                         writer.flush();
                         System.out.println("Befehl");
+                        System.out.println(kh.isAlias("q"));
                         writer.write(email + "\n");
                         writer.flush();
 
@@ -501,16 +503,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
     private void sslConnect(){
         try {
-
             String trustdir = kh.getDir() + "/keyStore";
-            System.setProperty("javax.net.ssl.keyStore", trustdir);
-            System.setProperty("javax.net.ssl.keyStorePassword", "password");
-            System.out.println(System.getProperty("javax.net.ssl.keyStore"));
-            System.out.println(System.getProperty("javax.net.ssl.keyStorePassword"));
-            System.out.println(ip + " " + port);
-
-
-
             KeyManagerFactory kmfactory=null;
             try {
                 kmfactory = KeyManagerFactory.getInstance(
@@ -524,7 +517,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 e.printStackTrace();
             }
             KeyManager[] keymanagers =  kmfactory.getKeyManagers();
-
             TrustManagerFactory tmf= null;
             try {
                 tmf = TrustManagerFactory
@@ -532,41 +524,29 @@ public class Client extends AsyncTask<Void, Void, Void>{
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }
-
             try {
                 tmf.init(kh.getKeyStore());
             } catch (KeyStoreException e) {
                 e.printStackTrace();
             }
-
             SSLContext sslContext= null;
             try {
                 sslContext = SSLContext.getInstance("TLS");
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }
-
             try {
                 sslContext.init(keymanagers, tmf.getTrustManagers(), new SecureRandom());
             } catch (KeyManagementException e) {
                 e.printStackTrace();
             }
-
             SSLSocketFactory sf=sslContext.getSocketFactory();
-
-
-
             SSLSocket sslSocket = (SSLSocket) sf.createSocket(ip, 1832);
             sslSocket.setSoTimeout(600);
-            System.out.println("SSL-Client online");
             OutputStream out=null;
             System.out.println(Arrays.toString(sslSocket.getEnabledCipherSuites()));
             out = sslSocket.getOutputStream();
-            System.out.println("SSL-Client online");
-            System.out.println("SSL-Client online11");
             PrintWriter writer = new PrintWriter(out);
-            System.out.println("SSL-Client online22");
-            System.out.println("SSL-Client online");
             InputStream in = sslSocket.getInputStream();
             System.out.println("SSL-Client online");
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -574,8 +554,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             writer.flush();
             System.out.println("SSL-Client online");
             System.out.println(reader.readLine());
-            System.out.println(System.getProperty("javax.net.ssl.keyStore"));
-            System.out.println(System.getProperty("javax.net.ssl.keyStorePassword"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }

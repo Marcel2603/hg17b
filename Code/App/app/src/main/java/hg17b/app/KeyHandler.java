@@ -25,6 +25,7 @@ import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.security.SignatureException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.util.Date;
@@ -45,9 +46,10 @@ public class KeyHandler {
         //Context context=this;
         //context = context.getApplicationContext();
         Security.addProvider(new BouncyCastleProvider());
+
         try {
-            ks = KeyStore.getInstance("BKS");
-        } catch (KeyStoreException e1) {
+            ks = KeyStore.getInstance("BKS", "BC");
+        } catch (Exception e1) {
             e1.printStackTrace();
         }
 
@@ -95,7 +97,7 @@ public class KeyHandler {
         }
         keyPairGenerator.initialize(4096, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        char[] password = "password".toCharArray();
+        char[] password = PASSWORD;
         KeyStore.ProtectionParameter protParam =
                 new KeyStore.PasswordProtection(password);
         FileOutputStream fos = null;
@@ -116,6 +118,16 @@ public class KeyHandler {
                     e.printStackTrace();
                 }
             }
+        }
+        try {
+            ks.getEntry(email, protParam);
+            System.out.println("KLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnrecoverableEntryException e) {
+            e.printStackTrace();
+        } catch (KeyStoreException e) {
+            e.printStackTrace();
         }
     }
 
