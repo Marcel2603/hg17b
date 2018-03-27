@@ -8,14 +8,19 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+import java.security.Security;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
+import javax.net.ssl.TrustManagerFactory;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -180,7 +185,7 @@ public class Handler implements Runnable {
                                System.out.println("isAlias");
                                writer.write("keyExists\n");
                                writer.flush();
-                               sslConnect();
+                               sslConnect(ks, email);
                            } else{
                                System.out.println("noAlias");
                                writer.write("noKeyExists\n");
@@ -248,11 +253,29 @@ public class Handler implements Runnable {
             e.printStackTrace();
         }
     }
-    private void sslConnect(){
-
+private void sslConnect(KeyHandler kh, String email){
+        KeyManagerFactory kmfactory = null;
+        SSLContext sslContext = null;
         try {
-            SSLServerSocket serverSocket = (SSLServerSocket) SSLServerSocketFactory
-                    .getDefault().createServerSocket(SSLPORT);
+            kmfactory = KeyManagerFactory.getInstance(
+                    KeyManagerFactory.getDefaultAlgorithm());
+            System.out.println(email);
+            kmfactory.init(kh.getKeyStore(email), "password".toCharArray());
+            Security.addProvider(new BouncyCastleProvider());
+            sslContext = SSLContext.getInstance("TLS");
+            KeyManagerFactory mgrFact =
+                    KeyManagerFactory.getInstance("SunX509");
+            mgrFact.init(kh.getKeyStore(email), "password".toCharArray());
+            TrustManagerFactory trustFact =
+                    TrustManagerFactory.getInstance("SunX509");
+            trustFact.init(kh.getKeyStore(email));
+            sslContext.init(mgrFact.getKeyManagers(), trustFact.getTrustManagers(), null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            SSLServerSocketFactory fact = sslContext.getServerSocketFactory();
+            SSLServerSocket serverSocket = (SSLServerSocket) fact.createServerSocket(SSLPORT);
             SSLSocket socket = (SSLSocket) serverSocket.accept();
             System.out.println("SSLClient connected.1");
             OutputStream out = socket.getOutputStream();
@@ -260,7 +283,6 @@ public class Handler implements Runnable {
             System.out.println("SSLClient connected.2");
             PrintWriter writer = new PrintWriter(out);
             System.out.println("SSLClient connected.3");
-            
             System.out.println("SSLClient connected.4");
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(in));
@@ -276,7 +298,6 @@ public class Handler implements Runnable {
         }
     }
 }
-
 
 
 

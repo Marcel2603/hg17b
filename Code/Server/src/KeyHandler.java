@@ -4,6 +4,9 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Security;
+import java.security.UnrecoverableEntryException;
+import java.security.KeyStore.Entry;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -23,7 +26,7 @@ public class KeyHandler {
        char[] password;
        Security.addProvider(new BouncyCastleProvider());
        try {
-           ks = KeyStore.getInstance("bks");
+           ks = KeyStore.getInstance("jks");
        } catch (KeyStoreException e1) {
            e1.printStackTrace();
        }
@@ -43,17 +46,39 @@ public class KeyHandler {
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                } 
+                }
             }
-        }  
+        }
     }
-   
-   
-   public boolean isAlias(String email){
+   public KeyStore getKeyStore(String email){
+       KeyStore ksNew = null;
+       char[] password;
+       Security.addProvider(new BouncyCastleProvider());
        try {
-           System.out.println(email);
-           System.out.println(ks.getCertificateAlias(ks.getCertificate(email)));
-        if(email.toLowerCase().equals(ks.getCertificateAlias(ks.getCertificate(email)))){
+           ksNew = KeyStore.getInstance("jks");
+       } catch (KeyStoreException e1) {
+           e1.printStackTrace();
+       }
+       try {
+           ksNew.load(null, PASSWORD);
+       } catch (NoSuchAlgorithmException | CertificateException | IOException e) {
+           e.printStackTrace();
+       }
+       KeyStore.ProtectionParameter protParam = new KeyStore.PasswordProtection(PASSWORD);
+
+       try {
+           Entry skEntry = ks.getEntry(email, protParam);
+           ksNew.setEntry(email, skEntry, protParam);
+       } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableEntryException e) {
+           e.printStackTrace();
+       }
+       return ksNew;
+   }
+
+
+   public boolean isAlias(final String email){
+       try {
+           if (ks.containsAlias(email)){
                return true;
            }
     } catch (KeyStoreException e) {
@@ -61,7 +86,4 @@ public class KeyHandler {
     }
        return false;
    }
-   
-   
-    
 }

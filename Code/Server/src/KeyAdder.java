@@ -45,60 +45,47 @@ public class KeyAdder {
         String newFileName = args[1];
         FileInputStream fis = null, fis2 = null;
         Security.addProvider(new BouncyCastleProvider());
-        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         try {
             ks = KeyStore.getInstance("jks");
-            ksNew = KeyStore.getInstance("bks", "BC");
+            ksNew = KeyStore.getInstance("bks");
         } catch (KeyStoreException e1) {
             e1.printStackTrace();
-        } catch (NoSuchProviderException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
         FileOutputStream out = null;
         try {
             File f = new File(FILENAME);
             fis = new FileInputStream(f);
-            System.out.println(f.getAbsolutePath());
             ks.load(fis, PASSWORD);
             fis.close();
             File f2 = new File(newFileName);
             fis = new FileInputStream(f2);
             ksNew.load(fis, PASSWORD);
-            ks.setCertificateEntry(email, ksNew.getCertificate(email));
             File f3 = new File(FILENAME);
             KeyStore.ProtectionParameter protParam =
                     new KeyStore.PasswordProtection(PASSWORD);
-            //PrivateKey priv = (PrivateKey) ksNew.getKey("q", PASSWORD);
-            ksNew.getEntry(email, protParam);
-            //Key priv = ksNew.getKey(email, protParam);
-            Certificate cert[] = new Certificate[1];
-            cert[0] = ksNew.getCertificate(email); 
-            
+            Certificate[] cert = new Certificate[1];
+            cert[0] = ksNew.getCertificate(email);
             Entry skEntry = ksNew.getEntry(email, protParam);
-            //KeyStore.PrivateKeyEntry skEntry =
-              //      new KeyStore.PrivateKeyEntry(priv, cert);
             ks.setEntry(email, skEntry, protParam);
             out = new FileOutputStream(f3);
-            System.out.print(f.getAbsolutePath());
             ks.store(out, PASSWORD);
             System.out.print("Key added");
         } catch (Exception e) {
             System.out.println("No such key.");
-            e.printStackTrace();
+
         } finally {
             if (fis != null) {
                 try {
                     fis.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                 }
             }
             if (out != null) {
                 try {
                     out.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                 }
             }
         }
@@ -130,8 +117,8 @@ public class KeyAdder {
 
           return new KeyPair(publicKey, (PrivateKey) key);
         }
-    
-    
+
+
     public static Certificate[] selfSign(KeyPair keyPair) throws CertificateException, IOException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, IllegalStateException, SignatureException {
         // generate a key pair
         // build a certificate generator
@@ -151,8 +138,8 @@ public class KeyAdder {
         certGen.setSignatureAlgorithm("SHA256WithRSAEncryption");
         certGen.addExtension(X509Extensions.ExtendedKeyUsage, true, new ExtendedKeyUsage(KeyPurposeId.id_kp_timeStamping));
 
-        // finally, sign the certificate with the private key of the same KeyPair
-        Certificate cert[] = new Certificate[1];
+        // finally,sign the certificate with the private key of the same KeyPair
+        Certificate[] cert = new Certificate[1];
         cert[0] = certGen.generate(keyPair.getPrivate(), "BC");
         return cert;
     }

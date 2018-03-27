@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,7 +49,7 @@ public class Server {
      */
     private Mail mail;
     /**
-<<<<<<< HEAD
+
      * JSONArray mit allen nächsten Events.
      */
     private static JSONArray NextEvents = new JSONArray();
@@ -57,8 +58,7 @@ public class Server {
      */
     private static JSONArray LastEvents = new JSONArray();
     /**
-=======
->>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
+
      * Konstruktor to create Server and DB.
      * @param port Port for the server.
      */
@@ -147,7 +147,7 @@ public class Server {
     public static void deleteSocket(final Socket client) {
         socket.remove(client);
     }
-<<<<<<< HEAD
+
     /**
      * Holt alle naechsten Events aus der DB.
      * @throws JSONException wenn datenbank fehlerhaft.
@@ -205,6 +205,4 @@ public class Server {
     public static JSONArray getNextEvent() {
         return NextEvents;
     }
-=======
->>>>>>> 322593b95dbaf0ffa2884c2ca0f7bddb4ffba07f
 }
