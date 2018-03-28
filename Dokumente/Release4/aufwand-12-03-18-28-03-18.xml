@@ -2,5 +2,5 @@
 <Analyse von="2018-03-12" bis="2018-03-28" gruppe="hg17b" createdBy="MH" createdAt="2018-03-28">
   <done who="CP,NK,MR,JD,RM,MH" A="3" S="4" Zeit="6">Besprechungen</done>
   <done who="MH" A="3" S="2" Zeit="1">Events in Json</done>
-  <done who="NK" A="5" S="5" Zeit="8">SSH Verbindung fuer Veranstalter</done>
+  <done who="NK" A="5" S="5" Zeit="30">SSL Verbindung fuer Veranstalter</done>
 </Analyse>
