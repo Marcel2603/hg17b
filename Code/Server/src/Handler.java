@@ -35,6 +35,13 @@ import db.PupilDB;
  */
 public class Handler implements Runnable {
     
+    /**
+     * Die URL zur activate.php
+     */
+    static final String URL = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php";
+    /**
+     * Der Port für die SSL Verbindung
+     */
     static final int SSLPORT = 1832;
     /**
      * Socket for the Client.
@@ -190,7 +197,7 @@ public class Handler implements Runnable {
                                writer.flush();
                                String random = randomString();
                                System.out.println(random);
-                               String link = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php?id="
+                               String link = URL + "?id="
                                        + email + "&key=" + random;
                                System.out.println(link);
                                mail.senden("marcelemail2603@gmail.com", link);
