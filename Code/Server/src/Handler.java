@@ -12,6 +12,7 @@ import java.security.Security;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -47,7 +48,9 @@ public class Handler implements Runnable {
      * Mail-Konto.
      */
     private Mail mail;
-    private SSLServerSocket sslServerSocket;
+    private SSLSocket sslSocket=null;
+    PrintWriter writer;
+    BufferedReader reader;
     /**
      * Konstruktor to create the Thread.
      * @param socket Clientsocket.
@@ -66,11 +69,10 @@ public class Handler implements Runnable {
         try {
 //            Kommunikation von Server zum Client
             OutputStream out = client.getOutputStream();
-            PrintWriter writer = new PrintWriter(out);
+            writer = new PrintWriter(out);
 //            Kommunikation von Client zum Server
             InputStream in = client.getInputStream();
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(in));
+            reader = new BufferedReader(new InputStreamReader(in));
             String recieve = "";
             HashMap<Integer, Integer> ranking;
             int id = 0;
@@ -152,6 +154,7 @@ public class Handler implements Runnable {
                         writer.flush();
                     }
                     if (recieve.equals("Event")) {
+                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(false);
                         for (int i = 0;
@@ -167,30 +170,30 @@ public class Handler implements Runnable {
                 //Veranstalter
                 if (pers == 2) {
                     recieve = reader.readLine();
-                    System.out.println("Blah");
                     if (recieve.equals("Ueberpruefe Email")) {
 //                      getEmail
                        recieve = reader.readLine();
                        email = recieve;
-                       if (true) { //db1.isOrganizer(receive) sollte da rein
+                       if (db1.isOrganizer(email)) {
                            KeyHandler ks = new KeyHandler();
                            //HAS KEY
                            //ELSE
-                           //mail.senden("marcelemail2603@gmail.com");
                            writer.write("true\n");
                            writer.flush();
-                           System.out.println("isEmail");
-                           System.out.println(recieve);
-                           if (ks.isAlias(recieve)) {
-                               System.out.println("isAlias");
+                           if (ks.isAlias(recieve)) { //If a key already exists in Server Keystore
                                writer.write("keyExists\n");
                                writer.flush();
-                               sslConnect(ks, email);
-                           } else{
-                               System.out.println("noAlias");
+                             //creates SSL Socket and connects reader and writer with it.
+                               sslConnect(ks, email); 
+                           } else{ //If there is no key start transmission and save it with random filename.
                                writer.write("noKeyExists\n");
                                writer.flush();
-                               String random = "random";
+                               String random = randomString();
+                               System.out.println(random);
+                               String link = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php?id="
+                                       + email + "&key=" + random;
+                               System.out.println(link);
+                               mail.senden("marcelemail2603@gmail.com", link);
                                try {
                                    out = new FileOutputStream(random);
                                } catch (FileNotFoundException ex) {
@@ -203,6 +206,7 @@ public class Handler implements Runnable {
                                while ((count = in.read(bytes)) > 0) {
                                    out.write(bytes, 0, count);
                                }
+                               break;
                            }
 
 
@@ -211,7 +215,12 @@ public class Handler implements Runnable {
                                 writer.flush();
                        }
                     }
+                    /*
+                     * At this point writer and reader
+                     * are already linked with SSLSocket.
+                     */
                     if (recieve.equals("Eventpast")) {
+                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, true);
                         for (int i = 0;
@@ -242,6 +251,9 @@ public class Handler implements Runnable {
             writer.close();
             reader.close();
             client.close();
+            if(sslSocket!=null){
+                sslSocket.close();
+            }
         } catch (SocketException e) {
             Server.deleteSocket(client);
         } catch (IOException e) {
@@ -253,13 +265,18 @@ public class Handler implements Runnable {
             e.printStackTrace();
         }
     }
-private void sslConnect(KeyHandler kh, String email){
+    /**
+     * Creates and opens the SSLServerSocket and SSLSocket with key from email.
+     * Sets the writer and reader streams to SSLSocket
+     * @param kh The KeyHandler.
+     * @param email The email of connecting Organizer.
+     */
+    private void sslConnect(KeyHandler kh, String email){
         KeyManagerFactory kmfactory = null;
         SSLContext sslContext = null;
         try {
             kmfactory = KeyManagerFactory.getInstance(
                     KeyManagerFactory.getDefaultAlgorithm());
-            System.out.println(email);
             kmfactory.init(kh.getKeyStore(email), "password".toCharArray());
             Security.addProvider(new BouncyCastleProvider());
             sslContext = SSLContext.getInstance("TLS");
@@ -276,26 +293,32 @@ private void sslConnect(KeyHandler kh, String email){
         try {
             SSLServerSocketFactory fact = sslContext.getServerSocketFactory();
             SSLServerSocket serverSocket = (SSLServerSocket) fact.createServerSocket(SSLPORT);
-            SSLSocket socket = (SSLSocket) serverSocket.accept();
-            System.out.println("SSLClient connected.1");
-            OutputStream out = socket.getOutputStream();
-            InputStream in = socket.getInputStream();
-            System.out.println("SSLClient connected.2");
-            PrintWriter writer = new PrintWriter(out);
-            System.out.println("SSLClient connected.3");
-            System.out.println("SSLClient connected.4");
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(in));
-            System.out.println(Arrays.toString(socket.getEnabledCipherSuites()));
-            System.out.println("SSLClient connected.5");
-            System.out.println(reader.readLine());
-            System.out.println("SSLClient connected.6");
-            writer.write("HALLOSSSLSOCKETICHBINEINSERVER\n");
-            writer.flush();
-            System.out.println("SSLClient connected.7");
+            sslSocket = (SSLSocket) serverSocket.accept();
+            OutputStream out = sslSocket.getOutputStream();
+            InputStream in = sslSocket.getInputStream();
+            writer = new PrintWriter(out);
+            reader = new BufferedReader(new InputStreamReader(in));
+            System.out.println("SSLClient connected.");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    /**
+     * Creates a random String of length 10.
+     * @return random String.
+     */
+    private String randomString(){
+        final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        final String lower = upper.toLowerCase();
+        final String digits = "0123456789";
+        final String alphanum = upper + lower + digits;
+        String random = "";
+        for(int i = 0; i<10; i++){
+            int randomNum = ThreadLocalRandom.current().nextInt(0, alphanum.length());
+            random = random + alphanum.charAt(randomNum);
+        }
+        return random;
+        
     }
 }
 

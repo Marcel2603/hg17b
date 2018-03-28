@@ -33,15 +33,32 @@ import java.util.Date;
 import javax.security.auth.x500.X500Principal;
 
 /**
- *
+ * KeyHandler for managing RSA Keys stored in Bouncy Castle KeyStore.
  */
 
 public class KeyHandler {
+    /**
+     * The apps KeyStore.
+     */
     KeyStore ks;
+    /**
+     * The KeyStore Password.
+     */
     char[] PASSWORD = "password".toCharArray();
+    /**
+     * Filename of the KeyStore
+     */
     String FILENAME = "KeyStore";
+    /**
+     * KeyStore File.
+     */
     File f;
 
+    /**
+     * Constructor of KeyHandler. Loads KeyStore from file
+     * Creates new KeyStore if none exists.
+     * @param cache
+     */
     public KeyHandler (File cache){
         //Context context=this;
         //context = context.getApplicationContext();
@@ -87,7 +104,10 @@ public class KeyHandler {
 
     }
 
-
+    /**
+     * Creates a new key with email as alias.
+     * @param email
+     */
     public void addKey(String email){
         KeyPairGenerator keyPairGenerator = null;
         try {
@@ -121,7 +141,6 @@ public class KeyHandler {
         }
         try {
             ks.getEntry(email, protParam);
-            System.out.println("KLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTKLAPPTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnrecoverableEntryException e) {
@@ -131,6 +150,18 @@ public class KeyHandler {
         }
     }
 
+    /**
+     * Creates self signed Certificate from KeyPair.
+     * @param keyPair
+     * @return
+     * @throws CertificateException
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchProviderException
+     * @throws InvalidKeyException
+     * @throws IllegalStateException
+     * @throws SignatureException
+     */
     public static Certificate[] selfSign(KeyPair keyPair) throws CertificateException, IOException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, IllegalStateException, SignatureException {
         // generate a key pair
         // build a certificate generator
@@ -155,9 +186,14 @@ public class KeyHandler {
         cert[0] = certGen.generate(keyPair.getPrivate(), "BC");
         return cert;
     }
+
+    /**
+     * Checks if key exists.
+     * @param email alias of the key.
+     * @return true if exists. False if not.
+     */
     public boolean isAlias(String email){
         try {
-            System.out.println(ks.getCertificateAlias(ks.getCertificate(email)));
             if(email.toLowerCase().equals(ks.getCertificateAlias(ks.getCertificate(email)))){
                 return true;
             }
@@ -166,6 +202,12 @@ public class KeyHandler {
         }
         return false;
     }
+
+    /**
+     * Returns the publicStore
+     * @param email the email to which the ps belongs.
+     * @return
+     */
     public KeyStore getPublicStore(String email){
         KeyStore ps=null;
         try {
@@ -177,14 +219,27 @@ public class KeyHandler {
         }
         return ks;
     }
+
+    /**
+     * Returns the dir of the keystore.
+     * @return directory of KeyStore.
+     */
     public String getDir(){
-        System.out.println(f.getParent());
         return f.getParent();
     }
+
+    /**
+     * Returns the KeyStore file.
+     * @return
+     */
     public File getFile(){
         return f;
-
     }
+
+    /**
+     * returns the handlers keystore
+     * @return keystore
+     */
     public KeyStore getKeyStore(){
         return ks;
     }

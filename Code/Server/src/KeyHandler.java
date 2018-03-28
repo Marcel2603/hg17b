@@ -18,10 +18,24 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  *
  */
 public class KeyHandler {
-   static final char[] PASSWORD="password".toCharArray() ;
-   KeyStore ks;
-   static final String STORE = "trustStore";
-   public KeyHandler(){
+    /**
+     * KeyStore Password.
+     */
+    static final char[] PASSWORD="password".toCharArray() ;
+    /**
+     * Instance of Keystore.
+     */
+    KeyStore ks;
+    /**
+     * Store name.
+     */
+    static final String STORE = "trustStore";
+
+
+    /**
+     * Constructor for KeyHandler, loads the keystore from FileSystem.
+     */
+    public KeyHandler() {
        ks = null;
        char[] password;
        Security.addProvider(new BouncyCastleProvider());
@@ -50,7 +64,14 @@ public class KeyHandler {
             }
         }
     }
-   public KeyStore getKeyStore(String email){
+    
+    
+    /**
+     * Returns a KeyStore containing key corresponding to email.
+     * @param email email to which the key corresponds.
+     * @return KeyStore.
+     */
+    public KeyStore getKeyStore(String email){
        KeyStore ksNew = null;
        char[] password;
        Security.addProvider(new BouncyCastleProvider());
@@ -75,15 +96,19 @@ public class KeyHandler {
        return ksNew;
    }
 
-
-   public boolean isAlias(final String email){
+    /**
+     * Checks if KeyStore contains key with email.
+     * @param email the email to check for.
+     * @return True if key exists. Otherwise false.
+     */
+    public boolean isAlias(final String email){
        try {
            if (ks.containsAlias(email)){
                return true;
            }
-    } catch (KeyStoreException e) {
+       } catch (KeyStoreException e) {
         e.printStackTrace();
-    }
+       }
        return false;
-   }
+    }
 }

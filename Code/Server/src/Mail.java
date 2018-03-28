@@ -48,7 +48,7 @@ public class Mail {
      * Sendet eine Bestaetigungsemail an den Empfaenger.
      * @param empfaenger Email des Veranstalters.
      */
-    public void senden(final String empfaenger) {
+    public void senden(final String empfaenger, final String link) {
         Properties properties = System.getProperties();
         String host = "smtp.gmail.com";
         properties.put("mail.smtp.starttls.enable", "true");
@@ -64,6 +64,7 @@ public class Mail {
             InternetAddress empfaengeraddress = new InternetAddress(empfaenger);
             message.addRecipient(Message.RecipientType.TO, empfaengeraddress);
             message.setSubject(betreff);
+            nachricht = nachricht.replaceAll("pcai042.informatik.uni-leipzig.de/~hg17b/", link);
             message.setText(nachricht);
             Transport transport = session.getTransport("smtp");
             transport.connect(host, username, password);

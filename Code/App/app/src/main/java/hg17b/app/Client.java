@@ -196,18 +196,13 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         String email = OrganizerLogIn.nutzer;
                         writer.write("Ueberpruefe Email" + "\n");
                         writer.flush();
-                        System.out.println("Befehl");
-                        System.out.println(kh.isAlias("q"));
                         writer.write(email + "\n");
                         writer.flush();
 
                         String vonServer = reader.readLine();
 
                         if (vonServer.equals("true")) {
-
                             vonServer = reader.readLine();
-                            System.out.println(vonServer);
-                            System.out.println("vonServer");
                             if(vonServer.equals("keyExists")){
                                 System.out.println("key EXISTS!!!");
                                 sslConnect();
@@ -269,18 +264,15 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             schleife1 = false;
                             t = 1;
                         }
-                        System.out.println("b");
-
                     }
                     if (OrganizerMain.veranstalter){
-                        writer.write("GetAnzahl");
+                        writer.write("GetAnzahl" + "\n");
                         writer.flush();
                         anzahl = Integer.parseInt(reader.readLine());
                     }
                     if (LogOut.isclicked) {
                         OrganizerLogIn.isinDB = false;
                         OrganizerLogIn.schleife = 0;
-                        System.out.println("Test");
                         schleife1 = false;
                         writer.write("disconnect" + "\n");
                         writer.flush();
@@ -290,7 +282,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         LogOut.isclicked = false;
                     }
                 }
-                System.out.println("Test");
             }
 
         } catch (ConnectException e) {
@@ -497,6 +488,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
         return ar;
     }
 
+    /**
+     * Connects the client with the SSL protected Server.
+     * Connects reader and writer to SSL Connection.
+     */
     private void sslConnect(){
         try {
             String trustdir = kh.getDir() + "/keyStore";
@@ -505,11 +500,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 kmfactory = KeyManagerFactory.getInstance(
                         KeyManagerFactory.getDefaultAlgorithm());
                 kmfactory.init(kh.getKeyStore(), "password".toCharArray());
-            } catch (KeyStoreException e) {
-                e.printStackTrace();
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            } catch (UnrecoverableKeyException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             KeyManager[] keymanagers =  kmfactory.getKeyManagers();
@@ -538,19 +529,12 @@ public class Client extends AsyncTask<Void, Void, Void>{
             }
             SSLSocketFactory sf=sslContext.getSocketFactory();
             SSLSocket sslSocket = (SSLSocket) sf.createSocket(ip, 1832);
-            sslSocket.setSoTimeout(600);
             OutputStream out=null;
-            System.out.println(Arrays.toString(sslSocket.getEnabledCipherSuites()));
             out = sslSocket.getOutputStream();
-            PrintWriter writer = new PrintWriter(out);
+            writer = new PrintWriter(out);
             InputStream in = sslSocket.getInputStream();
+            reader = new BufferedReader(new InputStreamReader(in));
             System.out.println("SSL-Client online");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            writer.write("Hallo ICH BIN EIN SSL CLIENT.\n");
-            writer.flush();
-            System.out.println("SSL-Client online");
-            System.out.println(reader.readLine());
-
         } catch (IOException e) {
             e.printStackTrace();
         }

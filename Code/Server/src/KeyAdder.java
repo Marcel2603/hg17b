@@ -1,45 +1,35 @@
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.math.BigInteger;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.sql.Date;
-
-import javax.security.auth.x500.X500Principal;
-
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.KeyPair;
 import java.security.KeyStore;
 import java.security.KeyStore.Entry;
-import java.security.KeyStore.PrivateKeyEntry;
-import java.security.KeyStore.ProtectionParameter;
 import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.security.Security;
-import java.security.SignatureException;
-import java.security.UnrecoverableKeyException;
-
-
-import org.bouncycastle.asn1.x509.ExtendedKeyUsage;
-import org.bouncycastle.asn1.x509.KeyPurposeId;
-import org.bouncycastle.asn1.x509.X509Extensions;
-import org.bouncycastle.asn1.x509.X509Name;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.x509.X509V3CertificateGenerator;
 
+/**
+ * Adds Key to Server TrustStore.
+ * @author Nikolai Kortenbruck
+ *
+ */
 public class KeyAdder {
-    static KeyStore ks, ksNew;
-    static char[] PASSWORD = "password".toCharArray();
-    static String FILENAME = "trustStore";
-
+    /**
+     * Old and new KeyStore.
+     */
+    private static KeyStore ks, ksNew;
+    /**
+     * KeyStore Password.
+     */
+    private static char[] PASSWORD = "password".toCharArray();
+    /**
+     * Filename to trustStore to which key will be added.
+     */
+    private static String FILENAME = "trustStore";
+    /**
+     * Adds a key from keyfile to Server TrustStore.
+     * @param args args[0] is the alias of the key to be added.
+     * args[1] the name of the temporary KeyStore created. 
+     */
     public static void main(String[] args) {
         String email = args[0];
         String newFileName = args[1];
@@ -49,7 +39,7 @@ public class KeyAdder {
             ks = KeyStore.getInstance("jks");
             ksNew = KeyStore.getInstance("bks");
         } catch (KeyStoreException e1) {
-            e1.printStackTrace();
+
         }
         FileOutputStream out = null;
         try {
@@ -63,8 +53,6 @@ public class KeyAdder {
             File f3 = new File(FILENAME);
             KeyStore.ProtectionParameter protParam =
                     new KeyStore.PasswordProtection(PASSWORD);
-            Certificate[] cert = new Certificate[1];
-            cert[0] = ksNew.getCertificate(email);
             Entry skEntry = ksNew.getEntry(email, protParam);
             ks.setEntry(email, skEntry, protParam);
             out = new FileOutputStream(f3);
@@ -90,58 +78,4 @@ public class KeyAdder {
             }
         }
     }
-    public static KeyPair getKeyPair(final KeyStore keystore, 
-            final String alias, final String password) {
-          Key key = null;
-        try {
-            key = (PrivateKey) keystore.getKey(alias, password.toCharArray());
-        } catch (UnrecoverableKeyException | KeyStoreException | NoSuchAlgorithmException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-          Certificate cert = null;
-        try {
-            cert = ks.getCertificate(alias);
-        } catch (KeyStoreException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        try {
-            cert = keystore.getCertificate(alias);
-        } catch (KeyStoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-          final PublicKey publicKey = cert.getPublicKey();
-
-          return new KeyPair(publicKey, (PrivateKey) key);
-        }
-
-
-    public static Certificate[] selfSign(KeyPair keyPair) throws CertificateException, IOException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, IllegalStateException, SignatureException {
-        // generate a key pair
-        // build a certificate generator
-        @SuppressWarnings("deprecation")
-        X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
-        X500Principal dnName = new X500Principal("cn=example");
-
-        // add some options
-        certGen.setSerialNumber(BigInteger.valueOf(System.currentTimeMillis()));
-        certGen.setSubjectDN(new X509Name("dc=name"));
-        certGen.setIssuerDN(dnName); // use the same
-        // yesterday
-        certGen.setNotBefore(new Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000));
-        // in 2 years
-        certGen.setNotAfter(new Date(System.currentTimeMillis() + 2 * 365 * 24 * 60 * 60 * 1000));
-        certGen.setPublicKey(keyPair.getPublic());
-        certGen.setSignatureAlgorithm("SHA256WithRSAEncryption");
-        certGen.addExtension(X509Extensions.ExtendedKeyUsage, true, new ExtendedKeyUsage(KeyPurposeId.id_kp_timeStamping));
-
-        // finally,sign the certificate with the private key of the same KeyPair
-        Certificate[] cert = new Certificate[1];
-        cert[0] = certGen.generate(keyPair.getPrivate(), "BC");
-        return cert;
-    }
-
 }

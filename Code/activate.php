@@ -1,7 +1,7 @@
 <?php
 	/*
 	Diese Datei ruft die keyAdder.jar auf um neue keys in den Keystore zu uebertragen.
-	Der übergebene Parameter id entspricht dabei dem Alias des Keys, key ist die vom
+	Der uebergebene Parameter id entspricht dabei dem Alias des Keys, key ist die vom
 	Server erzeugte zufaellige Ziffernfolge, die beim uebertragen des keys an den Server
 	vom Server erstellt wird und als Email verschickt wird.
 	
@@ -9,7 +9,7 @@
 
 
 
-	//Hier den Pfad zur Java Executable eintragen:
+	//Hier den Pfad zur Java Executeable eintragen:
 	$javaPath="/usr/java/jdk1.8.0_112/bin/java"; 
 	
 	//Hier den Pfad zum KeyAdder.jar eintragen:
