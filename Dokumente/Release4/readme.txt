@@ -1,0 +1,7 @@
+In diesem Release wurden die Anmeldefunktionen erweitert. Für die Verschlüsselte Anmeldung der Veranstalter fehlt noch die Übertragung der Schlüssel. Diese wird auf das nächste Release verschoben.
+
+Die App und der Server lassen sich mit gradle compilieren. Die build.gradle-Datein und ein gradle-Wrapper sind in den jeweiligen Ordnern vorhanden. Der Server kann mit java -jar Server.jar ausgeführt werden. Für die Aktivierung der Keys über einen Link muss die activate.php auf einem php fähigen Webserver zugänglich gemacht werden und der String URL in der Handler.java muss auf die activate.php zeigen.
+
+Beim Aufruf der activate.php wird die KeyAdder.jar, die sich im selben Verzeichnis wie die Server.jar befinden muss ausgeführt. Dazu müssen in der activate.php gegebenenfalls die Pfade zur java executeable auf dem Server, sowie das Verzeichnis angepasst werden.
+
+Damit die KeyAdder.jar auf dem Server laufen kann wird die Java Cryptography Extension benötigt. ( http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html ) Zur Installation die zip herunterladen und die Dateien jce\local_policy.jar und jce\US_export_policy.jar in das Verzeichnis %JAVA_HOME%\jre\lib\security entpacken.
