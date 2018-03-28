@@ -69,7 +69,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         email = findViewById(R.id.editTextEMail);
         nutzer = email.getText().toString();
-        client = new Client("192.168.2.195", 1831, 2, ks,this);
+        client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 2, ks,this);
         client.execute();
 
         if(client.getServerStatus()){

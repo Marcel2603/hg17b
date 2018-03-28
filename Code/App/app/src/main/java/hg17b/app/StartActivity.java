@@ -79,7 +79,7 @@ public class StartActivity extends AppCompatActivity {
                 String ID = br.readLine();
                 if (ID.startsWith("v")) {//if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
-                    client = new Client("192.168.2.195", 1831, 2,ks,this);
+                    client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 2,ks,this);
                     client.execute();
 
                     if(client.getServerStatus()){
@@ -93,7 +93,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("192.168.2.195", 1831, 1, ks,this);
+                    client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -160,7 +160,7 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("192.168.2.195",
+        client = new Client("http://pcai042.informatik.uni-leipzig.de",
                1831, 1, ks, this);
         client.execute();
 
