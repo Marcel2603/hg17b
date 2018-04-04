@@ -32,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="EventDetails.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EventDetails.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/EventDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="328">
+              <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,34 +44,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java">
+      <file leaf-file-name="LastEvents.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/LastEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="258" column="36" lean-forward="false" selection-start-line="258" selection-start-column="36" selection-end-line="258" selection-end-column="36" />
+            <state relative-caret-position="-636">
+              <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding>
-                <element signature="e#9662#9675#0" expanded="true" />
-                <element signature="e#9677#9691#0" expanded="true" />
-                <element signature="e#10231#13157#0" expanded="true" />
-                <element signature="e#13156#13157#0" expanded="true" />
-                <element signature="e#13193#13194#0" expanded="true" />
-                <element signature="e#13232#13233#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/Client.java">
+      <file leaf-file-name="StartActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="120" column="56" lean-forward="false" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+            <state relative-caret-position="30">
+              <caret line="251" column="22" lean-forward="false" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
+              <folding>
+                <element signature="e#10156#10169#0" expanded="true" />
+                <element signature="e#10171#10185#0" expanded="true" />
+                <element signature="e#10725#13651#0" expanded="true" />
+                <element signature="e#13650#13651#0" expanded="true" />
+                <element signature="e#13687#13688#0" expanded="true" />
+                <element signature="e#13726#13727#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_event.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_next_events.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_next_events.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>menuco</find>
+      <find>LastE</find>
+    </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -2091,8 +2125,8 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/hg17b/app/EventDetails.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml" />
       </list>
     </option>
   </component>
@@ -2117,6 +2151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2146,14 +2181,19 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
+            <path>
+              <item name="App" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2343,23 +2383,22 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.5042965" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5064447" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49570355" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.49570355" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.4935553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17776585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49570355" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.4935553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2368,6 +2407,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2382,30 +2422,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="120" column="56" lean-forward="false" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4620">
+          <caret line="258" column="36" lean-forward="false" selection-start-line="258" selection-start-column="36" selection-end-line="258" selection-end-column="36" />
+          <folding>
+            <element signature="e#10156#10169#0" expanded="true" />
+            <element signature="e#10171#10185#0" expanded="true" />
+            <element signature="e#10725#13651#0" expanded="true" />
+            <element signature="e#13650#13651#0" expanded="true" />
+            <element signature="e#13687#13688#0" expanded="true" />
+            <element signature="e#13726#13727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/EventDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/event.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/event.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java">
@@ -2413,12 +2488,12 @@
         <state relative-caret-position="1302">
           <caret line="95" column="41" lean-forward="false" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
           <folding>
-            <element signature="e#9662#9675#0" expanded="true" />
-            <element signature="e#9677#9691#0" expanded="true" />
-            <element signature="e#10231#13157#0" expanded="true" />
-            <element signature="e#13156#13157#0" expanded="true" />
-            <element signature="e#13193#13194#0" expanded="true" />
-            <element signature="e#13232#13233#0" expanded="true" />
+            <element signature="e#10156#10169#0" expanded="true" />
+            <element signature="e#10171#10185#0" expanded="true" />
+            <element signature="e#10725#13651#0" expanded="true" />
+            <element signature="e#13650#13651#0" expanded="true" />
+            <element signature="e#13687#13688#0" expanded="true" />
+            <element signature="e#13726#13727#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2431,65 +2506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/event.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/LastEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_last_events.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="120" column="56" lean-forward="false" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/EventDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-336">
@@ -2498,17 +2514,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="471" column="40" lean-forward="false" selection-start-line="471" selection-start-column="40" selection-end-line="471" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_last_events.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-1669">
+          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_next_events.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/LastEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-636">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/StartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="258" column="36" lean-forward="false" selection-start-line="258" selection-start-column="36" selection-end-line="258" selection-end-column="36" />
+        <state relative-caret-position="30">
+          <caret line="251" column="22" lean-forward="false" selection-start-line="251" selection-start-column="22" selection-end-line="251" selection-end-column="22" />
           <folding>
-            <element signature="e#9662#9675#0" expanded="true" />
-            <element signature="e#9677#9691#0" expanded="true" />
-            <element signature="e#10231#13157#0" expanded="true" />
-            <element signature="e#13156#13157#0" expanded="true" />
-            <element signature="e#13193#13194#0" expanded="true" />
-            <element signature="e#13232#13233#0" expanded="true" />
+            <element signature="e#10156#10169#0" expanded="true" />
+            <element signature="e#10171#10185#0" expanded="true" />
+            <element signature="e#10725#13651#0" expanded="true" />
+            <element signature="e#13650#13651#0" expanded="true" />
+            <element signature="e#13687#13688#0" expanded="true" />
+            <element signature="e#13726#13727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_event.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hg17b/app/EventDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

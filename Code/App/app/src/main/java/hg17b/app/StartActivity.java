@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.EventLog;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -245,7 +246,7 @@ public class StartActivity extends AppCompatActivity {
     public void Lastevents (View v){
            /* Intent intent = new Intent(getActivity(), EventDetails.class);
             startActivity(intent);*/
-        //try {
+        try {
             switch (v.getId()) {
                 case R.id.tv1:
                     /*
@@ -254,17 +255,23 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                     EventDetails.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("Start"));
                     */
+                    EventDetails event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.menuContainer, new EventDetails());
+                    fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle("Test");
+                  /*  event.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("start"));
+                    event.tv2.setText("");
+                    event.tv3.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("description"));*/
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("label"));
                     //drawerLayout.closeDrawers();
                     break;
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     break;
             }
-   // }
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
 
     }
 

@@ -16,22 +16,36 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 public class EventDetails extends Fragment {
 
-    public static TextView tv1, tv2, tv3;
+    TextView tv1, tv2, tv3;
     Button register;
+    public EventDetails(){
 
+    }
     @Override
-    public View  onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                 Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_last_events, container, false);
+        View view = inflater.inflate(R.layout.fragment_event, container, false);
         super.onCreate(savedInstanceState);
 
         tv1 = view.findViewById(R.id.tvTime1);
         tv2 = view.findViewById(R.id.tvTime2);
         tv3 = view.findViewById(R.id.tvDetail);
         register = view.findViewById(R.id.buttonRegister);
+        named();
         return view;
+    }
+    public void named(){
+        try {
+            tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("start"));
+            tv2.setText("");
+            tv3.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("description"));
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }
 
