@@ -164,7 +164,7 @@ public class Server {
             obj.put("url", list.get(i).get("url"));
             obj.put("description", list.get(i).get("description"));
             obj.put("start", list.get(i).get("start"));
-            NextEvents = sort(NextEvents, obj);
+            //NextEvents = sort(NextEvents, obj);
         }
     }
     /**
@@ -183,11 +183,11 @@ public class Server {
             obj.put("url", list.get(i).get("url"));
             obj.put("description", list.get(i).get("description"));
             obj.put("start", list.get(i).get("start"));
-            if (LastEvents.length() == 0) {
+           // if (LastEvents.length() == 0) {
                 LastEvents.put(obj);
-            }else {
-                LastEvents = sort(LastEvents, obj);
-            }
+            //}else {
+            //    LastEvents = sort(LastEvents, obj);
+            //}
             
         }
     }

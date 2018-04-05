@@ -5,3 +5,7 @@ Die App und der Server lassen sich mit gradle compilieren. Die build.gradle-Date
 Beim Aufruf der activate.php wird die KeyAdder.jar, die sich im selben Verzeichnis wie die Server.jar befinden muss ausgeführt. Dazu müssen in der activate.php gegebenenfalls die Pfade zur java executeable auf dem Server, sowie das Verzeichnis angepasst werden.
 
 Damit die KeyAdder.jar auf dem Server laufen kann wird die Java Cryptography Extension benötigt. ( http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html ) Zur Installation die zip herunterladen und die Dateien jce\local_policy.jar und jce\US_export_policy.jar in das Verzeichnis %JAVA_HOME%\jre\lib\security entpacken.
+
+Hinweise zum compilieren mit Gradle:
+Im App-Ordner muss in der Datei local.properies der Pfad der Android SDK-Installation eingetragen werden bzw. die Adroid SDK muss auf andere Weise importiert werden.
+Für den build verwenden Sie das Commando './gradlew build' für die jar des Server verwenden Sie './gradlew shadowjar', dies erstellt eine Jar (Server-all.jar) mit allen Dependencies im Ordner build/libs/
