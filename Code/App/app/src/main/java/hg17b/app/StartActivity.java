@@ -3,6 +3,7 @@
  */
 package hg17b.app;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.EventLog;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -93,7 +95,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -160,7 +162,7 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("http://pcai042.informatik.uni-leipzig.de",
+        client = new Client("pcai042.informatik.uni-leipzig.de",
                1831, 1, ks, this);
         client.execute();
 
@@ -236,24 +238,40 @@ public class StartActivity extends AppCompatActivity {
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
         startActivity(intent);
     }
+
+    /**
+     * Onclick fuer die Events.
+     * @param v
+     */
     public void Lastevents (View v){
            /* Intent intent = new Intent(getActivity(), EventDetails.class);
             startActivity(intent);*/
         try {
             switch (v.getId()) {
                 case R.id.tv1:
-                    EventFragment event = new EventFragment();
+                    /*
+                    Fragment event = new EventDetails();
                     getSupportFragmentManager().beginTransaction().replace(R.id.last,event);
                     fragmentTransaction.commit();
                     EventDetails.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("Start"));
+                    */
+                    EventDetails event = new EventDetails();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.menuContainer, event);
+                    fragmentTransaction.commit();
+                  /*  event.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("start"));
+                    event.tv2.setText("");
+                    event.tv3.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("description"));*/
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("label"));
+                    //drawerLayout.closeDrawers();
                     break;
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     break;
             }
-    } catch (JSONException e) {
-        e.printStackTrace();
-    }
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
 
     }
 
