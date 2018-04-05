@@ -38,7 +38,9 @@ Code/App/gen/
 *output.json
 *workspace.xml
 
+#eclipse
 */.settings
+Code/Server/.metadata/*
 
 
 *.externalNativeBuild
