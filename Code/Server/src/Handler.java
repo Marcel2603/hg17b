@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -6,8 +8,23 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+import java.security.Security;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
+
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLServerSocket;
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.TrustManagerFactory;
+
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import db.PupilDB;
 
@@ -17,6 +34,15 @@ import db.PupilDB;
  *
  */
 public class Handler implements Runnable {
+    
+    /**
+     * Die URL zur activate.php
+     */
+    static final String URL = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php";
+    /**
+     * Der Port für die SSL Verbindung
+     */
+    static final int SSLPORT = 1832;
     /**
      * Socket for the Client.
      */
@@ -29,6 +55,9 @@ public class Handler implements Runnable {
      * Mail-Konto.
      */
     private Mail mail;
+    private SSLSocket sslSocket=null;
+    PrintWriter writer;
+    BufferedReader reader;
     /**
      * Konstruktor to create the Thread.
      * @param socket Clientsocket.
@@ -47,11 +76,10 @@ public class Handler implements Runnable {
         try {
 //            Kommunikation von Server zum Client
             OutputStream out = client.getOutputStream();
-            PrintWriter writer = new PrintWriter(out);
+            writer = new PrintWriter(out);
 //            Kommunikation von Client zum Server
             InputStream in = client.getInputStream();
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(in));
+            reader = new BufferedReader(new InputStreamReader(in));
             String recieve = "";
             HashMap<Integer, Integer> ranking;
             int id = 0;
@@ -60,7 +88,6 @@ public class Handler implements Runnable {
             int pers = 0;
             if (recieve.equals("schueler")) {
                 pers = 1;
-                System.out.println("schueler nekomen");
             }
             if (recieve.equals("veranstalter")) {
                 pers = 2;
@@ -72,12 +99,10 @@ public class Handler implements Runnable {
                 if (pers == 1) {
                     if (recieve.equals("Ueberpruefe ID")) {
 //                       getID
-                        System.out.println("ID");
                         recieve = reader.readLine();
                         id = Integer.parseInt(recieve);
                         boolean inID = db1.isID(id);
                         if (inID) {
-                            System.out.println(true);
                             writer.write("true\n");
                             writer.flush();
                         } else {
@@ -99,7 +124,7 @@ public class Handler implements Runnable {
                         writer.write(db1.getRank(id) + "\n");
                         writer.flush();
                     }
-                    if (recieve.equals("Eventpast")) {
+                    /*if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(true);
                         for (int i = 0;
@@ -111,21 +136,42 @@ public class Handler implements Runnable {
                         writer.write("ENDE" + "\n");
                         writer.flush();
                         System.out.println("ENDE");
+                    }*/
+                    if (recieve.equals("Eventpast")) {
+                        ArrayList<HashMap<String, String>> list
+                        = db1.getEventsStudents(true);
+                        
+                        
+                        
+                        JSONObject obj;
+                        for (int i = 0; i < list.size(); i++) {
+                            obj = new JSONObject();
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
+                            writer.flush();
+                        }
+                        
+                        
+                        
+                        writer.write("ENDE" + "\n");
+                        writer.flush();
                     }
                     if (recieve.equals("Event")) {
+                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(false);
                         for (int i = 0;
                                 i < list.size(); i++) {
-                            System.out.println(list.get(i).get("label"));
                             writer.write(list.get(i).get("label") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
                         writer.flush();
-                        System.out.println("ENDE");
                     }
-                    System.out.println(recieve);
                     recieve = reader.readLine();
                 }
                 //Veranstalter
@@ -133,42 +179,70 @@ public class Handler implements Runnable {
                     recieve = reader.readLine();
                     if (recieve.equals("Ueberpruefe Email")) {
 //                      getEmail
-
                        recieve = reader.readLine();
                        email = recieve;
-                       System.out.println("Email");
-                       if (db1.isOrganizer(recieve)) {
-                           mail.senden("marcelemail2603@gmail.com");
+                       if (db1.isOrganizer(email)) {
+                           KeyHandler ks = new KeyHandler();
+                           //HAS KEY
+                           //ELSE
                            writer.write("true\n");
                            writer.flush();
-                           System.out.println(recieve + "true");
+                           if (ks.isAlias(recieve)) { //If a key already exists in Server Keystore
+                               writer.write("keyExists\n");
+                               writer.flush();
+                             //creates SSL Socket and connects reader and writer with it.
+                               sslConnect(ks, email); 
+                           } else{ //If there is no key start transmission and save it with random filename.
+                               writer.write("noKeyExists\n");
+                               writer.flush();
+                               String random = randomString();
+                               System.out.println(random);
+                               String link = URL + "?id="
+                                       + email + "&key=" + random;
+                               System.out.println(link);
+                               mail.senden("marcelemail2603@gmail.com", link);
+                               try {
+                                   out = new FileOutputStream(random);
+                               } catch (FileNotFoundException ex) {
+                                   System.out.println("File not found. ");
+                               }
+
+                               byte[] bytes = new byte[8192];
+
+                               int count;
+                               while ((count = in.read(bytes)) > 0) {
+                                   out.write(bytes, 0, count);
+                               }
+                               break;
+                           }
+
+
                        } else {
                                 writer.write("false" + "\n");
                                 writer.flush();
-                                System.out.println(recieve + "false");
                        }
                     }
+                    /*
+                     * At this point writer and reader
+                     * are already linked with SSLSocket.
+                     */
                     if (recieve.equals("Eventpast")) {
-                        System.out.println("LAST EVENT ____________________________________________");
+                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, true);
                         for (int i = 0;
                                 i < list.size(); i++) {
-                            System.out.println(list.get(i).get("label"));
-                            writer.write(list.get(i).get("label") + "\n");
+                            writer.write(list.get(i).get("start") + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");
                         writer.flush();
-                        System.out.println(list.size());
                     }
                     if (recieve.equals("Event")) {
-                        System.out.println("NEXT EVENT ____________________________________________");
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, false);
                         for (int i = 0;
                                 i < list.size(); i++) {
-                            System.out.println(list.get(i).get("label"));
                             writer.write(list.get(i).get("label") + "\n");
                             writer.flush();
                         }
@@ -184,12 +258,85 @@ public class Handler implements Runnable {
             writer.close();
             reader.close();
             client.close();
+            if(sslSocket!=null){
+                sslSocket.close();
+            }
         } catch (SocketException e) {
             Server.deleteSocket(client);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
             Server.deleteSocket(client);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
+    /**
+     * Creates and opens the SSLServerSocket and SSLSocket with key from email.
+     * Sets the writer and reader streams to SSLSocket
+     * @param kh The KeyHandler.
+     * @param email The email of connecting Organizer.
+     */
+    private void sslConnect(KeyHandler kh, String email){
+        KeyManagerFactory kmfactory = null;
+        SSLContext sslContext = null;
+        try {
+            kmfactory = KeyManagerFactory.getInstance(
+                    KeyManagerFactory.getDefaultAlgorithm());
+            kmfactory.init(kh.getKeyStore(email), "password".toCharArray());
+            Security.addProvider(new BouncyCastleProvider());
+            sslContext = SSLContext.getInstance("TLS");
+            KeyManagerFactory mgrFact =
+                    KeyManagerFactory.getInstance("SunX509");
+            mgrFact.init(kh.getKeyStore(email), "password".toCharArray());
+            TrustManagerFactory trustFact =
+                    TrustManagerFactory.getInstance("SunX509");
+            trustFact.init(kh.getKeyStore(email));
+            sslContext.init(mgrFact.getKeyManagers(), trustFact.getTrustManagers(), null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            SSLServerSocketFactory fact = sslContext.getServerSocketFactory();
+            SSLServerSocket serverSocket = (SSLServerSocket) fact.createServerSocket(SSLPORT);
+            sslSocket = (SSLSocket) serverSocket.accept();
+            OutputStream out = sslSocket.getOutputStream();
+            InputStream in = sslSocket.getInputStream();
+            writer = new PrintWriter(out);
+            reader = new BufferedReader(new InputStreamReader(in));
+            System.out.println("SSLClient connected.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Creates a random String of length 10.
+     * @return random String.
+     */
+    private String randomString(){
+        final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        final String lower = upper.toLowerCase();
+        final String digits = "0123456789";
+        final String alphanum = upper + lower + digits;
+        String random = "";
+        for(int i = 0; i<10; i++){
+            int randomNum = ThreadLocalRandom.current().nextInt(0, alphanum.length());
+            random = random + alphanum.charAt(randomNum);
+        }
+        return random;
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

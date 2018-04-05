@@ -24,5 +24,9 @@
         android:id="@+id/Log_Out"
         android:icon="@mipmap/ic_exit_to_app_black_24dp"
         android:title="@string/btn_log_out" />
+    <item
+        android:id="@+id/Scanner"
+        android:icon="@mipmap/ic_exit_to_app_black_24dp"
+        android:title="Scanner" />
 
 </menu>

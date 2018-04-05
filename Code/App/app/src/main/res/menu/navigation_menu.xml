@@ -6,7 +6,8 @@
         android:icon="@mipmap/ic_home_black_24dp"
         android:title="@string/start" />
 
-    <item android:id="@+id/Kommende_Veranstaltungen"
+    <item
+        android:id="@+id/Kommende_Veranstaltungen"
         android:icon="@mipmap/ic_event_note_black_24dp"
         android:title="@string/incoming" />
 

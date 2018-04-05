@@ -3,6 +3,7 @@
  */
 package hg17b.app;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,12 +12,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.EventLog;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,6 +33,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
 
 /**
  * This is the Main Activity, and handles the Student part of the App.
@@ -39,6 +47,7 @@ import java.nio.file.Path;
  */
 public class StartActivity extends AppCompatActivity {
 
+
     public EditText etID;
     TextView tvInfo;
     public static String data;
@@ -47,12 +56,12 @@ public class StartActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     Button logOut;
-    Client client;
+    public static Client client;
     public static boolean isinDB;
     public static boolean isclicked;
     private static int points;
     public static int kontrolle;
-
+    KeyHandler ks;
     /**
      * The onCreate method is called when the Application gets started.
      * Here we initialize the Layout, start the Client and connect them with the Server.
@@ -61,7 +70,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        KeyHandler key = new KeyHandler(getFilesDir());
+        ks = new KeyHandler(getFilesDir());
         BufferedReader br = null;
 
 
@@ -72,7 +81,7 @@ public class StartActivity extends AppCompatActivity {
                 String ID = br.readLine();
                 if (ID.startsWith("v")) {//if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2);
+                    client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 2,ks,this);
                     client.execute();
 
                     if(client.getServerStatus()){
@@ -86,7 +95,7 @@ public class StartActivity extends AppCompatActivity {
                 } else {//If it is a student's ID
                     isclicked=true;
                     data = ID;
-                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+                    client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
@@ -153,7 +162,8 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1);
+        client = new Client("pcai042.informatik.uni-leipzig.de",
+               1831, 1, ks, this);
         client.execute();
 
         //Check if input fits into the TextField
@@ -167,7 +177,7 @@ public class StartActivity extends AppCompatActivity {
                Toast.makeText(this,
                        "Deine Eingabe war zu kurz\n", Toast.LENGTH_LONG).show();
            }
-           while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
+          while (!isinDB && kontrolle == 0 && !client.getServerStatus()) {
                //loop for testing
            }
            if (client.getServerStatus()) {
@@ -178,14 +188,12 @@ public class StartActivity extends AppCompatActivity {
                if (isinDB) {
 
                    /*Create File to safe ID*/
-                   System.out.println("hallo");
                    BufferedWriter bw = null;
                    try {
                        File f = new File(getCacheDir(),"logindata.tmp");
                        bw = new BufferedWriter(new FileWriter(f));
                        bw.write(data);
                        bw.flush();
-                       System.out.println(f.getPath());
                    } catch (IOException e) {
                        e.printStackTrace();
                    }finally {
@@ -229,6 +237,42 @@ public class StartActivity extends AppCompatActivity {
 
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
         startActivity(intent);
+    }
+
+    /**
+     * Onclick fuer die Events.
+     * @param v
+     */
+    public void Lastevents (View v){
+           /* Intent intent = new Intent(getActivity(), EventDetails.class);
+            startActivity(intent);*/
+        try {
+            switch (v.getId()) {
+                case R.id.tv1:
+                    /*
+                    Fragment event = new EventDetails();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.last,event);
+                    fragmentTransaction.commit();
+                    EventDetails.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("Start"));
+                    */
+                    EventDetails event = new EventDetails();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.menuContainer, event);
+                    fragmentTransaction.commit();
+                  /*  event.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("start"));
+                    event.tv2.setText("");
+                    event.tv3.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("description"));*/
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("label"));
+                    //drawerLayout.closeDrawers();
+                    break;
+                case R.id.tv2:
+                    //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
+                    break;
+            }
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+
     }
 
     /**

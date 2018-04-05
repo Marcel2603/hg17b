@@ -26,14 +26,14 @@ public class Mail {
     /**
      * Betreffzeile.
      */
-    private String betreff = "Bestätigungsmail für das Zukunftsdiplom";
+    private String betreff = "Bestaetigungsmail fuer das Zukunftsdiplom";
     /**
      * Nachricht der Email.
      */
     private String nachricht = "Guten Tag, \n"
-            + "Bitte klicken sie zur bestätigung auf den Link: "
+            + "Bitte klicken sie zur bestaetigung auf den Link: "
             + "pcai042.informatik.uni-leipzig.de/~hg17b/ \n \n"
-            + "Mit freundlichen Grüßen \n"
+            + "Mit freundlichen Gruessen \n"
             + "hg17b";
     /**
      * Konstruktor zur Initialisierung des Email-Kontos.
@@ -48,7 +48,7 @@ public class Mail {
      * Sendet eine Bestaetigungsemail an den Empfaenger.
      * @param empfaenger Email des Veranstalters.
      */
-    public void senden(final String empfaenger) {
+    public void senden(final String empfaenger, final String link) {
         Properties properties = System.getProperties();
         String host = "smtp.gmail.com";
         properties.put("mail.smtp.starttls.enable", "true");
@@ -64,6 +64,7 @@ public class Mail {
             InternetAddress empfaengeraddress = new InternetAddress(empfaenger);
             message.addRecipient(Message.RecipientType.TO, empfaengeraddress);
             message.setSubject(betreff);
+            nachricht = nachricht.replaceAll("pcai042.informatik.uni-leipzig.de/~hg17b/", link);
             message.setText(nachricht);
             Transport transport = session.getTransport("smtp");
             transport.connect(host, username, password);

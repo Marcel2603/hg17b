@@ -14,6 +14,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="headerText">Hauptmenü</string>
+    <string name="title_activity_event_details">EventDetails</string>
 
     <string name="start">Startseite</string>
     <string name="incoming">nächste Veranstaltungen</string>
@@ -40,5 +41,19 @@
     <string name="empty_settings">
         Es gibt noch keine Einstellungen, die du ändern kannst.
     </string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main">Ocr Detector Sample</string>
+    <string name="ocr_header">Click &quot;Detect Text&quot; to detect text</string>
+    <string name="read_text">Detect Text</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="ocr_success">Text read successfully</string>
+    <string name="ocr_failure">No text captured</string>
+    <string name="ocr_error">"Error reading text: %1$s"</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

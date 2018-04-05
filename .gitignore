@@ -12,7 +12,6 @@
 *.gradle/
 *local.properties
 *.iws
-*/workspace.xml
 */tasks.xml
 
 #builds
@@ -37,6 +36,7 @@ Code/App/gen/
 *.navigation
 */captures
 *output.json
+*workspace.xml
 
 
 *.externalNativeBuild
