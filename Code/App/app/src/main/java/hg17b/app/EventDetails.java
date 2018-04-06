@@ -23,7 +23,6 @@ public class EventDetails extends Fragment {
     TextView tv1, tv2, tv3;
     Button register;
     public EventDetails(){
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,9 +39,10 @@ public class EventDetails extends Fragment {
     }
     public void named(){
         try {
-            tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("start"));
+            int index = StartActivity.index;
+            tv1.setText(LastEvents.list.getJSONObject(index).getString("start"));
             tv2.setText("");
-            tv3.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("description"));
+            tv3.setText(LastEvents.list.getJSONObject(index).getString("description"));
         } catch (JSONException e){
             e.printStackTrace();
         }

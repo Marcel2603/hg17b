@@ -69,7 +69,7 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         email = findViewById(R.id.editTextEMail);
         nutzer = email.getText().toString();
-        client = new Client("http://pcai042.informatik.uni-leipzig.de", 1831, 2, ks,this);
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2, ks,this);
         client.execute();
 
         if(client.getServerStatus()){
@@ -77,7 +77,7 @@ public class OrganizerLogIn extends AppCompatActivity {
              "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
             client.setServerStatus(false);
         }
-        while(schleife == 1) {
+      /*  while(schleife == 1) {
              //um auf Antwort des Servers zu warten?
         }
         if (isinDB) {
@@ -100,13 +100,13 @@ public class OrganizerLogIn extends AppCompatActivity {
                     }
                 }
             }
-
+            */
             setContentView(R.layout.organizer_main_activity);
             initNavigationMenu2();
-      } else {
+      /*} else {
             Toast.makeText(this,"Email nicht in DB.", Toast.LENGTH_LONG).show();
             client.setServerStatus(false);
-        }
+        }*/
     }
 
     /**
