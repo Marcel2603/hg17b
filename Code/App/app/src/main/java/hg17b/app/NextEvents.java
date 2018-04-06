@@ -216,7 +216,7 @@ public class NextEvents extends Fragment {
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("refreshing");
-            StartActivity.client.refreshEvents=1;
+            StartActivity.client.refreshEvents=true;
             }
         });
     }

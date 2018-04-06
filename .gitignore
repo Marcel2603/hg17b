@@ -31,7 +31,9 @@ Code/App/bin/
 Code/App/gen/
 
 *.iml
-*/.idea/
+.idea/
+Code/App/.idea/
+Code/App/app/.idea
 */.idea/libraries
 *.navigation
 */captures

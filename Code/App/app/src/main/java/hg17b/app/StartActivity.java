@@ -93,6 +93,12 @@ public class StartActivity extends AppCompatActivity {
                     Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
                     startActivity(intent);
                 } else {//If it is a student's ID
+                    File pointsfile = new File(getCacheDir(),"points.tmp");
+                    if (pointsfile.exists()){
+                        br.close();//close other file
+                        br = new BufferedReader(new FileReader(pointsfile));
+                        setPoints(br.read());
+                    }
                     isclicked=true;
                     data = ID;
                     client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
@@ -129,11 +135,11 @@ public class StartActivity extends AppCompatActivity {
     }
 
     //static points getter & setter
-    public static void setText(int s){
+    public static void setPoints(int s){
         points = s;
     }
-    public int getPoints(){
-        return this.points;
+    public static int getPoints(){
+        return points;
     }
 
     /**

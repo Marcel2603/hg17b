@@ -63,8 +63,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private int entscheidung = 0;
     public int anzahl;
     private Context context;
-    /** Variable for if Events should be refreshed (1) or loaded (2).*/
-    public byte refreshEvents = 2;
+    /** Variable for if Events should be refreshed (received from Server)*/
+    public boolean refreshEvents = false;
 
     /**The Writer that writes to the Server*/
     private PrintWriter writer;
@@ -106,7 +106,14 @@ public class Client extends AsyncTask<Void, Void, Void>{
     @Override
     protected Void doInBackground(Void... args0) {
 
+
         try{
+            /* first read Events from local files, set refreshEvents on true if it's not working*/
+            if(!readEvents(entscheidung)){
+                refreshEvents = true;
+            }
+
+
             socket = new Socket(ip,port);
             System.out.println("Client online");
             OutputStream out = socket.getOutputStream();
@@ -140,7 +147,24 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             System.out.println("punkte");
                             vonServer = reader.readLine();
                             System.out.println(vonServer);
-                            StartActivity.setText(Integer.parseInt(vonServer));
+                            int points = Integer.parseInt(vonServer);
+                            //if the points updated refresh them
+                            if (points!=StartActivity.getPoints()){
+                                StartActivity.setPoints(points);
+                                BufferedWriter bw = null;
+                                try {
+                                    File f = new File(context.getCacheDir(),"points.tmp");
+                                    bw = new BufferedWriter(new FileWriter(f));
+                                    bw.write(points);
+                                    bw.flush();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }finally {
+                                    if (bw != null){
+                                        bw.close();
+                                    }
+                                }
+                            }
                             StartActivity.isinDB = true;
                             StartActivity.kontrolle = 1;
                             writer.write("Rangliste" + "\n");
@@ -152,11 +176,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             Ranking.rang = reader.readLine();
 
                             //get the Events
-                            if (refreshEvents==1){
+                            if (refreshEvents){
                                 receiveEvents(entscheidung);
-                                refreshEvents=0;
-                            }else if(refreshEvents == 2){
-                                readEvents(entscheidung);
+                                refreshEvents=false;
                             }
 
                         } else {
@@ -241,11 +263,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             }
 
                             //get the Events
-                            if (refreshEvents==1){
+                            if (refreshEvents) {
                                 receiveEvents(entscheidung);
-                                refreshEvents=0;
-                            }else if(refreshEvents == 2){
-                                readEvents(entscheidung);
+                                refreshEvents = false;
                             }
 
                             OrganizerLogIn.isinDB = true;
@@ -283,7 +303,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                     }
                 }
             }
-
         } catch (ConnectException e) {
                 setServerStatus(true);
                 e.printStackTrace();
@@ -381,10 +400,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
     /**
      * Reads Event-Data out of local file or receives them from Server (if File nonexistent).
      * @param desicion whether sutend or organizer Data schall be read
+     * @return true if data could be read from the files or false if not
      * @throws IOException for case we read from Server (see receiveEvents-Method)
      * @throws JSONException for case we read from Server (see receiveEvents-Method)
      */
-    private void readEvents(int desicion) throws IOException,JSONException{
+    private boolean readEvents(int desicion) throws IOException,JSONException{
         String filename1 = null;
         String filename2 = null;
         JSONArray list1 = null;
@@ -406,10 +426,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
         BufferedReader br1 = null;
         BufferedReader br2 =null;
-        /*If one of the files with stored events doesn't exists, receive from Server*/
+        /*If one of the files with stored events doesn't exists, return false*/
         if (!f1.exists() || !f2.exists()){
-            System.out.println("non existant");
-            receiveEvents(desicion);
+            return false;
         }else{//else read the files and don't bother the Server with it
             try {
                 br1 = new BufferedReader(new FileReader(f1));
@@ -425,9 +444,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
                     list2.put(new JSONObject(tmp));
                     tmp=br2.readLine();
                 }
-
+                return true;
             }catch(IOException ioEx){
                 ioEx.printStackTrace();
+                return false;
             }finally {
                 if(br1 != null){
                     try {
