@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Analyse von="2018-03-12" bis="2018-03-28" gruppe="hg17b" createdBy="MH" createdAt="2018-03-28">
+<Analyse von="2018-03-12" bis="2018-03-28" gruppe="hg17b" createdBy="CP" createdAt="2018-03-28">
   <done who="CP,NK,MR,JD,RM,MH" A="3" S="4" Zeit="6">Besprechungen</done>
   <done who="MH" A="3" S="2" Zeit="1">Events in Json</done>
   <done who="NK" A="5" S="5" Zeit="30">SSL Verbindung fuer Veranstalter</done>
+<<<<<<< HEAD
+  <done who="CP" A="3" S="3" Zeit="1">gradle zum erstellen einer Jar konfigurieren</done>
+  <done who="CP" A="3" S="2" Zeit="4">Events lokal in App Speichern</done>
+  <done who="JD" A="3" S="3" Zeit="5">Scanner</done>
+  <done who="MR" A="3" S="3" Zeit="6">Eventdetails</done>
+=======
   <done who="JD" A="4" S="3" Zeit="4">Scanner eingebaut</done>
+>>>>>>> 58f7027f34d2098279d991ff614a832d00cc3b36
 </Analyse>

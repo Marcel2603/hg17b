@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hg17b.app.OrganizerLogInTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-03-26T10:32:48" hostname="ChrisPs-Surface" time="0.001">
+<testsuite name="hg17b.app.OrganizerLogInTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-04-05T07:34:33" hostname="ChrisPs-Surface" time="0.003">
   <properties/>
-  <testcase name="onBackPressed" classname="hg17b.app.OrganizerLogInTest" time="0.0"/>
-  <testcase name="onCreate" classname="hg17b.app.OrganizerLogInTest" time="0.0"/>
-  <testcase name="buttonOnClick2" classname="hg17b.app.OrganizerLogInTest" time="0.0"/>
+  <testcase name="onBackPressed" classname="hg17b.app.OrganizerLogInTest" time="0.001"/>
+  <testcase name="onCreate" classname="hg17b.app.OrganizerLogInTest" time="0.001"/>
+  <testcase name="buttonOnClick2" classname="hg17b.app.OrganizerLogInTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="db.PupilDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-03-28T19:25:46" hostname="ChrisPs-Surface" time="3.306">
+  <properties/>
+  <testcase name="testToplist" classname="db.PupilDBTest" time="2.928"/>
+  <testcase name="testaddPupilgetScore" classname="db.PupilDBTest" time="0.373"/>
+  <system-out><![CDATA[2 2147483647 >= 530
+3 530 >= 520
+4 520 >= 123
+5 123 >= 111
+6 111 >= 99
+7 99 >= 77
+8 77 >= 29
+9 29 >= 20
+10 20 >= 14
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
