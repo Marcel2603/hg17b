@@ -24,7 +24,7 @@ public class StartActivityTest {
     public void setText() throws Exception {
 
         StartActivity start = new StartActivity();
-        start.setText(10);
+        start.setPoints(10);
         int points = 10;
 
         assertEquals(points, start.getPoints());
