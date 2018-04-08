@@ -1,3 +1,6 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 import android.content.Intent;
@@ -26,6 +29,9 @@ public class EventOrganizer extends Fragment {
 
     TextView tv1, tv2, tv3;
 
+    /**
+     * public constructor
+     */
     public EventOrganizer() {
     }
 
@@ -43,6 +49,10 @@ public class EventOrganizer extends Fragment {
         return view;
     }
 
+    /**
+     * This method writes the details of an event (time / description)
+     * in the intended TextViews and displays them
+     */
     public void named() {
         try {
             if (StartActivity.past) {
@@ -63,11 +73,4 @@ public class EventOrganizer extends Fragment {
 
 }
 
-
-/**
- *  zum Laden der Seite:
- *  Intent intent = new Intent(getActivity(), EventDetails.class);
- *  startActivity(intent);
- *  + Daten in die Activity Übergeben...
- */
 

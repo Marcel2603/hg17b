@@ -132,7 +132,7 @@ public class StartActivity extends AppCompatActivity {
 
             logOut = (Button) findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
-            tvInfo = findViewById(R.id.tvInfo);
+            //tvInfo = findViewById(R.id.tvInfo);
             Bundle extras = getIntent().getExtras();
             if(extras != null){
                 String value = extras.getString("scannedID");
@@ -142,7 +142,7 @@ public class StartActivity extends AppCompatActivity {
         }
     }
 
-    //static points getter & setter
+    //getter & setter for static points
     public static void setPoints(int s){
         points = s;
     }
@@ -228,14 +228,17 @@ public class StartActivity extends AppCompatActivity {
                }
            }
        }
-
     }
+
+    /**
+     * the method starts the scanner and the camera
+     * @param v
+     */
     public void scannerOnClick(View v){
-        boolean forPupil =true;
-        Intent i =new Intent(StartActivity.this, OcrCaptureActivity.class);
+        boolean forPupil = true;
+        Intent i = new Intent(StartActivity.this, OcrCaptureActivity.class);
         i.putExtra("decider", forPupil);
         startActivity(i);
-
     }
 
     /**
@@ -261,12 +264,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-            * Onclick fuer die LastEvents.
-            * @param v
+     * Onclick method for LastEvents
+     * @param v
      */
     public void Lastevents (View v){
-           /* Intent intent = new Intent(getActivity(), EventDetails.class);
-            startActivity(intent);*/
         try {
             EventDetails event;
             past = true;
@@ -368,12 +369,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * Onclick fuer die NextEvents.
+     * Onclick method for NextEvents
      * @param v
      */
     public void Nextevents (View v){
-           /* Intent intent = new Intent(getActivity(), EventDetails.class);
-            startActivity(intent);*/
         try {
             EventDetails event;
             past = false;
@@ -474,12 +473,10 @@ public class StartActivity extends AppCompatActivity {
 
     }
     /**
-            * Onclick fuer den Organizer, LastEvents.
-            * @param v
+     * Onclick method for OrganizerLastEvents
+     * @param v
      */
     public void OrgLastevents (View v){
-           /* Intent intent = new Intent(getActivity(), EventDetails.class);
-            startActivity(intent);*/
         try {
             EventDetails event;
             past = true;
@@ -581,12 +578,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * Onclick fuer die NextEvents.
+     * Onclick method for OrganizerNextEvents
      * @param v
      */
     public void OrgNextevents (View v){
-           /* Intent intent = new Intent(getActivity(), EventDetails.class);
-            startActivity(intent);*/
         try {
             EventDetails event;
             past = false;
@@ -768,8 +763,10 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     */
     public void onClick(){
         LogOut.isclicked = true;
     }
 }
-

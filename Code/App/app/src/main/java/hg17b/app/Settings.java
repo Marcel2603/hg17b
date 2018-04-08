@@ -94,7 +94,7 @@ public class Settings extends Fragment {
     }
 
     /**
-     * placeholder method for other changes
+     * placeholder for other changes
      */
     public void otherChange(){
         btnOther.setOnClickListener(new View.OnClickListener() {

@@ -1,3 +1,6 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 import android.content.Intent;
@@ -26,8 +29,14 @@ public class EventDetails extends Fragment {
 
     TextView tv1, tv2, tv3;
     Button register;
+
+    /**
+     * public constructor
+     */
     public EventDetails(){
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                 Bundle savedInstanceState) {
@@ -41,9 +50,15 @@ public class EventDetails extends Fragment {
         named();
         registerClick();
 
+
+
         return view;
     }
 
+    /**
+     * This method writes the details of an event (time / description)
+     * in the intended TextViews and displays them
+     */
     public void named(){
         try {
             if (StartActivity.past) {
@@ -72,16 +87,16 @@ public class EventDetails extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (register.getText().equals("Anmelden")){
+                if (register.getText().equals("anmelden")){
 
                     Toast.makeText(getActivity(), "Du hast dich unverbindlich angemeldet", Toast.LENGTH_SHORT).show();
-                    register.setText("Abmelden");
+                    register.setText("abmelden");
                     register.setBackgroundColor(getResources().getColor(R.color.colorAccent2));
 
-                } else if (register.getText().equals("Abmelden")){
+                } else if (register.getText().equals("abmelden")){
 
                     Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
-                    register.setText("Anmelden");
+                    register.setText("anmelden");
                     register.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
                 } else{
@@ -93,12 +108,3 @@ public class EventDetails extends Fragment {
     }
 
 }
-
-
-    /**
-     *  zum Laden der Seite:
-     *  Intent intent = new Intent(getActivity(), EventDetails.class);
-     *  startActivity(intent);
-     *  + Daten in die Activity Übergeben...
-     */
-

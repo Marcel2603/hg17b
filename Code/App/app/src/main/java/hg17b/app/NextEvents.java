@@ -3,7 +3,6 @@
  */
 package hg17b.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -69,6 +68,10 @@ public class NextEvents extends Fragment {
         refresh();
         return view;
     }
+
+    /**
+     * loads the events into the app and displays them
+     */
     public void setList(){
         if(list.length() == 0){
             tv1.setText(" ");
@@ -98,6 +101,10 @@ public class NextEvents extends Fragment {
             }
         }
     }
+
+    /**
+     * loads the previous 10 events
+     */
     public void Back() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +134,10 @@ public class NextEvents extends Fragment {
         });
 
     }
+
+    /**
+     * loads the next 10 events
+     */
     public void Next() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -197,9 +208,15 @@ public class NextEvents extends Fragment {
             }
         });
     }
+
+    /**
+     * standard getter
+     * @return
+     */
     public static int getZaehler(){
         return Zaehler;
     }
+
     public JSONObject getObject(int index){
         try {
             return list.getJSONObject(index);
@@ -221,11 +238,4 @@ public class NextEvents extends Fragment {
         });
     }
 
-    /**
-     * Übergang zu den Details...
-     */
-    public void isClicked(){
-        Intent intent = new Intent(getActivity(), EventDetails.class);
-        startActivity(intent);
-    }
 }

@@ -17,7 +17,9 @@
             android:id="@+id/refreshbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aktualisieren" />
+            android:text="Aktualisieren"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"/>
 
         <TextView
             android:id="@+id/tv1"
@@ -113,14 +115,19 @@
             android:id="@+id/buttonZurück"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="vorherige Events laden" />
+            android:text="vorherige Events laden"
+            android:layout_marginBottom="20dp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"/>
 
         <Button
             android:id="@+id/buttonWeiter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="nächste Events laden" />
+            android:text="nächste Events laden"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 

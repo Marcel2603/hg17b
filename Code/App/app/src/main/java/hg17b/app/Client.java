@@ -426,7 +426,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
         BufferedReader br1 = null;
         BufferedReader br2 =null;
-        /*If one of the files with stored events doesn't exists, return false*/
+
+        //If one of the files with stored events doesn't exists, return false
         if (!f1.exists() || !f2.exists()){
             return false;
         }else{//else read the files and don't bother the Server with it

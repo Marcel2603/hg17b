@@ -74,6 +74,10 @@ public class LastEvents extends Fragment {
         refresh();
         return view;
     }
+
+    /**
+     * loads the events into the app and displays them
+     */
     public void setList(){
         if(list.length() == 0){
             tv1.setText(" ");
@@ -103,6 +107,10 @@ public class LastEvents extends Fragment {
             }
         }
     }
+
+    /**
+     * loads the previous 10 events
+     */
     public void Back() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +140,10 @@ public class LastEvents extends Fragment {
         });
 
     }
+
+    /**
+     * loads the next 10 events
+     */
     public void Next() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -202,9 +214,15 @@ public class LastEvents extends Fragment {
             }
         });
     }
+
+    /**
+     * standard getter
+     * @return
+     */
     public static int getZaehler(){
         return Zaehler;
     }
+
     public JSONObject getObject(int index){
         try {
             return list.getJSONObject(index);

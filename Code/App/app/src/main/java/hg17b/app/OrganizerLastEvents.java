@@ -34,7 +34,7 @@ public class OrganizerLastEvents extends Fragment {
     private static int Zaehler = 0;
 
     /**
-     * public constructor from this class
+     * public constructor for this class
      */
     public OrganizerLastEvents() {
         // Required empty public constructor
@@ -73,6 +73,10 @@ public class OrganizerLastEvents extends Fragment {
         refresh();
         return view;
     }
+
+    /**
+     * loads the events into the app and displays them
+     */
     public void setList(){
         if(list.length() == 0){
             tv1.setText(" ");
@@ -102,6 +106,10 @@ public class OrganizerLastEvents extends Fragment {
             }
         }
     }
+
+    /**
+     * loads the previous 10 events
+     */
     public void Back() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +139,10 @@ public class OrganizerLastEvents extends Fragment {
         });
 
     }
+
+    /**
+     * loads the next 10 events
+     */
     public void Next() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -224,11 +236,4 @@ public class OrganizerLastEvents extends Fragment {
         });
     }
 
-    /**
-     * Übergang zu den Details...
-     */
-    public void isClicked(){
-        Intent intent = new Intent(getActivity(), EventDetails.class);
-        startActivity(intent);
-    }
 }

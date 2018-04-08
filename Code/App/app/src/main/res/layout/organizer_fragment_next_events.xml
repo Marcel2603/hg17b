@@ -14,7 +14,8 @@
             android:id="@+id/refreshbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aktualisieren" />
+            android:text="Aktualisieren"
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/tv1"
@@ -22,7 +23,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -40,7 +41,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -49,7 +50,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -58,7 +59,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -67,7 +68,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -76,7 +77,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -85,7 +86,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -94,7 +95,7 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <TextView
@@ -103,17 +104,25 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="OrgNextevents"
-            android:text="@string/empty_historie"
+            android:text="@string/events"
             android:textSize="24dp" />
 
         <Button
             android:id="@+id/buttonZurück"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="vorherige Events laden"/>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="vorherige Events laden"
+            android:layout_marginBottom="20dp"
+            android:textColor="#ffffff"/>
         <Button
             android:id="@+id/buttonWeiter"
-            android:layout_width="match_parent"	android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content" android:text="nächste Events laden"/>
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:text="nächste Events laden"
+            android:textColor="#ffffff"/>
 
     </LinearLayout>
 </ScrollView>

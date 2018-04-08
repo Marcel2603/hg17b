@@ -27,6 +27,9 @@ public class OrganizerNextEvents extends Fragment {
     public static JSONArray list = new JSONArray();
     private static int Zaehler = 0;
 
+    /**
+     * public constructor for this class
+     */
     public OrganizerNextEvents() {
         // Required empty public constructor
     }
@@ -58,6 +61,10 @@ public class OrganizerNextEvents extends Fragment {
         refresh();
         return view;
     }
+
+    /**
+     * loads the events into the app and displays them
+     */
     public void setList(){
         if(list.length() == 0){
             tv1.setText(" ");
@@ -87,6 +94,10 @@ public class OrganizerNextEvents extends Fragment {
             }
         }
     }
+
+    /**
+     * loads the previous 10 events
+     */
     public void Back() {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +127,10 @@ public class OrganizerNextEvents extends Fragment {
         });
 
     }
+
+    /**
+     * loads the next 10 events
+     */
     public void Next() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -186,9 +201,15 @@ public class OrganizerNextEvents extends Fragment {
             }
         });
     }
+
+    /**
+     * standard getter
+     * @return
+     */
     public static int getZaehler(){
         return Zaehler;
     }
+
     /**
      * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
      */
@@ -200,12 +221,5 @@ public class OrganizerNextEvents extends Fragment {
         });
     }
 
-    /**
-     * Übergang zu den Details...
-     */
-    public void isClicked(){
-        Intent intent = new Intent(getActivity(), EventDetails.class);
-        startActivity(intent);
-    }
 
 }

@@ -47,11 +47,6 @@
             android:name=".OcrCaptureActivity"
             android:label="Read Text">
         </activity>
-        <activity
-            android:name=".EventDetails"
-
-			android:screenOrientation="portrait">
-        </activity>
     </application>
 
 </manifest>
