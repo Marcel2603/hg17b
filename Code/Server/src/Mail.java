@@ -47,6 +47,7 @@ public class Mail {
     /**
      * Sendet eine Bestaetigungsemail an den Empfaenger.
      * @param empfaenger Email des Veranstalters.
+     * @param link irgendwas.
      */
     public void senden(final String empfaenger, final String link) {
         Properties properties = System.getProperties();

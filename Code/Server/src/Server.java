@@ -89,34 +89,8 @@ public class Server {
     private void start() {
         ExecutorService executor = Executors.newFixedThreadPool(THREADNUMBER);
         try {
-//            starts the commands for the server.
-            /*
-            try {
-             // Fuer Testzwecke
-             //label, address, url, description, start , end
-            FileWriter f = new FileWriter("D:/uni/git/db.txt");
-            BufferedWriter fr = new BufferedWriter(f);
-            JSONObject obj = new JSONObject();
-            ArrayList<HashMap<String, String>> ar = db1.getEventsStudents(true);
-            for (int i = 0; i < ar.size(); i++) {
-                System.out.println(ar.get(i).get("label"));
-                obj.put("label", ar.get(i).get("label"));
-                obj.put("address", ar.get(i).get("address"));
-                obj.put("url", ar.get(i).get("url"));
-                obj.put("description", ar.get(i).get("description"));
-                obj.put("start", ar.get(i).get("start"));
-               // obj.put("end", ar.get(i).get("end"));
-                fr.write(obj.toString());
-                fr.flush();
-                fr.write(System.getProperty("line.separator"));
-                fr.flush();
-            }
-            }catch (JSONException e ) {
-                e.printStackTrace();
-            }*/
             Thread t = new Thread(new Commands(server));
             t.start();
-           
             while (true) {
                 Socket client = server.accept();
                 socket.add(client);
@@ -184,12 +158,7 @@ public class Server {
             obj.put("url", list.get(i).get("url"));
             obj.put("description", list.get(i).get("description"));
             obj.put("start", list.get(i).get("start"));
-           // if (LastEvents.length() == 0) {
-                LastEvents.put(obj);
-            //}else {
-            //    LastEvents = sort(LastEvents, obj);
-            //}
-            
+            LastEvents.put(obj);
         }
     }
     /**

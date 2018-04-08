@@ -38,13 +38,12 @@ import db.PupilDB;
  *
  */
 public class Handler implements Runnable {
-    
     /**
-     * Die URL zur activate.php
+     * Die URL zur activate.php.
      */
     static final String URL = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php";
     /**
-     * Der Port für die SSL Verbindung
+     * Der Port für die SSL Verbindung.
      */
     static final int SSLPORT = 1832;
     /**
@@ -59,8 +58,17 @@ public class Handler implements Runnable {
      * Mail-Konto.
      */
     private Mail mail;
-    private SSLSocket sslSocket=null;
+    /**
+     * SSL-Socket.
+     */
+    private SSLSocket sslSocket = null;
+    /**
+     * Writer fuer SSH Zwecke.
+     */
     PrintWriter writer;
+    /**
+     * Reader fuer SSH Zwecke.
+     */
     BufferedReader reader;
     /**
      * Konstruktor to create the Thread.
@@ -128,25 +136,9 @@ public class Handler implements Runnable {
                         writer.write(db1.getRank(id) + "\n");
                         writer.flush();
                     }
-                    /*if (recieve.equals("Eventpast")) {
-                        ArrayList<HashMap<String, String>> list
-                        = db1.getEventsStudents(true);
-                        for (int i = 0;
-                                i < list.size(); i++) {
-                            System.out.println(list.get(i).get("label"));
-                            writer.write(list.get(i).get("label") + "\n");
-                            writer.flush();
-                        }
-                        writer.write("ENDE" + "\n");
-                        writer.flush();
-                        System.out.println("ENDE");
-                    }*/
                     if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(true);
-                        
-                        
-                        
                         JSONObject obj;
                         for (int i = 0; i < list.size(); i++) {
                             obj = new JSONObject();
@@ -158,14 +150,10 @@ public class Handler implements Runnable {
                             writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
-                        
-                        
-                        
                         writer.write("ENDE" + "\n");
                         writer.flush();
                     }
                     if (recieve.equals("Event")) {
-                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsStudents(false);
                         for (int i = 0;
@@ -196,7 +184,7 @@ public class Handler implements Runnable {
                                writer.flush();
                              //creates SSL Socket and connects reader and writer with it.
                                sslConnect(ks, email); 
-                           } else{ //If there is no key start transmission and save it with random filename.
+                           } else { //If there is no key start transmission and save it with random filename.
                                writer.write("noKeyExists\n");
                                writer.flush();
                                String random = randomString();
@@ -231,7 +219,6 @@ public class Handler implements Runnable {
                      * are already linked with SSLSocket.
                      */
                     if (recieve.equals("Eventpast")) {
-                        
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, true);
                         for (int i = 0;
@@ -264,7 +251,7 @@ public class Handler implements Runnable {
             writer.close();
             reader.close();
             client.close();
-            if(sslSocket!=null){
+            if (sslSocket != null) {
                 sslSocket.close();
             }
         } catch (SocketException e) {
@@ -284,7 +271,7 @@ public class Handler implements Runnable {
      * @param kh The KeyHandler.
      * @param email The email of connecting Organizer.
      */
-    private void sslConnect(KeyHandler kh, String email){
+    private void sslConnect(final KeyHandler kh, final String email) {
         KeyManagerFactory kmfactory = null;
         SSLContext sslContext = null;
         try {
@@ -326,12 +313,11 @@ public class Handler implements Runnable {
         final String digits = "0123456789";
         final String alphanum = upper + lower + digits;
         String random = "";
-        for(int i = 0; i<10; i++){
+        for (int i = 0; i < 10; i++){
             int randomNum = ThreadLocalRandom.current().nextInt(0, alphanum.length());
             random = random + alphanum.charAt(randomNum);
         }
         return random;
-        
     }
 }
 
