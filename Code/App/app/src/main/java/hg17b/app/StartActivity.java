@@ -48,7 +48,9 @@ import java.security.UnrecoverableEntryException;
 public class StartActivity extends AppCompatActivity {
 
     public static int index;
-    public EditText etID;
+    public static EditText etID;
+
+
     TextView tvInfo;
     public static String data;
     private DrawerLayout drawerLayout;
@@ -131,6 +133,12 @@ public class StartActivity extends AppCompatActivity {
             logOut = (Button) findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
             tvInfo = findViewById(R.id.tvInfo);
+            Bundle extras = getIntent().getExtras();
+            if(extras != null){
+                String value = extras.getString("scannedID");
+                System.out.println(value);
+                etID.setText(value);
+            }
         }
     }
 
@@ -220,6 +228,13 @@ public class StartActivity extends AppCompatActivity {
                }
            }
        }
+
+    }
+    public void scannerOnClick(View v){
+        boolean forPupil =true;
+        Intent i =new Intent(StartActivity.this, OcrCaptureActivity.class);
+        i.putExtra("decider", forPupil);
+        startActivity(i);
 
     }
 

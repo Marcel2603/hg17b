@@ -47,6 +47,18 @@
         android:text="@string/btn_submit"
         android:textColor="#FFFFFF" />
 
+    <Button
+        android:id="@+id/scanBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="scannerOnClick"
+        android:text="@string/btn_scan"
+        android:textColor="#FFFFFF" />
+
     <TextView
         android:id="@+id/tvInfo"
         android:layout_width="match_parent"

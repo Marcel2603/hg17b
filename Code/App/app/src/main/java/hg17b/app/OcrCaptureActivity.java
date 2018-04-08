@@ -318,23 +318,48 @@ public final class OcrCaptureActivity extends AppCompatActivity {
      * @return true if the tap was on a TextBlock
      */
     private boolean onTap(float rawX, float rawY) {
-        //Speak the text when the user taps on screen.
+        Bundle extras = getIntent().getExtras();
+        boolean forPupil = false;
+        if (extras != null){
+             forPupil = extras.getBoolean("decider");
+        }
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
-        if (graphic != null) {
-            text = graphic.getTextBlock();
-            if (text != null && text.getValue() != null) {
-                Log.d(TAG, "text data is being spoken! " + text.getValue());
-                // Speak the string.
-                tts.speak(text.getValue().replaceAll("\\D+",""), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+        if (forPupil){
+            if (graphic != null) {
+                text = graphic.getTextBlock();
+                if (text != null && text.getValue() != null) {
+                    Log.d(TAG, "Eingescannte id lautet" + text.getValue().replaceAll("\\D+", ""));
 
+                    Intent i = new Intent(OcrCaptureActivity.this,StartActivity.class);
+                    i.putExtra("scannedID",text.getValue().replaceAll("\\D+", ""));
+                    startActivity(i);
+
+                }
+                else {
+                    Log.d(TAG, "text data is null");
+                }
             }
             else {
-                Log.d(TAG, "text data is null");
+                Log.d(TAG,"no text detected");
             }
-        }
-        else {
-            Log.d(TAG,"no text detected");
+            return text != null;
+        }else {
+            //Speak the text when the user taps on screen.
+
+            if (graphic != null) {
+                text = graphic.getTextBlock();
+                if (text != null && text.getValue() != null) {
+                    Log.d(TAG, "text data is being spoken! " + text.getValue());
+                    // Speak the string.
+                    tts.speak(text.getValue().replaceAll("\\D+", ""), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+
+                } else {
+                    Log.d(TAG, "text data is null");
+                }
+            } else {
+                Log.d(TAG, "no text detected");
+            }
         }
         return text != null;
     }

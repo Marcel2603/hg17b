@@ -2,6 +2,7 @@
     <string name="app_name">hg17b</string>
     <string name="hint_ID">gib hier deine ID ein</string>
     <string name="btn_submit">Bestätigen</string>
+    <string name="btn_scan">ID einscannen</string>
     <string name="tvMessage">Herzlich Willkommen!\n\nDu bist auf der Startseite.
         Als Schüler kannst dich hier mit der Nummern deines Ferienpasses anmelden.\n
     </string>
