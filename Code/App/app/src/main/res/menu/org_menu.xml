@@ -7,8 +7,8 @@
         android:title="Hauptseite" />
 
     <item android:id="@+id/Kommende_Veranstaltungen"
-        android:icon="@mipmap/ic_event_note_black_24dp"
-        android:title="@string/incoming" />
+          android:icon="@mipmap/ic_event_note_black_24dp"
+          android:title="@string/incoming" />
 
     <item
         android:id="@+id/Historie"
@@ -26,7 +26,7 @@
         android:title="@string/btn_log_out" />
     <item
         android:id="@+id/Scanner"
-        android:icon="@mipmap/ic_exit_to_app_black_24dp"
-        android:title="Scanner" />
+        android:icon="@mipmap/ic_camera_alt_black_24dp"
+        android:title="Scanner"/>
 
 </menu>

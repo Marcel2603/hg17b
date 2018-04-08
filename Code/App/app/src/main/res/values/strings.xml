@@ -3,11 +3,13 @@
     <string name="hint_ID">gib hier deine ID ein</string>
     <string name="btn_submit">Bestätigen</string>
     <string name="tvMessage">Herzlich Willkommen!\n\nDu bist auf der Startseite.
-        Als Schüler kannst dich hier mit der Nummern deines Ferienpasses anmelden.\n</string>
+        Als Schüler kannst dich hier mit der Nummern deines Ferienpasses anmelden.\n
+    </string>
     <string name="tvOrganizer">Ich bin Veranstalter!</string>
     <string name="orgMessage">Herzlich Willkommen!\n\nHier kannst du dich
         als Veranstalter anmelden und deine kommenden, sowie vergangenen Veranstaltungen
-        einsehen. Außerdem kannst du die Nummern der Schüler einscannen.\n</string>
+        einsehen. Außerdem kannst du die Nummern der Schüler einscannen.\n
+    </string>
 
 
     <string name="holder">Main Menu</string>
@@ -43,8 +45,12 @@
     </string>
     <string name="ok">OK</string>
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
-    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
-    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the
+        camera permission. The application will now exit.
+    </string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device
+        storage
+    </string>
     <string name="title_activity_main">Ocr Detector Sample</string>
     <string name="ocr_header">Click &quot;Detect Text&quot; to detect text</string>
     <string name="read_text">Detect Text</string>
@@ -56,4 +62,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

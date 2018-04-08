@@ -1,5 +1,6 @@
 package hg17b.app;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,8 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
+
+import java.io.File;
 
 public class EventDetails extends Fragment {
 
@@ -35,8 +39,11 @@ public class EventDetails extends Fragment {
         tv3 = view.findViewById(R.id.tvDetail);
         register = view.findViewById(R.id.buttonRegister);
         named();
+        registerClick();
+
         return view;
     }
+
     public void named(){
         try {
             int index = StartActivity.index;
@@ -47,6 +54,37 @@ public class EventDetails extends Fragment {
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method gets active when the Button is hit.
+     * The Button Text & Color gets changed and the organizer
+     * receives information about the number of participants.
+     */
+    private void registerClick(){
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (register.getText().equals("Anmelden")){
+
+                    Toast.makeText(getActivity(), "Du hast dich unverbindlich angemeldet", Toast.LENGTH_SHORT).show();
+                    register.setText("Abmelden");
+                    register.setBackgroundColor(getResources().getColor(R.color.colorAccent2));
+
+                } else if (register.getText().equals("Abmelden")){
+
+                    Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
+                    register.setText("Anmelden");
+                    register.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+                } else{
+
+                }
+                //speichern der Anzahl der Anmeldungen für Veranstalter einbinden
+            }
+        });
+    }
+
 }
 
 
@@ -56,6 +94,4 @@ public class EventDetails extends Fragment {
      *  startActivity(intent);
      *  + Daten in die Activity Übergeben...
      */
-
-
 
