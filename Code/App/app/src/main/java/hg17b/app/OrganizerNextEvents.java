@@ -25,7 +25,7 @@ public class OrganizerNextEvents extends Fragment {
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
     Button btnBack, btnNext, refreshbutton;
     public static JSONArray list = new JSONArray();
-    private int Zaehler = 0;
+    private static int Zaehler = 0;
 
     public OrganizerNextEvents() {
         // Required empty public constructor
@@ -186,7 +186,9 @@ public class OrganizerNextEvents extends Fragment {
             }
         });
     }
-
+    public static int getZaehler(){
+        return Zaehler;
+    }
     /**
      * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
      */

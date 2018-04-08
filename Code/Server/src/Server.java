@@ -116,12 +116,13 @@ public class Server {
             }*/
             Thread t = new Thread(new Commands(server));
             t.start();
-            Calendar cal = Calendar.getInstance();
-            Date time = cal.getTime();
-            DateFormat formatter = new SimpleDateFormat();
+           
             while (true) {
                 Socket client = server.accept();
                 socket.add(client);
+                Calendar cal = Calendar.getInstance();
+                Date time = cal.getTime();
+                DateFormat formatter = new SimpleDateFormat();
                 System.out.println(formatter.format(time)
                         + ": Client : " + client.getInetAddress()
                 + ":" + client.getPort() + " hat sich verbunden.");

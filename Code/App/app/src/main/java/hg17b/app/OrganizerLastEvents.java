@@ -31,7 +31,7 @@ public class OrganizerLastEvents extends Fragment {
     public static boolean getVeranstalter;
     public static int anzahl;
     public static JSONArray list = new JSONArray();
-    private int Zaehler = 0;
+    private static int Zaehler = 0;
 
     /**
      * public constructor from this class
@@ -201,7 +201,7 @@ public class OrganizerLastEvents extends Fragment {
             }
         });
     }
-    public int getZaehler(){
+    public static int getZaehler(){
         return Zaehler;
     }
     public  JSONObject getObject(int index){

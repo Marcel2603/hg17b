@@ -9,8 +9,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
 import java.security.Security;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -251,9 +255,11 @@ public class Handler implements Runnable {
                     }
           }
             }
-            System.out.println("Client: "
-                    + client.getInetAddress() + ":"
-                    + client.getPort() + " ist offline.");
+            Calendar cal = Calendar.getInstance();
+            Date time = cal.getTime();
+            DateFormat formatter = new SimpleDateFormat();
+            System.out.println(formatter.format(time) + "Client: "
+                    + client.getInetAddress() + " ist offline.");
             Server.deleteSocket(client);
             writer.close();
             reader.close();

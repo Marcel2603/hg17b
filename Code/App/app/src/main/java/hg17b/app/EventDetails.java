@@ -46,10 +46,17 @@ public class EventDetails extends Fragment {
 
     public void named(){
         try {
-            int index = StartActivity.index;
-            tv1.setText(LastEvents.list.getJSONObject(index).getString("start"));
-            tv2.setText("");
-            tv3.setText(LastEvents.list.getJSONObject(index).getString("description"));
+            if (StartActivity.past) {
+                int index = StartActivity.index;
+                tv1.setText(LastEvents.list.getJSONObject(index).getString("start"));
+                tv2.setText("");
+                tv3.setText(LastEvents.list.getJSONObject(index).getString("description"));
+            }else {
+                int index = StartActivity.index;
+                tv1.setText(NextEvents.list.getJSONObject(index).getString("start"));
+                tv2.setText("");
+                tv3.setText(NextEvents.list.getJSONObject(index).getString("description"));
+            }
         } catch (JSONException e){
             e.printStackTrace();
         }
