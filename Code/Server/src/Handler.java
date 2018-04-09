@@ -41,7 +41,7 @@ public class Handler implements Runnable {
     /**
      * Die URL zur activate.php.
      */
-    static final String URL = "http://pcai042.informatik.uni-leipzig.de/~hg17b/activate.php";
+    static final String URL = "pcai042.informatik.uni-leipzig.de/~hg17b/activate.php";
     /**
      * Der Port für die SSL Verbindung.
      */

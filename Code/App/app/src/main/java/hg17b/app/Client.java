@@ -207,7 +207,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 boolean schleife1 = true;
                 int stop = 0;
                 int t = 0;
-
                 while (schleife1) {
                     if (t == 0) {
                         String email = OrganizerLogIn.nutzer;
