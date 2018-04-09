@@ -65,13 +65,13 @@ public class PupilDB {
     public void addPupil(final int id, final int score) {
         graphStore.begin(ReadWrite.WRITE);
         String insertString =
-                "INSERT DATA {"
-                        + "GRAPH <http://zukunftsdiplom/pupils/>{"
+                 "INSERT DATA {"
+                    + "GRAPH <http://zukunftsdiplom/pupils/>{"
                         + "<http://pupil/" + id + "> "
                         + "<http://zukunftsdiplom/pupils/elements/score>"
                         + " " + score + "; "
-                        + "} "
-                        + "} ";
+                     + "} "
+                 + "} ";
         UpdateRequest request = UpdateFactory.create(insertString);
         UpdateProcessor proc = UpdateExecutionFactory.create(request,
                 graphStore);
@@ -89,9 +89,9 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "SELECT ?x "
-                        + "FROM <http://zukunftsdiplom/pupils/>"
-                        + "WHERE {<http://pupil/" + id + "> "
-                        + "<http://zukunftsdiplom/pupils/elements/score>  ?x }";
+                + "FROM <http://zukunftsdiplom/pupils/>"
+                + "WHERE {<http://pupil/" + id + "> "
+                + "<http://zukunftsdiplom/pupils/elements/score>  ?x }";
 
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
@@ -129,9 +129,9 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "SELECT ?x "
-                        + "FROM <http://zukunftsdiplom/pupils/>"
-                        + "WHERE {<http://pupil/" + id + ">"
-                        + " <http://zukunftsdiplom/pupils/elements/score> ?x }";
+                + "FROM <http://zukunftsdiplom/pupils/>"
+                + "WHERE {<http://pupil/" + id + ">"
+                + " <http://zukunftsdiplom/pupils/elements/score> ?x }";
         try (QueryExecution qEx = QueryExecutionFactory.create(qs1, dataset)) {
             ResultSet rs = qEx.execSelect();
             if (rs.hasNext()) {
@@ -154,10 +154,10 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "SELECT ?student ?score "
-                        + "FROM <http://zukunftsdiplom/pupils/>"
-                        + "WHERE {?student "
-                        + "<http://zukunftsdiplom/pupils/elements/score>  ?score } "
-                        + "ORDER BY DESC(?score)";
+                + "FROM <http://zukunftsdiplom/pupils/>"
+                + "WHERE {?student "
+                + "<http://zukunftsdiplom/pupils/elements/score>  ?score } "
+                + "ORDER BY DESC(?score)";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
@@ -174,17 +174,17 @@ public class PupilDB {
             graphStore.begin(ReadWrite.WRITE);
             String insertString =
                     "INSERT DATA {"
-                            + "GRAPH <http://zukunftsdiplom/pupils/> {"
-                            + ranking.get(i) + " "
-                            + "<http://zukunftsdiplom/pupils/elements/rank>"
-                            + " " + (i + 1) + "; "
-                            + "} "
-                            + "} ";
-            UpdateRequest request = UpdateFactory.create(insertString);
-            UpdateProcessor proc = UpdateExecutionFactory.create(request,
-                    graphStore);
-            proc.execute();
-            graphStore.commit();
+                       + "GRAPH <http://zukunftsdiplom/pupils/> {"
+                           + ranking.get(i) + " "
+                           + "<http://zukunftsdiplom/pupils/elements/rank>"
+                           + " " + (i + 1) + "; "
+                        + "} "
+                    + "} ";
+           UpdateRequest request = UpdateFactory.create(insertString);
+           UpdateProcessor proc = UpdateExecutionFactory.create(request,
+                   graphStore);
+           proc.execute();
+           graphStore.commit();
         }
     }
 
@@ -198,12 +198,12 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "SELECT ?student ?rank ?score "
-                        + "FROM <http://zukunftsdiplom/pupils/> "
-                        + "WHERE {?student "
-                        + "<http://zukunftsdiplom/pupils/elements/rank> ?rank . "
-                        + "?student "
-                        + "<http://zukunftsdiplom/pupils/elements/score> ?score} "
-                        + "ORDER BY ASC(?rank) LIMIT 10";
+                + "FROM <http://zukunftsdiplom/pupils/> "
+                + "WHERE {?student "
+                + "<http://zukunftsdiplom/pupils/elements/rank> ?rank . "
+                + "?student "
+                + "<http://zukunftsdiplom/pupils/elements/score> ?score} "
+                + "ORDER BY ASC(?rank) LIMIT 10";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
@@ -232,10 +232,10 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "SELECT ?rank "
-                        + "FROM <http://zukunftsdiplom/pupils/> "
-                        + "WHERE {" + student + " "
-                        + "<http://zukunftsdiplom/pupils/elements/rank> ?rank  "
-                        + "}";
+              + "FROM <http://zukunftsdiplom/pupils/> "
+              + "WHERE {" + student + " "
+                   + "<http://zukunftsdiplom/pupils/elements/rank> ?rank  "
+              + "}";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
@@ -259,21 +259,21 @@ public class PupilDB {
         graphStore.begin(ReadWrite.WRITE);
         String delString =
                 "WITH <http://zukunftsdiplom/pupils/> "
-                        + "DELETE {"
-                        + "?student "
-                        + "<http://zukunftsdiplom/pupils/elements/rank>"
-                        + "?rank "
-                        + "} "
-                        + " WHERE {"
-                        + "?student"
-                        + "<http://zukunftsdiplom/pupils/elements/rank>"
-                        + "?rank"
-                        + "}";
-        UpdateRequest request = UpdateFactory.create(delString);
-        UpdateProcessor proc = UpdateExecutionFactory.create(request,
-                graphStore);
-        proc.execute();
-        graphStore.commit();
+                + "DELETE {"
+                    + "?student "
+                    + "<http://zukunftsdiplom/pupils/elements/rank>"
+                    + "?rank "
+                 + "} "
+                 + " WHERE {"
+                     + "?student"
+                     + "<http://zukunftsdiplom/pupils/elements/rank>"
+                     + "?rank"
+                 + "}";
+    UpdateRequest request = UpdateFactory.create(delString);
+    UpdateProcessor proc = UpdateExecutionFactory.create(request,
+            graphStore);
+    proc.execute();
+    graphStore.commit();
     }
 
     /**
@@ -285,18 +285,18 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "prefix foaf: <http://xmlns.com/foaf/0.1/> "
-                        + "SELECT ?x WHERE {?x foaf:mbox \"" + email + "\"}";
+                + "SELECT ?x WHERE {?x foaf:mbox \"" + email + "\"}";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
-            // ResultSetFormatter.out(rs);
+           // ResultSetFormatter.out(rs);
             if (rs.hasNext()) {
                 return true;
             }
         } finally {
             dataset.end();
         }
-        return false;
+       return false;
     }
 
 
@@ -346,9 +346,9 @@ public class PupilDB {
                 adress = adress + " (" + y.toString() + ")";
                 System.out.println(adress);*/
             }
-        } finally {
-            dataset.end();
-        }
+            } finally {
+                dataset.end();
+            }
         return adress;
     }
 
@@ -360,6 +360,7 @@ public class PupilDB {
      * true - returns past events. <br>
      * false - returns future events.
      * @return ArrayList of HashMaps with keys as follows <br>
+     * "ID" - Event identifier in Database <br>
      * "label" - Eventname <br>
      * "address" - Adress of Event <br>
      * "url" - URL to Events homepage <br>
@@ -377,8 +378,7 @@ public class PupilDB {
         dataset.begin(ReadWrite.READ);
         String qs1 =
                 "prefix foaf: <http://xmlns.com/foaf/0.1/> "
-                        + "SELECT ?email WHERE {?email foaf:mbox \""
-                        + email + "\"}";
+                + "SELECT ?email WHERE {?email foaf:mbox \"" + email + "\"}";
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
             ResultSet rs = qExec.execSelect();
@@ -404,24 +404,24 @@ public class PupilDB {
             qs1 = "PREFIX le: <http://leipziger-ecken.de/Data/Model#> "
                     + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
                     + "prefix ical: <http://www.w3.org/2002/12/cal/ical#> "
-                    + ""
-                    + "SELECT ?label ?address ?url ?start ?end ?description "
-                    + "WHERE{"
-                    + "?x le:hatAkteur + <" + akteur + "> . "
-                    + "?x rdfs:label ?label . "
-                    + "?x ical:url ?url . "
-                    + "?x ical:dtstart ?start . ";
+                       + ""
+                       + "SELECT ?x ?label ?address ?url ?start ?end ?description "
+                       + "WHERE{"
+                           + "?x le:hatAkteur + <" + akteur + "> . "
+                           + "?x rdfs:label ?label . "
+                           + "?x ical:url ?url . "
+                           + "?x ical:dtstart ?start . ";
             if (past) {
                 qs1 = qs1 + "FILTER (?start < \"" + now + "\" ) ";
             } else {
                 qs1 = qs1 + "FILTER (?start > \"" + now + "\" ) ";
             }
             qs1 = qs1
-                    + "?x ical:dtend ?end . "
-                    + "?x ical:location ?address . "
-                    + "?x ical:summary ?description} "
-                    + ""
-                    + "ORDER BY ASC(?start)";
+                           + "?x ical:dtend ?end . "
+                           + "?x ical:location ?address . "
+                           + "?x ical:summary ?description} "
+                           + ""
+                           + "ORDER BY ASC(?start)";
             dataset.begin(ReadWrite.READ);
             try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                     dataset)) {
@@ -444,6 +444,8 @@ public class PupilDB {
                     temp.put("end", x.toString());
                     x = (Literal) qs.get("description");
                     temp.put("description", x.toString());
+                    y = (Resource) qs.get("x");
+                    temp.put("ID", y.toString());
                     events.add(temp);
                 }
             } finally {
@@ -459,6 +461,7 @@ public class PupilDB {
                 newEvent.put("start", event.get("start"));
                 newEvent.put("end", event.get("stop"));
                 newEvent.put("description", event.get("description"));
+                newEvent.put("ID", event.get("ID"));
                 newEvents.add(newEvent);
             }
         }
@@ -473,6 +476,7 @@ public class PupilDB {
      * true - returns past events. <br>
      * false - returns future events.
      * @return ArrayList of HashMaps with keys as follows <br>
+     * "ID" - Event identifier in Database
      * "label" - Eventname <br>
      * "address" - Adress of Event <br>
      * "url" - URL to Events homepage <br>
@@ -494,23 +498,23 @@ public class PupilDB {
         qs1 = "PREFIX le: <http://leipziger-ecken.de/Data/Model#> "
                 + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
                 + "prefix ical: <http://www.w3.org/2002/12/cal/ical#> "
-                + ""
-                + "SELECT ?label ?address ?url ?start ?end ?description "
-                + "WHERE{"
-                + "?x rdfs:label ?label . "
-                + "?x ical:url ?url . "
-                + "?x ical:dtstart ?start . ";
+                   + ""
+                   + "SELECT ?x ?label ?address ?url ?start ?end ?description "
+                   + "WHERE{"
+                       + "?x rdfs:label ?label . "
+                       + "?x ical:url ?url . "
+                       + "?x ical:dtstart ?start . ";
         if (past) {
             qs1 = qs1 + "FILTER (?start < \"" + now + "\" ) ";
         } else {
             qs1 = qs1 + "FILTER (?start > \"" + now + "\" ) ";
         }
         qs1 = qs1
-                + "?x ical:dtend ?end . "
-                + "?x ical:location ?address . "
-                + "?x ical:summary ?description} "
-                + ""
-                + "ORDER BY ASC(?start)";
+                       + "?x ical:dtend ?end . "
+                       + "?x ical:location ?address . "
+                       + "?x ical:summary ?description} "
+                       + ""
+                       + "ORDER BY ASC(?start)";
         dataset.begin(ReadWrite.READ);
         try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
                 dataset)) {
@@ -533,6 +537,8 @@ public class PupilDB {
                 temp.put("end", x.toString());
                 x = (Literal) qs.get("description");
                 temp.put("description", x.toString());
+                y = (Resource) qs.get("x");
+                temp.put("ID", y.toString());
                 events.add(temp);
             }
         } finally {
@@ -548,6 +554,131 @@ public class PupilDB {
             newEvent.put("start", event.get("start"));
             newEvent.put("end", event.get("stop"));
             newEvent.put("description", event.get("description"));
+            newEvent.put("ID", event.get("ID"));
+            newEvents.add(newEvent);
+        }
+        return newEvents;
+    }
+    /**
+     * Updates a students score directly.
+     * @param id the students id.
+     * @param points the points to be added.
+     */
+    public void updateScore(final int id, final int points) {
+        int newScore = getScore(id) + points;
+        graphStore.begin(ReadWrite.WRITE);
+        String insertString =
+                 "WITH <http://zukunftsdiplom/pupils/> "
+                         + "DELETE{<http://pupil/" + id + "> <http://zukunftsdiplom/pupils/elements/score> ?score} "
+                         + "INSERT{<http://pupil/" + id + "> <http://zukunftsdiplom/pupils/elements/score> " + newScore + "}"
+                                 + "WHERE {<http://pupil/" + id + "> <http://zukunftsdiplom/pupils/elements/score> ?score}";
+        UpdateRequest request = UpdateFactory.create(insertString);
+        UpdateProcessor proc = UpdateExecutionFactory.create(request,
+                graphStore);
+        proc.execute();
+        graphStore.commit();
+    }
+
+
+    /**
+     * Adds an entry of attendance to the Database. 
+     * @param idPupil The id of the pupil that has attended the event.
+     * @param idEvent The id of the Event that has been attended. The entry "ID" of the Event Array List. Should be in form "http://leipziger-ecken.de/Data/Event/#".
+     */
+    public void addAttendance(int idPupil, String idEvent){
+        graphStore.begin(ReadWrite.WRITE);
+        idEvent="<"+idEvent+">";
+        String insertString =
+                 "PREFIX pupil: <http://pupil/#> "
+                 + "INSERT DATA {"
+                        + "<http://pupil/" + idPupil + "> <http://zukunftsdiplom/pupils/elements/attendance> " + idEvent
+                 + "} ";
+        System.out.println(insertString);
+        UpdateRequest request = UpdateFactory.create(insertString);
+        UpdateProcessor proc = UpdateExecutionFactory.create(request,
+                graphStore);
+        proc.execute();
+        graphStore.commit();
+    }
+
+    /**
+     * Retrieves Events a student has attended in ArrayList.
+     * Entries are HashMaps with an Events attributes.
+     * @param id The id of the student of which to retrieve attended Events.
+     * @return ArrayList of HashMaps with keys as follows <br>
+     * "ID" - Event identifier in Database
+     * "label" - Eventname <br>
+     * "address" - Adress of Event <br>
+     * "url" - URL to Events homepage <br>
+     * "description" - Event description
+     * "start"- DateTime of Start
+     * "end" - DateTime of Ending.
+     */    
+    public ArrayList<HashMap<String, String>> getEventsStudents(
+            final int id) {
+
+        ArrayList<HashMap<String, String>> events =
+                new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> newEvents =
+                new ArrayList<HashMap<String, String>>();
+        final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        String now = sdf.format(date).toString().replace(" ", "T");
+        String qs1;
+        qs1 = "PREFIX le: <http://leipziger-ecken.de/Data/Model#> "
+                + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+                + "prefix ical: <http://www.w3.org/2002/12/cal/ical#> "
+                   + ""
+                   + "SELECT ?x ?label ?address ?url ?start ?end ?description "
+                   + "WHERE{"
+                       + "?x rdfs:label ?label . "
+                       + "?x ical:url ?url . "
+                       + "?x ical:dtstart ?start . "
+                       + "?x ical:dtend ?end . "
+                       + "?x ical:location ?address . "
+                       + "?x ical:summary ?description . "
+                       + "<http://pupil/" + id + "> <http://zukunftsdiplom/pupils/elements/attendance> ?x}"
+                       + "ORDER BY ASC(?start)";
+        dataset.begin(ReadWrite.READ);
+        try (QueryExecution qExec = QueryExecutionFactory.create(qs1,
+                dataset)) {
+            ResultSet rs = qExec.execSelect();
+            //ResultSetFormatter.out(rs);
+
+            while (rs.hasNext()) {
+                QuerySolution qs = rs.next();
+                HashMap<String, String> temp =
+                        new HashMap<String, String>();
+                Literal x = (Literal) qs.get("label");
+                temp.put("label", x.toString());
+                Resource y = (Resource) qs.get("address");
+                temp.put("address", y.toString());
+                y = (Resource) qs.get("url");
+                temp.put("url", y.toString());
+                x = (Literal) qs.get("start");
+                temp.put("start", x.toString());
+                x = (Literal) qs.get("end");
+                temp.put("end", x.toString());
+                x = (Literal) qs.get("description");
+                temp.put("description", x.toString());
+                y = (Resource) qs.get("x");
+                temp.put("ID", y.toString());
+                events.add(temp);
+            }
+        } finally {
+            dataset.end();
+        }
+        for (HashMap<String, String> event:events) {
+            HashMap<String, String> newEvent =
+                    new HashMap<String, String>();
+            newEvent.put("label", event.get("label"));
+            newEvent.put("address",
+                    getAddress("<" + event.get("address") + ">"));
+            newEvent.put("url", event.get("url"));
+            newEvent.put("start", event.get("start"));
+            newEvent.put("end", event.get("stop"));
+            newEvent.put("description", event.get("description"));
+            newEvent.put("ID", event.get("ID"));
             newEvents.add(newEvent);
         }
         return newEvents;
