@@ -188,6 +188,22 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         }
                         StartActivity.isclicked = false;
                     }
+                    if (StartActivity.anmelden) {
+                        writer.write("Anmelden" + "\n");
+                        writer.flush();
+                        writer.write(StartActivity.data + "\n");
+                        writer.flush();
+                        writer.write(StartActivity.eventID + "\n");
+                        writer.flush();
+                    }
+                    if (StartActivity.abmelden) {
+                        writer.write("Abmelden" +"\n");
+                        writer.flush();
+                        writer.write(StartActivity.data + "\n");
+                        writer.flush();
+                        writer.write(StartActivity.eventID + "\n");
+                        writer.flush();
+                    }
                     if (LogOut.isclicked) {
                         schleife = false;
                         writer.write("disconnect" + "\n");

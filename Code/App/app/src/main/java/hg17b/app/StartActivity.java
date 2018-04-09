@@ -44,7 +44,9 @@ import java.security.UnrecoverableEntryException;
  * by the Server, afterwards data is received from there.
  */
 public class StartActivity extends AppCompatActivity {
-
+    public static boolean anmelden = false;
+    public static int eventID;
+    public static boolean abmelden = false;
     public static int index;
     public static EditText etID;
     public static boolean past;
@@ -151,6 +153,15 @@ public class StartActivity extends AppCompatActivity {
         points = s;
     }
 
+    public static void buttonanmelden (View v) {
+        if (anmelden) {
+            abmelden = true;
+            anmelden = false;
+        }else{
+            anmelden = true;
+        }
+
+    }
     /**
      *
      * @return
