@@ -54,7 +54,7 @@ public class StartActivity extends AppCompatActivity {
     public static String data;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    FragmentTransaction fragmentTransaction;
+    static FragmentTransaction fragmentTransaction;
     NavigationView navigationView;
     Button logOut;
     public static Client client;
@@ -658,9 +658,9 @@ public class StartActivity extends AppCompatActivity {
                     EventDetails.tv1.setText(OrganizerNextEvents.list.getJSONObject(OrganizerNextEvents.getZaehler()).getString("Start"));
                     */
                     index = OrganizerNextEvents.getZaehler();
-                    event = new EventDetails();
+                    EventOrganizer event1 = new EventOrganizer();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.menuContainer, event);
+                    fragmentTransaction.replace(R.id.menuContainer, event1);
                     fragmentTransaction.commit();
                     getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
                             .getString("label"));
