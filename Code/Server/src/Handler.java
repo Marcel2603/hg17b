@@ -236,9 +236,17 @@ public class Handler implements Runnable {
                     if (recieve.equals("Eventpast")) {
                         ArrayList<HashMap<String, String>> list
                         = db1.getEventsOrganizer(email, true);
+                        JSONObject obj = new JSONObject();
                         for (int i = 0;
                                 i < list.size(); i++) {
-                            writer.write(list.get(i).get("start") + "\n");
+                        	obj = new JSONObject();
+                        	obj.put("id", list.get(i).get("ID"));
+                            obj.put("label", list.get(i).get("label"));
+                            obj.put("address", list.get(i).get("address"));
+                            obj.put("url", list.get(i).get("url"));
+                            obj.put("description", list.get(i).get("description"));
+                            obj.put("start", list.get(i).get("start"));
+                            writer.write(obj.toString() + "\n");
                             writer.flush();
                         }
                         writer.write("ENDE" + "\n");

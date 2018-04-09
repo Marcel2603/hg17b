@@ -218,6 +218,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             }
             //Veranstalter
             if (entscheidung == 2) {
+                System.out.println("HILEF");
                 writer.write("veranstalter" + "\n");
                 writer.flush();
                 boolean schleife1 = true;
@@ -270,6 +271,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
 
                             //get the Events
+                            System.out.println(refreshEvents + "TEST");
                             if (refreshEvents) {
                                 receiveEvents(entscheidung);
                                 refreshEvents = false;
@@ -329,6 +331,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
      */
     private void receiveEvents (int decision) throws IOException, JSONException {
         //first the future Events
+        System.out.println("EVENT");
         writer.write("Event\n");
         writer.flush();
         String temp = "";
@@ -350,7 +353,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 }
             }
         }
-
+        System.out.println("EVENTPAST");
         //now the past events
         writer.write("Eventpast\n");
         writer.flush();
@@ -360,6 +363,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             temp = reader.readLine();
             if (!temp.equals("ENDE")) {
                 // LastEvents.list.add(temp);
+                System.out.println(temp);
                 obj = new JSONObject(temp);
                 ar.put(obj);
             } else {
