@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Analyse von="2018-03-28" bis="2018-04-09" gruppe="hg17b" createdBy="MH" createdAt="2018-04-09"> 
+  <done who="CP,NK,MR,JD,RM,MH" A="3" S="3" Zeit="2.5">Besprechungen</done>
+  <done who="MH" A="3" S="2" Zeit="1">Eventdetails</done>
+  <done who="NK" A="4" S="5" Zeit="4">SSL fertigstellen</done>
+  <done who="JD,MR" A="3" S="3" Zeit="3">App und Scanner fertigstellen</done>
+  <done who="CP" A="3" S="3" Zeit="3">Vortrag ausarbeiten</done>
+  <done who="JD" A="3", S="3" Zeit="1">Entwurfsbeschreibung</done>
+</Analyse>

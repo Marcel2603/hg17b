@@ -1,0 +1,52 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '2.0.3'
+  id 'java'
+}
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+	compile group: 'org.apache.jena', name: 'apache-jena-libs', version: '3.5.0'
+	compile group: 'org.apache.jena', name: 'jena-tdb2', version: '3.6.0'
+	compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+	compile 'org.json:json:20171018'
+	compile 'org.bouncycastle:bcprov-jdk16:1.45'
+	compile "org.slf4j:slf4j-simple:1.7.9"
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+    }
+	test{
+		java{
+			srcDirs=['test/']
+		}	
+	}
+}
+
+test{
+	reports.html.destination = file("../../reports/Server_unitTests/")
+	reports.junitXml.destination = file("../../reports/Server_unitTests/xml")
+}
+
+jar{
+	manifest { 
+    attributes "Main-Class": "Server"
+	}
+	
+	from (
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	  ){
+		exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+	  }
+}

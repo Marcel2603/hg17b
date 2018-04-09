@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">hg17b</string>
+    <string name="hint_ID">gib hier deine ID ein</string>
+    <string name="btn_submit">Bestätigen</string>
+    <string name="btn_scan">ID einscannen</string>
+    <string name="tvMessage">Herzlich Willkommen!\n\nDu bist auf der Startseite.
+        Als Schüler kannst dich hier mit der Nummern deines Ferienpasses anmelden.\n
+    </string>
+    <string name="tvOrganizer">Ich bin Veranstalter!</string>
+    <string name="orgMessage">Herzlich Willkommen!\n\nHier kannst du dich
+        als Veranstalter anmelden und deine kommenden, sowie vergangenen Veranstaltungen
+        einsehen. Außerdem kannst du die Nummern der Schüler einscannen.\n
+    </string>
+
+
+    <string name="holder">Main Menu</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="headerText">Hauptmenü</string>
+    <string name="title_activity_event_details">EventDetails</string>
+
+    <string name="start">Startseite</string>
+    <string name="incoming">nächste Veranstaltungen</string>
+    <string name="ranking">Rangliste</string>
+    <string name="historie">bisherige Veranstaltungen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="btn_log_out">Abmelden</string>
+
+    <string name="points">
+        Du hast aktuell 0 Punkte gesammelt. Dir fehlen noch 0 Punkte für dein Diplom...\n
+    </string>
+    <string name="events">
+        Du hast keine bevorstehenden Veranstaltungen.\n
+    </string>
+    <string name="empty_historie">
+        Du hast noch keine Veranstaltungen besucht.\n
+    </string>
+    <string name="empty_historie_org">
+        Du hast noch keine vergangenen Veranstaltungen...
+    </string>
+    <string name="log_out">
+        Willst du dich wirklich abmelden? Dann klicke auf den Button...
+    </string>
+    <string name="empty_settings">
+        Es gibt noch keine Einstellungen, die du ändern kannst.
+    </string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the
+        camera permission. The application will now exit.
+    </string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device
+        storage
+    </string>
+    <string name="title_activity_main">Ocr Detector Sample</string>
+    <string name="ocr_header">Click &quot;Detect Text&quot; to detect text</string>
+    <string name="read_text">Detect Text</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="ocr_success">Text read successfully</string>
+    <string name="ocr_failure">No text captured</string>
+    <string name="ocr_error">"Error reading text: %1$s"</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Teilnehmer">Teilnehmer</string>
+
+</resources>
