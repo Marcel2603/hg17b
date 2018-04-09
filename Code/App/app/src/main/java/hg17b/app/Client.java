@@ -230,26 +230,25 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         writer.flush();
                         writer.write(email + "\n");
                         writer.flush();
-
                         String vonServer = reader.readLine();
-
                         if (vonServer.equals("true")) {
+
+                            /*
+                            Temporarily deactivated key stuff because activation doesn't work.
+
                             vonServer = reader.readLine();
                             if(vonServer.equals("keyExists")){
                                 System.out.println("key EXISTS!!!");
                                 sslConnect();
                             } else if(vonServer.equals("noKeyExists")) {
                                 KeyStore ks=null;
-
                                 try {
                                     if(!kh.isAlias(email)) {
                                         kh.addKey(email);
                                     }
-
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-
                                 ks = kh.getPublicStore(email);
                                 OutputStream outServer = socket.getOutputStream();
                                 try {
@@ -264,11 +263,12 @@ public class Client extends AsyncTask<Void, Void, Void>{
                                     while ((count = inKey.read(bytes)) > 0) {
                                         outServer.write(bytes, 0, count);
                                     }
-
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                            }
+                            }*/
+
+
                             //get the Events
                             if (refreshEvents) {
                                 receiveEvents(entscheidung);

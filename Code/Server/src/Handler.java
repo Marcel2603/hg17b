@@ -188,7 +188,13 @@ public class Handler implements Runnable {
                            //ELSE
                            writer.write("true\n");
                            writer.flush();
-                           if (ks.isAlias(recieve)) { //If a key already exists in Server Keystore
+                          
+                           
+                           /*Temporarily deactivated part because key activation doesn't work.
+                            * 
+                            * 
+                            * 
+                            if (ks.isAlias(recieve)) { //If a key already exists in Server Keystore
                                writer.write("keyExists\n");
                                writer.flush();
                              //creates SSL Socket and connects reader and writer with it.
@@ -215,7 +221,7 @@ public class Handler implements Runnable {
                                    out.write(bytes, 0, count);
                                }
                                break;
-                           }
+                           }*/
 
 
                        } else {

@@ -10,11 +10,11 @@
 
 
 	//Hier den Pfad zur Java Executeable eintragen:
-	$javaPath="/usr/java/jdk1.8.0_112/bin/java"; 
+	$javaPath="/usr/java/jdk1.8.0_112/jre/bin/java"; 
 	
 	//Hier den Pfad zur Server.jar und KeyAdder.jar (muessen identisch sein) eintragen:
 	$keyAdderPath="/home/hg17b/Server/"; 
 	$output = shell_exec( $javaPath . ' -jar '. $keyAdderPath . 'KeyAdder.jar ' . $_GET['id'] . ' ' . $_GET['key'] . ' ' . $keyAdderPath);
+	echo $javaPath . ' -jar '. $keyAdderPath . 'KeyAdder.jar ' . $_GET['id'] . ' ' . $_GET['key'] . ' ' . $keyAdderPath;
 	echo $output;
-
 ?>
