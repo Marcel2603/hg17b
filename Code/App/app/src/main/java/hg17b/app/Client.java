@@ -361,11 +361,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             if (!temp.equals("ENDE")) {
                 // LastEvents.list.add(temp);
                 obj = new JSONObject(temp);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    ar = isDouble(ar, obj);
-                } else {
-                    ar.put(obj);
-                }
+                ar.put(obj);
             } else {
                 if (decision==1) {
                     LastEvents.list = ar;
@@ -471,7 +467,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
     }
 
     /**
-     *
+     * Server staus (online offline).
      * @param status
      */
     public void setServerStatus(boolean status){
@@ -479,43 +475,12 @@ public class Client extends AsyncTask<Void, Void, Void>{
     }
 
     /**
-     *
+     * Server staus (online offline).
      * @return
      */
     public boolean getServerStatus(){
         return noServer;
     }
-
-    /**
-     *
-     * @param ar
-     * @param obj
-     * @return
-     * @throws JSONException
-     */
-    private JSONArray isDouble(JSONArray ar, JSONObject obj) throws JSONException {
-        boolean stop = true;
-        for (int i = 0; i < ar.length() && stop; i++) {
-            JSONObject temp = ar.getJSONObject(i);
-            if (temp.getString("label").equals(obj.getString("label"))) {
-                if (temp.getString("address").equals(obj.getString("address"))) {
-                    if (temp.getString("description").equals(obj.getString("description"))) {
-                        String time = temp.getString("start");
-                        time += " || " + obj.getString("start");
-                        temp.put("start", time);
-                        ar.remove(i);
-                        ar.put(temp);
-                        stop = false;
-                    }
-                }
-            }
-        }
-        if(stop || ar.length() == 0) {
-            ar.put(obj);
-        }
-        return ar;
-    }
-
     /**
      * Connects the client with the SSL protected Server.
      * Connects reader and writer to SSL Connection.

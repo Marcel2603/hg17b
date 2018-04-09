@@ -843,7 +843,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Logoutbutton
      */
     public void onClick() {
         LogOut.isclicked = true;
