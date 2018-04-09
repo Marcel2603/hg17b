@@ -19,9 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -49,7 +47,6 @@ public class StartActivity extends AppCompatActivity {
 
     public static int index;
     public static EditText etID;
-
     public static boolean past;
     TextView tvInfo;
     public static String data;
@@ -64,6 +61,7 @@ public class StartActivity extends AppCompatActivity {
     private static int points;
     public static int kontrolle;
     KeyHandler ks;
+
     /**
      * The onCreate method is called when the Application gets started.
      * Here we initialize the Layout, start the Client and connect them with the Server.
@@ -77,46 +75,50 @@ public class StartActivity extends AppCompatActivity {
 
 
         File f = new File(getCacheDir(),"logindata.tmp");
-        if(f.exists()){
+        if (f.exists()) {
             try {
                 br = new BufferedReader(new FileReader(f));
                 String ID = br.readLine();
-                if (ID.startsWith("v")) {//if Veranstalter
+                if (ID.startsWith("v")) {
+                    //if Veranstalter
                     OrganizerLogIn.nutzer = ID.substring(1);
                     client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2,ks,this);
                     client.execute();
 
-                    if(client.getServerStatus()){
+                    if (client.getServerStatus()) {
                         Toast.makeText(this,
-                                "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+                                "Der Server ist offline, versuche es später wieder!",
+                                    Toast.LENGTH_LONG).show();
                         client.setServerStatus(false);
                     }
 
                     Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
                     startActivity(intent);
-                } else {//If it is a student's ID
+                } else {
+                    //If it is a student's ID
                     File pointsfile = new File(getCacheDir(),"points.tmp");
-                    if (pointsfile.exists()){
-                        br.close();//close other file
+                    if (pointsfile.exists()) {
+                        br.close(); //close other file
                         br = new BufferedReader(new FileReader(pointsfile));
                         setPoints(br.read());
                     }
-                    isclicked=true;
+                    isclicked = true;
                     data = ID;
                     client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks,this);
                     client.execute();
                     if (client.getServerStatus()) {
                         Toast.makeText(this,
-                                "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+                                "Der Server ist offline, versuche es später wieder!",
+                                    Toast.LENGTH_LONG).show();
                         client.setServerStatus(false);
                     }
                     setContentView(R.layout.main_activity);
                     initNavigationMenu();
                 }
-            }catch(IOException ioEx){
+            } catch(IOException ioEx) {
                 ioEx.printStackTrace();
-            }finally {
-                if(br != null){
+            } finally {
+                if (br != null) {
                     try {
                         br.close();
                     } catch (IOException e) {
@@ -124,17 +126,16 @@ public class StartActivity extends AppCompatActivity {
                     }
                 }
             }
-        }else{
+        } else {
             setContentView(R.layout.start_activity);
 
             kontrolle = 0;
             isinDB = false;
-
-            logOut = (Button) findViewById(R.id.btnLogOut);
+            logOut = findViewById(R.id.btnLogOut);
             etID = findViewById(R.id.etID);
             //tvInfo = findViewById(R.id.tvInfo);
             Bundle extras = getIntent().getExtras();
-            if(extras != null){
+            if (extras != null) {
                 String value = extras.getString("scannedID");
                 System.out.println(value);
                 etID.setText(value);
@@ -142,11 +143,19 @@ public class StartActivity extends AppCompatActivity {
         }
     }
 
-    //getter & setter for static points
-    public static void setPoints(int s){
+    /**
+     *
+     * @param s
+     */
+    public static void setPoints(int s) {
         points = s;
     }
-    public static int getPoints(){
+
+    /**
+     *
+     * @return
+     */
+    public static int getPoints() {
         return points;
     }
 
@@ -176,17 +185,17 @@ public class StartActivity extends AppCompatActivity {
         isinDB = false;
         isclicked = true;
         kontrolle = 0;
-        client = new Client("pcai042.informatik.uni-leipzig.de",
-               1831, 1, ks, this);
+        client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 1, ks, this);
         client.execute();
 
         //Check if input fits into the TextField
+        data = etID.getText().toString();
 
-       data = etID.getText().toString();
-       if(data.length()>2){
+       if (data.length()>2) {
            Toast.makeText(this,
-                   "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt", Toast.LENGTH_LONG).show();
-       }else {
+                   "Deine Eingabe war zu lang\n Maximal 2 Stellen erlaubt",
+                    Toast.LENGTH_LONG).show();
+       } else {
            if (data.length()<1 || data == null) {
                Toast.makeText(this,
                        "Deine Eingabe war zu kurz\n", Toast.LENGTH_LONG).show();
@@ -196,7 +205,8 @@ public class StartActivity extends AppCompatActivity {
            }
            if (client.getServerStatus()) {
                Toast.makeText(this,
-                       "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
+                       "Der Server ist offline, versuche es später wieder!",
+                            Toast.LENGTH_LONG).show();
                client.setServerStatus(false);
            } else {
                if (isinDB) {
@@ -210,8 +220,8 @@ public class StartActivity extends AppCompatActivity {
                        bw.flush();
                    } catch (IOException e) {
                        e.printStackTrace();
-                   }finally {
-                       if (bw != null){
+                   } finally {
+                       if (bw != null) {
                            try {
                                bw.close();
                            } catch (IOException e) {
@@ -234,7 +244,7 @@ public class StartActivity extends AppCompatActivity {
      * the method starts the scanner and the camera
      * @param v
      */
-    public void scannerOnClick(View v){
+    public void scannerOnClick(View v) {
         boolean forPupil = true;
         Intent i = new Intent(StartActivity.this, OcrCaptureActivity.class);
         i.putExtra("decider", forPupil);
@@ -257,8 +267,7 @@ public class StartActivity extends AppCompatActivity {
      * starts the OrganizerLogIn Page
      * @param v
      */
-    public void organizer(View v){
-
+    public void organizer(View v) {
         Intent intent = new Intent(StartActivity.this, OrganizerLogIn.class);
         startActivity(intent);
     }
@@ -267,27 +276,23 @@ public class StartActivity extends AppCompatActivity {
      * Onclick method for LastEvents
      * @param v
      */
-    public void Lastevents (View v){
+    public void Lastevents (View v) {
         try {
             EventDetails event;
             past = true;
             switch (v.getId()) {
 
                 case R.id.tv1:
-                    /*
-                    Fragment fragment_event_organizer = new EventDetails();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.last,fragment_event_organizer);
-                    fragmentTransaction.commit();
-                    EventDetails.tv1.setText(LastEvents.list.getJSONObject(LastEvents.getZaehler()).getString("Start"));
-                    */
                     index = LastEvents.getZaehler();
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     //drawerLayout.closeDrawers();
                     break;
+
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     index = LastEvents.getZaehler() + 1;
@@ -295,104 +300,116 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv3:
                     index = LastEvents.getZaehler() + 2;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv4:
                     index = LastEvents.getZaehler() + 3;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv5:
                     index = LastEvents.getZaehler() + 4;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv6:
                     index = LastEvents.getZaehler() + 5;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv7:
                     index = LastEvents.getZaehler() + 6;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv8:
                     index = LastEvents.getZaehler() + 7;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv9:
                     index = LastEvents.getZaehler() + 8;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv10:
                     index = LastEvents.getZaehler() + 9;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(LastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
             }
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
      * Onclick method for NextEvents
      * @param v
      */
-    public void Nextevents (View v){
+    public void Nextevents (View v) {
         try {
             EventDetails event;
             past = false;
             switch (v.getId()) {
 
                 case R.id.tv1:
-                    /*
-                    Fragment fragment_event_organizer = new EventDetails();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.last,fragment_event_organizer);
-                    fragmentTransaction.commit();
-                    EventDetails.tv1.setText(NextEvents.list.getJSONObject(NextEvents.getZaehler()).getString("Start"));
-                    */
                     index = NextEvents.getZaehler();
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     //drawerLayout.closeDrawers();
                     break;
+
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     index = NextEvents.getZaehler() + 1;
@@ -400,83 +417,100 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv3:
                     index = NextEvents.getZaehler() + 2;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv4:
                     index = NextEvents.getZaehler() + 3;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv5:
                     index = NextEvents.getZaehler() + 4;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv6:
                     index = NextEvents.getZaehler() + 5;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv7:
                     index = NextEvents.getZaehler() + 6;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv8:
                     index = NextEvents.getZaehler() + 7;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv9:
                     index = NextEvents.getZaehler() + 8;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv10:
                     index = NextEvents.getZaehler() + 9;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(NextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
             }
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
+
     /**
      * Onclick method for OrganizerLastEvents
      * @param v
      */
-    public void OrgLastevents (View v){
+    public void OrgLastevents (View v) {
         try {
             EventDetails event;
             past = true;
@@ -494,9 +528,11 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     //drawerLayout.closeDrawers();
                     break;
+
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     index = OrganizerLastEvents.getZaehler() + 1;
@@ -504,84 +540,100 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv3:
                     index = OrganizerLastEvents.getZaehler() + 2;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv4:
                     index = OrganizerLastEvents.getZaehler() + 3;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv5:
                     index = OrganizerLastEvents.getZaehler() + 4;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv6:
                     index = OrganizerLastEvents.getZaehler() + 5;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv7:
                     index = OrganizerLastEvents.getZaehler() + 6;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv8:
                     index = OrganizerLastEvents.getZaehler() + 7;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv9:
                     index = OrganizerLastEvents.getZaehler() + 8;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv10:
                     index = OrganizerLastEvents.getZaehler() + 9;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
             }
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
      * Onclick method for OrganizerNextEvents
      * @param v
      */
-    public void OrgNextevents (View v){
+    public void OrgNextevents (View v) {
         try {
             EventDetails event;
             past = false;
@@ -599,9 +651,11 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     //drawerLayout.closeDrawers();
                     break;
+
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
                     index = OrganizerNextEvents.getZaehler() + 1;
@@ -609,84 +663,100 @@ public class StartActivity extends AppCompatActivity {
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv3:
                     index = OrganizerNextEvents.getZaehler() + 2;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv4:
                     index = OrganizerNextEvents.getZaehler() + 3;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv5:
                     index = OrganizerNextEvents.getZaehler() + 4;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv6:
                     index = OrganizerNextEvents.getZaehler() + 5;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv7:
                     index = OrganizerNextEvents.getZaehler() + 6;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv8:
                     index = OrganizerNextEvents.getZaehler() + 7;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv9:
                     index = OrganizerNextEvents.getZaehler() + 8;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
+
                 case  R.id.tv10:
                     index = OrganizerNextEvents.getZaehler() + 9;
                     event = new EventDetails();
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.menuContainer, event);
                     fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index).getString("label"));
+                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(index)
+                            .getString("label"));
                     break;
             }
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
      * This method sets up the menu (as a DrawerLayout)
      * and enabled the navigation within the menu, handing off to the individual fragments.
      */
-    public void initNavigationMenu(){
+    public void initNavigationMenu() {
 
         //setting up the menu bar
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -694,7 +764,6 @@ public class StartActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Forwarding is regulated here...
@@ -703,11 +772,12 @@ public class StartActivity extends AppCompatActivity {
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Startseite");
         navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView
+                                                .OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
+
                     case R.id.Startseite:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.menuContainer, new Main());
@@ -756,17 +826,15 @@ public class StartActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                 }
-
                 return true;
             }
         });
-
     }
 
     /**
      *
      */
-    public void onClick(){
+    public void onClick() {
         LogOut.isclicked = true;
     }
 }

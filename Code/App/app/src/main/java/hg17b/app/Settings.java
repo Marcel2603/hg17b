@@ -55,7 +55,8 @@ public class Settings extends Fragment {
     /**
      * method that changes the color
      */
-    private void changeColor(){
+    private void changeColor() {
+
         btnColorGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,11 +85,12 @@ public class Settings extends Fragment {
     /**
      * method that changes the text sizes
      */
-    public void changeTextSize(){
+    public void changeTextSize() {
         btnTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),
+                        "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -96,11 +98,12 @@ public class Settings extends Fragment {
     /**
      * placeholder for other changes
      */
-    public void otherChange(){
+    public void otherChange() {
         btnOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),
+                        "Zur Zeit nicht verfügbar", Toast.LENGTH_SHORT).show();
             }
         });
     }

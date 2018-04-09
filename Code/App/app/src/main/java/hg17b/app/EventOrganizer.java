@@ -3,27 +3,13 @@
  */
 package hg17b.app;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONException;
-
-import java.io.File;
 
 public class EventOrganizer extends Fragment {
 
@@ -57,20 +43,21 @@ public class EventOrganizer extends Fragment {
         try {
             if (StartActivity.past) {
                 int index = StartActivity.index;
-                tv1.setText(OrganizerLastEvents.list.getJSONObject(index).getString("start"));
+                tv1.setText(OrganizerLastEvents.list.getJSONObject(index)
+                        .getString("start"));
                 tv2.setText("Anzahl der Anmeldungen");
-                tv3.setText(OrganizerLastEvents.list.getJSONObject(index).getString("description"));
+                tv3.setText(OrganizerLastEvents.list.getJSONObject(index)
+                        .getString("description"));
             } else {
                 int index = StartActivity.index;
-                tv1.setText(OrganizerNextEvents.list.getJSONObject(index).getString("start"));
+                tv1.setText(OrganizerNextEvents.list.getJSONObject(index)
+                        .getString("start"));
                 tv2.setText("Anzahl der Anmeldungen");
-                tv3.setText(OrganizerNextEvents.list.getJSONObject(index).getString("description"));
+                tv3.setText(OrganizerNextEvents.list.getJSONObject(index)
+                        .getString("description"));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
 }
-
-

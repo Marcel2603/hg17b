@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -28,19 +27,17 @@ import java.io.IOException;
  * and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
+
     KeyHandler ks;
     Client client;
     public static int schleife = 1;
     public static String nutzer;
     public static boolean isinDB;
-
     private DrawerLayout drawerLayout2;
     private ActionBarDrawerToggle toggle;
-
     FragmentTransaction fragmentTransaction2;
     NavigationView navigationView2;
     EditText email;
-
 
     /**
      * Standard onCreate Method, loads the LogIn Layout
@@ -51,13 +48,12 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         ks = new KeyHandler(getFilesDir());
-        if(nutzer != null) {
+        if (nutzer != null) {
             setContentView(R.layout.organizer_main_activity);
             initNavigationMenu2();
-        }else{
+        } else {
             setContentView(R.layout.organizer_log_in);
         }
-
     }
 
     /**
@@ -65,14 +61,14 @@ public class OrganizerLogIn extends AppCompatActivity {
      * an later if the password is correct
      * @param v
      */
-    public void buttonOnClick2(View v){
+    public void buttonOnClick2(View v) {
 
         email = findViewById(R.id.editTextEMail);
         nutzer = email.getText().toString();
         client = new Client("pcai042.informatik.uni-leipzig.de", 1831, 2, ks,this);
         client.execute();
 
-        if(client.getServerStatus()){
+        if (client.getServerStatus()) {
             Toast.makeText(this,
              "Der Server ist offline, versuche es später wieder!", Toast.LENGTH_LONG).show();
             client.setServerStatus(false);
@@ -114,6 +110,7 @@ public class OrganizerLogIn extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
+        //Pseudocode:
         /**if (!shouldAllowBack()) {
          doSomething();
          } else {
@@ -139,7 +136,7 @@ public class OrganizerLogIn extends AppCompatActivity {
      * This method sets up the menu (as a DrawerLayout)
      * and enabled the navigation within the menu, handing off to the individual fragments.
      */
-    public void initNavigationMenu2(){
+    public void initNavigationMenu2() {
 
         //setting up the menu bar
         drawerLayout2 = findViewById(R.id.drawerLayout2);
@@ -147,7 +144,6 @@ public class OrganizerLogIn extends AppCompatActivity {
 
         drawerLayout2.addDrawerListener(toggle);
         toggle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //forwarding is regulated here...
@@ -156,11 +152,11 @@ public class OrganizerLogIn extends AppCompatActivity {
         fragmentTransaction2.commit();
         getSupportActionBar().setTitle("Hauptseite");
         navigationView2 = findViewById(R.id.navigation_view2);
-        navigationView2.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView2.setNavigationItemSelectedListener(new NavigationView
+                                                .OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.Hauptseite:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction2.replace(R.id.menuContainer2, new OrganizerMain());
@@ -176,7 +172,6 @@ public class OrganizerLogIn extends AppCompatActivity {
                         getSupportActionBar().setTitle("kommende Veranstaltungen");
                         drawerLayout2.closeDrawers();
                         break;
-
 
                     case R.id.Historie:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
@@ -213,6 +208,5 @@ public class OrganizerLogIn extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 }

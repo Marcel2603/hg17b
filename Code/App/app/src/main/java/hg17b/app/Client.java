@@ -6,12 +6,9 @@ package hg17b.app;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,28 +23,17 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
-import java.nio.Buffer;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.UnrecoverableEntryException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import javax.net.SocketFactory;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
-
-import static java.security.AccessController.getContext;
 
 /**
  * The class Client handles the connection to the Server,
@@ -70,7 +56,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
     private PrintWriter writer;
     /**The Reader that reads what the Server sent*/
     private BufferedReader reader;
-
     KeyHandler kh;
 
     /**
@@ -78,23 +63,36 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * @param ip - the ip address we want to reach
      * @param port - the port to connect with the Server
      */
-    public Client(String ip, int port, int entscheidung, KeyHandler kh, Context context) {
-        this.kh=kh;
+    public Client(String ip, int port, int entscheidungen, KeyHandler kh, Context context) {
+        this.kh = kh;
         this.ip = ip;
-        this.port= port;
-        this.entscheidung = entscheidung;
-        this.context=context;
+        this.port = port;
+        this.entscheidung = entscheidungen;
+        this.context = context;
     }
 
 
-    //Standard Getter
-    public String getIp(){
+    /**
+     * returns int ip
+     * @return
+     */
+    public String getIp() {
         return this.ip;
     }
-    public int getPort(){
+
+    /**
+     * returns int port
+     * @return
+     */
+    public int getPort() {
         return this.port;
     }
-    public int getEntscheidung(){
+
+    /**
+     * returns int entscheidung
+     * @return
+     */
+    public int getEntscheidung() {
         return this.entscheidung;
     }
 
@@ -107,9 +105,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
     protected Void doInBackground(Void... args0) {
 
 
-        try{
+        try {
             /* first read Events from local files, set refreshEvents on true if it's not working*/
-            if(!readEvents(entscheidung)){
+            if (!readEvents(entscheidung)) {
                 refreshEvents = true;
             }
 
@@ -122,7 +120,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             reader = new BufferedReader(new InputStreamReader(in));
 
             //schueler
-            if(entscheidung == 1) {
+            if (entscheidung == 1) {
                 writer.write("schueler" + "\n");
                 writer.flush();
                 System.out.println("Schueler gesendet");
@@ -149,7 +147,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             System.out.println(vonServer);
                             int points = Integer.parseInt(vonServer);
                             //if the points updated refresh them
-                            if (points!=StartActivity.getPoints()){
+                            if (points != StartActivity.getPoints()) {
                                 StartActivity.setPoints(points);
                                 BufferedWriter bw = null;
                                 try {
@@ -159,8 +157,8 @@ public class Client extends AsyncTask<Void, Void, Void>{
                                     bw.flush();
                                 } catch (IOException e) {
                                     e.printStackTrace();
-                                }finally {
-                                    if (bw != null){
+                                } finally {
+                                    if (bw != null) {
                                         bw.close();
                                     }
                                 }
@@ -176,11 +174,10 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             Ranking.rang = reader.readLine();
 
                             //get the Events
-                            if (refreshEvents){
+                            if (refreshEvents) {
                                 receiveEvents(entscheidung);
                                 refreshEvents=false;
                             }
-
                         } else {
                             StartActivity.isinDB = false;
                             StartActivity.kontrolle = 1;
@@ -188,11 +185,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             writer.flush();
                             writer.close();
                             socket.close();
-
                         }
                         StartActivity.isclicked = false;
                     }
-
                     if (LogOut.isclicked) {
                         schleife = false;
                         writer.write("disconnect" + "\n");
@@ -206,7 +201,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 }
             }
             //Veranstalter
-            if (entscheidung == 2){
+            if (entscheidung == 2) {
                 writer.write("veranstalter" + "\n");
                 writer.flush();
                 boolean schleife1 = true;
@@ -214,7 +209,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 int t = 0;
 
                 while (schleife1) {
-                    if(t == 0) {
+                    if (t == 0) {
                         String email = OrganizerLogIn.nutzer;
                         writer.write("Ueberpruefe Email" + "\n");
                         writer.flush();
@@ -228,11 +223,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             if(vonServer.equals("keyExists")){
                                 System.out.println("key EXISTS!!!");
                                 sslConnect();
-                            } else if(vonServer.equals("noKeyExists")){
+                            } else if(vonServer.equals("noKeyExists")) {
                                 KeyStore ks=null;
 
                                 try {
-                                    if(!kh.isAlias(email)){
+                                    if(!kh.isAlias(email)) {
                                         kh.addKey(email);
                                     }
 
@@ -258,19 +253,14 @@ public class Client extends AsyncTask<Void, Void, Void>{
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-
-
                             }
-
                             //get the Events
                             if (refreshEvents) {
                                 receiveEvents(entscheidung);
                                 refreshEvents = false;
                             }
-
                             OrganizerLogIn.isinDB = true;
                             OrganizerLogIn.schleife = 0;
-
                             t = 1;
 
                         } else {
@@ -322,24 +312,24 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * @throws IOException in case something with Serverconnection happens
      * @throws JSONException because we safe it as a JSON-Object
      */
-    private void receiveEvents(int decision) throws IOException, JSONException{
+    private void receiveEvents (int decision) throws IOException, JSONException {
         //first the future Events
         writer.write("Event\n");
         writer.flush();
         String temp = "";
         JSONObject obj;
         JSONArray ar = new JSONArray();
-        while(!temp.equals("ENDE")){
+        while (!temp.equals("ENDE")) {
             temp = reader.readLine();
-            if(!temp.equals("ENDE")) {
+            if (!temp.equals("ENDE")) {
                 // LastEvents.list.add(temp);
                 obj = new JSONObject(temp);
                 ar.put(obj);
-            }else {
-                if(decision==1){
+            } else {
+                if (decision==1) {
                     NextEvents.list = ar;
                     safeFile("NextEvents.tmp",LastEvents.list);
-                }else if(decision==2){
+                } else if(decision==2) {
                     OrganizerNextEvents.list=ar;
                     safeFile("OrganizerNextEvents.tmp",OrganizerNextEvents.list);
                 }
@@ -351,27 +341,26 @@ public class Client extends AsyncTask<Void, Void, Void>{
         writer.flush();
         temp = "";
         ar = new JSONArray();
-        while(!temp.equals("ENDE")){
+        while (!temp.equals("ENDE")) {
             temp = reader.readLine();
-            if(!temp.equals("ENDE")) {
+            if (!temp.equals("ENDE")) {
                 // LastEvents.list.add(temp);
                 obj = new JSONObject(temp);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     ar = isDouble(ar, obj);
-                }else {
+                } else {
                     ar.put(obj);
                 }
-            }else {
-                if(decision==1){
+            } else {
+                if (decision==1) {
                     LastEvents.list = ar;
                     safeFile("LastEvents.tmp",LastEvents.list);
-                }else if(decision==2){
+                } else if(decision==2) {
                     OrganizerLastEvents.list=ar;
                     safeFile("OrganizerLastEvents.tmp",OrganizerNextEvents.list);
                 }
             }
         }
-
     }
 
     /**
@@ -380,17 +369,17 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * @param ar The array with the data to be written
      * @throws JSONException we read from a JSON-Array
      */
-    private void safeFile(String filename, JSONArray ar) throws JSONException{
+    private void safeFile (String filename, JSONArray ar) throws JSONException {
         PrintWriter pw = null;
         try {
             File f = new File(context.getCacheDir(),filename);
             pw = new PrintWriter(new BufferedWriter(new FileWriter(f)));
-            for (int i=0;i<ar.length();i++){
+            for (int i=0;i<ar.length();i++) {
                 pw.println(ar.get(i).toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (pw != null){
                 pw.close();
             }
@@ -401,20 +390,19 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * Reads Event-Data out of local file or receives them from Server (if File nonexistent).
      * @param desicion whether sutend or organizer Data schall be read
      * @return true if data could be read from the files or false if not
-     * @throws IOException for case we read from Server (see receiveEvents-Method)
      * @throws JSONException for case we read from Server (see receiveEvents-Method)
      */
-    private boolean readEvents(int desicion) throws IOException,JSONException{
+    private boolean readEvents(int desicion) throws JSONException {
         String filename1 = null;
         String filename2 = null;
         JSONArray list1 = null;
         JSONArray list2 = null;
-        if (desicion == 1){
+        if (desicion == 1) {
             filename1 = "NextEvents.tmp";
             filename2 = "LastEvents.tmp";
             list1 = NextEvents.list;
             list2 = LastEvents.list;
-        }else if (desicion==2){
+        } else if (desicion==2) {
             filename1="OrganizerNextEvents.tmp";
             filename2="OrganizerLastEvents.tmp";
             list1 = OrganizerNextEvents.list;
@@ -423,41 +411,40 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
         File f1 = new File(context.getCacheDir(),filename1);
         File f2 = new File(context.getCacheDir(),filename2);
-
         BufferedReader br1 = null;
         BufferedReader br2 =null;
 
         //If one of the files with stored events doesn't exists, return false
-        if (!f1.exists() || !f2.exists()){
+        if (!f1.exists() || !f2.exists()) {
             return false;
-        }else{//else read the files and don't bother the Server with it
+        } else {
+            //else read the files and don't bother the Server with it
             try {
                 br1 = new BufferedReader(new FileReader(f1));
                 String tmp = br1.readLine();
-                while (tmp!=null){
+                while (tmp != null) {
                     list1.put(new JSONObject(tmp));
                     tmp=br1.readLine();
                 }
-
                 br2 = new BufferedReader(new FileReader(f2));
                 tmp = br2.readLine();
-                while (tmp!=null){
+                while (tmp != null) {
                     list2.put(new JSONObject(tmp));
-                    tmp=br2.readLine();
+                    tmp = br2.readLine();
                 }
                 return true;
-            }catch(IOException ioEx){
+            } catch(IOException ioEx) {
                 ioEx.printStackTrace();
                 return false;
-            }finally {
-                if(br1 != null){
+            } finally {
+                if (br1 != null) {
                     try {
                         br1.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-                if(br2 != null){
+                if (br2 != null) {
                     try {
                         br2.close();
                     } catch (IOException e) {
@@ -484,19 +471,24 @@ public class Client extends AsyncTask<Void, Void, Void>{
         return noServer;
     }
 
+    /**
+     *
+     * @param ar
+     * @param obj
+     * @return
+     * @throws JSONException
+     */
     private JSONArray isDouble(JSONArray ar, JSONObject obj) throws JSONException {
         boolean stop = true;
-        for(int i = 0; i < ar.length() && stop; i++) {
+        for (int i = 0; i < ar.length() && stop; i++) {
             JSONObject temp = ar.getJSONObject(i);
-            if (temp.getString("label").equals(obj.getString("label"))){
-                if (temp.getString("address").equals(obj.getString("address"))){
-                    if (temp.getString("description").equals(obj.getString("description"))){
+            if (temp.getString("label").equals(obj.getString("label"))) {
+                if (temp.getString("address").equals(obj.getString("address"))) {
+                    if (temp.getString("description").equals(obj.getString("description"))) {
                         String time = temp.getString("start");
                         time += " || " + obj.getString("start");
                         temp.put("start", time);
-
-                            ar.remove(i);
-
+                        ar.remove(i);
                         ar.put(temp);
                         stop = false;
                     }
@@ -513,7 +505,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
      * Connects the client with the SSL protected Server.
      * Connects reader and writer to SSL Connection.
      */
-    private void sslConnect(){
+    private void sslConnect() {
         try {
             String trustdir = kh.getDir() + "/keyStore";
             KeyManagerFactory kmfactory=null;
@@ -525,7 +517,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                 e.printStackTrace();
             }
             KeyManager[] keymanagers =  kmfactory.getKeyManagers();
-            TrustManagerFactory tmf= null;
+            TrustManagerFactory tmf = null;
             try {
                 tmf = TrustManagerFactory
                         .getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -537,7 +529,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
             } catch (KeyStoreException e) {
                 e.printStackTrace();
             }
-            SSLContext sslContext= null;
+            SSLContext sslContext = null;
             try {
                 sslContext = SSLContext.getInstance("TLS");
             } catch (NoSuchAlgorithmException e) {
@@ -548,9 +540,9 @@ public class Client extends AsyncTask<Void, Void, Void>{
             } catch (KeyManagementException e) {
                 e.printStackTrace();
             }
-            SSLSocketFactory sf=sslContext.getSocketFactory();
+            SSLSocketFactory sf = sslContext.getSocketFactory();
             SSLSocket sslSocket = (SSLSocket) sf.createSocket(ip, 1832);
-            OutputStream out=null;
+            OutputStream out = null;
             out = sslSocket.getOutputStream();
             writer = new PrintWriter(out);
             InputStream in = sslSocket.getInputStream();
@@ -560,6 +552,4 @@ public class Client extends AsyncTask<Void, Void, Void>{
             e.printStackTrace();
         }
     }
-
 }
-

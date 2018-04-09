@@ -1,8 +1,9 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
-import android.util.Log;
 import android.util.SparseArray;
-
 import hg17b.app.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;

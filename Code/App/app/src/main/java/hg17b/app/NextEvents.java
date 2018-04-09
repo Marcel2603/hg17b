@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
-import java.io.IOException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
@@ -72,8 +70,8 @@ public class NextEvents extends Fragment {
     /**
      * loads the events into the app and displays them
      */
-    public void setList(){
-        if(list.length() == 0){
+    public void setList() {
+        if(list.length() == 0) {
             tv1.setText(" ");
             tv2.setText(" ");
             tv3.setText(" ");
@@ -83,10 +81,9 @@ public class NextEvents extends Fragment {
             tv8.setText(" ");
             tv9.setText(" ");
             tv10.setText(" ");
-        }else {
+        } else {
             try {
                 tv1.setText(list.getJSONObject(0).getString("label"));
-
                 tv2.setText(list.getJSONObject(1).getString("label"));
                 tv3.setText(list.getJSONObject(2).getString("label"));
                 tv4.setText(list.getJSONObject(3).getString("label"));
@@ -112,27 +109,25 @@ public class NextEvents extends Fragment {
                 if (Zaehler == 0) {
                     Toast.makeText(getActivity(),
                             "Du bist auf der ersten Seite!", Toast.LENGTH_LONG).show();
-                }else {
+                } else {
                     Zaehler -= 10;
                     try {
                         tv1.setText(list.getJSONObject(Zaehler).getString("label"));
-
-                        tv2.setText(list.getJSONObject(Zaehler+1).getString("label"));
-                        tv3.setText(list.getJSONObject(Zaehler+2).getString("label"));
-                        tv4.setText(list.getJSONObject(Zaehler+3).getString("label"));
-                        tv5.setText(list.getJSONObject(Zaehler+4).getString("label"));
-                        tv6.setText(list.getJSONObject(Zaehler+5).getString("label"));
-                        tv7.setText(list.getJSONObject(Zaehler+6).getString("label"));
-                        tv8.setText(list.getJSONObject(Zaehler+7).getString("label"));
-                        tv9.setText(list.getJSONObject(Zaehler+8).getString("label"));
-                        tv10.setText(list.getJSONObject(Zaehler+9).getString("label"));
+                        tv2.setText(list.getJSONObject(Zaehler + 1).getString("label"));
+                        tv3.setText(list.getJSONObject(Zaehler + 2).getString("label"));
+                        tv4.setText(list.getJSONObject(Zaehler + 3).getString("label"));
+                        tv5.setText(list.getJSONObject(Zaehler + 4).getString("label"));
+                        tv6.setText(list.getJSONObject(Zaehler + 5).getString("label"));
+                        tv7.setText(list.getJSONObject(Zaehler + 6).getString("label"));
+                        tv8.setText(list.getJSONObject(Zaehler + 7).getString("label"));
+                        tv9.setText(list.getJSONObject(Zaehler + 8).getString("label"));
+                        tv10.setText(list.getJSONObject(Zaehler + 9).getString("label"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
         });
-
     }
 
     /**
@@ -148,56 +143,63 @@ public class NextEvents extends Fragment {
                     try {
                         Zaehler += 10;
                         if (Zaehler < list.length()) {
-
                             tv1.setText(list.getJSONObject(Zaehler).getString("label"));
-
                         } else {
                             Zaehler -= 10;
                             Toast.makeText(getActivity(),
                                     "Du bist auf der letzten Seite!", Toast.LENGTH_LONG).show();
                         }
                         if (Zaehler + 1 < list.length()) {
-                            tv2.setText((list.getJSONObject(Zaehler + 1).getString("label")));
+                            tv2.setText((list.getJSONObject(
+                                    Zaehler + 1).getString("label")));
                         } else {
                             tv2.setText(" ");
                         }
                         if (Zaehler + 2 < list.length()) {
-                            tv3.setText((list.getJSONObject(Zaehler + 2).getString("label")));
+                            tv3.setText((list.getJSONObject(
+                                    Zaehler + 2).getString("label")));
                         } else {
                             tv3.setText(" ");
                         }
                         if (Zaehler + 3 < list.length()) {
-                            tv4.setText((list.getJSONObject(Zaehler + 3).getString("label")));
+                            tv4.setText((list.getJSONObject(
+                                    Zaehler + 3).getString("label")));
                         } else {
                             tv4.setText(" ");
                         }
                         if (Zaehler + 4 < list.length()) {
-                            tv5.setText((list.getJSONObject(Zaehler + 4).getString("label")));
+                            tv5.setText((list.getJSONObject(
+                                    Zaehler + 4).getString("label")));
                         } else {
                             tv5.setText(" ");
                         }
                         if (Zaehler + 5 < list.length()) {
-                            tv6.setText((list.getJSONObject(Zaehler + 5).getString("label")));
+                            tv6.setText((list.getJSONObject(
+                                    Zaehler + 5).getString("label")));
                         } else {
                             tv6.setText(" ");
                         }
                         if (Zaehler + 6 < list.length()) {
-                            tv7.setText((list.getJSONObject(Zaehler + 6).getString("label")));
+                            tv7.setText((list.getJSONObject(
+                                    Zaehler + 6).getString("label")));
                         } else {
                             tv7.setText(" ");
                         }
                         if (Zaehler + 7 < list.length()) {
-                            tv8.setText((list.getJSONObject(Zaehler + 7).getString("label")));
+                            tv8.setText((list.getJSONObject(
+                                    Zaehler + 7).getString("label")));
                         } else {
                             tv8.setText(" ");
                         }
                         if (Zaehler + 8 < list.length()) {
-                            tv9.setText((list.getJSONObject(Zaehler + 8).getString("label")));
+                            tv9.setText((list.getJSONObject(
+                                    Zaehler + 8).getString("label")));
                         } else {
                             tv9.setText(" ");
                         }
                         if (Zaehler + 9 < list.length()) {
-                            tv10.setText((list.getJSONObject(Zaehler + 9).getString("label")));
+                            tv10.setText((list.getJSONObject(
+                                    Zaehler + 9).getString("label")));
                         } else {
                             tv10.setText(" ");
                         }
@@ -210,14 +212,19 @@ public class NextEvents extends Fragment {
     }
 
     /**
-     * standard getter
+     * returns int Zaehler
      * @return
      */
-    public static int getZaehler(){
+    public static int getZaehler() {
         return Zaehler;
     }
 
-    public JSONObject getObject(int index){
+    /**
+     *
+     * @param index
+     * @return
+     */
+    public JSONObject getObject(int index) {
         try {
             return list.getJSONObject(index);
         } catch (JSONException e) {
@@ -229,13 +236,12 @@ public class NextEvents extends Fragment {
     /**
      * Creates a listener for the refresh-button, which will receive new Eventdata from Server.
      */
-    public void refresh(){
+    public void refresh() {
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("refreshing");
-            StartActivity.client.refreshEvents=true;
+            StartActivity.client.refreshEvents = true;
             }
         });
     }
-
 }

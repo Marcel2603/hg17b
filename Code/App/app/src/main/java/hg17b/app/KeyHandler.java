@@ -1,6 +1,7 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
-
-import android.content.Context;
 
 import org.bouncycastle.asn1.x509.ExtendedKeyUsage;
 import org.bouncycastle.asn1.x509.KeyPurposeId;
@@ -8,7 +9,6 @@ import org.bouncycastle.asn1.x509.X509Extensions;
 import org.bouncycastle.asn1.x509.X509Name;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.x509.X509V3CertificateGenerator;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,26 +29,28 @@ import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.util.Date;
-
 import javax.security.auth.x500.X500Principal;
 
 /**
  * KeyHandler for managing RSA Keys stored in Bouncy Castle KeyStore.
  */
-
 public class KeyHandler {
+
     /**
      * The apps KeyStore.
      */
     KeyStore ks;
+
     /**
      * The KeyStore Password.
      */
     char[] PASSWORD = "password".toCharArray();
+
     /**
      * Filename of the KeyStore
      */
     String FILENAME = "KeyStore";
+
     /**
      * KeyStore File.
      */
@@ -59,7 +61,7 @@ public class KeyHandler {
      * Creates new KeyStore if none exists.
      * @param cache
      */
-    public KeyHandler (File cache){
+    public KeyHandler (File cache) {
         //Context context=this;
         //context = context.getApplicationContext();
         Security.addProvider(new BouncyCastleProvider());
@@ -74,7 +76,7 @@ public class KeyHandler {
         f = new File(cache, "KeyStore");
         FileInputStream fis = null;
         try {
-            fis=new FileInputStream(f);
+            fis = new FileInputStream(f);
             try {
                 ks.load(fis, PASSWORD);
                 System.out.println("KeyStore gefunden und geladen. " + cache.toString());
@@ -89,7 +91,8 @@ public class KeyHandler {
                 fos = new FileOutputStream(f);
                 ks.store(fos, PASSWORD);
                 System.out.println("KeyStore erstellt und gespeichert.");
-            } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e1) {
+            } catch (KeyStoreException | CertificateException |
+                        NoSuchAlgorithmException | IOException e1) {
                 e1.printStackTrace();
             }
         } finally {
@@ -101,14 +104,13 @@ public class KeyHandler {
                 }
             }
         }
-
     }
 
     /**
      * Creates a new key with email as alias.
      * @param email
      */
-    public void addKey(String email){
+    public void addKey(String email) {
         KeyPairGenerator keyPairGenerator = null;
         try {
             keyPairGenerator = KeyPairGenerator.getInstance("RSA", "BC");
@@ -128,7 +130,8 @@ public class KeyHandler {
             fos = new java.io.FileOutputStream(f);
             ks.store(fos, password);
         } catch (InvalidKeyException | SignatureException | NoSuchProviderException |
-                NoSuchAlgorithmException | IOException | KeyStoreException | CertificateException  e) {
+                    NoSuchAlgorithmException | IOException | KeyStoreException |
+                        CertificateException  e) {
             e.printStackTrace();
         } finally {
             if (fos != null) {
@@ -162,7 +165,9 @@ public class KeyHandler {
      * @throws IllegalStateException
      * @throws SignatureException
      */
-    public static Certificate[] selfSign(KeyPair keyPair) throws CertificateException, IOException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, IllegalStateException, SignatureException {
+    public static Certificate[] selfSign(KeyPair keyPair) throws CertificateException,
+                NoSuchAlgorithmException, NoSuchProviderException,
+                InvalidKeyException, IllegalStateException, SignatureException {
         // generate a key pair
         // build a certificate generator
         @SuppressWarnings("deprecation")
@@ -179,7 +184,8 @@ public class KeyHandler {
         certGen.setNotAfter(new Date(System.currentTimeMillis() + 2 * 365 * 24 * 60 * 60 * 1000));
         certGen.setPublicKey(keyPair.getPublic());
         certGen.setSignatureAlgorithm("SHA256WithRSAEncryption");
-        certGen.addExtension(X509Extensions.ExtendedKeyUsage, true, new ExtendedKeyUsage(KeyPurposeId.id_kp_timeStamping));
+        certGen.addExtension(X509Extensions.ExtendedKeyUsage,
+                true, new ExtendedKeyUsage(KeyPurposeId.id_kp_timeStamping));
 
         // finally, sign the certificate with the private key of the same KeyPair
         Certificate cert[] = new Certificate[1];
@@ -192,9 +198,9 @@ public class KeyHandler {
      * @param email alias of the key.
      * @return true if exists. False if not.
      */
-    public boolean isAlias(String email){
+    public boolean isAlias(String email) {
         try {
-            if(email.toLowerCase().equals(ks.getCertificateAlias(ks.getCertificate(email)))){
+            if(email.toLowerCase().equals(ks.getCertificateAlias(ks.getCertificate(email)))) {
                 return true;
             }
         } catch (KeyStoreException e) {
@@ -208,8 +214,8 @@ public class KeyHandler {
      * @param email the email to which the ps belongs.
      * @return
      */
-    public KeyStore getPublicStore(String email){
-        KeyStore ps=null;
+    public KeyStore getPublicStore(String email) {
+        KeyStore ps = null;
         try {
            ps = KeyStore.getInstance(KeyStore.getDefaultType());
            ps.load(null, PASSWORD);
@@ -224,7 +230,7 @@ public class KeyHandler {
      * Returns the dir of the keystore.
      * @return directory of KeyStore.
      */
-    public String getDir(){
+    public String getDir() {
         return f.getParent();
     }
 
@@ -232,7 +238,7 @@ public class KeyHandler {
      * Returns the KeyStore file.
      * @return
      */
-    public File getFile(){
+    public File getFile() {
         return f;
     }
 
@@ -240,8 +246,7 @@ public class KeyHandler {
      * returns the handlers keystore
      * @return keystore
      */
-    public KeyStore getKeyStore(){
+    public KeyStore getKeyStore() {
         return ks;
     }
-
 }

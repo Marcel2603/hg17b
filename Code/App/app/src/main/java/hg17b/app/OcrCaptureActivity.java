@@ -1,9 +1,11 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 /**
  * Created by JuZo on 18.03.2018.
  */
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -15,7 +17,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
-import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
@@ -28,16 +29,13 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Toast;
-
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.CommonStatusCodes;
 import hg17b.app.ui.camera.CameraSource;
 import hg17b.app.ui.camera.CameraSourcePreview;
 import hg17b.app.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
-
 import java.io.IOException;
 import java.util.Locale;
 
@@ -99,8 +97,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
         Snackbar.make(mGraphicOverlay, "Tap to Speak. Pinch/Stretch to zoom",
-                Snackbar.LENGTH_LONG)
-                .show();
+                Snackbar.LENGTH_LONG).show();
 
         // Set up the Text To Speech engine.
         TextToSpeech.OnInitListener listener =
@@ -145,9 +142,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         };
 
         Snackbar.make(mGraphicOverlay, R.string.permission_camera_rationale,
-                Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.ok, listener)
-                .show();
+                Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok, listener).show();
     }
 
     @Override
@@ -197,8 +192,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         .setRequestedPreviewSize(1280, 1024)
                         .setRequestedFps(30.0f)
                         .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
-                        .setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null)
-                        .build();
+                        .setFocusMode(autoFocus ?
+                                Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null).build();
     }
 
     /**
@@ -280,8 +275,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Multitracker sample")
                 .setMessage(R.string.no_camera_permission)
-                .setPositiveButton(R.string.ok, listener)
-                .show();
+                .setPositiveButton(R.string.ok, listener).show();
     }
 
     /**
@@ -294,8 +288,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         int code = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
                 getApplicationContext());
         if (code != ConnectionResult.SUCCESS) {
-            Dialog dlg =
-                    GoogleApiAvailability.getInstance().getErrorDialog(this, code, RC_HANDLE_GMS);
+            Dialog dlg = GoogleApiAvailability.getInstance()
+                    .getErrorDialog(this, code, RC_HANDLE_GMS);
             dlg.show();
         }
 
@@ -329,22 +323,23 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             if (graphic != null) {
                 text = graphic.getTextBlock();
                 if (text != null && text.getValue() != null) {
-                    Log.d(TAG, "Eingescannte id lautet" + text.getValue().replaceAll("\\D+", ""));
+                    Log.d(TAG, "Eingescannte id lautet" + text.getValue()
+                            .replaceAll("\\D+", ""));
 
                     Intent i = new Intent(OcrCaptureActivity.this,StartActivity.class);
-                    i.putExtra("scannedID",text.getValue().replaceAll("\\D+", ""));
-                    startActivity(i);
 
+                    i.putExtra("scannedID",text.getValue()
+                            .replaceAll("\\D+", ""));
+
+                    startActivity(i);
                 }
                 else {
                     Log.d(TAG, "text data is null");
                 }
-            }
-            else {
+            } else {
                 Log.d(TAG,"no text detected");
-            }
-            return text != null;
-        }else {
+            } return text != null;
+        } else {
             //Speak the text when the user taps on screen.
 
             if (graphic != null) {
@@ -352,8 +347,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 if (text != null && text.getValue() != null) {
                     Log.d(TAG, "text data is being spoken! " + text.getValue());
                     // Speak the string.
-                    tts.speak(text.getValue().replaceAll("\\D+", ""), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
-
+                    tts.speak(text.getValue().replaceAll("\\D+", ""),
+                            TextToSpeech.QUEUE_ADD, null, "DEFAULT");
                 } else {
                     Log.d(TAG, "text data is null");
                 }

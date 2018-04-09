@@ -3,27 +3,16 @@
  */
 package hg17b.app;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
 
-import java.io.File;
 
 public class EventDetails extends Fragment {
 
@@ -33,9 +22,8 @@ public class EventDetails extends Fragment {
     /**
      * public constructor
      */
-    public EventDetails(){
+    public EventDetails() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,9 +37,6 @@ public class EventDetails extends Fragment {
         register = view.findViewById(R.id.buttonRegister);
         named();
         registerClick();
-
-
-
         return view;
     }
 
@@ -59,14 +44,14 @@ public class EventDetails extends Fragment {
      * This method writes the details of an event (time / description)
      * in the intended TextViews and displays them
      */
-    public void named(){
+    public void named() {
         try {
             if (StartActivity.past) {
                 int index = StartActivity.index;
                 tv1.setText(LastEvents.list.getJSONObject(index).getString("start"));
                 tv2.setText("");
                 tv3.setText(LastEvents.list.getJSONObject(index).getString("description"));
-            }else {
+            } else {
                 int index = StartActivity.index;
                 tv1.setText(NextEvents.list.getJSONObject(index).getString("start"));
                 tv2.setText("");
@@ -82,29 +67,27 @@ public class EventDetails extends Fragment {
      * The Button Text & Color gets changed and the organizer
      * receives information about the number of participants.
      */
-    private void registerClick(){
+    private void registerClick() {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (register.getText().equals("anmelden")){
-
-                    Toast.makeText(getActivity(), "Du hast dich unverbindlich angemeldet", Toast.LENGTH_SHORT).show();
+                if (register.getText().equals("anmelden")) {
+                    Toast.makeText(getActivity(),
+                            "Du hast dich angemeldet", Toast.LENGTH_SHORT).show();
                     register.setText("abmelden");
                     register.setBackgroundColor(getResources().getColor(R.color.colorAccent2));
 
-                } else if (register.getText().equals("abmelden")){
-
-                    Toast.makeText(getActivity(), "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
+                } else if (register.getText().equals("abmelden")) {
+                    Toast.makeText(getActivity(),
+                            "Du hast dich abgemeldet", Toast.LENGTH_SHORT).show();
                     register.setText("anmelden");
                     register.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
-                } else{
-
+                } else {
                 }
                 //speichern der Anzahl der Anmeldungen für Veranstalter einbinden
             }
         });
     }
-
 }

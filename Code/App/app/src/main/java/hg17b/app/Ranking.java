@@ -67,5 +67,4 @@ public class Ranking extends Fragment {
 
         return view;
     }
-
 }

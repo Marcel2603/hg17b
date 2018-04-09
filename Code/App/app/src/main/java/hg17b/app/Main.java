@@ -17,6 +17,7 @@ public class Main extends Fragment {
 
     public TextView tvID, tvPoints, tvEvents;
     StartActivity s = new StartActivity();
+
     /**
      * public constructor from this class
      */
@@ -49,5 +50,4 @@ public class Main extends Fragment {
 
         return view;
     }
-
 }

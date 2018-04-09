@@ -1,14 +1,15 @@
+/**
+ * This Package contains the required Java Classes to build the Application
+ */
 package hg17b.app;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-
 import hg17b.app.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
-
 import java.util.List;
 
 /**
@@ -91,8 +92,8 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
         for(Text currentText : textComponents) {
             float left = translateX(currentText.getBoundingBox().left);
             float bottom = translateY(currentText.getBoundingBox().bottom);
-            canvas.drawText(currentText.getValue().replaceAll("\\D+",""), left, bottom, sTextPaint);
+            canvas.drawText(currentText.getValue()
+                    .replaceAll("\\D+",""), left, bottom, sTextPaint);
         }
     }
-
 }
