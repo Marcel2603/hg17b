@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:onClick="OrgOrgLastevents"
+            android:onClick="OrgLastevents"
             android:text="@string/empty_historie_org"
             android:textSize="24dp" />
 

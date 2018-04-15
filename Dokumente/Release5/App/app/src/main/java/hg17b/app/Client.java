@@ -271,6 +271,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
 
 
                             //get the Events
+                            refreshEvents = true;
                             System.out.println(refreshEvents + "TEST");
                             if (refreshEvents) {
                                 receiveEvents(entscheidung);
