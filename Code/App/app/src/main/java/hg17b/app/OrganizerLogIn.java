@@ -3,6 +3,7 @@
  */
 package hg17b.app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -323,13 +324,6 @@ public class OrganizerLogIn extends AppCompatActivity {
                         drawerLayout2.closeDrawers();
                         break;
 
-                    case R.id.Scanner:
-                        Intent intent = new Intent(OrganizerLogIn.this,OcrCaptureActivity.class);
-                        startActivity(intent);
-                        getSupportActionBar().setTitle("Scanner");
-                        drawerLayout2.closeDrawers();
-                        break;
-
                     case R.id.Log_Out:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction2.replace(R.id.menuContainer2, new LogOut());
@@ -348,4 +342,5 @@ public class OrganizerLogIn extends AppCompatActivity {
         anmelden = true;
         client.doInBackground();
     }
+
 }

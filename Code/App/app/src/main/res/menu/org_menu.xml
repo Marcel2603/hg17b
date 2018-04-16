@@ -16,11 +16,6 @@
         android:title="@string/historie" />
 
     <item
-        android:id="@+id/Scanner"
-        android:icon="@mipmap/ic_camera_alt_black_24dp"
-        android:title="Scanner"/>
-
-    <item
         android:id="@+id/Einstellungen"
         android:icon="@mipmap/ic_settings_black_24dp"
         android:title="@string/settings" />

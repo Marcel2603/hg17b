@@ -3,6 +3,8 @@
  */
 package hg17b.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -65,17 +67,33 @@ public class EventOrganizer extends Fragment {
             e.printStackTrace();
         }
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                String result=data.getStringExtra("result");
+                System.out.println("gescannte" + result);
+                int id =Integer.parseInt(result);
+                OrganizerLogIn.ID =id;
+                OrganizerLogIn.anmelden=true;
+                StartActivity.client.anmelden();
+                Toast.makeText(getActivity(),
+                        "Schueler " + id + " wurde angemeldet", Toast.LENGTH_SHORT).show();
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
+
     private void btnclicked() {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //HIER SCANNER EINBAUEN und in id speichern;
-                int id = 5;
-                OrganizerLogIn.ID = id;
-                OrganizerLogIn.anmelden = true;
-                StartActivity.client.anmelden();
-                Toast.makeText(getActivity(),
-                        "Schueler" + id + "wurde angemeldet", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), OcrCaptureActivity.class);
+                startActivityForResult(i,1);
             }
         });
     }

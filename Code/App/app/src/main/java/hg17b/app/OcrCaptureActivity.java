@@ -345,10 +345,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             if (graphic != null) {
                 text = graphic.getTextBlock();
                 if (text != null && text.getValue() != null) {
-                    Log.d(TAG, "text data is being spoken! " + text.getValue());
-                    // Speak the string.
-                    tts.speak(text.getValue().replaceAll("\\D+", ""),
-                            TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+                    Log.d(TAG, "gescannte ID:   " + text.getValue().replaceAll("\\D+", ""));
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("result",text.getValue().replaceAll("\\D+", ""));
+                    setResult(Activity.RESULT_OK,returnIntent);
+                    finish();
                 } else {
                     Log.d(TAG, "text data is null");
                 }
