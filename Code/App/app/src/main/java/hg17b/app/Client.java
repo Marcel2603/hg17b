@@ -309,6 +309,14 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         socket.close();
                         LogOut.isclicked = false;
                     }
+                    if (OrganizerLogIn.anmelden) {
+                        writer.write("Anmelden" + "\n");
+                        writer.flush();
+                        writer.write(OrganizerLogIn.ID + "\n");
+                        writer.flush();
+                        writer.write(OrganizerLogIn.eventjson.getString("id") + "\n");
+                        writer.flush();
+                    }
                 }
             }
         } catch (ConnectException e) {
