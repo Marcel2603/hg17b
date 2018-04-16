@@ -346,5 +346,6 @@ public class OrganizerLogIn extends AppCompatActivity {
 
     public void btnonclick(View v){
         anmelden = true;
+        client.doInBackground();
     }
 }

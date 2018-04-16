@@ -76,7 +76,6 @@ public class EventDetails extends Fragment {
      */
     private void registerClick() {
         register.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
 
                 if (register.getText().equals("anmelden")) {

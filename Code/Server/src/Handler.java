@@ -106,7 +106,7 @@ public class Handler implements Runnable {
             }
 //            Solange der Client nicht offline ist.
             String email = "";
-            while (!recieve.equals("disconnect")) {
+            while (!recieve.equals("disconnect")) {//______________________________________________________________-
                 //Schueler-Verbindung
                 if (pers == 1) {
                     if (recieve.equals("Ueberpruefe ID")) {
@@ -178,18 +178,18 @@ public class Handler implements Runnable {
                 //Veranstalter
                 if (pers == 2) {
                     recieve = reader.readLine();
+                    System.out.println(recieve);
                     if (recieve.equals("Ueberpruefe Email")) {
 //                      getEmail
                        recieve = reader.readLine();
                        email = recieve;
+                       System.out.println(recieve);
                        if (db1.isOrganizer(email)) {
-                           KeyHandler ks = new KeyHandler();
+                           //KeyHandler ks = new KeyHandler();
                            //HAS KEY
                            //ELSE
                            writer.write("true\n");
                            writer.flush();
-                          
-                           
                            /*Temporarily deactivated part because key activation doesn't work.
                             * 
                             * 
@@ -264,12 +264,13 @@ public class Handler implements Runnable {
                         writer.flush();
                     }
                     if (recieve.equals("Anmelden")) {
-                    	String eventid = reader.readLine();
                     	String schuelerid = reader.readLine();
-                    	db1.addAttendance(Integer.parseInt(schuelerid), eventid);
+                    	String eventid = reader.readLine();
+                    	System.out.println(schuelerid + eventid);
+                    	//db1.addAttendance(Integer.parseInt(schuelerid), eventid);
                     	recieve = " ";
                     }
-           }
+             }
             }
             Calendar cal = Calendar.getInstance();
             Date time = cal.getTime();

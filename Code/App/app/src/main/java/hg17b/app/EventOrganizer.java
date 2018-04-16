@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.json.JSONException;
 
 public class EventOrganizer extends Fragment {
 
     TextView tv1, tv2, tv3;
+    Button btn;
 
     /**
      * public constructor
@@ -30,8 +34,9 @@ public class EventOrganizer extends Fragment {
         tv1 = view.findViewById(R.id.tvTime1);
         tv2 = view.findViewById(R.id.User);
         tv3 = view.findViewById(R.id.tvDetail);
+        btn = view.findViewById(R.id.orgbtn);
         named();
-
+        btnclicked();
         return view;
     }
 
@@ -59,5 +64,19 @@ public class EventOrganizer extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    private void btnclicked() {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //HIER SCANNER EINBAUEN und in id speichern;
+                int id = 5;
+                OrganizerLogIn.ID = id;
+                OrganizerLogIn.anmelden = true;
+                StartActivity.client.anmelden();
+                Toast.makeText(getActivity(),
+                        "Schueler" + id + "wurde angemeldet", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

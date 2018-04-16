@@ -218,7 +218,6 @@ public class Client extends AsyncTask<Void, Void, Void>{
             }
             //Veranstalter
             if (entscheidung == 2) {
-                System.out.println("HILEF");
                 writer.write("veranstalter" + "\n");
                 writer.flush();
                 boolean schleife1 = true;
@@ -293,6 +292,7 @@ public class Client extends AsyncTask<Void, Void, Void>{
                             t = 1;
                         }
                     }
+                    System.out.println("LÄUFT" + schleife1);
                     if (OrganizerMain.veranstalter){
                         writer.write("GetAnzahl" + "\n");
                         writer.flush();
@@ -309,15 +309,11 @@ public class Client extends AsyncTask<Void, Void, Void>{
                         socket.close();
                         LogOut.isclicked = false;
                     }
-                    if (OrganizerLogIn.anmelden) {
-                        writer.write("Anmelden" + "\n");
-                        writer.flush();
-                        writer.write(OrganizerLogIn.ID + "\n");
-                        writer.flush();
-                        writer.write(OrganizerLogIn.eventjson.getString("id") + "\n");
-                        writer.flush();
-                    }
+
+
+
                 }
+                System.out.println("ENDE");
             }
         } catch (ConnectException e) {
                 setServerStatus(true);
@@ -329,7 +325,23 @@ public class Client extends AsyncTask<Void, Void, Void>{
         }
         return null;
     }
-
+    public void anmelden(){
+        try {
+            System.out.println(OrganizerLogIn.eventjson.getString("id"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+       /* writer.write("Anmelden" + "\n");
+        writer.flush();
+        writer.write(OrganizerLogIn.ID + "\n");
+        writer.flush();
+        try {
+            writer.write(OrganizerLogIn.eventjson.getString("id") + "\n");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        writer.flush();*/
+    }
     /**
      * Receives the Event-Data from the Server.
      * This Method receives the Event-Data from the Server and updates the Lists.
