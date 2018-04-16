@@ -3,6 +3,7 @@
  */
 package hg17b.app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,7 +32,7 @@ import java.io.IOException;
  * and initialises the organizer main menu
  */
 public class OrganizerLogIn extends AppCompatActivity {
-
+    public static JSONObject eventjson;
     KeyHandler ks;
     Client client;
     public static int schleife = 1;
@@ -41,6 +43,10 @@ public class OrganizerLogIn extends AppCompatActivity {
     FragmentTransaction fragmentTransaction2;
     NavigationView navigationView2;
     EditText email;
+    //ID des Schuelers
+    public static int ID = 0;
+    //fuer client
+    public static boolean anmelden = false;
 
     /**
      * Standard onCreate Method, loads the LogIn Layout
@@ -128,6 +134,7 @@ public class OrganizerLogIn extends AppCompatActivity {
         try {
             EventOrganizer event;
             StartActivity.past = true;
+            eventjson = OrganizerLastEvents.list.getJSONObject(StartActivity.index);
             switch (v.getId()) {
 
                 case R.id.tv1:
@@ -148,92 +155,92 @@ public class OrganizerLogIn extends AppCompatActivity {
                     break;
                 case R.id.tv2:
                     //Toast.makeText(MainActivity.this, "2", Toast.LENGTH_LONG).show();
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 1;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 1;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv3:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 2;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 2;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv4:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 3;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 3;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv5:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 4;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 4;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv6:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 5;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 5;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv7:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 6;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 6;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv8:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 7;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 7;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv9:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 8;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 8;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
                 case  R.id.tv10:
-                    StartActivity.index = OrganizerNextEvents.getZaehler() + 9;
+                    StartActivity.index = OrganizerLastEvents.getZaehler() + 9;
                     event = new EventOrganizer();
                     fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.menuContainer2, event);
                     fragmentTransaction2.commit();
-                    getSupportActionBar().setTitle(OrganizerNextEvents.list.getJSONObject(StartActivity.index)
+                    getSupportActionBar().setTitle(OrganizerLastEvents.list.getJSONObject(StartActivity.index)
                             .getString("label"));
                     break;
 
@@ -317,13 +324,6 @@ public class OrganizerLogIn extends AppCompatActivity {
                         drawerLayout2.closeDrawers();
                         break;
 
-                    case R.id.Scanner:
-                        Intent intent = new Intent(OrganizerLogIn.this,OcrCaptureActivity.class);
-                        startActivity(intent);
-                        getSupportActionBar().setTitle("Scanner");
-                        drawerLayout2.closeDrawers();
-                        break;
-
                     case R.id.Log_Out:
                         fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction2.replace(R.id.menuContainer2, new LogOut());
@@ -337,4 +337,10 @@ public class OrganizerLogIn extends AppCompatActivity {
             }
         });
     }
+
+    public void btnonclick(View v){
+        anmelden = true;
+        client.doInBackground();
+    }
+
 }
