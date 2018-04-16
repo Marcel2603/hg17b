@@ -10,17 +10,16 @@
 <error line="29" column="8" severity="error" message="Nicht benutztes import - org.json.JSONArray." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="30" column="8" severity="error" message="Nicht benutztes import - org.json.JSONException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="79" column="75" severity="error" message="&apos;mail&apos; verbirgt ein Feld." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="87" column="5" severity="error" message="Methode ist 210 Zeilen lang, erlaubt sind höchstens 150." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="87" column="5" severity="error" message="Methode ist 211 Zeilen lang, erlaubt sind höchstens 150." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+<error line="109" column="52" severity="error" message="Nach &apos;{&apos; folgt kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="157" column="53" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
 <error line="161" column="53" severity="error" message="Muss mindestens ein Statement beinhalten." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="191" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="192" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="194" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="195" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="196" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="201" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="339" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="345" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="340" column="34" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="346" column="37" severity="error" message="Vor &apos;{&apos; befindet sich kein Leerzeichen." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="C:\Users\MrCHR\Desktop\SWT-Prakt\hg17b\Code\Server\src\KeyAdder.java">
 <error line="23" column="27" severity="error" message="&apos;PASSWORD&apos; entspricht nicht dem Muster &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="db.PupilDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-04-09T19:51:42" hostname="ChrisPs-Surface" time="2.055">
+<testsuite name="db.PupilDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-04-16T20:06:57" hostname="ChrisPs-Surface" time="2.716">
   <properties/>
-  <testcase name="testToplist" classname="db.PupilDBTest" time="1.775"/>
-  <testcase name="testaddPupilgetScore" classname="db.PupilDBTest" time="0.28"/>
+  <testcase name="testToplist" classname="db.PupilDBTest" time="2.295"/>
+  <testcase name="testaddPupilgetScore" classname="db.PupilDBTest" time="0.42"/>
   <system-out><![CDATA[2 2147483647 >= 530
 3 530 >= 520
 4 520 >= 123
